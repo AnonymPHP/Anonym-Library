@@ -132,7 +132,7 @@
                 $pro['selected'] = false;
 
                 return $pro;
-            }, $this->adapter[$this->$page]);
+            }, $this->adapter[$this->page]);
         }
 
         /**
@@ -195,7 +195,7 @@
          * Seçilen sayfayı değiştirir
          *
          * @param string $page
-         * @return \Myfc\Adapter
+         * @return \Anonym\Adapter
          */
         public function setSelectedPage($page)
         {
