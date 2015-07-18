@@ -18,7 +18,7 @@
      *
      * @package Anonym\Orm
      */
-    class Orm
+    class Element
     {
 
         /**
