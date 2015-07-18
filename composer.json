@@ -2,7 +2,7 @@
   "name": "anonym-php/anonym-library",
   "type": "library",
   "description": "AnonymFramework, New Professional PHP Framework System Libraries",
-  "license": "mit",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/AnonymPHP/Anonym-Library.git"
@@ -17,12 +17,10 @@
   "autoload": {
     "psr-4": {
       "Anonym\\": "src/Anonym/Components/"
-    },
-    "classmap": [
-      "vendor"
-    ]
+    }
   },
-  "require": {
+  "minimum-stability": "dev",
+  "require-dev": {
     "php": ">=5.4",
     "phpmailer/phpmailer": "~5.2",
     "twig/twig": "~1.0",
