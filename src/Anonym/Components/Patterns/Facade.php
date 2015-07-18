@@ -58,6 +58,9 @@
 
             if (is_object($name)) {
                 return $name;
+            } elseif (is_string($name) && !isset(static::$instance[$name])) {
+                $instance = new $name();
+                static::$instance[$name] = $instance;
             }
 
             if (isset(static::$instance[$name])) {
@@ -69,24 +72,27 @@
 
 
         /**
+         * Dönen sınıfdan istediğimiz methodu static olarak çağırmaya yarar
+         *
          * @param $method
          * @param $parametres
          * @return mixed
-         *  Dönen sınıfdan istediğimiz methodu static olarak çağırmaya yarar
          */
         public static function __callStatic($method, $parametres)
         {
-            $instanceName = static::getFacedeRoot();
-            if (!is_object($instanceName)) {
+            return call_user_func_array([static::getFacedeRoot(), $method], $parametres);
+        }
 
-                $instance = Singleton::make($instanceName);
-                static::$instance[$instanceName] = $instance;
-            } else {
+        /**
+         * Facade sınıflarda dinamik çağrımı destekler
+         *
+         * @param $method
+         * @param $parametres
+         * @return mixed
+         */
 
-                $instance = $instanceName;
-            }
-
-
-            return call_user_func_array([$instance, $method], $parametres);
+        public function __call($method, $parametres)
+        {
+            return call_user_func_array([static::getFacedeRoot(), $method], $parametres);
         }
     }
