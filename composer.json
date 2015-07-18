@@ -26,7 +26,6 @@
     "php": ">=5.4",
     "phpmailer/phpmailer": "~5.2",
     "twig/twig": "~1.0",
-    "particle/validator": "dev-master",
     "symfony/finder": "2.7.*",
     "symfony/console": "2.7.*",
     "symfony/process": "2.7.*",
