@@ -20,7 +20,6 @@
 
     class View extends ViewManager implements ShouldBeView
     {
-        use Debug;
         private $file;
 
         public function __construct()
@@ -28,7 +27,6 @@
 
             parent::__construct();
             $this->file = Singleton::make('Anonym\Filesystem');
-            $this->debugBoot();
         }
 
 
@@ -63,7 +61,6 @@
             $variables = $this->params;
 
             $this->debug['params'] = $this->params;
-            $this->debug['files'][] = $fileName;
 
             if (true === $this->autoload) {
                 $this->loadHeaderFiles();
@@ -107,7 +104,6 @@
             $params = $this->params;
             $files = $this->headerBag->getViewHeaders();
             foreach ($files as $file) {
-                $this->debug['files'][] = $file;
                 $this->loadFile($file, $params);
             }
 
@@ -126,7 +122,6 @@
             $files = $this->footerBag->getViewFooters();
 
             foreach ($files as $file) {
-                $this->debug['files'][] = $file;
                 $this->loadFile($file, $params);
             }
 

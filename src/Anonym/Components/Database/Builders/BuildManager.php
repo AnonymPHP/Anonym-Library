@@ -10,7 +10,6 @@
 
     class BuildManager
     {
-        use Debug;
         /**
          * @var \PDO
          */
@@ -28,7 +27,6 @@
         {
 
             $this->connection = $base;
-            $this->debugBoot();
         }
 
         /**
@@ -82,7 +80,6 @@
             if (true === $query) {
                 $query = $this->connection->query($this->query);
                 $add['response'] = $query;
-                $this->addToDatabase($add);
                 return $query;
             } else {
                 $prepare = $this->connection->prepare($this->query);
@@ -114,7 +111,6 @@
             }
 
             $add['response'] = $prepare;
-            $this->addToDatabase($add);
             return $prepare;
         }
 
