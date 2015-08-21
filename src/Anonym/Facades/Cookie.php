@@ -13,6 +13,8 @@ namespace Anonym\Facades;
 use Anonym\Patterns\Facade;
 
 /**
+ * the facade of cookie
+ *
  * Class Cookie
  * @package Anonym\Facades
  */
