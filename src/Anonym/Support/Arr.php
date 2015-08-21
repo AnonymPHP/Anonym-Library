@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Support;
+namespace Anonym\Support;
 
-use Illuminate\Support\Traits\Macroable;
+use Anonym\Support\Traits\Macroable;
 
 class Arr
 {
