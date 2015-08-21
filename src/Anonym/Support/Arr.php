@@ -128,9 +128,10 @@ class Arr
      */
     public static function fetch($array, $key)
     {
-        foreach (explode('.', $key) as $segment) {
-            $results = [];
 
+        $results = [];
+
+        foreach (explode('.', $key) as $segment) {
             foreach ($array as $value) {
                 if (array_key_exists($segment, $value = (array)$value)) {
                     $results[] = $value[$segment];
