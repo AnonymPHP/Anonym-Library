@@ -4,8 +4,12 @@ namespace Illuminate\Support;
 
 use RuntimeException;
 use Stringy\StaticStringy;
-use Illuminate\Support\Traits\Macroable;
+use Anonym\Support\Traits\Macroable;
 
+/**
+ * Class Str
+ * @package Illuminate\Support
+ */
 class Str
 {
     use Macroable;

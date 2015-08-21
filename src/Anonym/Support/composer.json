@@ -1,0 +1,30 @@
+{
+  "name": "anonym-components/patterns",
+  "type": "library",
+  "homepage": "http://gemframework.com",
+  "support": {
+    "source": "https://github.com/AnonymPHP/Anonym-Library"
+  },
+  "keywords": [
+    "patterns",
+    "desing",
+    "php"
+  ],
+  "description": "AnonymFramework Desing Patterns Component",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vahit Şerif Sağlam",
+      "email": "vahit.serif119@gmail.com",
+      "homepage": "http://www.gemframework.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Anonym\\Patterns": ""
+    },
+    "classmap": [
+      "vendor/composer"
+    ]
+  }
+}

@@ -4,6 +4,10 @@ namespace Anonym\Support;
 
 use Anonym\Support\Traits\Macroable;
 
+/**
+ * Class Arr
+ * @package Anonym\Support
+ */
 class Arr
 {
     use Macroable;
