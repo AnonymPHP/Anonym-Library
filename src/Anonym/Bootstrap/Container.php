@@ -41,17 +41,21 @@ class Container
         $this->container[$name] = $callback;
         if(true === $shared)
         {
-            Singleton::bind($name, $callback);
+            $this->singleton($name, $callback);
         }
         return $this;
     }
 
     /**
-     * @param $name
+     * register a new singleton class
+     *
+     * @param string $name the name of singleton class
      * @param callable $callback
+     * @return $this
      */
     public function singleton($name, callable $callback)
     {
-
+        Singleton::bind($name, $callback);
+        return $this;
     }
 }
