@@ -18,4 +18,13 @@ use Exception;
 class BindNotResponding extends Exception
 {
 
+    /**
+     * throw the exception
+     *
+     * @param string $message the message of exception
+     */
+    public function __construct($message = '')
+    {
+        $this->message = $message;
+    }
 }
