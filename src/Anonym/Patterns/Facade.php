@@ -23,4 +23,11 @@ class Facade
      * @var array
      */
     private $instances;
+
+
+    protected function getFacadeClass()
+    {
+
+    }
+
 }
