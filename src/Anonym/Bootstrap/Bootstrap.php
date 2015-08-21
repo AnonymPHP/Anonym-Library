@@ -9,7 +9,9 @@
  */
 
 namespace Anonym\Bootstrap;
+
 use Anonym\Constructors\ConfigConstructor;
+
 /**
  * the starter class of framework
  *
@@ -64,11 +66,11 @@ class Bootstrap extends Container
         $bootstraps = $this->constructors;
         foreach ($bootstraps as $boot) {
             if (is_string($boot)) {
-                $instance = new $boot;
+                $app = $this;
                 $this->bind(
                     $boot,
-                    function () use ($instance) {
-                        return $instance;
+                    function () use ($boot, $app) {
+                        return new $boot($app);
                     },
                     true
                 );
