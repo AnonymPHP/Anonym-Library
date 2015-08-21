@@ -25,7 +25,7 @@ class Session extends Facade
      *  get the facade instance
      * @return string
      */
-    protected function getFacadeClass()
+    protected static function getFacadeClass()
     {
         return "Session";
     }
