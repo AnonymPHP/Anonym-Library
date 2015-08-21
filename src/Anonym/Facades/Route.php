@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
-class Route
+use Anonym\Patterns\Facade;
+
+class Route extends Facade
 {
 
 }
