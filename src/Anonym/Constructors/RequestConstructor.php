@@ -11,7 +11,16 @@
 namespace Anonym\Constructors;
 
 
+use Anonym\Bootstrap\Bootstrap;
+
 class RequestConstructor
 {
 
+    /**
+     * @param Bootstrap $app
+     */
+    public function __construct(Bootstrap $app)
+    {
+
+    }
 }
