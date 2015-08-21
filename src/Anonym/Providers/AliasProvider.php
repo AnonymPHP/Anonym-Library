@@ -16,4 +16,13 @@ use Anonym\Bootstrap\ServiceProvider;
 class AliasProvider extends ServiceProvider
 {
 
+    /**
+     * register the provider
+     *
+     * @return mixed
+     */
+    public function register()
+    {
+        //
+    }
 }
