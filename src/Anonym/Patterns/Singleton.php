@@ -28,22 +28,17 @@ class Singleton
     /**
      * make the singleton class
      *
-     * @param string $name the name of class
+     * @param string $class the name of class
      * @param array $args the variables for constroctor
      */
-    public static function make($name, $args = [])
+    public static function make($class, $args = [])
     {
-
-       foreach((array) $name as $class)
-       {
            if (!isset(static::$instances[$class])) {
                $instance = new \ReflectionClass($class);
                $instance = $instance->newInstanceArgs($args);
+               static::$instances[$class] = $instance;
            }
-       }
 
-        $createReflectionInstance = new ReflectionClass($instance);
-        $setParamsToCreatedReflectionInstance = $createReflectionInstance->newInstanceArgs($parametres);
-
+        return static::$instances[$class];
     }
 }
