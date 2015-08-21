@@ -14,6 +14,8 @@ use Anonym\Components\Filesystem\Filesystem;
 use Anonym\Patterns\Facade;
 
 /**
+ * the facade of filesystem
+ *
  * Class Filesystem
  * @package Anonym\Facades
  */
