@@ -14,6 +14,8 @@ namespace Anonym\Facades;
 use Anonym\Patterns\Facade;
 
 /**
+ * the facade of session
+ *
  * Class Session
  * @package Anonym\Facades
  */
