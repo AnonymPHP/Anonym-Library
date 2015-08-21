@@ -11,7 +11,9 @@
 namespace Anonym\Providers;
 
 
+use Anonym\Bootstrap\AliasLoader;
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Facades\Config;
 
 class AliasProvider extends ServiceProvider
 {
@@ -23,6 +25,6 @@ class AliasProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        AliasLoader::setInstances(Config::get('general.alias'));
     }
 }
