@@ -18,4 +18,13 @@ use Exception;
 class BindNotFoundException extends Exception
 {
 
+    /**
+     * throw the new exception
+     *
+     * @param string $message
+     */
+    public function __construct($message = '')
+    {
+        $this->message = $message;
+    }
 }
