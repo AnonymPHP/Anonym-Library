@@ -45,4 +45,13 @@ class Container
         }
         return $this;
     }
+
+    /**
+     * @param $name
+     * @param callable $callback
+     */
+    public function singleton($name, callable $callback)
+    {
+
+    }
 }
