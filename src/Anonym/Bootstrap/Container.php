@@ -77,7 +77,7 @@ class Container
             {
 
             }else{
-
+                throw new BindNotResponding(sprintf('Your %s bind It is does not give any response', $name));
             }
         }else{
             throw new BindNotFoundException(sprintf(''));
