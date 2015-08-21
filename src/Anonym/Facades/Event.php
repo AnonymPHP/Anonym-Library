@@ -31,5 +31,4 @@ class Event extends Facade
     {
         return "Event";
     }
-
 }
