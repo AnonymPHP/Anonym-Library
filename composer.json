@@ -19,7 +19,7 @@
     "php": ">=5.4",
     "anonym-php/anonym-config": "~1.2@dev",
     "anonym-php/anonym-cookie": "~1.2@dev",
-    "anonym-php/anonym-events": "~1.2@dev",
+    "anonym-php/anonym-event": "~1.2@dev",
     "anonym-php/anonym-assets": "~1.2@dev",
     "anonym-php/anonym-crypt": "~1.2@dev",
     "anonym-php/anonym-database": "~1.2@dev",
