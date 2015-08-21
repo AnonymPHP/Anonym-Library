@@ -39,7 +39,13 @@ class AliasLoader
 
         $instances = static::getInstances();
         if (!strpos($class, '\\')) {
-            $class = isset()
+            $instance = isset($instances[$class]) ? $instances[$class] : false;
+        }
+
+        if (false !== $instance) {
+            return new $instance;
+        } else {
+            throw new AliasNotFoundException(sprintf('your %s alias not found', $class));
         }
 
     }
