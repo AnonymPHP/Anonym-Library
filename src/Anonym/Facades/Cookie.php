@@ -19,9 +19,13 @@ use Anonym\Patterns\Facade;
 class Cookie extends Facade
 {
 
+    /**
+     * get the facade class
+     *
+     * @return string
+     */
     protected function getFacadeClass()
     {
         return "Cookie";
     }
-
 }
