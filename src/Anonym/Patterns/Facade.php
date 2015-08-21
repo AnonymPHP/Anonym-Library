@@ -17,12 +17,6 @@ namespace Anonym\Patterns;
 class Facade
 {
 
-    /**
-     * register the instances
-     *
-     * @var array
-     */
-    private $instances;
 
     /**
      * get the facade class

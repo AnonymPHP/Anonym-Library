@@ -16,6 +16,14 @@ namespace Anonym\Patterns;
  */
 class Singleton
 {
+
+    /**
+     * the instances list
+     *
+     * @var array
+     */
+    private $instances;
+
     /**
      * make the singleton class
      *
