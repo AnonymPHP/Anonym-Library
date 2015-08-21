@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
-class Event
+use Anonym\Patterns\Facade;
+
+class Event extends Facade
 {
 
 }
