@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Patterns;
+use Exception;
 
 /**
  * the exception of facade
@@ -16,7 +17,7 @@ namespace Anonym\Patterns;
  * Class FacadeException
  * @package Anonym\Patterns
  */
-class FacadeException
+class FacadeException extends Exception
 {
 
     /**
