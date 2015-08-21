@@ -26,7 +26,7 @@ class Stroge extends Facade
      *  get the facade class
      * @return Filesystem
      */
-    protected function getFacadeClass()
+    protected static function getFacadeClass()
     {
         $filesystem = new Filesystem();
         $filesystem->setConfig(Config::get('stroge.filesystem'));
