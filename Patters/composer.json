@@ -1,7 +1,11 @@
 {
   "name": "anonym-php/anonym-patterns",
   "type": "library",
-
+  "keywords":[
+    "patterns",
+    "desing"
+    "php"
+  ],
   "description": "AnonymFramework Desing Patterns Component",
   "license": "MIT",
   "authors": [
