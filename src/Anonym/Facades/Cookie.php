@@ -29,3 +29,4 @@ class Cookie extends Facade
         return "Cookie";
     }
 }
+
