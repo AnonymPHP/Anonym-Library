@@ -68,5 +68,11 @@ class Container
     public function make($name = '')
     {
 
+        if (isset($this->container[$name])) {
+
+        }else{
+            throw new BindNotFoundException(sprintf(''));
+        }
+
     }
 }
