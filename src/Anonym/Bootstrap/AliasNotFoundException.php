@@ -10,8 +10,9 @@
 
 namespace Anonym\Bootstrap;
 
+use Exception;
 
-class AliasNotFoundException
+class AliasNotFoundException extends Exception
 {
 
 }
