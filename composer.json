@@ -16,7 +16,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "php": ">=5.4",
+    "php": ">=5.5.9",
     "anonym-php/anonym-config": "~1.2@dev",
     "anonym-php/anonym-cookie": "~1.2@dev",
     "anonym-php/anonym-event": "~1.2@dev",
