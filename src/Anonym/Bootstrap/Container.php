@@ -33,17 +33,16 @@ class Container
      *
      * @param string $name
      * @param callable $callback
+     * @param bool $shared
      * @return mixed
      */
     public function bind($name, callable $callback, $shared = false)
     {
         $this->container[$name] = $callback;
-
         if(true === $shared)
         {
             Singleton::bind($name, $callback);
         }
-
         return $this;
     }
 }
