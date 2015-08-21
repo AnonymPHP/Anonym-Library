@@ -11,7 +11,11 @@
 namespace Anonym\Bootstrap;
 use Exception;
 
-class BindNotFoundException
+/**
+ * Class BindNotFoundException
+ * @package Anonym\Bootstrap
+ */
+class BindNotFoundException extends Exception
 {
 
 }
