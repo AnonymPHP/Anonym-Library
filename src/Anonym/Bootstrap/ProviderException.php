@@ -10,8 +10,13 @@
 
 namespace Anonym\Bootstrap;
 
+use Exception;
 
-class ProviderException
+/**
+ * Class ProviderException
+ * @package Anonym\Bootstrap
+ */
+class ProviderException extends Exception
 {
 
 }
