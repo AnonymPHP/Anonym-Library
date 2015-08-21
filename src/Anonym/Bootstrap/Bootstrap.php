@@ -11,6 +11,7 @@
 namespace Anonym\Bootstrap;
 
 use Anonym\Constructors\ConfigConstructor;
+use Anonym\Constructors\AliasConstructor;
 use Anonym\Facades\Config;
 
 /**
@@ -29,6 +30,7 @@ class Bootstrap extends Container
      */
     private $constructors = [
         ConfigConstructor::class,
+        AliasConstructor::class,
     ];
 
     /**
