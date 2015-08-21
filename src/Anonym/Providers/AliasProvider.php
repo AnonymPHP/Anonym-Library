@@ -11,7 +11,9 @@
 namespace Anonym\Providers;
 
 
-class AliasProvider
+use Anonym\Bootstrap\ServiceProvider;
+
+class AliasProvider extends ServiceProvider
 {
 
 }
