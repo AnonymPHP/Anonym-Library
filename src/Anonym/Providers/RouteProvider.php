@@ -16,4 +16,13 @@ use Anonym\Bootstrap\ServiceProvider;
 class RouteProvider extends ServiceProvider
 {
 
+    /**
+     * register the provider
+     *
+     * @return mixed
+     */
+    public function register()
+    {
+        // TODO: Implement register() method.
+    }
 }
