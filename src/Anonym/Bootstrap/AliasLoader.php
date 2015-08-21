@@ -11,6 +11,12 @@
 namespace Anonym\Bootstrap;
 
 
+/**
+ * the loader for alias
+ *
+ * Class AliasLoader
+ * @package Anonym\Bootstrap
+ */
 class AliasLoader
 {
 
