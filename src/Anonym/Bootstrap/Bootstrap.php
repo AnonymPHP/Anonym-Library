@@ -9,7 +9,7 @@
  */
 
 namespace Anonym\Bootstrap;
-
+use Anonym\Constructors\ConfigConstructor;
 /**
  * the starter class of framework
  *
@@ -24,7 +24,9 @@ class Bootstrap extends Container
      *
      * @var array
      */
-    private $bootstraps;
+    private $constructors = [
+        ConfigConstructor::class,
+    ];
 
     /**
      * the name of application
@@ -48,7 +50,10 @@ class Bootstrap extends Container
      */
     public function __construct($name = '', $version = 1)
     {
+        $this->name = $name;
+        $this->version = $version;
 
+        $this->resolveBootstraps();
     }
 
 }
