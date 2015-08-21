@@ -12,6 +12,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Components\Route\Router;
 
 class RouteProvider extends ServiceProvider
 {
@@ -23,6 +24,7 @@ class RouteProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $router = new Router($this->make('http.request'));
+        $router->run();
     }
 }
