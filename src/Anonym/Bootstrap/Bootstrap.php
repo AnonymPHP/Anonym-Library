@@ -19,4 +19,36 @@ namespace Anonym\Bootstrap;
 class Bootstrap extends Container
 {
 
+    /**
+     * bootstraps class repository
+     *
+     * @var array
+     */
+    private $bootstraps;
+
+    /**
+     * the name of application
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
+     * the version of application
+     *
+     * @var int
+     */
+    private $version;
+
+    /**
+     *
+     * @param string name the name of framework application
+     * @param int version the version of framework application
+     *
+     */
+    public function __construct($name = '', $version = 1)
+    {
+
+    }
+
 }
