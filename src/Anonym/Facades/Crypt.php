@@ -10,11 +10,13 @@
 
 namespace Anonym\Facades;
 
+use Anonym\Patterns\Facade;
+
 /**
  * Class Crypt
  * @package Anonym\Facades
  */
-class Crypt
+class Crypt extends Facade
 {
 
 }
