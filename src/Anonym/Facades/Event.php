@@ -13,6 +13,12 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * the facade of event
+ *
+ * Class Event
+ * @package Anonym\Facades
+ */
 class Event extends Facade
 {
 
