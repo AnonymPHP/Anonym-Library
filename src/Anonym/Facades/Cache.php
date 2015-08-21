@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
-class Cache
+use Anonym\Patterns\Facade;
+
+class Cache extends Facade
 {
 
 }
