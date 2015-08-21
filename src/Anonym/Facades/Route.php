@@ -13,6 +13,10 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * Class Route
+ * @package Anonym\Facades
+ */
 class Route extends Facade
 {
 
