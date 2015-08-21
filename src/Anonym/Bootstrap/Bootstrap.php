@@ -95,6 +95,8 @@ class Bootstrap extends Container
             if (!$provider instanceof ServiceProvider) {
                 throw new ProviderException(sprintf('Your %s proiver must be a instance of ServiceProvider', get_class($provider)));
             }
+
+            $provider->register();
         }
 
     }
