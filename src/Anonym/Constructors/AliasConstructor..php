@@ -12,7 +12,6 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\AliasLoader;
-use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Facades\Config;
 
 /**
