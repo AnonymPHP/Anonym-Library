@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
-class Session
+use Anonym\Patterns\Facade;
+
+class Session extends Facade
 {
 
 }
