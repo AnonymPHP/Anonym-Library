@@ -38,6 +38,7 @@ class Singleton
        {
            if (!isset(static::$instances[$class])) {
                $instance = new \ReflectionClass($class);
+               $instance = $instance->newInstanceArgs($args);
            }
        }
 
