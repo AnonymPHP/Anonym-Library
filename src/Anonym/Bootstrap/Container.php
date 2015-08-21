@@ -41,7 +41,7 @@ class Container
 
         if(true === $shared)
         {
-            Singleton::make($name, $callback);
+            Singleton::bind($name, $callback);
         }
 
         return $this;
