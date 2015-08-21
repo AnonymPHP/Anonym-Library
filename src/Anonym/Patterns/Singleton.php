@@ -10,7 +10,7 @@
 
 namespace Anonym\Patterns;
 use ReflectionClass;
-
+use InvalidArgumentException;
 /**
  * Class Singleton
  * @package Anonym\Patterns
@@ -33,6 +33,11 @@ class Singleton
      */
     public static function make($class, $args = [])
     {
+
+        if (!is_string($class)) {
+            throw new InvalidArgumentException('Your singleton class name must be a string!');
+        }
+
            if (!isset(static::$instances[$class])) {
                $instance = new \ReflectionClass($class);
                $instance = $instance->newInstanceArgs($args);
