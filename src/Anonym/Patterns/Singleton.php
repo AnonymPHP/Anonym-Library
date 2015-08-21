@@ -16,7 +16,6 @@ namespace Anonym\Patterns;
  */
 class Singleton
 {
-
     /**
      * make the singleton class
      *
