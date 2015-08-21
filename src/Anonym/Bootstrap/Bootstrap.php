@@ -11,6 +11,7 @@
 namespace Anonym\Bootstrap;
 
 use Anonym\Constructors\ConfigConstructor;
+use Anonym\Facades\Config;
 
 /**
  * the starter class of framework
@@ -56,6 +57,7 @@ class Bootstrap extends Container
         $this->version = $version;
 
         $this->resolveBootstraps();
+        $this->resolveProviders(Config::get('general.providers'));
 
     }
 
@@ -78,4 +80,22 @@ class Bootstrap extends Container
             }
         }
     }
+
+    /**
+     * resolve the providers
+     *
+     * @param array $providers
+     */
+    private function  resolveProviders(array $providers)
+    {
+        foreach ($providers as $provider) {
+            $provider = new $provider();
+
+            if (!$provider instanceof ServiceProvider) {
+                throw new ProviderException();
+            }
+        }
+
+    }
+
 }
