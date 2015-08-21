@@ -35,6 +35,7 @@ class Facade
      * @param mixed $class
      * @throws InvalidArgumentException
      * @return Object|bool
+     *
      */
     protected function resolveFacadeClass($class)
     {
