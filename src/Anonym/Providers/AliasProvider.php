@@ -15,6 +15,12 @@ use Anonym\Bootstrap\AliasLoader;
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Facades\Config;
 
+/**
+ * the provider of alias
+ *
+ * Class AliasProvider
+ * @package Anonym\Providers
+ */
 class AliasProvider extends ServiceProvider
 {
 
