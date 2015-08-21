@@ -11,6 +11,8 @@
 namespace Anonym\Constructors;
 
 use Anonym\Bootstrap\Bootstrap;
+use Anonym\Components\Config\ConfigLoader;
+
 /**
  * the config constructor
  *
@@ -23,12 +25,11 @@ class ConfigConstructor
     /**
      * load the config files
      *
-     * @param Bootstrap $app
+     * @return array
      */
-    public function __construct(Bootstrap $app)
+    public function getConfigs()
     {
-
+        $loader = new ConfigLoader(CONFIG);
+        return $loader->loadConfigs();
     }
-
-
 }
