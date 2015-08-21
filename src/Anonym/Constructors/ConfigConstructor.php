@@ -20,7 +20,6 @@ use Anonym\Components\Config\ConfigLoader;
  */
 class ConfigConstructor
 {
-
     /**
      * load the config files
      *
