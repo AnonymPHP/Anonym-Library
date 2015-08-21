@@ -58,4 +58,6 @@ class Container
         Singleton::bind($name, $callback);
         return $this;
     }
+
+    public function make()
 }
