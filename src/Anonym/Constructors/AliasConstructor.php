@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Providers;
+namespace Anonym\Constructors;
 
 
 use Anonym\Bootstrap\AliasLoader;
