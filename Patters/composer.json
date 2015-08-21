@@ -1,0 +1,21 @@
+{
+  "name": "anonym-php/anonym-library",
+  "type": "library",
+  "description": "AnonymFramework, New Professional PHP Framework System Libraries",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vahit Şerif Sağlam",
+      "email": "vahit.serif119@gmail.com",
+      "homepage": "http://www.gemframework.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+
+    },
+    "classmap": [
+      "vendor/composer"
+    ]
+  }
+}
