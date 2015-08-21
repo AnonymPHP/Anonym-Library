@@ -19,4 +19,8 @@ use Anonym\Patterns\Facade;
 class Crypt extends Facade
 {
 
+    protected function getFacadeClass()
+    {
+
+    }
 }
