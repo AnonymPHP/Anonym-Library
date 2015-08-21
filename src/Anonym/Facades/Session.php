@@ -21,5 +21,12 @@ use Anonym\Patterns\Facade;
  */
 class Session extends Facade
 {
-
+    /**
+     *  get the facade instance
+     * @return string
+     */
+    protected function getFacadeClass()
+    {
+        return "Session";
+    }
 }
