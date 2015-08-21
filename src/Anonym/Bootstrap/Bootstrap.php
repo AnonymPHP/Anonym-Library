@@ -61,6 +61,12 @@ class Bootstrap extends Container
      */
     private function resolveBootstraps()
     {
+        $bootstraps = $this->constructors;
+        foreach ($bootstraps as $boot) {
+            if (is_string($boot)) {
+
+            }
+        }
 
     }
 }

@@ -20,9 +20,15 @@ use Anonym\Bootstrap\Bootstrap;
 class ConfigConstructor
 {
 
+    /**
+     * load the config files
+     *
+     * @param Bootstrap $app
+     */
     public function __construct(Bootstrap $app)
     {
 
     }
+
 
 }
