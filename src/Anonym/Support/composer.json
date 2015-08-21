@@ -1,5 +1,5 @@
 {
-  "name": "anonym-components/patterns",
+  "name": "anonym-components/support",
   "type": "library",
   "homepage": "http://gemframework.com",
   "support": {
@@ -10,7 +10,7 @@
     "desing",
     "php"
   ],
-  "description": "AnonymFramework Desing Patterns Component",
+  "description": "AnonymFramework Support Component",
   "license": "MIT",
   "authors": [
     {
@@ -21,7 +21,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Anonym\\Patterns": ""
+      "Anonym\\Support": ""
     },
     "classmap": [
       "vendor/composer"
