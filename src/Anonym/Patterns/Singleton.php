@@ -40,10 +40,21 @@ class Singleton
         {
             throw new InvalidArgumentException(sprintf('Class name must be a string'));
         }
-        if(!isset(static::$binded[$class]))
+        if (!static::isBinded($class))
         {
             static::$binded[$class] = $callback;
         }
         return call_user_func(static::$binded[$class]);
+    }
+
+    /**
+     * check the binded
+     *
+     * @param string $name
+     * @return bool
+     */
+    public static function isBinded($name = '')
+    {
+        return isset(static::$binded[$name]);
     }
 }
