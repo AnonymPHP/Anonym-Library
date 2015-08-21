@@ -26,6 +26,6 @@ class Crypt extends Facade
      */
     protected function getFacadeClass()
     {
-
+        return "Crypt";
     }
 }
