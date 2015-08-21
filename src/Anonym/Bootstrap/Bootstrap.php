@@ -10,6 +10,7 @@
 
 namespace Anonym\Bootstrap;
 
+use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
 use Anonym\Facades\Config;
