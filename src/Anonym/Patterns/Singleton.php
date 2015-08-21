@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Patterns;
+use ReflectionClass;
 
 /**
  * Class Singleton
@@ -22,7 +23,7 @@ class Singleton
      *
      * @var array
      */
-    private $instances;
+    private static $instances;
 
     /**
      * make the singleton class
@@ -30,10 +31,15 @@ class Singleton
      * @param string $name the name of class
      * @param array $args the variables for constroctor
      */
-    public function make($name, $args = [])
+    public static function make($name, $args = [])
     {
 
-
+       foreach((array) $name as $class)
+       {
+           if (!isset(static::$instances[$class])) {
+               $instance = new \ReflectionClass($class);
+           }
+       }
 
         $createReflectionInstance = new ReflectionClass($instance);
         $setParamsToCreatedReflectionInstance = $createReflectionInstance->newInstanceArgs($parametres);
