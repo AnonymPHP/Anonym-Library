@@ -9,6 +9,8 @@
  */
 
 namespace Anonym\Patterns;
+
+use Anonym\Bootstrap\AliasLoader;
 use InvalidArgumentException;
 /**
  * Class Facade
@@ -41,7 +43,7 @@ class Facade
     {
         if(is_string($class))
         {
-            $class = new $class;
+            $class = (new AliasLoader())->load($class);
         }elseif(is_object($class))
         {
             if($class instanceof Facade)
