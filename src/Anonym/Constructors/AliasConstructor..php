@@ -21,7 +21,7 @@ use Anonym\Facades\Config;
  * Class AliasProvider
  * @package Anonym\Providers
  */
-class AliasProvider extends ServiceProvider
+class AliasConstructor
 {
 
     /**
@@ -29,7 +29,7 @@ class AliasProvider extends ServiceProvider
      *
      * @return mixed
      */
-    public function register()
+    public function __construct()
     {
         AliasLoader::setInstances(Config::get('general.alias'));
     }
