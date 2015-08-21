@@ -30,6 +30,7 @@ class Singleton
      *
      * @param string $class the name of class
      * @param array $args the variables for constroctor
+     * @throws InvalidArgumentException
      */
     public static function make($class, $args = [])
     {
