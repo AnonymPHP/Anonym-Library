@@ -46,7 +46,11 @@ class AliasLoader
         }
 
         if (false !== $instance) {
-            return new $instance;
+            if (is_object($instance)) {
+                return $instance;
+            } else {
+                return new $instance;
+            }
         } else {
             throw new AliasNotFoundException(sprintf('your %s alias not found', $class));
         }
