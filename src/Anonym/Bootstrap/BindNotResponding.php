@@ -11,6 +11,10 @@
 namespace Anonym\Bootstrap;
 use Exception;
 
+/**
+ * Class BindNotResponding
+ * @package Anonym\Bootstrap
+ */
 class BindNotResponding extends Exception
 {
 
