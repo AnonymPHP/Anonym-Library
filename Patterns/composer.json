@@ -1,6 +1,10 @@
 {
   "name": "anonym-php/patterns",
   "type": "library",
+  "homepage" : "http://gemframework.com",
+  "support" : {
+    "source": "https://github.com/AnonymPHP/Anonym-Library"
+  },
   "keywords":[
     "patterns",
     "desing",
