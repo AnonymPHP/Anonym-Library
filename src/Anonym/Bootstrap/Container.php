@@ -38,10 +38,11 @@ class Container
      */
     public function bind($name, callable $callback, $shared = false)
     {
-        $this->container[$name] = $callback;
         if(true === $shared)
         {
             $this->singleton($name, $callback);
+        } else {
+            $this->container[$name] = $callback;
         }
         return $this;
     }
