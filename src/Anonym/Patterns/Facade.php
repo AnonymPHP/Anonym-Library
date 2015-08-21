@@ -9,7 +9,7 @@
  */
 
 namespace Anonym\Patterns;
-
+use InvalidArgumentException;
 /**
  * Class Facade
  * @package Anonym\Patterns
@@ -33,15 +33,25 @@ class Facade
      * do resolve returned value
      *
      * @param mixed $class
+     * @throws InvalidArgumentException
+     * @return Object|bool
      */
     protected function resolveFacadeClass($class)
     {
         if(is_string($class))
         {
             $class = new $class;
+        }elseif(is_object($class))
+        {
+            if($class instanceof Facade)
+            {
+                throw new InvalidArgumentException('Your class must not be a Facade');
+            }
+        }else{
+            return false;
         }
 
-
+        return $class;
     }
 
     /**
