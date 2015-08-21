@@ -10,7 +10,13 @@
 
 namespace Anonym\Patterns;
 
-
+/**
+ *
+ *
+ *
+ * Class Facade
+ * @package Anonym\Patterns
+ */
 class Facade
 {
 
