@@ -24,7 +24,7 @@ class Facade
      * @throws FacadeException
      * @return string|Object
      */
-    protected function getFacadeClass()
+    protected static function getFacadeClass()
     {
         throw new FacadeException('i can not call myself');
     }
@@ -37,7 +37,7 @@ class Facade
      * @return Object|bool
      *
      */
-    protected function resolveFacadeClass($class)
+    protected static function resolveFacadeClass($class)
     {
         if(is_string($class))
         {
