@@ -10,11 +10,24 @@
 
 namespace Anonym\Facades;
 
+use Anonym\Components\Filesystem\Filesystem;
+use Anonym\Patterns\Facade;
+
 /**
  * Class Filesystem
  * @package Anonym\Facades
  */
-class Stroge
+class Stroge extends Facade
 {
+
+    /**
+     *  get the facade class
+     * @return Filesystem
+     */
+    protected function getFacadeClass()
+    {
+        $filesystem = new Filesystem();
+        $filesystem->setConfig(Config::get('stroge.filesystem'));
+    }
 
 }
