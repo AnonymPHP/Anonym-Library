@@ -63,13 +63,22 @@ class Container
      * return a binded callback
      *
      * @param string $name the name of callback
+     * @throws BindNotFoundException
      * @return mixed
      */
     public function make($name = '')
     {
 
         if (isset($this->container[$name])) {
+            $bind = $this->container[$name];
 
+            $response = call_user_func($bind);
+            if($response)
+            {
+
+            }else{
+
+            }
         }else{
             throw new BindNotFoundException(sprintf(''));
         }
