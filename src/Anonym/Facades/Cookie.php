@@ -10,11 +10,13 @@
 
 namespace Anonym\Facades;
 
+use Anonym\Patterns\Facade;
+
 /**
  * Class Cookie
  * @package Anonym\Facades
  */
-class Cookie
+class Cookie extends Facade
 {
 
 
