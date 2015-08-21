@@ -13,6 +13,10 @@ namespace Anonym\Providers;
 
 use Anonym\Bootstrap\ServiceProvider;
 
+/**
+ * Class EventProvider
+ * @package Anonym\Providers
+ */
 class EventProvider extends ServiceProvider
 {
 
