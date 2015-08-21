@@ -33,7 +33,7 @@ class Singleton
      * @throws InvalidArgumentException
      * @return mixed
      */
-    public static function bind($class, callable $callback)
+    public static function bind($class, callable $callback = null)
     {
 
         if(!is_string($class))
@@ -50,7 +50,7 @@ class Singleton
     /**
      * check the binded
      *
-     * @param string $name
+     * @param string $name the name of bind
      * @return bool
      */
     public static function isBinded($name = '')
