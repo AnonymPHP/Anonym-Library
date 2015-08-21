@@ -84,6 +84,7 @@ class Bootstrap extends Container
     /**
      * resolve the providers
      *
+     * @throws ProviderException
      * @param array $providers
      */
     private function  resolveProviders(array $providers)
@@ -92,7 +93,7 @@ class Bootstrap extends Container
             $provider = new $provider();
 
             if (!$provider instanceof ServiceProvider) {
-                throw new ProviderException();
+                throw new ProviderException(sprintf('Your %s proiver must be a instance of ServiceProvider', get_class($provider)));
             }
         }
 
