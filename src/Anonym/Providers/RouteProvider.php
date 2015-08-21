@@ -24,6 +24,7 @@ class RouteProvider extends ServiceProvider
      */
     public function register()
     {
+        include ROUTE_PHP;
         $router = new Router($this->make('http.request'));
         $router->run();
     }
