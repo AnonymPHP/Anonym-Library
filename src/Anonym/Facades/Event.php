@@ -16,4 +16,9 @@ use Anonym\Patterns\Facade;
 class Event extends Facade
 {
 
+    protected function getFacadeClass()
+    {
+        return "Event";
+    }
+
 }
