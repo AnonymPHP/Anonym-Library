@@ -10,8 +10,13 @@
 
 namespace Anonym\Bootstrap;
 
-
-class Bootstrap
+/**
+ * the starter class of framework
+ *
+ * Class Bootstrap
+ * @package Anonym\Bootstrap
+ */
+class Bootstrap extends Container
 {
 
 }

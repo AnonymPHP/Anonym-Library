@@ -23,28 +23,18 @@ class Singleton
      *
      * @var array
      */
-    private static $instances;
+    private static $binded;
 
     /**
      * make the singleton class
      *
      * @param string $class the name of class
-     * @param array $args the variables for constroctor
+     * @param callable $callback the callback for name
      * @throws InvalidArgumentException
      */
-    public static function make($class, $args = [])
+    public static function bind($class, callable $callback)
     {
 
-        if (!is_string($class)) {
-            throw new InvalidArgumentException('Your singleton class name must be a string!');
-        }
 
-           if (!isset(static::$instances[$class])) {
-               $instance = new \ReflectionClass($class);
-               $instance = $instance->newInstanceArgs($args);
-               static::$instances[$class] = $instance;
-           }
-
-        return static::$instances[$class];
     }
 }
