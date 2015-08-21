@@ -3,10 +3,6 @@
   "type": "library",
   "description": "AnonymFramework, New Professional PHP Framework System Libraries",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/AnonymPHP/Anonym-Library.git"
-  },
   "authors": [
     {
       "name": "Vahit Şerif Sağlam",
@@ -16,7 +12,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Anonym\\": "src/Anonym/Components/"
+
     },
     "classmap": [
       "vendor/composer"
