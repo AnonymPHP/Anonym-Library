@@ -17,6 +17,12 @@ namespace Anonym\Patterns;
 class Singleton
 {
 
+    /**
+     * make the singleton class
+     *
+     * @param string $name the name of class
+     * @param array $args the variables for constroctor
+     */
     public function make($name, $args = [])
     {
 
