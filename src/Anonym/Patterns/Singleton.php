@@ -17,4 +17,8 @@ namespace Anonym\Patterns;
 class Singleton
 {
 
+    public function make($name, $args = [])
+    {
+
+    }
 }
