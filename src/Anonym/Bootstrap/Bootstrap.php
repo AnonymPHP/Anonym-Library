@@ -56,6 +56,7 @@ class Bootstrap extends Container
         $this->version = $version;
 
         $this->resolveBootstraps();
+
     }
 
     /**

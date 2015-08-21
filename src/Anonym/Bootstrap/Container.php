@@ -26,7 +26,7 @@ class Container
      *
      * @var array
      */
-    private  $container;
+    private static $container;
 
     /**
      * the add a new container
@@ -42,7 +42,7 @@ class Container
         {
             $this->singleton($name, $callback);
         } else {
-            $this->container[$name] = $callback;
+            static::$container[$name] = $callback;
         }
         return $this;
     }
@@ -70,8 +70,8 @@ class Container
      */
     public function make($name = '')
     {
-        if (isset($this->container[$name]) || Singleton::isBinded($name)) {
-            $bind = isset($this->container[$name]) ? $this->container[$name] : Singleton::bind($name);
+        if (isset(static::$container[$name]) || Singleton::isBinded($name)) {
+            $bind = isset(static::$container[$name]) ? static::$container[$name] : Singleton::bind($name);
             $response = call_user_func($bind);
             if($response)
             {
