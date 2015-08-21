@@ -11,8 +11,10 @@
 namespace Anonym\Facades;
 
 use Anonym\Components\Config\ConfigLoader;
+use Anonym\Components\Config\Reposity;
 use Anonym\Patterns\Facade;
-
+use Anonym\Patterns\Singleton;
+use Anonym\Constructors\ConfigConstructor;
 
 /**
  * the facade for config
@@ -29,7 +31,9 @@ class Config extends Facade
      */
     protected function getFacadeClass()
     {
-        $loader = new ConfigLoader(CONFIG);
+        $loader = Singleton::bind(ConfigConstructor::class);
+        Reposity::setCache($loader->loadConfigs());
+        return new Reposity();
     }
 
 }
