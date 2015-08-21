@@ -12,6 +12,10 @@ namespace Anonym\Bootstrap;
 
 use Exception;
 
+/**
+ * Class AliasNotFoundException
+ * @package Anonym\Bootstrap
+ */
 class AliasNotFoundException extends Exception
 {
 
