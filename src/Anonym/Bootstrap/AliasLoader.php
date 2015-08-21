@@ -32,6 +32,7 @@ class AliasLoader
      * load the facade class
      *
      * @param string $class
+     * @throws AliasNotFoundException
      * @return mixed
      */
     public function load($class = '')
@@ -40,6 +41,8 @@ class AliasLoader
         $instances = static::getInstances();
         if (!strpos($class, '\\')) {
             $instance = isset($instances[$class]) ? $instances[$class] : false;
+        } else {
+            $instance = $class;
         }
 
         if (false !== $instance) {
