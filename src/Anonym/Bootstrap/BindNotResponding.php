@@ -15,7 +15,7 @@ use Exception;
  * Class BindNotResponding
  * @package Anonym\Bootstrap
  */
-class BindNotResponding extends Exception
+class BindNotRespondingException extends Exception
 {
 
     /**

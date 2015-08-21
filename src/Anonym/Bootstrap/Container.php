@@ -64,6 +64,7 @@ class Container
      *
      * @param string $name the name of callback
      * @throws BindNotFoundException
+     * @throws BindNotRespondingException
      * @return mixed
      */
     public function make($name = '')
@@ -77,7 +78,7 @@ class Container
             {
 
             }else{
-                throw new BindNotResponding(sprintf('Your %s bind It is does not give any response', $name));
+                throw new BindNotRespondingException(sprintf('Your %s bind It is does not give any response', $name));
             }
         }else{
             throw new BindNotFoundException(sprintf(''));
