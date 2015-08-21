@@ -10,7 +10,10 @@
 
 namespace Anonym\Facades;
 
-
+/**
+ * Class Crypt
+ * @package Anonym\Facades
+ */
 class Crypt
 {
 
