@@ -31,6 +31,7 @@ class Bootstrap extends Container
     private $constructors = [
         ConfigConstructor::class,
         AliasConstructor::class,
+        RequestConstructor::class,
     ];
 
     /**
@@ -60,7 +61,6 @@ class Bootstrap extends Container
 
         $this->resolveBootstraps();
         $this->resolveProviders(Config::get('general.providers'));
-
     }
 
     /**
