@@ -11,7 +11,7 @@
 namespace Anonym\Bootstrap;
 use Exception;
 
-class BindNotResponding
+class BindNotResponding extends Exception
 {
 
 }
