@@ -16,4 +16,8 @@ use Anonym\Patterns\Facade;
 class Route extends Facade
 {
 
+    protected function getFacadeClass()
+    {
+
+    }
 }
