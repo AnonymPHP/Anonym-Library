@@ -14,4 +14,11 @@ namespace Anonym\Bootstrap;
 class AliasLoader
 {
 
+    /**
+     * the list of alias
+     *
+     * @var array
+     */
+    private $instances;
+
 }
