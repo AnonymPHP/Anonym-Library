@@ -32,7 +32,7 @@ class Config extends Facade
     protected static function getFacadeClass()
     {
         $loader = Singleton::bind(ConfigConstructor::class);
-        Reposity::setCache($loader->loadConfigs());
+        Reposity::setCache($loader->getConfigs());
         return new Reposity();
     }
 
