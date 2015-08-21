@@ -59,6 +59,12 @@ class Container
         return $this;
     }
 
+    /**
+     * return a binded callback
+     *
+     * @param string $name the name of callback
+     * @return mixed
+     */
     public function make($name = '')
     {
 
