@@ -3,6 +3,10 @@
   "type": "library",
   "description": "AnonymFramework, New Professional PHP Framework System Libraries",
   "license": "MIT",
+  "homepage" : "http://gemframework.com",
+  "support" : {
+    "source": "https://github.com/AnonymPHP/Anonym-Library"
+  },
   "authors": [
     {
       "name": "Vahit Şerif Sağlam",
