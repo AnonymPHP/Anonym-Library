@@ -29,7 +29,7 @@ class Config extends Facade
      *
      * @return Repository
      */
-    protected function getFacadeClass()
+    protected static function getFacadeClass()
     {
         $loader = Singleton::bind(ConfigConstructor::class);
         Reposity::setCache($loader->loadConfigs());
