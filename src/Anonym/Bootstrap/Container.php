@@ -69,14 +69,12 @@ class Container
      */
     public function make($name = '')
     {
-
         if (isset($this->container[$name])) {
             $bind = $this->container[$name];
-
             $response = call_user_func($bind);
             if($response)
             {
-
+                return $response;
             }else{
                 throw new BindNotRespondingException(sprintf('Your %s bind It is does not give any response', $name));
             }
