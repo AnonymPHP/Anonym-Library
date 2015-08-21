@@ -23,7 +23,7 @@
     "psr-4": {
       "Anonym\\": "src/Anonym/"
     }
-  }
+  },
   "extra": {
     "branch-alias": {
       "dev-master": "1.0-dev"
