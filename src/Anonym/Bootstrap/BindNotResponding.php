@@ -9,7 +9,7 @@
  */
 
 namespace Anonym\Bootstrap;
-
+use Exception;
 
 class BindNotResponding
 {
