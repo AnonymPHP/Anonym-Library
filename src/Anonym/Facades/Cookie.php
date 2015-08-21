@@ -19,5 +19,9 @@ use Anonym\Patterns\Facade;
 class Cookie extends Facade
 {
 
+    protected function getFacadeClass()
+    {
+        return "Cookie";
+    }
 
 }
