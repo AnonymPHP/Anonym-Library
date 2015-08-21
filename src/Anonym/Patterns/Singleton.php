@@ -25,5 +25,10 @@ class Singleton
     public function make($name, $args = [])
     {
 
+
+
+        $createReflectionInstance = new ReflectionClass($instance);
+        $setParamsToCreatedReflectionInstance = $createReflectionInstance->newInstanceArgs($parametres);
+
     }
 }
