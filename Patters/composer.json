@@ -1,7 +1,8 @@
 {
-  "name": "anonym-php/anonym-library",
+  "name": "anonym-php/anonym-patterns",
   "type": "library",
-  "description": "AnonymFramework, New Professional PHP Framework System Libraries",
+
+  "description": "AnonymFramework Desing Patterns Component",
   "license": "MIT",
   "authors": [
     {
@@ -12,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-
+       "Anonym\\Patterns" : ""
     },
     "classmap": [
       "vendor/composer"
