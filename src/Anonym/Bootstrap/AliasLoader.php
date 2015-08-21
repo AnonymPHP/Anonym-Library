@@ -25,6 +25,41 @@ class AliasLoader
      *
      * @var array
      */
-    private $instances;
+    private static $instances;
+
+
+    /**
+     * load the facade class
+     *
+     * @param string $class
+     * @return mixed
+     */
+    public function load($class = '')
+    {
+
+        $instances = static::getInstances();
+        if (!strpos($class, '\\')) {
+            $class = isset()
+        }
+
+    }
+
+    /**
+     * @return array
+     */
+    public static function getInstances()
+    {
+        return self::$instances;
+    }
+
+    /**
+     * @param array $instances
+     */
+    public static function setInstances($instances)
+    {
+        self::$instances = $instances;
+    }
+
+
 
 }
