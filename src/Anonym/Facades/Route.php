@@ -16,6 +16,12 @@ use Anonym\Patterns\Facade;
 class Route extends Facade
 {
 
+    /**
+     * get the route facade class
+     *
+     *
+     * @return string
+     */
     protected function getFacadeClass()
     {
         return "Route";
