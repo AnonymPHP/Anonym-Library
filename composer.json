@@ -16,7 +16,7 @@
   ],
   "autoload": {
     "psr-4": {
-          "Anonym" : "src/Anonym/"
+          "Anonym\\" : "src/Anonym/"
     },
     "classmap": [
       "vendor/composer"
