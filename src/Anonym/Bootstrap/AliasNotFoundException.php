@@ -15,4 +15,8 @@ use Exception;
 class AliasNotFoundException extends Exception
 {
 
+    public function __construct($message = '')
+    {
+        $this->message = $message;
+    }
 }
