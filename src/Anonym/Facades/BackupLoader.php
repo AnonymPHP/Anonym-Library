@@ -18,6 +18,12 @@ use Anonym\Patterns\Facade;
 class BackupLoader extends Facade
 {
 
+    /**
+     * get the loader facade
+     *
+     *
+     * @return Load
+     */
     protected static function getFacadeClass()
     {
 
