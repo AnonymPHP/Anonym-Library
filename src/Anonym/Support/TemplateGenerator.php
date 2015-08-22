@@ -35,7 +35,7 @@ class TemplateGenerator
             }
         }
 
-        return $conten;
+        return $content;
     }
 
     /**
