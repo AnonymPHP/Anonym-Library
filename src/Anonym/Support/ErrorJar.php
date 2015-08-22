@@ -136,8 +136,4 @@ class ErrorJar
         $this->code = $code;
         return $this;
     }
-
-
-
-
 }
