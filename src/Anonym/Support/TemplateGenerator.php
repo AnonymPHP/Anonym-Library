@@ -25,6 +25,9 @@ class TemplateGenerator
     private  $content;
 
 
+    /**
+     * @param string $content
+     */
     public function __construct($content = '')
     {
         $this->setContent($content);
