@@ -18,6 +18,12 @@ use Anonym\Patterns\Facade;
 class Backup extends Facade
 {
 
+    /**
+     *
+     * get the backup facade
+     *
+     * @return BackupDispatcher
+     */
     protected static function getFacadeClass()
     {
 
