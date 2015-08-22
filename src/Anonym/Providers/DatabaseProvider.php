@@ -13,6 +13,10 @@ namespace Anonym\Providers;
 use Anonym\Components\Database\Base;
 use Anonym\Bootstrap\ServiceProvider;
 
+/**
+ * Class DatabaseProvider
+ * @package Anonym\Providers
+ */
 class DatabaseProvider extends ServiceProvider
 {
 
