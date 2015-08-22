@@ -29,5 +29,4 @@ class Element extends Facade
         $base = Singleton::bind('database.base');
         return new ElementDispatcher($base);
     }
-
 }
