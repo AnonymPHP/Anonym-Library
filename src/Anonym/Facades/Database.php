@@ -12,7 +12,6 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Singleton;
-use Anonym\Support\Arr;
 use Anonym\Components\Database\Base;
 
 class Database

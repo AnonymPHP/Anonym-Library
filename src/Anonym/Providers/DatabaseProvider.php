@@ -12,6 +12,7 @@ namespace Anonym\Providers;
 
 use Anonym\Components\Database\Base;
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Support\Arr;
 
 /**
  * Class DatabaseProvider
