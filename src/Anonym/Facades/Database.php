@@ -36,4 +36,17 @@ class Database
 
         $this->base = new Base($connectionConfigs);
     }
+
+    /**
+     * dynamic method calling in base
+     *
+     * @param string $name
+     * @param array $args
+     * @return mixed
+     */
+    public function __call($name, $args = [])
+    {
+        return call_user_func_array([$this->base, $name], $args);
+    }
+
 }
