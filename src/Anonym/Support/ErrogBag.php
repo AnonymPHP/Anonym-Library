@@ -33,4 +33,23 @@ class ErrogBag
 
 
 
+
+    /**
+     * @return array
+     */
+    public static function getErrors()
+    {
+        return self::$errors;
+    }
+
+    /**
+     * @param array $errors
+     */
+    public static function setErrors($errors)
+    {
+        self::$errors = $errors;
+    }
+
+
+
 }
