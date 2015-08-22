@@ -23,6 +23,6 @@ class DatabaseProvider extends ServiceProvider
      */
     public function register()
     {
-        // TODO: Implement register() method.
+
     }
 }
