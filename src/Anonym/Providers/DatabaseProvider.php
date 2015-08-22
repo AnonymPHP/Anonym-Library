@@ -10,7 +10,7 @@
 
 namespace Anonym\Providers;
 
-
+use Anonym\Components\Database\Base;
 use Anonym\Bootstrap\ServiceProvider;
 
 class DatabaseProvider extends ServiceProvider
