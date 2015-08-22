@@ -10,7 +10,10 @@
 
 namespace Anonym\Support;
 
-
+/**
+ * Class TemplateGenerator
+ * @package Anonym\Support
+ */
 class TemplateGenerator
 {
 
