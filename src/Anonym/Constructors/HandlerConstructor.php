@@ -29,6 +29,7 @@ class HandlerConstructor
             ErrogBag::addError(new ErrorJar($messsage, $file, $line, $code));
         });
 
+        // set the exception handler
         set_exception_handler(function($exception){
            ErrogBag::addException($exception);
         });
