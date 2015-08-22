@@ -9,7 +9,11 @@
  */
 
 namespace Anonym\Facades;
+
+use Anonym\Components\Tools\MigrationManager;
 use Anonym\Patterns\Facade;
+use Anonym\Patterns\Singleton;
+
 /**
  * the facade of migration
  *
@@ -27,7 +31,7 @@ class Migration extends Facade
      */
     protected static function getFacadeClass()
     {
-
+        return new MigrationManager(Singleton::bind('database.base'));
     }
 
 }
