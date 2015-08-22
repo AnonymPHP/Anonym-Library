@@ -14,6 +14,10 @@ namespace Anonym\Constructors;
 use Anonym\Support\ErrogBag;
 use Anonym\Support\ErrorJar;
 
+/**
+ * Class HandlerConstructor
+ * @package Anonym\Constructors
+ */
 class HandlerConstructor
 {
 
