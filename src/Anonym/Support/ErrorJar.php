@@ -36,7 +36,7 @@ class ErrorJar
     /**
      * the file line of error
      *
-     * @var string
+     * @var int
      */
     private $line;
 
@@ -44,10 +44,27 @@ class ErrorJar
     /**
      * the error code of error
      *
-     * @var string
+     * @var int
      */
     private $code;
 
+
+    /**
+     * create a new instance and set the parameters
+     *
+     * @param string $message
+     * @param string $file
+     * @param int $line
+     * @param int $code
+     */
+    public function __construct($message, $file, $line, $code)
+    {
+        $this->setMessage($message);
+        $this->setFile($file);
+        $this->setLine($line);
+        $this->setCode($code);
+
+    }
     /**
      * @return string
      */
@@ -85,7 +102,7 @@ class ErrorJar
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getLine()
     {
@@ -93,7 +110,7 @@ class ErrorJar
     }
 
     /**
-     * @param string $line
+     * @param int $line
      * @return ErrorJar
      */
     public function setLine($line)
@@ -103,7 +120,7 @@ class ErrorJar
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getCode()
     {
@@ -111,7 +128,7 @@ class ErrorJar
     }
 
     /**
-     * @param string $code
+     * @param int $code
      * @return ErrorJar
      */
     public function setCode($code)
