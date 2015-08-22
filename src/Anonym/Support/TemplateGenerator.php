@@ -29,12 +29,13 @@ class TemplateGenerator
 
         $content = $this->getContent();
         if (count($parameters)) {
-            foreach($parameters as $param)
+            foreach($parameters as $param => $value)
             {
-                 $this
+                 $content = str_replace("{{ $param }}", $value, $content);
             }
         }
 
+        return $conten;
     }
 
     /**
