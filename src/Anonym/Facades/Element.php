@@ -10,11 +10,21 @@
 
 namespace Anonym\Facades;
 use Anonym\Patterns\Facade;
+use Anonym\Components\Element\Element;
 /**
  * Class Element
  * @package Anonym\Facades
  */
 class Element extends Facade
 {
+    /**
+     * get the element facade
+     *
+     * @return Element
+     */
+    protected static function getFacadeClass()
+    {
+
+    }
 
 }
