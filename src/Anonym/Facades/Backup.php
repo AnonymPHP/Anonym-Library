@@ -10,11 +10,12 @@
 
 namespace Anonym\Facades;
 
+use Anonym\Patterns\Facade;
 /**
  * Class Backup
  * @package Anonym\Facades
  */
-class Backup
+class Backup extends Facade
 {
 
 }
