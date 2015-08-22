@@ -50,6 +50,22 @@ class ErrogBag
         self::$errors = $errors;
     }
 
+    /**
+     * @return array
+     */
+    public static function getExceptions()
+    {
+        return self::$exceptions;
+    }
+
+    /**
+     * @param array $exceptions
+     */
+    public static function setExceptions($exceptions)
+    {
+        self::$exceptions = $exceptions;
+    }
+
 
 
 }
