@@ -11,6 +11,9 @@
 namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
+use Anonym\Components\Tools\Backup as BackupDispatcher;
+use Anonym\Patterns\Singleton;
+
 /**
  * Class Backup
  * @package Anonym\Facades
@@ -26,7 +29,7 @@ class Backup extends Facade
      */
     protected static function getFacadeClass()
     {
-
+        return new BackupDispatcher(Singleton::bind('database.base'));
     }
 
 }
