@@ -11,7 +11,7 @@
 namespace Anonym\Facades;
 
 
-class BackupLoader
+class BackupLoader extends Facade
 {
 
 }
