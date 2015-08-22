@@ -60,10 +60,20 @@ class Bootstrap extends Container
         $this->name = $name;
         $this->version = $version;
 
+        $this->resolveHelpers();
         $this->resolveBootstraps();
         $this->resolveProviders(Config::get('general.providers'));
     }
 
+    /**
+     *
+     * include the helpers
+     *
+     */
+    private function resolveHelpers()
+    {
+        include APP . 'helpers/helpers.php';
+    }
     /**
      *  resolve the constructor classes
      */
