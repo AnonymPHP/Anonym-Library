@@ -19,4 +19,9 @@ use Anonym\Patterns\Facade;
 class Migration extends Facade
 {
 
+    protected static function getFacadeClass()
+    {
+
+    }
+
 }
