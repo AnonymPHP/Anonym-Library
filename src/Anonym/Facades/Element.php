@@ -10,7 +10,9 @@
 
 namespace Anonym\Facades;
 use Anonym\Patterns\Facade;
-use Anonym\Components\Element\Element;
+use Anonym\Components\Element\Element as ElementDispatcher;
+use Anonym\Patterns\Singleton;
+
 /**
  * Class Element
  * @package Anonym\Facades
@@ -24,7 +26,8 @@ class Element extends Facade
      */
     protected static function getFacadeClass()
     {
-
+        $base = Singleton::bind('database.base');
+        return new ElementDispatcher($base);
     }
 
 }
