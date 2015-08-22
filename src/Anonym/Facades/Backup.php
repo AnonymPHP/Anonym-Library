@@ -10,7 +10,10 @@
 
 namespace Anonym\Facades;
 
-
+/**
+ * Class Backup
+ * @package Anonym\Facades
+ */
 class Backup
 {
 
