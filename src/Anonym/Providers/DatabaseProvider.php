@@ -23,6 +23,14 @@ class DatabaseProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->bind(
+            'database.base',
+            function () {
+                $configs = Config::get('database');
+                $connection = $configs['connection'];
+                $connectionConfigs = Arr::get($configs['connections'], $connection, []);
+                return new Base($connectionConfigs);
+            }
+        );
     }
 }
