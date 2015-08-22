@@ -13,6 +13,12 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * the facade of migration
+ *
+ * Class Migration
+ * @package Anonym\Facades
+ */
 class Migration extends Facade
 {
 
