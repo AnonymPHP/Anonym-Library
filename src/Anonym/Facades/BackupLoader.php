@@ -10,7 +10,10 @@
 
 namespace Anonym\Facades;
 
-
+/**
+ * Class BackupLoader
+ * @package Anonym\Facades
+ */
 class BackupLoader extends Facade
 {
 
