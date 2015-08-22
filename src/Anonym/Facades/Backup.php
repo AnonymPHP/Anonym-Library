@@ -18,4 +18,9 @@ use Anonym\Patterns\Facade;
 class Backup extends Facade
 {
 
+    protected function getFacadeClass()
+    {
+
+    }
+
 }
