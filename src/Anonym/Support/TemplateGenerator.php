@@ -24,6 +24,13 @@ class TemplateGenerator
      */
     private  $content;
 
+
+    /**
+     * create the new content
+     *
+     * @param array $parameters
+     * @return mixed|string
+     */
     public function generate($parameters = [])
     {
 
