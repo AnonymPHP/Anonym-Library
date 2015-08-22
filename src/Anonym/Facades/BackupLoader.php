@@ -11,6 +11,7 @@
 namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
+use Anonym\Database\Tools\Backup\Load;
 /**
  * Class BackupLoader
  * @package Anonym\Facades
