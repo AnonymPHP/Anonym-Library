@@ -30,11 +30,7 @@ class Database
      */
     public function __construct()
     {
-        $configs = Config::get('database');
-        $connection = $configs['connection'];
-        $connectionConfigs = Arr::get($configs['connections'], $connection, []);
 
-        $this->base = new Base($connectionConfigs);
     }
 
     /**
