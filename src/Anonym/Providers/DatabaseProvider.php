@@ -26,7 +26,7 @@ class DatabaseProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->bind(
+        $this->singleton(
             'database.base',
             function () {
                 $configs = Config::get('database');
