@@ -12,6 +12,8 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
+use Anonym\Components\Tools\Schema as SchemaInstance;
+use Anonym\Patterns\Singleton;
 
 /**
  * Class Schema
@@ -20,8 +22,13 @@ use Anonym\Patterns\Facade;
 class Schema extends Facade
 {
 
+    /**
+     * get the schema facade
+     *
+     * @return SchemaInstance
+     */
     protected static function getFacadeClass()
     {
-
+        return new SchemaInstance(Singleton::bind('database.base'));
     }
 }
