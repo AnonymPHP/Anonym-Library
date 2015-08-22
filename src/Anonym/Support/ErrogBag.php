@@ -52,6 +52,16 @@ class ErrogBag
         self::$errors = $errors;
     }
 
+
+    /**
+     * add a error the bag
+     *
+     * @param ErrorJar $jar
+     */
+    public static function addError(ErrorJar $jar)
+    {
+        static::$errors[] = $jar;
+    }
     /**
      * @return array
      */
