@@ -34,7 +34,6 @@ class Model
         $connection = $configs['connection'];
         $connectionConfigs = Arr::get($configs['connections'], $connection, []);
 
-
-
+        $this->base = new Base($connectionConfigs);
     }
 }
