@@ -9,6 +9,8 @@
  */
 
 namespace Anonym\Support;
+use Exception;
+use InvalidArgumentException;
 
 /**
  * Class ErrogBag
@@ -66,6 +68,18 @@ class ErrogBag
         self::$exceptions = $exceptions;
     }
 
-
+    /**
+     * add a register to bag
+     *
+     * @param null $exception
+     */
+    public function addException($exception = null)
+    {
+        if(!$exception instanceof Exception)
+        {
+            throw new InvalidArgumentException(sprintf('%s This is not an exception', get_class($exception)));
+        }
+        static::$exceptions[] = $exception;
+    }
 
 }
