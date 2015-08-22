@@ -20,4 +20,8 @@ use Anonym\Patterns\Facade;
 class Schema extends Facade
 {
 
+    protected static function getFacadeClass()
+    {
+
+    }
 }
