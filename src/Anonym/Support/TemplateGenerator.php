@@ -25,6 +25,11 @@ class TemplateGenerator
     private  $content;
 
 
+    public function __construct($content = '')
+    {
+
+    }
+
     /**
      * create the new content
      *
