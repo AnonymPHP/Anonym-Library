@@ -11,6 +11,7 @@
 namespace Anonym\Facades;
 
 
+use Anonym\Patterns\Singleton;
 use Anonym\Support\Arr;
 use Anonym\Components\Database\Base;
 
@@ -22,7 +23,7 @@ class Database
      *
      * @var Base
      */
-    private $base;
+    public $base;
 
     /**
      *  create a new instance and set the base
@@ -30,7 +31,7 @@ class Database
      */
     public function __construct()
     {
-
+        $this->base = Singleton::bind('database.base');
     }
 
     /**
@@ -44,5 +45,19 @@ class Database
     {
         return call_user_func_array([$this->base, $name], $args);
     }
+
+    /**
+     * dynamic method calling in base
+     *
+     * @param string $name
+     * @param array $args
+     * @return mixed
+     */
+    public static function __callStatic($name, $args = [])
+    {
+        $app = new static();
+        return call_user_func_array([$app->base, $name], $args);
+    }
+
 
 }
