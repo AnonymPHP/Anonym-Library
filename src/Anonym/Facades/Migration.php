@@ -33,5 +33,4 @@ class Migration extends Facade
     {
         return new MigrationManager(Singleton::bind('database.base'));
     }
-
 }
