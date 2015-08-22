@@ -24,6 +24,10 @@ class Model
      */
     private $base;
 
+    /**
+     *  create a new instance and set the base
+     *
+     */
     public function __construct()
     {
         $configs = Config::get('database');
