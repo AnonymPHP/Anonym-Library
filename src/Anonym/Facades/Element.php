@@ -13,6 +13,10 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * Class Element
+ * @package Anonym\Facades
+ */
 class Element extends Facade
 {
 
