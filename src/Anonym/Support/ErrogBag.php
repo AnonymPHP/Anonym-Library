@@ -83,7 +83,7 @@ class ErrogBag
      *
      * @param null $exception
      */
-    public function addException($exception = null)
+    public static function addException($exception = null)
     {
         if(!$exception instanceof Exception)
         {
