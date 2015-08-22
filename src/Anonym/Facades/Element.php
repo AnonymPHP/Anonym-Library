@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
-class Element
+use Anonym\Patterns\Facade;
+
+class Element extends Facade
 {
 
 }
