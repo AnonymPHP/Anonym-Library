@@ -14,7 +14,6 @@ namespace Anonym\Facades;
 class Model
 {
 
-
     public function __construct()
     {
         $called = get_called_class();
