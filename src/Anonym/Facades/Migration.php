@@ -9,10 +9,7 @@
  */
 
 namespace Anonym\Facades;
-
-
 use Anonym\Patterns\Facade;
-
 /**
  * the facade of migration
  *
