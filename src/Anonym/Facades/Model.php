@@ -21,7 +21,6 @@ class Model
 
         // if isset table variable
         if (array_key_exists('table', get_class_vars($called))) {
-
             // use it
             $called = get_class_vars($called)['table'];
         }
