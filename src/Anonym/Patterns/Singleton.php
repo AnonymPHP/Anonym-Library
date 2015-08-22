@@ -26,6 +26,12 @@ class Singleton
     private static $binded;
 
     /**
+     * the instances of called binds
+     *
+     * @var array
+     */
+    private static $called;
+    /**
      * make the singleton class
      *
      * @param string $class the name of class
@@ -36,15 +42,26 @@ class Singleton
     public static function bind($class, callable $callback = null)
     {
 
+        // $class must be a string
         if(!is_string($class))
         {
             throw new InvalidArgumentException(sprintf('Class name must be a string'));
         }
+
+        // if is not binded, do it
         if (!static::isBinded($class))
         {
             static::$binded[$class] = $callback;
         }
-        return call_user_func(static::$binded[$class]);
+
+        // if callback called before, return it
+        if (static::isCalled($class)) {
+            return static::$called[$class];
+        }
+
+        $response = call_user_func(static::$binded[$class]);
+        static::$called[$class] = $response;
+        return $response;
     }
 
     /**
@@ -57,4 +74,16 @@ class Singleton
     {
         return isset(static::$binded[$name]);
     }
+
+    /**
+     * check the binded
+     *
+     * @param string $name the name of bind
+     * @return bool
+     */
+    public static function isCalled($name = '')
+    {
+        return isset(static::$called[$name]);
+    }
+
 }
