@@ -30,7 +30,7 @@ class HandlerConstructor
         });
 
         set_exception_handler(function($exception){
-           ErrogBag::
+           ErrogBag::addException($exception);
         });
     }
 
