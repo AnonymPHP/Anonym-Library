@@ -13,7 +13,6 @@ namespace Anonym\Facades;
 
 class Model
 {
-
     public function __construct()
     {
         $called = get_called_class();
@@ -23,9 +22,5 @@ class Model
             // use it
             $called = get_class_vars($called)['table'];
         }
-
-
-
     }
-
 }
