@@ -31,5 +31,4 @@ class Backup extends Facade
     {
         return new BackupDispatcher(Singleton::bind('database.base'));
     }
-
 }
