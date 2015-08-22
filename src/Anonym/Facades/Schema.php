@@ -11,7 +11,13 @@
 namespace Anonym\Facades;
 
 
-class Schema
+use Anonym\Patterns\Facade;
+
+/**
+ * Class Schema
+ * @package Anonym\Facades
+ */
+class Schema extends Facade
 {
 
 }
