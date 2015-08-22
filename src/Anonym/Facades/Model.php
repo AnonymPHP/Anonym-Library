@@ -14,7 +14,7 @@ namespace Anonym\Facades;
 use Anonym\Support\Arr;
 use Anonym\Components\Database\Base;
 
-class Model
+class Database
 {
 
     /**
