@@ -26,6 +26,8 @@ class TemplateGenerator
 
 
     /**
+     * create a new instance and register the content
+     *
      * @param string $content
      */
     public function __construct($content = '')
