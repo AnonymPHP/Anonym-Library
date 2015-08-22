@@ -10,6 +10,7 @@
 
 namespace Anonym\Facades;
 
+use Anonym\Patterns\Facade;
 /**
  * Class BackupLoader
  * @package Anonym\Facades
