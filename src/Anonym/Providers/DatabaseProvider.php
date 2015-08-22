@@ -19,7 +19,6 @@ use Anonym\Bootstrap\ServiceProvider;
  */
 class DatabaseProvider extends ServiceProvider
 {
-
     /**
      * register the provider
      *
