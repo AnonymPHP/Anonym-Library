@@ -11,7 +11,9 @@
 namespace Anonym\Providers;
 
 
-class DatabaseProvider
+use Anonym\Bootstrap\ServiceProvider;
+
+class DatabaseProvider extends ServiceProvider
 {
 
 }
