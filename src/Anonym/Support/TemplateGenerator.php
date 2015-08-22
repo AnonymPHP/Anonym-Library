@@ -27,7 +27,7 @@ class TemplateGenerator
 
     public function __construct($content = '')
     {
-
+        $this->setContent($content);
     }
 
     /**
