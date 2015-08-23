@@ -11,7 +11,19 @@
 namespace Anonym\Facades;
 
 
-class View
+use Anonym\Patterns\Facade;
+
+/**
+ * Class View
+ * @package Anonym\Facades
+ */
+class View extends Facade
 {
+
+
+    protected static function getFacadeClass()
+    {
+
+    }
 
 }
