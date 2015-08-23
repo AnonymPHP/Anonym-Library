@@ -9,8 +9,6 @@
  */
 
 namespace Anonym\Providers;
-
-
 use Anonym\Bootstrap\ServiceProvider;
 
 
