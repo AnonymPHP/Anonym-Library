@@ -23,7 +23,10 @@ class Request extends Facade
 {
     use Container;
 
-    private static function getFacadeClass()
+    /**
+     * @return mixed
+     */
+    protected static function getFacadeClass()
     {
         $request = Singleton::bind('http.request');
         return $request;
