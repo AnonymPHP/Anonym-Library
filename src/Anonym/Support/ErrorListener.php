@@ -17,17 +17,22 @@ class ErrorListener
     /**
      * the instance of any exception
      *
-     * @var Exception
+     * @var \Exception
      */
     private $exception;
 
+    /**
+     * create a new instance and register the exception
+     *
+     * @param \Exception $exception
+     */
     public function __construct($exception)
     {
-
+        $this->setException($exception);
     }
 
     /**
-     * @return Exception
+     * @return \Exception
      */
     public function getException()
     {
@@ -35,7 +40,7 @@ class ErrorListener
     }
 
     /**
-     * @param Exception $exception
+     * @param \Exception $exception
      * @return ErrorListener
      */
     public function setException($exception)
