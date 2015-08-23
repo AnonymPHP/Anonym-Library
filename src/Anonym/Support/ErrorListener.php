@@ -18,9 +18,10 @@ use Anonym\Components\HttpClient\Response;
  * Class ErrorListener
  * @package Anonym\Support
  */
-class ErrorListener extends Container
+class ErrorListener
 {
 
+    use Container;
     /**
      * the instance of any exception
      *
