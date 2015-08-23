@@ -12,6 +12,10 @@ namespace Anonym\Support;
 
 use Exception;
 
+/**
+ * Class ErrorException
+ * @package Anonym\Support
+ */
 class ErrorException extends Exception
 {
 
