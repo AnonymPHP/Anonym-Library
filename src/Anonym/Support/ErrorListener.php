@@ -31,7 +31,7 @@ class ErrorListener extends Container
     /**
      * create a new instance and register the exception
      *
-     * @param \Exception $exception
+     * @param mixed $exception
      */
     public function __construct($exception)
     {
@@ -39,7 +39,7 @@ class ErrorListener extends Container
     }
 
     /**
-     * @return \Exception
+     * @return mixed
      */
     public function getException()
     {
@@ -47,7 +47,7 @@ class ErrorListener extends Container
     }
 
     /**
-     * @param \Exception $exception
+     * @param mixed $exception
      * @return ErrorListener
      */
     public function setException($exception)
