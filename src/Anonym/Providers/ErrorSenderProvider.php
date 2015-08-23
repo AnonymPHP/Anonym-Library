@@ -11,7 +11,19 @@
 namespace Anonym\Providers;
 
 
-class ErrorSenderProvider
+use Anonym\Bootstrap\ServiceProvider;
+
+
+class ErrorSenderProvider extends ServiceProvider
 {
 
+    /**
+     * register the provider
+     *
+     * @return mixed
+     */
+    public function register()
+    {
+
+    }
 }
