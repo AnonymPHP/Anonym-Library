@@ -11,11 +11,17 @@
 namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
+use Anonym\Patterns\Singleton;
 
 class Response extends Facade
 {
 
 
-public
+    protected static function getFacadeClass()
+    {
+        $response = Singleton::bind('http.response');
+        return $response;
+
+    }
 
 }
