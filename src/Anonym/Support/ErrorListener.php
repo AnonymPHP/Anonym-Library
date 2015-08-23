@@ -11,7 +11,9 @@
 namespace Anonym\Support;
 
 
-class ErrorListener
+use Anonym\Bootstrap\Container;
+
+class ErrorListener extends Container
 {
 
     /**
@@ -47,6 +49,11 @@ class ErrorListener
     {
         $this->exception = $exception;
         return $this;
+    }
+
+    public function send()
+    {
+
     }
 }
 
