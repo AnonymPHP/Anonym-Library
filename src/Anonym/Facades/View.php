@@ -12,7 +12,6 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-
 /**
  * Class View
  * @package Anonym\Facades
@@ -20,9 +19,14 @@ use Anonym\Patterns\Facade;
 class View extends Facade
 {
 
-
+    /**
+     * get the view facade
+     *
+     * @return \Anonym\Components\View\View
+     */
     protected static function getFacadeClass()
     {
+        $driver = Config::get('');
 
     }
 
