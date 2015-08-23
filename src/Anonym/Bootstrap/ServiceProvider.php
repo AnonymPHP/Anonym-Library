@@ -14,8 +14,10 @@ namespace Anonym\Bootstrap;
  * Class ServiceProvider
  * @package Anonym\Bootstrap
  */
-abstract class ServiceProvider extends Container
+abstract class ServiceProvider
 {
+
+    use Container;
 
     /**
      * register the provider
