@@ -11,6 +11,7 @@
 namespace Anonym\Bootstrap;
 
 use Anonym\Patterns\Singleton;
+use Closure;
 
 /**
  * the container class of framework
@@ -51,10 +52,10 @@ class Container
      * register a new singleton class
      *
      * @param string $name the name of singleton class
-     * @param callable $callback
+     * @param mixed $callback
      * @return $this
      */
-    public function singleton($name, callable $callback)
+    public function singleton($name, $callback = null)
     {
         Singleton::bind($name, $callback);
         return $this;
@@ -72,7 +73,7 @@ class Container
     {
         if (isset(static::$container[$name]) || Singleton::isBinded($name)) {
             $bind = isset(static::$container[$name]) ? static::$container[$name] : Singleton::bind($name);
-            $response = call_user_func($bind);
+            $response = $bind instanceof Closure ? $bind() : $bind;
             if($response)
             {
                 return $response;
