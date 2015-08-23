@@ -39,7 +39,7 @@ class Facade
      * @return Object|bool
      *
      */
-    protected static function resolveFacadeClass($class)
+    private static function resolveFacadeClass($class)
     {
         if(is_string($class))
         {
