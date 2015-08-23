@@ -73,7 +73,7 @@ class ErrorListener extends Container
             'message' => $this->exception->getMessage(),
             'line'    => $this->exception->getLine(),
             'code'    => $this->exception->getCode(),
-            'trace'   => $this->exception->getTraceAsString()
+            'trace' => method_exists($this->getException(), 'getTraceAsString') ? $this->exception->getTraceAsString() : ''
         ];
         $content = $generator->generate($params);
 
