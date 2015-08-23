@@ -9,7 +9,9 @@
  */
 
 namespace Anonym\Providers;
+
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Support\ErrogBag;
 
 /**
  * Class ErrorSenderProvider
@@ -25,6 +27,22 @@ class ErrorSenderProvider extends ServiceProvider
      */
     public function register()
     {
+        $errors = array_merge(ErrogBag::getExceptions(), ErrogBag::getErrors());
 
+        if (count($errors)) {
+            $content = '<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ooops!</title>
+</head>
+<body>
+
+<h1 style="font-family:Open Sans, sans-serif;">Ooops! Something Went Error.</h1>
+<hr/>';
+            foreach ($errors as $error) {
+
+            }
+        }
     }
 }
