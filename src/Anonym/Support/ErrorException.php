@@ -10,9 +10,9 @@
 
 namespace Anonym\Support;
 
+use Exception;
 
-class ErrorListener
+class ErrorException
 {
-
 
 }
