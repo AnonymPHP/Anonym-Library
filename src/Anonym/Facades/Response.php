@@ -20,7 +20,6 @@ use Anonym\Patterns\Singleton;
 class Response extends Facade
 {
 
-
     /**
      * @return mixed
      */
@@ -28,6 +27,5 @@ class Response extends Facade
     {
         $response = Singleton::bind('http.response');
         return $response;
-
     }
 }
