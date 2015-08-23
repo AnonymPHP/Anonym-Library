@@ -39,6 +39,11 @@ class LogListener
         self::$registered = $registered;
     }
 
+    private static function createContent(array $parameters)
+    {
+        $time = date('d.m.Y H:i');
+        return sprintf('[%s] >>> %s -> %s -> %d', $time, $parameters['message'], $parameters['file'], $parameters['line']);
+    }
     /**
      * @param array $parameters
      */
@@ -50,5 +55,6 @@ class LogListener
             $driver->create($file);
         }
 
+        $driver->put($file, static::createContent($parameters));
     }
 }
