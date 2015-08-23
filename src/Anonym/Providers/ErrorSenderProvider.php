@@ -14,7 +14,6 @@ use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Components\HttpClient\Response;
 use Anonym\Support\ErrogBag;
 use Anonym\Support\TemplateGenerator;
-use Exception;
 
 /**
  * Class ErrorSenderProvider
