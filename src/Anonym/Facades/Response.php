@@ -26,5 +26,4 @@ class Response extends Facade
         return $response;
 
     }
-
 }
