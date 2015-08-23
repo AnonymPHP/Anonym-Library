@@ -12,7 +12,12 @@ namespace Anonym\Support;
 
 
 use Anonym\Bootstrap\Container;
+use Anonym\Components\HttpClient\Response;
 
+/**
+ * Class ErrorListener
+ * @package Anonym\Support
+ */
 class ErrorListener extends Container
 {
 
@@ -51,9 +56,32 @@ class ErrorListener extends Container
         return $this;
     }
 
+
+    /**
+     * send the exception message
+     *
+     * @throws \Anonym\Bootstrap\BindNotFoundException
+     * @throws \Anonym\Bootstrap\BindNotRespondingException
+     * @throws \Anonym\Components\HttpClient\HttpResponseException
+     */
     public function send()
     {
+        $response = $this->make('http.response');
+        $generator = new TemplateGenerator(file_get_contents(RESOURCE . 'migrations/exception.mig.php'));
+        $content = $generator->generate(
+            [
+                'file'    => $this->exception->getFile(),
+                'message' => $this->exception->getMessage(),
+                'line'    => $this->exception->getLine(),
+                'code'    => $this->exception->getCode(),
+                'trace'   => $this->exception->getTraceAsString()
+            ]
+        );
 
+        if ($response instanceof Response) {
+            $response->setContent($content);
+            $response->send();
+        }
     }
 }
 
