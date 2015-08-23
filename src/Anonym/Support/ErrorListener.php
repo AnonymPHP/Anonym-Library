@@ -68,16 +68,21 @@ class ErrorListener extends Container
     {
         $response = $this->make('http.response');
         $generator = new TemplateGenerator(file_get_contents(RESOURCE . 'migrations/exception.mig.php'));
-        $content = $generator->generate(
-            [
-                'file'    => $this->exception->getFile(),
-                'message' => $this->exception->getMessage(),
-                'line'    => $this->exception->getLine(),
-                'code'    => $this->exception->getCode(),
-                'trace'   => $this->exception->getTraceAsString()
-            ]
-        );
+        $params = [
+            'file'    => $this->exception->getFile(),
+            'message' => $this->exception->getMessage(),
+            'line'    => $this->exception->getLine(),
+            'code'    => $this->exception->getCode(),
+            'trace'   => $this->exception->getTraceAsString()
+        ];
+        $content = $generator->generate($params);
 
+        // is loglistener is registered
+        if (LogListener::isRegistered()) {
+            LogListener::sendLog($params);
+        }
+
+        // if $response is response
         if ($response instanceof Response) {
             $response->setContent($content);
             $response->send();
