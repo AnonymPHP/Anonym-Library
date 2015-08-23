@@ -12,6 +12,7 @@ namespace Anonym\Constructors;
 
 
 use Anonym\Support\ErrogBag;
+use Anonym\Support\ErrorException;
 use Anonym\Support\ErrorJar;
 
 /**
@@ -30,7 +31,7 @@ class HandlerConstructor
 
         // set the error handler
         set_error_handler(function($code, $messsage, $file, $line){
-
+            throw new ErrorException($code, $messsage, $file, $line);
         });
 
         // set the exception handler
