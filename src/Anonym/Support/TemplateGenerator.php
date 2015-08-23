@@ -22,7 +22,7 @@ class TemplateGenerator
      *
      * @var string
      */
-    private  $content;
+    private $content;
 
 
     /**
@@ -46,9 +46,8 @@ class TemplateGenerator
 
         $content = $this->getContent();
         if (count($parameters)) {
-            foreach($parameters as $param => $value)
-            {
-                 $content = str_replace("{{ $param }}", $value, $content);
+            foreach ($parameters as $param => $value) {
+                $content = str_replace("{{ $param }}", $value, $content);
             }
         }
 
@@ -72,7 +71,6 @@ class TemplateGenerator
         $this->content = $content;
         return $this;
     }
-
 
 
 }
