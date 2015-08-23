@@ -27,7 +27,7 @@ trait Container
      *
      * @var array
      */
-    protected static $container;
+    private static $container;
 
     /**
      * the add a new container
