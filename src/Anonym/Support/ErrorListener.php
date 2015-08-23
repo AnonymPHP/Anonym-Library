@@ -67,7 +67,7 @@ class ErrorListener extends Container
     public function send()
     {
         $response = $this->make('http.response');
-        $generator = new TemplateGenerator(file_get_contents(RESOURCE . 'migrations/exception.mig.php'));
+        $generator = new TemplateGenerator(file_get_contents(RESOURCE . 'migrations/errors/exception.mig.php'));
         $params = [
             'file'    => $this->exception->getFile(),
             'message' => $this->exception->getMessage(),
