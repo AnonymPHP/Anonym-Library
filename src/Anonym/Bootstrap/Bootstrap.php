@@ -32,10 +32,10 @@ class Bootstrap
      * @var array
      */
     private $constructors = [
+        RequestConstructor::class,
         HandlerConstructor::class,
         ConfigConstructor::class,
         AliasConstructor::class,
-        RequestConstructor::class,
     ];
 
     /**
