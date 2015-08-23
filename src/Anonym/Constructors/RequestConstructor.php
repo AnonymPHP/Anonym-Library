@@ -30,7 +30,8 @@ class RequestConstructor
             'http.request',
             function () {
                 return new Request();
-            }
+            },
+            true
         );
 
         // register the response
@@ -38,7 +39,8 @@ class RequestConstructor
             'http.response',
             function () use ($app) {
                 return $app->make('http.request')->getResponse();
-            }
+            },
+            true
         );
     }
 }

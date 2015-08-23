@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
+use Anonym\Bootstrap\Container;
 use Anonym\Patterns\Facade;
+use Anonym\Patterns\Singleton;
 
 /**
  * Class Request
@@ -19,5 +21,12 @@ use Anonym\Patterns\Facade;
  */
 class Request extends Facade
 {
+    use Container;
+
+    private static function getFacadeClass()
+    {
+        $request = Singleton::bind('http.request');
+        return $request;
+    }
 
 }
