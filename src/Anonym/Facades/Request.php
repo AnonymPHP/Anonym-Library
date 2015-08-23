@@ -11,7 +11,6 @@
 namespace Anonym\Facades;
 
 
-use Anonym\Bootstrap\Container;
 use Anonym\Patterns\Facade;
 use Anonym\Patterns\Singleton;
 
@@ -21,7 +20,6 @@ use Anonym\Patterns\Singleton;
  */
 class Request extends Facade
 {
-    use Container;
 
     /**
      * @return mixed

@@ -10,10 +10,12 @@
 
 namespace Anonym\Facades;
 
-
 use Anonym\Patterns\Facade;
 
 class Response extends Facade
 {
+
+
+public
 
 }
