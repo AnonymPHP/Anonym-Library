@@ -9,7 +9,8 @@
  */
 
 namespace Anonym\Patterns;
-use ReflectionClass;
+
+use Closure;
 use InvalidArgumentException;
 /**
  * Class Singleton
@@ -26,20 +27,14 @@ class Singleton
     private static $binded;
 
     /**
-     * the instances of called binds
-     *
-     * @var array
-     */
-    private static $called;
-    /**
      * make the singleton class
      *
      * @param string $class the name of class
-     * @param callable $callback the callback for name
+     * @param mixed $callback the callback for name
      * @throws InvalidArgumentException
      * @return mixed
      */
-    public static function bind($class, callable $callback = null)
+    public static function bind($class, $callback = null)
     {
 
         // $class must be a string
@@ -48,19 +43,13 @@ class Singleton
             throw new InvalidArgumentException(sprintf('Class name must be a string'));
         }
 
-        // if is not binded, do it
-        if (!static::isBinded($class))
+        if (static::isBinded($class))
         {
-            static::$binded[$class] = $callback;
+            return static::$binded[$class];
         }
 
-        // if callback called before, return it
-        if (static::isCalled($class)) {
-            return static::$called[$class];
-        }
-
-        $response = call_user_func(static::$binded[$class]);
-        static::$called[$class] = $response;
+        $response = $callback instanceof Closure ? $callback() : $callback;
+        static::$binded[$class] = $response;
         return $response;
     }
 
