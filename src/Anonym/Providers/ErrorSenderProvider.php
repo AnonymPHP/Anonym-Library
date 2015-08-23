@@ -11,7 +11,10 @@
 namespace Anonym\Providers;
 use Anonym\Bootstrap\ServiceProvider;
 
-
+/**
+ * Class ErrorSenderProvider
+ * @package Anonym\Providers
+ */
 class ErrorSenderProvider extends ServiceProvider
 {
 
