@@ -67,7 +67,7 @@ class ErrorListener
      */
     public function send()
     {
-        $response = $this->make('http.response');
+        $response = new Response();
         $generator = new TemplateGenerator(file_get_contents(RESOURCE . 'migrations/errors/exception.mig.php'));
         $params = [
             'file'    => $this->exception->getFile(),
@@ -82,11 +82,7 @@ class ErrorListener
         if (LogListener::isRegistered()) {
             LogListener::sendLog($params);
         }
-
-        // if $response is response
-        if ($response instanceof Response) {
-            $response->setContent($content);
-            $response->send();
-        }
+        $response->setContent($content);
+        $response->send();
     }
 }
