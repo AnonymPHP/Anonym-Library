@@ -11,6 +11,7 @@
 namespace Anonym\Providers;
 
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Components\HttpClient\Response;
 use Anonym\Support\ErrogBag;
 use Anonym\Support\TemplateGenerator;
 use Exception;
@@ -62,6 +63,14 @@ Error Code: : {{ code }}
 
                 $parameters = [$error->getFile(), $error->getMessage(), $error->getLine(), $error->getCode()];
                 $content .= $generator->generate($parameters);
+            }
+
+            $content .= "</body></html>";
+            $response = $this->make('http.response');
+
+            if ($response instanceof Response) {
+                $response->setContent($content);
+                $response->send();
             }
         }
     }
