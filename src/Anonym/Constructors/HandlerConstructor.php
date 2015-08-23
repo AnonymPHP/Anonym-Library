@@ -30,7 +30,9 @@ class HandlerConstructor
 
         // set the error handler
         set_error_handler(function($code, $messsage, $file, $line){
-            new ErrorListener(new ErrorException($code, $messsage, $file, $line));
+            $listener = new ErrorListener(new ErrorException($code, $messsage, $file, $line));
+            $listener->send();
+
         });
 
         // set the exception handler
