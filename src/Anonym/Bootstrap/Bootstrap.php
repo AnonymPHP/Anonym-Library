@@ -74,6 +74,16 @@ class Bootstrap extends Container
      */
     private function resolveHelpers()
     {
+        $helpers = Config::get('general.helpers');
+
+        if (count($helpers)) {
+            foreach ($helpers as $helper) {
+                if (file_exists($helper)) {
+                    include $helper;
+                }
+            }
+        }
+
         include APP . 'helpers/helpers.php';
     }
     /**
