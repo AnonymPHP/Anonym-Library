@@ -19,7 +19,7 @@ use Closure;
  * Class Container
  * @package Anonym\Bootstrap
  */
-class Container
+trait Container
 {
 
     /**

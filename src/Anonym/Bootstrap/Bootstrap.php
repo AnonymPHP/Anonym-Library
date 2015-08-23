@@ -22,8 +22,9 @@ use Anonym\Facades\Config;
  * Class Bootstrap
  * @package Anonym\Bootstrap
  */
-class Bootstrap extends Container
+class Bootstrap
 {
+    use Container;
 
     /**
      * bootstraps class repository
