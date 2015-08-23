@@ -24,14 +24,14 @@ class ErrogBag
      *
      * @var array
      */
-    private static $errors;
+    private static $errors = [];
 
     /**
      * the repository of php exceptions
      *
      * @var array
      */
-    private static $exceptions;
+    private static $exceptions = [];
 
 
 
