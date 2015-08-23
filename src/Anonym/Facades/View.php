@@ -11,6 +11,7 @@
 namespace Anonym\Facades;
 
 
+use Anonym\Components\View\ViewDriverManager;
 use Anonym\Patterns\Facade;
 /**
  * Class View
@@ -26,8 +27,12 @@ class View extends Facade
      */
     protected static function getFacadeClass()
     {
-        $driver = Config::get('');
+        $configs = Config::get('view');
 
+        $driver = isset($configs['driver']) ? $configs['driver'] : 'twig';
+        $manager = new ViewDriverManager();
+        $instance = $manager->driver($driver, '', $configs);
+        return $instance;
     }
 
 }
