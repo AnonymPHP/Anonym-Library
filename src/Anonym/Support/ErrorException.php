@@ -15,4 +15,9 @@ use Exception;
 class ErrorException
 {
 
+    public function __construct($code, $messsage, $file, $line)
+    {
+
+    }
+
 }
