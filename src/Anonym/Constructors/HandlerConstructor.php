@@ -30,12 +30,12 @@ class HandlerConstructor
 
         // set the error handler
         set_error_handler(function($code, $messsage, $file, $line){
-            ErrogBag::addError(new ErrorJar($messsage, $file, $line, $code));
+
         });
 
         // set the exception handler
         set_exception_handler(function($exception){
-           ErrogBag::addException($exception);
+
         });
     }
 
