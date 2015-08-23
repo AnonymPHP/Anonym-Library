@@ -11,6 +11,8 @@
 namespace Anonym\Support;
 
 
+use Anonym\Facades\Stroge;
+
 class LogListener
 {
 
@@ -42,6 +44,11 @@ class LogListener
      */
     public static function sendLog(array $parameters)
     {
+        $file = APP . 'logs/error.log';
+        $driver = Stroge::disk('local');
+        if (!$driver->exists($file)) {
+            $driver->create($file);
+        }
 
     }
 }
