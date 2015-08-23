@@ -12,6 +12,8 @@ namespace Anonym\Providers;
 
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Support\ErrogBag;
+use Anonym\Support\TemplateGenerator;
+use Exception;
 
 /**
  * Class ErrorSenderProvider
@@ -40,8 +42,26 @@ class ErrorSenderProvider extends ServiceProvider
 
 <h1 style="font-family:Open Sans, sans-serif;">Ooops! Something Went Error.</h1>
 <hr/>';
-            foreach ($errors as $error) {
 
+            $generator = new TemplateGenerator();
+            foreach ($errors as $error) {
+                $generator->setContent(
+                    '
+<br/>
+<b>There is an error in: {{ file }}</b>
+
+<hr/>
+Message : {{ message }}
+<hr/>
+Line: : {{ line }}
+<hr/>
+Error Code: : {{ code }}
+<hr/>
+'
+                );
+
+                $parameters = [$error->getFile(), $error->getMessage(), $error->getLine(), $error->getCode()];
+                $content .= $generator->generate($parameters);
             }
         }
     }
