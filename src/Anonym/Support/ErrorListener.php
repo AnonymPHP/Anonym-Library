@@ -48,7 +48,5 @@ class ErrorListener
         $this->exception = $exception;
         return $this;
     }
-
-
 }
 

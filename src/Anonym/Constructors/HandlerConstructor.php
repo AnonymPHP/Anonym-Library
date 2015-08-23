@@ -11,9 +11,8 @@
 namespace Anonym\Constructors;
 
 
-use Anonym\Support\ErrogBag;
+use Anonym\Support\ErrorListener;
 use Anonym\Support\ErrorException;
-use Anonym\Support\ErrorJar;
 
 /**
  * Class HandlerConstructor
@@ -36,7 +35,8 @@ class HandlerConstructor
 
         // set the exception handler
         set_exception_handler(function($exception){
-
+            $listen = new ErrorListener($exception);
+            $listen->send();
         });
     }
 
