@@ -13,6 +13,10 @@ namespace Anonym\Facades;
 use Anonym\Patterns\Facade;
 use Anonym\Patterns\Singleton;
 
+/**
+ * Class Response
+ * @package Anonym\Facades
+ */
 class Response extends Facade
 {
 
