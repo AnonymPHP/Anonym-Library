@@ -13,6 +13,10 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * Class Request
+ * @package Anonym\Facades
+ */
 class Request extends Facade
 {
 
