@@ -6,6 +6,10 @@ use RuntimeException;
 use Stringy\StaticStringy;
 use Anonym\Support\Traits\Macroable;
 
+/**
+ * Class Str
+ * @package Anonym\Support
+ */
 class Str
 {
     use Macroable;
