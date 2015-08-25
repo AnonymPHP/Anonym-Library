@@ -12,13 +12,15 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
+use Anonym\Patterns\Singleton;
 
 class Register extends Facade
 {
 
     protected static function getFacadeClass()
     {
-        
+        $base = Singleton::bind('database.base');
+        $tables = Config::get('database.tables');
     }
 
 }
