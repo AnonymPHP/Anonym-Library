@@ -11,7 +11,13 @@
 namespace Anonym\Providers;
 
 
-class SecurityProvider
+use Anonym\Bootstrap\ServiceProvider;
+
+/**
+ * Class SecurityProvider
+ * @package Anonym\Providers
+ */
+class SecurityProvider extends ServiceProvider
 {
 
 }
