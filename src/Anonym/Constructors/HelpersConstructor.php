@@ -15,6 +15,10 @@ use Anonym\Facades\Config;
 class HelpersConstructor
 {
 
+    /**
+     * include the helpers
+     *
+     */
     public function __construct()
     {
         $helpers = Config::get('general.helpers');
