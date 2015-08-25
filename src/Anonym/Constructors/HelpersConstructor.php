@@ -10,6 +10,7 @@
 
 namespace Anonym\Constructors;
 
+use Anonym\Facades\Config;
 
 class HelpersConstructor
 {
