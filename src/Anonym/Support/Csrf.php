@@ -10,11 +10,17 @@
 
 namespace Anonym\Support;
 
+use Anonym\Bootstrap\Container;
+
 /**
  * Class Csrf
  * @package Anonym\Support
  */
 class Csrf
 {
+
+    use Container;
+
+
 
 }
