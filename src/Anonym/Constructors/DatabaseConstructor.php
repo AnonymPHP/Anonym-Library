@@ -14,6 +14,11 @@ namespace Anonym\Constructors;
 use Anonym\Bootstrap\Container;
 use Anonym\Components\Database\Base;
 
+/**
+ *
+ * Class DatabaseConstructor
+ * @package Anonym\Constructors
+ */
 class DatabaseConstructor
 {
     use Container;
