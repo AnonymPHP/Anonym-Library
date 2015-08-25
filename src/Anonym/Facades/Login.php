@@ -13,6 +13,7 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 use Anonym\Components\Security\Authentication\Login as LoginDispatcher;
+use Anonym\Patterns\Singleton;
 
 /**
  * Class Login
@@ -28,6 +29,8 @@ class Login extends Facade
      */
     protected static function getFacadeClass()
     {
-
+        $base = Singleton::bind('database.base');
+        $tables = Config::get('database.login');
+        return new LoginDispatcher($base, $tables);
     }
 }
