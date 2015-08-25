@@ -10,7 +10,10 @@
 
 namespace Anonym\Support;
 
-
+/**
+ * Class Csrf
+ * @package Anonym\Support
+ */
 class Csrf
 {
 
