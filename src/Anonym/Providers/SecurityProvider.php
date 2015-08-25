@@ -13,6 +13,7 @@ namespace Anonym\Providers;
 
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Components\Security\CsrfToken;
+use Anonym\Components\Security\Firewall\Firewall\Firewall;
 use Anonym\Facades\Config;
 use Anonym\Components\Security\Firewall\IpFirewall;
 
@@ -48,10 +49,26 @@ class SecurityProvider extends ServiceProvider
             if (isset($firewall['ip_firewall'])) {
                 $this->registerIpFirewall($firewall['ip_firewall']);
             }
+
+            if (isset($firewall['full_firewall'])) {
+                $this->registerFullFirewall($firewall['full_firewall']);
+            }
         }
 
     }
 
+    /**
+     * register the full firewall
+     *
+     * @param array $firewall
+     * @throws \Anonym\Components\Security\Exception\ClassInstanceException
+     * @throws \Anonym\Components\Security\Exception\FirewallException
+     */
+    private function registerFullFirewall(array $firewall = [])
+    {
+        $firewall = new Firewall($firewall);
+        $firewall->run();
+    }
 
     /**
      * register the ip list to firewall
