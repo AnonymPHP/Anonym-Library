@@ -18,6 +18,11 @@ use Anonym\Components\Security\Authentication\Register as RegisterDispatcher;
 class Register extends Facade
 {
 
+    /**
+     * get the register dispatcher facade
+     *
+     * @return RegisterDispatcher
+     */
     protected static function getFacadeClass()
     {
         $base = Singleton::bind('database.base');
