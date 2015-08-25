@@ -20,8 +20,6 @@ use Anonym\Patterns\Singleton;
 class Element
 {
 
-    private static $table = 'table';
-
     /**
      * @var ElementOrm
      */
@@ -44,12 +42,7 @@ class Element
     private function findCalledClassTableVariable()
     {
         $class = get_called_class();
-        $vars = get_class_vars($class);
-        if (isset($vars[self::$table])) {
-            return $vars[self::$table];
-        } else {
-            return $this->resolveClassName($class);
-        }
+        return $this->resolveClassName($class);
     }
 
 
