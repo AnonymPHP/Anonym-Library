@@ -12,6 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
+use Anonym\Components\Security\Authentication\Login as LoginDispatcher;
 
 /**
  * Class Login
@@ -20,6 +21,11 @@ use Anonym\Patterns\Facade;
 class Login extends Facade
 {
 
+    /**
+     *get the login dispatcher facade
+     *
+     * @return LoginDispatcher
+     */
     protected static function getFacadeClass()
     {
 
