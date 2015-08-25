@@ -66,7 +66,6 @@ class Bootstrap
         $this->version = $version;
 
         $this->resolveBootstraps();
-        $this->resolveHelpers();
         $this->resolveProviders(Config::get('general.providers'));
     }
 
