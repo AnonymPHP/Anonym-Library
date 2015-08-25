@@ -12,6 +12,10 @@ namespace Anonym\Constructors;
 
 use Anonym\Facades\Config;
 
+/**
+ * Class HelpersConstructor
+ * @package Anonym\Constructors
+ */
 class HelpersConstructor
 {
 
