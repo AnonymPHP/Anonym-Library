@@ -44,7 +44,7 @@ class SecurityProvider extends ServiceProvider
             $this->bind(
                 'security.csrf',
                 function () use ($field) {
-                    return new CsrfToken();
+                    return (new CsrfToken())->setFormFieldName($field);
                 }
             );
         }
