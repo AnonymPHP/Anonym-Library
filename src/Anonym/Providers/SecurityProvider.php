@@ -51,7 +51,7 @@ class SecurityProvider extends ServiceProvider
             $request = $this->make('http.request');
 
             if ($request->getMethod() === 'POST') {
-
+                $this->make('security.csrf')->run();
             }
         }
 
