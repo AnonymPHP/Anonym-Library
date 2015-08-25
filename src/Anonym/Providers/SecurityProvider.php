@@ -12,6 +12,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Facades\Config;
 
 /**
  * Class SecurityProvider
@@ -27,7 +28,7 @@ class SecurityProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $all = Config::get('security');
 
     }
 }
