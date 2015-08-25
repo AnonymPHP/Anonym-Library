@@ -22,5 +22,8 @@ class Csrf
     use Container;
 
 
+    public function getToken()
+    {
 
+    }
 }
