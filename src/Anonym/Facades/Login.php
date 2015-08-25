@@ -20,4 +20,8 @@ use Anonym\Patterns\Facade;
 class Login extends Facade
 {
 
+    protected static function getFacadeClass()
+    {
+
+    }
 }
