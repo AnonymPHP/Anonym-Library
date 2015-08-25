@@ -40,6 +40,15 @@ class SecurityProvider extends ServiceProvider
         }
     }
 
+    private function registerFirewallSecurity(array $firewall = [])
+    {
+        if (isset($firewall['ip_firewall'])) {
+            $this->registerIpFirewall($firewall['ip_firewall']);
+        }
+    }
+
+
+
     /**
      * register the csrf token
      *
