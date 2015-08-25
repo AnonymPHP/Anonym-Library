@@ -87,7 +87,6 @@ class Bootstrap
             }
         }
 
-        include APP . 'helpers/helpers.php';
     }
     /**
      *  resolve the constructor classes
