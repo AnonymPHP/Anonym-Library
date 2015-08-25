@@ -39,8 +39,7 @@ trait Container
      */
     public function bind($name, callable $callback, $shared = false)
     {
-        if(true === $shared)
-        {
+        if (true === $shared) {
             $this->singleton($name, $callback);
         } else {
             static::$container[$name] = $callback;
@@ -74,16 +73,26 @@ trait Container
         if (isset(static::$container[$name]) || Singleton::isBinded($name)) {
             $bind = isset(static::$container[$name]) ? static::$container[$name] : Singleton::bind($name);
             $response = $bind instanceof Closure ? $bind() : $bind;
-            if($response)
-            {
+            if ($response) {
                 return $response;
-            }else{
+            } else {
                 throw new BindNotRespondingException(sprintf('Your %s bind It is does not give any response', $name));
             }
-        }else{
+        } else {
             throw new BindNotFoundException(sprintf(''));
         }
+    }
 
+    /**
+     * check the binded
+     *
+     * @param string $name the name of bind
+     * @param bool|false $share
+     * @return bool
+     */
+    public function isBinded($name, $share = false)
+    {
+        return $share === true ? Singleton::isBinded($name) : isset(static::$container[$name]);
     }
 
 }
