@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
-class Register
+use Anonym\Patterns\Facade;
+
+class Register extends Facade
 {
 
 }
