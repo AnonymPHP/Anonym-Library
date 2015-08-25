@@ -12,6 +12,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Components\Security\CsrfToken;
 use Anonym\Facades\Config;
 
 /**
@@ -37,6 +38,16 @@ class SecurityProvider extends ServiceProvider
 
     private function registerCsrfSecurity(array $configs = [])
     {
+
+        if ($configs['status'] === true) {
+            $field = $configs['field_name'];
+            $this->bind(
+                'security.csrf',
+                function () use ($field) {
+                    return new CsrfToken();
+                }
+            );
+        }
 
     }
 }
