@@ -86,8 +86,8 @@ class Bootstrap
                 }
             }
         }
-
     }
+
     /**
      *  resolve the constructor classes
      */
