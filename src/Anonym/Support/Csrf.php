@@ -21,7 +21,6 @@ class Csrf
 
     use Container;
 
-
     /**
      * get the csrf token
      *
