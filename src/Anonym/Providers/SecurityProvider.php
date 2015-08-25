@@ -33,6 +33,10 @@ class SecurityProvider extends ServiceProvider
         if (isset($all['csrf'])) {
             $this->registerCsrfSecurity($all['csrf']);
         }
+    }
+
+    private function registerCsrfSecurity(array $configs = [])
+    {
 
     }
 }
