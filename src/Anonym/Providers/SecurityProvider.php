@@ -34,8 +34,19 @@ class SecurityProvider extends ServiceProvider
         if (isset($all['csrf'])) {
             $this->registerCsrfSecurity($all['csrf']);
         }
+
+        if (isset($all['firewall'])) {
+            $this->registerFirewallSecurity($all['firewall']);
+        }
     }
 
+    /**
+     * register the csrf token
+     *
+     * @param array $configs
+     * @throws \Anonym\Bootstrap\BindNotFoundException
+     * @throws \Anonym\Bootstrap\BindNotRespondingException
+     */
     private function registerCsrfSecurity(array $configs = [])
     {
 
