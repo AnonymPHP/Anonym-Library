@@ -43,9 +43,13 @@ class SecurityProvider extends ServiceProvider
 
     private function registerFirewallSecurity(array $firewall = [])
     {
-        if (isset($firewall['ip_firewall'])) {
-            $this->registerIpFirewall($firewall['ip_firewall']);
+
+        if (true === $firewall['status']) {
+            if (isset($firewall['ip_firewall'])) {
+                $this->registerIpFirewall($firewall['ip_firewall']);
+            }
         }
+
     }
 
 
@@ -58,6 +62,7 @@ class SecurityProvider extends ServiceProvider
     {
         $firewall = new IpFirewall();
         $firewall->setIpAddress($ipList);
+
     }
 
     /**
