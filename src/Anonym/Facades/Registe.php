@@ -13,6 +13,7 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 use Anonym\Patterns\Singleton;
+use Anonym\Components\Security\Authentication\Register as RegisterDispatcher;
 
 class Register extends Facade
 {
@@ -21,6 +22,7 @@ class Register extends Facade
     {
         $base = Singleton::bind('database.base');
         $tables = Config::get('database.tables');
+        return new RegisterDispatcher($base, $tables);
     }
 
 }
