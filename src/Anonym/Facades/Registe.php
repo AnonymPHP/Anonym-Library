@@ -15,6 +15,10 @@ use Anonym\Patterns\Facade;
 use Anonym\Patterns\Singleton;
 use Anonym\Components\Security\Authentication\Register as RegisterDispatcher;
 
+/**
+ * Class Register
+ * @package Anonym\Facades
+ */
 class Register extends Facade
 {
 
