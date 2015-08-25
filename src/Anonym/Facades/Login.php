@@ -11,7 +11,9 @@
 namespace Anonym\Facades;
 
 
-class Login
+use Anonym\Patterns\Facade;
+
+class Login extends Facade
 {
 
 }
