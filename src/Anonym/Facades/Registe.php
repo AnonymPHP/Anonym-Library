@@ -16,4 +16,9 @@ use Anonym\Patterns\Facade;
 class Register extends Facade
 {
 
+    protected static function getFacadeClass()
+    {
+        
+    }
+
 }
