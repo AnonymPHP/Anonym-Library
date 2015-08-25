@@ -22,8 +22,15 @@ class Csrf
     use Container;
 
 
+    /**
+     * get the csrf token
+     *
+     * @return bool|string
+     * @throws \Anonym\Bootstrap\BindNotFoundException
+     * @throws \Anonym\Bootstrap\BindNotRespondingException
+     */
     public function getToken()
     {
-
+        return $this->isBinded('security.csrf') ? $this->make('security.csrf')->getToken() : false;
     }
 }
