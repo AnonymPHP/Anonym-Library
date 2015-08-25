@@ -47,6 +47,12 @@ class SecurityProvider extends ServiceProvider
                     return (new CsrfToken())->setFormFieldName($field);
                 }
             );
+
+            $request = $this->make('http.request');
+
+            if ($request->getMethod() === 'POST') {
+
+            }
         }
 
     }
