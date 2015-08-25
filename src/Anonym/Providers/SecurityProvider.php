@@ -14,6 +14,7 @@ namespace Anonym\Providers;
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Components\Security\CsrfToken;
 use Anonym\Facades\Config;
+use Anonym\Components\Security\Firewall\IpFirewall;
 
 /**
  * Class SecurityProvider
@@ -48,6 +49,16 @@ class SecurityProvider extends ServiceProvider
     }
 
 
+    /**
+     * register the ip list to firewall
+     *
+     * @param array $ipList
+     */
+    private function registerIpFirewall(array $ipList = [])
+    {
+        $firewall = new IpFirewall();
+        $firewall->setIpAddress($ipList);
+    }
 
     /**
      * register the csrf token
