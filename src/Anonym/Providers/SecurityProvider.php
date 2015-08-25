@@ -14,6 +14,7 @@ namespace Anonym\Providers;
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Components\Security\CsrfToken;
 use Anonym\Components\Security\Firewall\Firewall\Firewall;
+use Anonym\Components\Security\TypeHint;
 use Anonym\Facades\Config;
 use Anonym\Components\Security\Firewall\IpFirewall;
 
@@ -49,6 +50,21 @@ class SecurityProvider extends ServiceProvider
         }
     }
 
+
+    /**
+     * register the type hint
+     *
+     */
+    private function registerTypeHint()
+    {
+        TypeHint::boot();
+    }
+
+    /**
+     * register the firewall
+     *
+     * @param array $firewall
+     */
     private function registerFirewallSecurity(array $firewall = [])
     {
 
