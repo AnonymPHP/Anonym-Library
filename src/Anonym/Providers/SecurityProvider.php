@@ -40,6 +40,13 @@ class SecurityProvider extends ServiceProvider
         if (isset($all['firewall'])) {
             $this->registerFirewallSecurity($all['firewall']);
         }
+
+        // register the type hint
+        if (isset($all['type_hint'])) {
+            if (true === $all['type_hint']) {
+                $this->registerTypeHint();
+            }
+        }
     }
 
     private function registerFirewallSecurity(array $firewall = [])
