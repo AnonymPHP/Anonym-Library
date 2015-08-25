@@ -20,4 +20,13 @@ use Anonym\Bootstrap\ServiceProvider;
 class SecurityProvider extends ServiceProvider
 {
 
+    /**
+     * register the provider
+     *
+     * @return mixed
+     */
+    public function register()
+    {
+        // TODO: Implement register() method.
+    }
 }
