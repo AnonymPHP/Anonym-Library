@@ -61,8 +61,7 @@ class SecurityProvider extends ServiceProvider
     private function registerIpFirewall(array $ipList = [])
     {
         $firewall = new IpFirewall();
-        $firewall->setIpAddress($ipList);
-
+        $firewall->setIpAddress($ipList)->handle();
     }
 
     /**
