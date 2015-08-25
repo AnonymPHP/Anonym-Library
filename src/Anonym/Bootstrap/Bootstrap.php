@@ -14,6 +14,7 @@ use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
+use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Facades\Config;
 
 /**
@@ -36,6 +37,7 @@ class Bootstrap
         HandlerConstructor::class,
         ConfigConstructor::class,
         AliasConstructor::class,
+        DatabaseConstructor::class,
     ];
 
     /**
