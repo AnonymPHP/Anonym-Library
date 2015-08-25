@@ -23,6 +23,9 @@ class DatabaseConstructor
 {
     use Container;
 
+    /**
+     *  register the database base
+     */
     public function __construct()
     {
         $this->singleton(
