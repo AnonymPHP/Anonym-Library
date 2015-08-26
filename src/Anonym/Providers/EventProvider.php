@@ -30,5 +30,7 @@ class EventProvider extends ServiceProvider
     {
         $events = Config::get('event.events');
         EventCollector::setListeners($events);
+
+        include APP . 'events.php';
     }
 }
