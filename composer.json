@@ -24,7 +24,7 @@
     "anonym-php/anonym-crypt": "~1.2@dev",
     "anonym-php/anonym-database": "~1.2@dev",
     "anonym-php/anonym-database-tools": "~1.2@dev",
-    "anonym-php/anonym-element-orm": "~1.2@dev",
+    "anonym-php/anonym-element-orm": "~1.3@dev",
     "anonym-php/anonym-filesystem": "~1.2@dev",
     "anonym-php/anonym-route": "~1.2@dev",
     "anonym-php/anonym-security": "~1.2@dev",
