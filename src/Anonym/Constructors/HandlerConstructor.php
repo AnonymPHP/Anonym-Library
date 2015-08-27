@@ -29,10 +29,12 @@ class HandlerConstructor
     public function __construct()
     {
 
-        if (true === Config::get('error.handler.errors')) {
+        if (true === Config::get('error.handler.errors.enabled')) {
             // set the error handler
+
+            $switch = Config::get('error.handler.errors.switch');
             set_error_handler(
-                function ($code, $messsage, $file, $line) {
+                function ($code, $messsage, $file, $line) use ($switch) {
                     $listener = new ErrorListener(new ErrorException($code, $messsage, $file, $line));
                     $listener->send();
 
