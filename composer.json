@@ -39,7 +39,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Anonym\\": "src/Anonym/"
+      "Anonym\\Facades\\": "src/Anonym/Facades",
+      "Anonym\\Bootstrap\\": "src/Anonym/Bootstrap",
+      "Anonym\\Patterns\\": "src/Anonym/Patterns",
+      "Anonym\\Support\\": "src/Anonym/Support",
+      "Anonym\\Providers\\": "src/Anonym/Providers",
+      "Anonym\\Constructors\\": "src/Anonym/Constructors"
     }
   }
 }
