@@ -35,11 +35,11 @@ class Bootstrap
      */
     private $constructors = [
         RequestConstructor::class,
-        HandlerConstructor::class,
         ConfigConstructor::class,
-        AliasConstructor::class,
         HelpersConstructor::class,
+        AliasConstructor::class,
         DatabaseConstructor::class,
+        HandlerConstructor::class,
     ];
 
     /**
