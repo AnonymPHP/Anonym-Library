@@ -84,6 +84,18 @@ trait Container
     }
 
     /**
+     * call the callable function with parameters
+     *
+     * @param callable $method
+     * @param array $parameters
+     * @return mixed
+     */
+    public function call(callable $method, $parameters = [])
+    {
+        return call_user_func_array($method, $parameters);
+    }
+
+    /**
      * check the binded
      *
      * @param string $name the name of bind
