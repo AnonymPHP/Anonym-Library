@@ -52,6 +52,18 @@ abstract class Container
      * @var array
      */
     private $bindigs;
+
+    /**
+     * Determine if the given abstract type has been resolved.
+     *
+     * @param string $class
+     * @return bool
+     */
+    protected function resolved($class)
+    {
+        return isset($this->instances[$class]);
+    }
+
     /**
      * the add a new container
      *
@@ -82,11 +94,15 @@ abstract class Container
 
         $this->bindings[$class] = compact('callback', 'shared');
 
-        if ($this->resolved($class)) {
-            $this->rebound($class);
-        }
-
         return $this;
+    }
+
+
+    public function singleton($class, $callback = [])
+    {
+
+        $abstract = $this->getAlias($class);
+
     }
 
     /**
@@ -218,11 +234,15 @@ abstract class Container
     }
 
     /**
+     * get the class alias
+     *
+     *
+     * @param string $name
      * @return array
      */
-    public function getAlias()
+    public function getAlias($name)
     {
-        return $this->alias;
+        return isset($this->aliases[$name]) ? $this->aliases[$name] : $name;
     }
 
     /**
