@@ -28,6 +28,6 @@ class Route extends Facade
      */
     protected static function getFacadeClass()
     {
-        return "Route";
+        return "route";
     }
 }
