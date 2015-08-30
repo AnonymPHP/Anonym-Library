@@ -8,4 +8,14 @@
  * Thanks for using
  */
 
- include 'vendor/autoload.php';
+include 'vendor/autoload.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+$container = new \Anonym\Bootstrap\Container();
+
+$container->bind('config.constructor', function(){
+    return new \Anonym\Constructors\ConfigConstructor();
+});
+
+
+var_dump($container->make('config.constructor'));

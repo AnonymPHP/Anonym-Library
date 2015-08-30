@@ -127,7 +127,7 @@ class Container
         if ($this->isBuildable($abstract, $parameters)) {
             $object = $this->build($abstract, $parameters);
         }else{
-            $object = $this->make($abstract, $parameters);
+            $object = $this->callClosure($abstract);
         }
 
         if ($this->isShared($abstract)) {
@@ -137,6 +137,29 @@ class Container
         return $object;
     }
 
+    /**
+     * call the closure object
+     *
+     * @param string $abstract
+     * @param array $parameters
+     * @throws BindNotRespondingException
+     * @throws BindResolutionException
+     * @return mixed
+     */
+    protected function callClosure($abstract = '', $parameters = [])
+    {
+        $closure = static::$container[$abstract];
+
+        if ($closure instanceof Closure) {
+            if (null !== $response = call_user_func_array($abstract, $parameters)) {
+                return $response;
+            }else{
+                throw new BindNotRespondingException(sprintf('target %s is not found', $abstract));
+            }
+        }else{
+            throw new BindResolutionException(sprintf('target %s is not an isntance of %s', $abstract, Closure::class));
+        }
+    }
 
     /**
      * create a new reflection class
