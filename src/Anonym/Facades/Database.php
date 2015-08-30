@@ -12,6 +12,10 @@ namespace Anonym\Facades;
 
 use Anonym\Components\Database\Base;
 
+/**
+ * Class Database
+ * @package Anonym\Facades
+ */
 class Database
 {
 
