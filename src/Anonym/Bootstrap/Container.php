@@ -21,7 +21,7 @@ use Closure;
  * Class Container
  * @package Anonym\Bootstrap
  */
-abstract class Container
+class Container
 {
 
     /**
