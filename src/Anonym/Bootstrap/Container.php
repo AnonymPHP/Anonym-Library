@@ -86,9 +86,10 @@ abstract class Container
      */
     protected function getClosure($class, $callback)
     {
+        return function ($app, $parameters = []) use ($class, $callback) {
+            $method = ($callback === $class) ? 'build' : 'make';
 
-        return function ($abstract, $parameters = []) use ($class, $callback) {
-
+            return $app->$method($callback, $parameters);
         };
 
     }
