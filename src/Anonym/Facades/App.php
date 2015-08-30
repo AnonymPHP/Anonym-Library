@@ -14,6 +14,10 @@ namespace Anonym\Facades;
 
 use Anonym\Bootstrap\Container;
 
+/**
+ * Class App
+ * @package Anonym\Facades
+ */
 class App extends Facade
 {
 
@@ -24,5 +28,4 @@ class App extends Facade
     {
         return 'App';
     }
-
 }
