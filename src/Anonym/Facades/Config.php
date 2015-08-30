@@ -9,13 +9,7 @@
  */
 
 namespace Anonym\Facades;
-
-use Anonym\Components\Config\ConfigLoader;
-use Anonym\Components\Config\Reposity;
 use Anonym\Patterns\Facade;
-use Anonym\Patterns\Singleton;
-use Anonym\Constructors\ConfigConstructor;
-
 /**
  * the facade for config
  *
