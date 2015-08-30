@@ -29,7 +29,7 @@ class Login extends Facade
      */
     protected static function getFacadeClass()
     {
-        $base = Singleton::bind('database.base');
+        $base = App::make('database.base');
         $tables = Config::get('database.tables');
         return new LoginDispatcher($base, $tables);
     }
