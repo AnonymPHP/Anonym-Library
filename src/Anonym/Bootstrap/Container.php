@@ -29,41 +29,73 @@ abstract class Container
      *
      * @var array
      */
-    protected static $instances;
+    protected static $container;
 
+
+    /**
+     * an array of types has been resolved
+     *
+     * @var array
+     */
+    protected $instances = [];
     /**
      * get facade alias
      *
      * @var array
      */
-    protected  $aliases;
+    protected $aliases;
 
 
     /**
      * the add a new container
      *
-     * @param string $name
+     * @param string|array $class
      * @param callable $callback
      * @param bool $shared
-     * @throws InvalidArgumentException
      * @return mixed
      */
-    public function bind($name, callable $callback, $shared = false)
+    public function bind($class, callable $callback, $shared = false)
     {
 
-        // $name must be a string
-        if(!is_string($name))
-        {
-            throw new InvalidArgumentException(sprintf('Class name must be a string'));
+        // if class name is array we will parse the alias name
+        if (is_array($class)) {
+            list($class, $alias) = $this->extractAlias($class);
+
+            $this->alias($class, $alias);
         }
 
-        if (true === $shared) {
-            $this->singleton($name, $callback);
-        } else {
-            static::$instances[$name] = $callback;
+        $this->dropStaleInstances($class);
+
+        if (is_null($callback)) {
+            $callback = $class;
+        }
+
+        if (!$callback instanceof Closure) {
+            $callback = $this->getClosure($callback);
         }
 
         return $this;
+    }
+
+    /**
+     * get closure from string
+     *
+     *
+     * @return Closure
+     */
+    protected function getClosure()
+    {
+
+    }
+
+    /**
+     * remove the $abstract from aliases and instances
+     *
+     * @param string $abstract
+     */
+    protected function dropStaleInstances($abstract)
+    {
+        unset($this->aliases[$abstract], $this->instances[$abstract]);
     }
 
     /**
@@ -72,7 +104,7 @@ abstract class Container
      * @param array $classes
      * @return array
      */
-    protected function extendAlias(array $classes = [])
+    protected function extractAlias(array $classes = [])
     {
         return [key($classes), current($classes)];
     }
@@ -88,6 +120,7 @@ abstract class Container
     {
         $this->aliases[$alias] = $class;
     }
+
     /**
      * register a new singleton class
      *
@@ -118,7 +151,7 @@ abstract class Container
             $bind = Singleton::bind($name);
         } elseif ($this->bindIsFacade($name)) {
             $bind = $this->facade($name);
-        }else{
+        } else {
             return false;
         }
 
@@ -150,7 +183,8 @@ abstract class Container
      * @param string $name
      * @return bool
      */
-    public function isSingleton($name){
+    public function isSingleton($name)
+    {
         return Singleton::isBinded($name);
     }
 
@@ -183,7 +217,6 @@ abstract class Container
 
         return $this;
     }
-
 
 
 }
