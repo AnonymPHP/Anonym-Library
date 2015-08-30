@@ -11,6 +11,7 @@
 namespace Anonym\Patterns;
 
 use Anonym\Bootstrap\AliasLoader;
+use Anonym\Bootstrap\Container;
 use InvalidArgumentException;
 /**
  * Class Facade
@@ -31,6 +32,7 @@ class Facade
         throw new FacadeException('i can not call myself');
     }
 
+
     /**
      * do resolve returned value
      *
@@ -41,6 +43,7 @@ class Facade
      */
     private static function resolveFacadeClass($class)
     {
+
         if(is_string($class))
         {
             $class = (new AliasLoader())->load($class);
