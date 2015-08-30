@@ -10,7 +10,7 @@
 
 
 namespace Anonym\Facades;
-
+use Anonym\Patterns\Facade;
 /**
  * Class App
  * @package Anonym\Facades
