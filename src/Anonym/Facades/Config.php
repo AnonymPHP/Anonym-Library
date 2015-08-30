@@ -31,9 +31,7 @@ class Config extends Facade
      */
     protected static function getFacadeClass()
     {
-        $loader = App::make(ConfigConstructor::class);
-        Reposity::setCache($loader->getConfigs());
-        return new Reposity();
+        return 'config';
     }
 
 }
