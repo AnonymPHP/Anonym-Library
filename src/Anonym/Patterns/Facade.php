@@ -11,6 +11,7 @@
 namespace Anonym\Patterns;
 
 use Anonym\Bootstrap\AliasLoader;
+use Anonym\Bootstrap\Container;
 use InvalidArgumentException;
 /**
  * Class Facade
@@ -20,13 +21,24 @@ class Facade
 {
 
     /**
+     * the instance of container
+     *
+     * @var Container
+     */
+    private static $container;
+
+    /**
      * load the facade instance
      *
      * @return bool|Object
      * @throws FacadeException
      */
-    public function load(){
-        return static::resolveFacadeClass(static::getFacadeClass());
+    private static function getContainer(){
+        if (!static::$container instanceof Container) {
+            static::$container = new Container();
+        }
+
+        return static::$container;
     }
 
     /**
@@ -50,18 +62,18 @@ class Facade
      */
     private static function resolveFacadeClass($class)
     {
-        if(is_string($class))
-        {
-            $class = (new AliasLoader())->load($class);
-        }elseif(is_object($class))
-        {
-            if($class instanceof Facade)
-            {
-                throw new InvalidArgumentException('Your class must not be a Facade');
+        $class = is_string($class) ? $class : get_class($class);
+
+        $container = static::getContainer();
+        $container->singleton($class, function($abstract){
+            if (is_string($abstract)) {
+                return (new AliasLoader())->load($abstract);
+            }elseif(is_object($abstract) && !$abstract instanceof Facade){
+                return $abstract;
+            }else{
+                throw new InvalidArgumentException('Your class cant be an instance of facade or anything else');
             }
-        }else{
-            return false;
-        }
+        });
 
         return $class;
     }
@@ -75,11 +87,10 @@ class Facade
      */
     public static function __callStatic($method, $args = [])
     {
-        $instance = static::resolveFacadeClass(static::getFacadeClass());
-
+        $class =  static::resolveFacadeClass(static::getFacadeClass());
+        $instance = static::getContainer()->make($class);
         return call_user_func_array([$instance, $method], $args);
     }
-
     /**
      * call the method in registered instances
      *
@@ -89,8 +100,8 @@ class Facade
      */
     public function __call($method, $args)
     {
-        $instance = static::resolveFacadeClass(static::getFacadeClass());
-
+        $class = static::resolveFacadeClass(static::getFacadeClass());
+        $instance = static::getContainer()->make($class);
         return call_user_func_array([$instance, $method], $args);
     }
 }

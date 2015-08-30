@@ -33,14 +33,6 @@ class AliasConstructor
     {
         $aliases = Config::get('general.alias');
 
-        // add alias
-        foreach($aliases as $alias => $instance)
-        {
-            $app->singleton($alias, function() use($instance){
-               return new $instance;
-            });
-        }
-
         AliasLoader::setInstances($aliases);
     }
 }
