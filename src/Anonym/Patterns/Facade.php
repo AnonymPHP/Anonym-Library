@@ -11,7 +11,6 @@
 namespace Anonym\Patterns;
 
 use Anonym\Bootstrap\AliasLoader;
-use Anonym\Bootstrap\Container;
 use Anonym\Facades\App;
 use InvalidArgumentException;
 /**
@@ -20,7 +19,6 @@ use InvalidArgumentException;
  */
 class Facade
 {
-
 
     /**
      * get the facade class
@@ -39,6 +37,7 @@ class Facade
      *
      * @param mixed $class
      * @throws InvalidArgumentException
+     * @return string
      */
     private static function resolveFacadeClass($class)
     {
