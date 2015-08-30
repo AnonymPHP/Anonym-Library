@@ -10,7 +10,9 @@
 
 namespace Anonym\Bootstrap;
 
+
 use Anonym\Patterns\Singleton;
+use InvalidArgumentException;
 use Closure;
 
 /**
@@ -34,7 +36,7 @@ abstract class Container
      *
      * @var array
      */
-    protected  $alias;
+    protected  $aliases;
 
 
     /**
@@ -43,10 +45,18 @@ abstract class Container
      * @param string $name
      * @param callable $callback
      * @param bool $shared
+     * @throws InvalidArgumentException
      * @return mixed
      */
     public function bind($name, callable $callback, $shared = false)
     {
+
+        // $name must be a string
+        if(!is_string($name))
+        {
+            throw new InvalidArgumentException(sprintf('Class name must be a string'));
+        }
+
         if (true === $shared) {
             $this->singleton($name, $callback);
         } else {
@@ -56,6 +66,28 @@ abstract class Container
         return $this;
     }
 
+    /**
+     * get the alias
+     *
+     * @param array $classes
+     * @return array
+     */
+    protected function extendAlias(array $classes = [])
+    {
+        return [key($classes), current($classes)];
+    }
+
+    /**
+     * register a alias
+     *
+     * @param string $class
+     * @param string $alias
+     * @return $this
+     */
+    public function alias($class, $alias)
+    {
+        $this->aliases[$alias] = $class;
+    }
     /**
      * register a new singleton class
      *
