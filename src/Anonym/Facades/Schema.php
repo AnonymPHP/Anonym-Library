@@ -29,6 +29,6 @@ class Schema extends Facade
      */
     protected static function getFacadeClass()
     {
-        return new SchemaInstance(Singleton::bind('database.base'));
+        return new SchemaInstance(App::make('database.base'));
     }
 }
