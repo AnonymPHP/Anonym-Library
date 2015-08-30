@@ -12,7 +12,7 @@ namespace Anonym\Bootstrap;
 
 
 use Anonym\Patterns\Singleton;
-use InvalidArgumentException;
+use ReflectionClass;
 use Closure;
 
 /**
@@ -45,13 +45,12 @@ abstract class Container
      */
     protected $aliases;
 
-
     /**
      * an array of types bindigs
      *
      * @var array
      */
-    private $bindigs;
+    protected $bindings;
 
     /**
      * Determine if the given abstract type has been resolved.
@@ -72,7 +71,7 @@ abstract class Container
      * @param bool $shared
      * @return mixed
      */
-    public function bind($class, callable $callback, $shared = false)
+    public function bind($class, callable $callback = null, $shared = false)
     {
 
         // if class name is array we will parse the alias name
@@ -98,12 +97,89 @@ abstract class Container
     }
 
 
-    public function singleton($class, $callback = [])
+    /**
+     * Register a shared binding in the container.
+     *
+     * @param string $class
+     * @param callable|null $callback
+     */
+    public function singleton($class, callable $callback = null)
     {
-
-        $abstract = $this->getAlias($class);
-
+        $this->bind($class, $callback, true);
     }
+
+
+    /**
+     * make a instance from binded parameters
+     *
+     * @param mixed $abstract
+     * @param array $parameters
+     * @return mixed
+     */
+    public function make($abstract, $parameters = [])
+    {
+        $alias = $this->getAlias($abstract);
+
+        if (isset($this->instances[$alias])) {
+            return $this->instances[$alias];
+        }
+
+        if ($this->isBuildable($abstract, $parameters)) {
+            $object = $this->build($abstract, $parameters);
+        }else{
+            $object = $this->make($abstract, $parameters);
+        }
+
+        if ($this->isShared($abstract)) {
+            $this->instances[$abstract] = $object;
+        }
+
+        return $object;
+    }
+
+
+    /**
+     * create a new reflection class
+     *
+     * @param string  $abstract
+     * @param array $parameters
+     * @return mixed
+     */
+    public function build($abstract, $parameters = [])
+    {
+        if ($abstract instanceof $parameters) {
+            return $abstract($this, $parameters);
+        }
+
+        $reflector = new ReflectionClass($abstract);
+
+        if (!$reflector->isInstantiable()) {
+
+        }
+    }
+    /**
+     * @param mixed $abstract
+     * @param mixed $callback
+     * @return bool
+     */
+    protected function isBuildable($abstract, $callback)
+    {
+        return $abstract === $callback || $callback instanceof Closure;
+    }
+
+    /**
+     * get the is shared
+     *
+     * @param string $abstract
+     * @return bool
+     */
+    public function isShared($abstract)
+    {
+        $shared =  isset($this->bindings[$abstract]['shared']) ? $this->bindings[$abstract]['shared'] : false;
+
+        return isset($this->instances[$abstract]) || $shared === true;
+    }
+
 
     /**
      * get closure from string
@@ -156,49 +232,6 @@ abstract class Container
     }
 
     /**
-     * register a new singleton class
-     *
-     * @param string $name the name of singleton class
-     * @param mixed $callback
-     * @return $this
-     */
-    public function singleton($name, $callback = null)
-    {
-        Singleton::bind($name, $callback);
-
-        return $this;
-    }
-
-    /**
-     * return a binded callback
-     *
-     * @param string $name the name of callback
-     * @throws BindNotFoundException
-     * @throws BindNotRespondingException
-     * @return mixed
-     */
-    public function make($name = '')
-    {
-        if (isset(static::$instances[$name])) {
-            $bind = static::$instances[$name];
-        } elseif (Singleton::isBinded($name)) {
-            $bind = Singleton::bind($name);
-        } elseif ($this->bindIsFacade($name)) {
-            $bind = $this->facade($name);
-        } else {
-            return false;
-        }
-
-        $response = $bind instanceof Closure ? $bind() : $bind;
-        if ($response) {
-            return $response;
-        } else {
-            throw new BindNotRespondingException(sprintf('Your %s bind It is does not give any response', $name));
-        }
-
-    }
-
-    /**
      * if is facade return true
      *
      * @param string $name
@@ -238,7 +271,7 @@ abstract class Container
      *
      *
      * @param string $name
-     * @return array
+     * @return string
      */
     public function getAlias($name)
     {
