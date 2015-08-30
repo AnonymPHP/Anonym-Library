@@ -253,7 +253,7 @@ class Container
      */
     protected function dropStaleInstances($abstract)
     {
-        unset($this->aliases[$abstract], $this->instances[$abstract]);
+        unset(static::$aliases[$abstract], $this->instances[$abstract]);
     }
 
     /**
@@ -276,7 +276,7 @@ class Container
      */
     public function alias($class, $alias)
     {
-        $this->aliases[$alias] = $class;
+        static::$aliases[$alias] = $class;
     }
 
     /**
@@ -323,7 +323,7 @@ class Container
      */
     public function getAlias($name)
     {
-        return isset($this->aliases[$name]) ? $this->aliases[$name] : $name;
+        return isset(static::$aliases[$name]) ? static::$aliases[$name] : $name;
     }
 
     /**
@@ -332,7 +332,7 @@ class Container
      */
     public function setAlias(array $alias)
     {
-        $this->alias = $alias;
+        static::$aliases = $alias;
 
         return $this;
     }
