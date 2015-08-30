@@ -34,18 +34,8 @@ class Container
      *
      * @var array
      */
-    protected static $alias;
+    protected  $alias;
 
-    /**
-     * create a new instance and set the provider list
-     *
-     * @param array $alias
-     * @param array
-     */
-    public function __construct(array $alias = [],array $providers = [])
-    {
-        $this->setAlias($alias);
-    }
 
     /**
      * the add a new container
