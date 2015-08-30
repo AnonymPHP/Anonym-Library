@@ -44,6 +44,7 @@ trait Container
         } else {
             static::$container[$name] = $callback;
         }
+
         return $this;
     }
 
@@ -57,6 +58,7 @@ trait Container
     public function singleton($name, $callback = null)
     {
         Singleton::bind($name, $callback);
+
         return $this;
     }
 
@@ -70,16 +72,33 @@ trait Container
      */
     public function make($name = '')
     {
-        if (isset(static::$container[$name]) || Singleton::isBinded($name)) {
-            $bind = isset(static::$container[$name]) ? static::$container[$name] : Singleton::bind($name);
-            $response = $bind instanceof Closure ? $bind() : $bind;
-            if ($response) {
-                return $response;
-            } else {
-                throw new BindNotRespondingException(sprintf('Your %s bind It is does not give any response', $name));
-            }
+        if (isset(static::$container[$name])) {
+            $bind = static::$container[$name];
+        } elseif (Singleton::isBinded($name)) {
+            $bind = Singleton::bind($name);
+        } elseif ($this->isFacade($name)) {
+            $bind = $this->facade($name);
+        }
+
+        $response = $bind instanceof Closure ? $bind() : $bind;
+        if ($response) {
+            return $response;
         } else {
-            throw new BindNotFoundException(sprintf(''));
+            throw new BindNotRespondingException(sprintf('Your %s bind It is does not give any response', $name));
+        }
+
+    }
+
+    /**
+     * if is facade return true
+     *
+     * @param string $name
+     * @return bool
+     */
+    protected function isFacade($name = '')
+    {
+        if (strstr($name, 'facades.')) {
+            return true;
         }
     }
 
