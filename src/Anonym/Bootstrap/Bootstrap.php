@@ -16,7 +16,7 @@ use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\HelpersConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
-use Anonym\Facades\Config;
+use Anonym\Bootstrap\RegisterProviders;
 
 /**
  * the starter class of framework
@@ -38,6 +38,7 @@ class Bootstrap extends Container
         AliasConstructor::class,
         DatabaseConstructor::class,
         HandlerConstructor::class,
+        RegisterProviders::class
     ];
 
     /**
@@ -67,7 +68,6 @@ class Bootstrap extends Container
 
         $this->resolveHelpers();
         $this->resolveBootstraps();
-        $this->resolveProviders(Config::get('general.providers'));
     }
 
     /**
@@ -105,26 +105,6 @@ class Bootstrap extends Container
                 );
             }
         }
-    }
-
-    /**
-     * resolve the providers
-     *
-     * @throws ProviderException
-     * @param array $providers
-     */
-    private function  resolveProviders(array $providers)
-    {
-        foreach ($providers as $provider) {
-            $provider = new $provider();
-
-            if (!$provider instanceof ServiceProvider) {
-                throw new ProviderException(sprintf('Your %s proiver must be a instance of ServiceProvider', get_class($provider)));
-            }
-
-            $provider->register();
-        }
-
     }
 
 }
