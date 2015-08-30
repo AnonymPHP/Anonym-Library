@@ -16,7 +16,7 @@ class RegisterProviders
 {
 
     /**
-     *
+     * create a new instance
      *
      * @param Bootstrap $app
      * @throws BindNotRespondingException
