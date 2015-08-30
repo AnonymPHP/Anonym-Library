@@ -10,9 +10,23 @@
 
 
 namespace Anonym\Bootstrap;
+use Exception;
 
-
-class BindResolutionException
+/**
+ * Class BindResolutionException
+ * @package Anonym\Bootstrap
+ */
+class BindResolutionException extends Exception
 {
+
+    /**
+     * throw the message
+     *
+     * @param string $message
+     */
+    public function __construct($message = '')
+    {
+        $this->message = $message;
+    }
 
 }
