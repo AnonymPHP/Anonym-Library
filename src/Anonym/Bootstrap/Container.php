@@ -143,6 +143,7 @@ abstract class Container
      *
      * @param string  $abstract
      * @param array $parameters
+     * @throws BindResolutionException
      * @return mixed
      */
     public function build($abstract, $parameters = [])
@@ -154,8 +155,16 @@ abstract class Container
         $reflector = new ReflectionClass($abstract);
 
         if (!$reflector->isInstantiable()) {
-
+            throw new BindResolutionException(sprintf('Target %s is not instantiable', $abstract));
         }
+
+        // if there are not constructor, that mean we can return directly a new instance
+        if(null === $reflector->getConstructor())
+        {
+            return new $abstract;
+        }
+
+        return $reflector->newInstanceArgs($parameters);
     }
     /**
      * @param mixed $abstract
