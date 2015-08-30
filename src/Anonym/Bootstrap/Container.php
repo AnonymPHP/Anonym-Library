@@ -36,6 +36,11 @@ class Container
      */
     protected $alias;
 
+    public function __construct(array $alias = [])
+    {
+
+    }
+
     /**
      * the add a new container
      *
@@ -83,7 +88,7 @@ class Container
             $bind = static::$container[$name];
         } elseif (Singleton::isBinded($name)) {
             $bind = Singleton::bind($name);
-        } elseif ($this->isFacade($name)) {
+        } elseif ($this->bindIsFacade($name)) {
             $bind = $this->facade($name);
         }else{
             return false;
@@ -115,7 +120,7 @@ class Container
      * @param string $name
      * @return bool
      */
-    protected function isFacade($name = '')
+    protected function bindIsFacade($name = '')
     {
         if (strstr($name, 'facades.')) {
             return true;
@@ -123,15 +128,45 @@ class Container
     }
 
     /**
+     * call the singleton::isBinded
+     *
+     * @param string $name
+     * @return bool
+     */
+    public function isSingleton($name){
+        return Singleton::isBinded($name);
+    }
+
+    /**
      * check the binded
      *
      * @param string $name the name of bind
-     * @param bool|false $share
      * @return bool
      */
-    public function isBinded($name, $share = false)
+    public function isBinded($name)
     {
-        return $share === true ? Singleton::isBinded($name) : isset(static::$container[$name]);
+        return isset(static::$container[$name]);
     }
+
+    /**
+     * @return array
+     */
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+
+    /**
+     * @param array $alias
+     * @return Container
+     */
+    public function setAlias(array $alias)
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+
+
 
 }
