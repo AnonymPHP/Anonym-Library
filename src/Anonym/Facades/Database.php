@@ -10,8 +10,6 @@
 
 namespace Anonym\Facades;
 
-
-use Anonym\Patterns\Singleton;
 use Anonym\Components\Database\Base;
 
 class Database
@@ -30,7 +28,7 @@ class Database
      */
     public function __construct()
     {
-        $this->base = Singleton::bind('database.base');
+        $this->base = App::make('database.base');
     }
 
     /**
