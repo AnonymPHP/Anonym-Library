@@ -16,10 +16,8 @@ use Anonym\Bootstrap\Container;
  * Class Csrf
  * @package Anonym\Support
  */
-class Csrf
+class Csrf extends Container
 {
-
-    use Container;
 
     /**
      * get the csrf token

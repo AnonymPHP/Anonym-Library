@@ -8,21 +8,25 @@
  * Thanks for using
  */
 
+
 namespace Anonym\Bootstrap;
+use Exception;
 
 /**
- * Class ServiceProvider
+ * Class BindResolutionException
  * @package Anonym\Bootstrap
  */
-abstract class ServiceProvider extends Container
+class BindResolutionException extends Exception
 {
 
-
     /**
-     * register the provider
+     * throw the message
      *
-     * @return mixed
+     * @param string $message
      */
-    abstract public function register();
+    public function __construct($message = '')
+    {
+        $this->message = $message;
+    }
 
 }

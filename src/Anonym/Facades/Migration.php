@@ -31,6 +31,6 @@ class Migration extends Facade
      */
     protected static function getFacadeClass()
     {
-        return new MigrationManager(Singleton::bind('database.base'));
+        return new MigrationManager(App::make('database.base'));
     }
 }

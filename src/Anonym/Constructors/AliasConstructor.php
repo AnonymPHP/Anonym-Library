@@ -12,6 +12,7 @@ namespace Anonym\Constructors;
 
 
 use Anonym\Bootstrap\AliasLoader;
+use Anonym\Bootstrap\Bootstrap;
 use Anonym\Facades\Config;
 
 /**
@@ -30,6 +31,8 @@ class AliasConstructor
      */
     public function __construct()
     {
-        AliasLoader::setInstances(Config::get('general.alias'));
+        $aliases = Config::get('general.alias');
+
+        AliasLoader::setInstances($aliases);
     }
 }

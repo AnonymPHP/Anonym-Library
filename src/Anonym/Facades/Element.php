@@ -30,7 +30,7 @@ class Element
      */
     public function __construct()
     {
-        $this->orm = new ElementOrm(Singleton::bind('database.base'));
+        $this->orm = new ElementOrm(App::make('database.base'));
         $this->orm->setTable($this->findCalledClassTableVariable());
     }
 

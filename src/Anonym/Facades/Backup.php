@@ -29,6 +29,6 @@ class Backup extends Facade
      */
     protected static function getFacadeClass()
     {
-        return new BackupDispatcher(Singleton::bind('database.base'));
+        return new BackupDispatcher(App::make('database.base'));
     }
 }

@@ -8,27 +8,21 @@
  * Thanks for using
  */
 
+
 namespace Anonym\Facades;
-
-
 use Anonym\Patterns\Facade;
-
 /**
- * the facade of event
- *
- * Class Event
+ * Class App
  * @package Anonym\Facades
  */
-class Event extends Facade
+class App extends Facade
 {
 
     /**
-     * get the event facade
-     *
      * @return string
      */
     protected static function getFacadeClass()
     {
-        return "event";
+        return 'app';
     }
 }

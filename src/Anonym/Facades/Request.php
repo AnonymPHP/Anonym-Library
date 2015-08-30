@@ -26,7 +26,7 @@ class Request extends Facade
      */
     protected static function getFacadeClass()
     {
-        $request = Singleton::bind('http.request');
+        $request = App::make('http.request');
         return $request;
     }
 

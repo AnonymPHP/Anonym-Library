@@ -29,7 +29,7 @@ class BackupLoader extends Facade
      */
     protected static function getFacadeClass()
     {
-        return new Load(Singleton::bind('database.base'));
+        return new Load(App::make('database.base'));
     }
 
 }

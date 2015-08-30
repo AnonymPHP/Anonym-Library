@@ -25,7 +25,7 @@ class Response extends Facade
      */
     protected static function getFacadeClass()
     {
-        $response = Singleton::bind('http.response');
+        $response = App::make('http.response');
         return $response;
     }
 }

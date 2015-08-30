@@ -16,7 +16,7 @@ use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\HelpersConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
-use Anonym\Facades\Config;
+use Anonym\Bootstrap\RegisterProviders;
 
 /**
  * the starter class of framework
@@ -24,9 +24,8 @@ use Anonym\Facades\Config;
  * Class Bootstrap
  * @package Anonym\Bootstrap
  */
-class Bootstrap
+class Bootstrap extends Container
 {
-    use Container;
 
     /**
      * bootstraps class repository
@@ -36,10 +35,10 @@ class Bootstrap
     private $constructors = [
         RequestConstructor::class,
         ConfigConstructor::class,
-        HelpersConstructor::class,
         AliasConstructor::class,
         DatabaseConstructor::class,
         HandlerConstructor::class,
+        RegisterProviders::class
     ];
 
     /**
@@ -67,10 +66,26 @@ class Bootstrap
         $this->name = $name;
         $this->version = $version;
 
+        $this->resolveHelpers();
         $this->resolveBootstraps();
-        $this->resolveProviders(Config::get('general.providers'));
     }
 
+    /**
+     * resolve the helpers
+     */
+    private function resolveHelpers()
+    {
+        $helpers = include(CONFIG.'general.php');
+        $helpers = $helpers['helpers'];
+
+        if (count($helpers)) {
+            foreach ($helpers as $helper) {
+                if (file_exists($helper)) {
+                    include $helper;
+                }
+            }
+        }
+    }
 
     /**
      *  resolve the constructor classes
@@ -90,26 +105,6 @@ class Bootstrap
                 );
             }
         }
-    }
-
-    /**
-     * resolve the providers
-     *
-     * @throws ProviderException
-     * @param array $providers
-     */
-    private function  resolveProviders(array $providers)
-    {
-        foreach ($providers as $provider) {
-            $provider = new $provider();
-
-            if (!$provider instanceof ServiceProvider) {
-                throw new ProviderException(sprintf('Your %s proiver must be a instance of ServiceProvider', get_class($provider)));
-            }
-
-            $provider->register();
-        }
-
     }
 
 }
