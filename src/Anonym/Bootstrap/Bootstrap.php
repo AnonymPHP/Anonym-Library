@@ -36,9 +36,9 @@ class Bootstrap
     private $constructors = [
         RequestConstructor::class,
         ConfigConstructor::class,
-        HelpersConstructor::class,
         AliasConstructor::class,
         DatabaseConstructor::class,
+        HandlerConstructor::class,
     ];
 
     /**
