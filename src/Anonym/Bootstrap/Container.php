@@ -50,7 +50,7 @@ abstract class Container
         if (true === $shared) {
             $this->singleton($name, $callback);
         } else {
-            static::$container[$name] = $callback;
+            static::$instances[$name] = $callback;
         }
 
         return $this;
@@ -80,8 +80,8 @@ abstract class Container
      */
     public function make($name = '')
     {
-        if (isset(static::$container[$name])) {
-            $bind = static::$container[$name];
+        if (isset(static::$instances[$name])) {
+            $bind = static::$instances[$name];
         } elseif (Singleton::isBinded($name)) {
             $bind = Singleton::bind($name);
         } elseif ($this->bindIsFacade($name)) {
@@ -96,17 +96,6 @@ abstract class Container
         } else {
             throw new BindNotRespondingException(sprintf('Your %s bind It is does not give any response', $name));
         }
-
-    }
-
-    /**
-     * create a new facade instance
-     *
-     * @param string $name the name of facade
-     * @return mixed
-     */
-    public function facade($name = '')
-    {
 
     }
 
