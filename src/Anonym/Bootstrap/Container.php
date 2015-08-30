@@ -34,11 +34,17 @@ class Container
      *
      * @var array
      */
-    protected $alias;
+    protected static $alias;
 
-    public function __construct(array $alias = [])
+    /**
+     * create a new instance and set the provider list
+     *
+     * @param array $alias
+     * @param array
+     */
+    public function __construct(array $alias = [],array $providers = [])
     {
-
+        $this->setAlias($alias);
     }
 
     /**
