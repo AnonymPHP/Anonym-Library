@@ -141,7 +141,7 @@ class Container
         if ($this->isBuildable($abstract, $parameters)) {
             $object = $this->build($abstract, $parameters);
         } else {
-            $object = $this->callClosure($abstract);
+            $object = $this->callClosure($abstract, $parameters);
         }
 
         if ($this->isShared($abstract)) {
@@ -165,7 +165,7 @@ class Container
         $closure = static::$container[$abstract];
 
         if ($closure instanceof Closure) {
-            if (null !== $response = call_user_func_array($abstract, $parameters)) {
+            if (null !== $response = call_user_func_array($closure, $parameters)) {
                 return $response;
             } else {
                 throw new BindNotRespondingException(sprintf('target %s is not found', $abstract));
