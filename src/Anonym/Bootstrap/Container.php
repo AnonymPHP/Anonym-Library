@@ -19,7 +19,7 @@ use Closure;
  * Class Container
  * @package Anonym\Bootstrap
  */
-class Container
+abstract class Container
 {
 
     /**
@@ -27,7 +27,7 @@ class Container
      *
      * @var array
      */
-    protected static $container;
+    protected static $instances;
 
     /**
      * get facade alias
