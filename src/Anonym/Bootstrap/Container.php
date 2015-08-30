@@ -93,6 +93,20 @@ class Container
 
         $this->bindings[$class] = compact('callback', 'shared');
 
+        return $this->addInstance($class, $callback);
+    }
+
+    /**
+     * add instance to cached instances
+     *
+     * @param string $class
+     * @param Closure $callback
+     * @return $this
+     */
+    protected function addInstance($class, $callback)
+    {
+        static::$container[$callback] = $callback;
+
         return $this;
     }
 
@@ -126,7 +140,7 @@ class Container
 
         if ($this->isBuildable($abstract, $parameters)) {
             $object = $this->build($abstract, $parameters);
-        }else{
+        } else {
             $object = $this->callClosure($abstract);
         }
 
@@ -153,10 +167,10 @@ class Container
         if ($closure instanceof Closure) {
             if (null !== $response = call_user_func_array($abstract, $parameters)) {
                 return $response;
-            }else{
+            } else {
                 throw new BindNotRespondingException(sprintf('target %s is not found', $abstract));
             }
-        }else{
+        } else {
             throw new BindResolutionException(sprintf('target %s is not an isntance of %s', $abstract, Closure::class));
         }
     }
@@ -164,7 +178,7 @@ class Container
     /**
      * create a new reflection class
      *
-     * @param string  $abstract
+     * @param string $abstract
      * @param array $parameters
      * @throws BindResolutionException
      * @return mixed
@@ -182,13 +196,13 @@ class Container
         }
 
         // if there are not constructor, that mean we can return directly a new instance
-        if(null === $reflector->getConstructor())
-        {
+        if (null === $reflector->getConstructor()) {
             return new $abstract;
         }
 
         return $reflector->newInstanceArgs($parameters);
     }
+
     /**
      * @param mixed $abstract
      * @param mixed $callback
@@ -207,7 +221,7 @@ class Container
      */
     public function isShared($abstract)
     {
-        $shared =  isset($this->bindings[$abstract]['shared']) ? $this->bindings[$abstract]['shared'] : false;
+        $shared = isset($this->bindings[$abstract]['shared']) ? $this->bindings[$abstract]['shared'] : false;
 
         return isset($this->instances[$abstract]) || $shared === true;
     }
