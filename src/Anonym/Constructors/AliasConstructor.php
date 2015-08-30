@@ -29,7 +29,7 @@ class AliasConstructor
      *
      * @return mixed
      */
-    public function __construct(Bootstrap $app)
+    public function __construct()
     {
         $aliases = Config::get('general.alias');
 
