@@ -138,11 +138,13 @@ class Container
             return $this->instances[$alias];
         }
 
-        if ($this->isBuildable($abstract, $parameters)) {
-            $object = $this->build($abstract, $parameters);
+
+        if ($this->isBuildable($alias, $parameters)) {
+            $object = $this->build($alias, $parameters);
         } else {
-            $object = $this->callClosure($abstract, $parameters);
+            $object = $this->callClosure($alias, $parameters);
         }
+
 
         if ($this->isShared($abstract)) {
             $this->instances[$abstract] = $object;
