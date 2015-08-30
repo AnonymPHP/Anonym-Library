@@ -47,6 +47,12 @@ abstract class Container
 
 
     /**
+     * an array of types bindigs
+     *
+     * @var array
+     */
+    private $bindigs;
+    /**
      * the add a new container
      *
      * @param string|array $class
@@ -72,6 +78,12 @@ abstract class Container
 
         if (!$callback instanceof Closure) {
             $callback = $this->getClosure($class, $callback);
+        }
+
+        $this->bindings[$class] = compact('callback', 'shared');
+
+        if ($this->resolved($class)) {
+            $this->rebound($class);
         }
 
         return $this;
