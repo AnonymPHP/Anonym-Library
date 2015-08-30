@@ -67,10 +67,27 @@ class Bootstrap
         $this->name = $name;
         $this->version = $version;
 
+        $this->resolveHelpers();
         $this->resolveBootstraps();
         $this->resolveProviders(Config::get('general.providers'));
     }
 
+    /**
+     * resolve the helpers
+     */
+    private function resolveHelpers()
+    {
+        $helpers = include(CONFIG.'general.php');
+        $helpers = $helpers['helpers'];
+
+        if (count($helpers)) {
+            foreach ($helpers as $helper) {
+                if (file_exists($helper)) {
+                    include $helper;
+                }
+            }
+        }
+    }
 
     /**
      *  resolve the constructor classes
