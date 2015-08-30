@@ -17,7 +17,6 @@ namespace Anonym\Bootstrap;
 abstract class ServiceProvider
 {
 
-    use Container;
 
     /**
      * register the provider
