@@ -11,7 +11,10 @@
 
 namespace Anonym\Bootstrap;
 
-
+/**
+ * Class RegisterProviders
+ * @package Anonym\Bootstrap
+ */
 class RegisterProviders
 {
 
