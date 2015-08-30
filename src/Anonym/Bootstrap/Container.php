@@ -92,6 +92,17 @@ trait Container
     }
 
     /**
+     * create a new facade instance
+     *
+     * @param string $name the name of facade
+     * @return mixed
+     */
+    public function facade($name = '')
+    {
+
+    }
+
+    /**
      * if is facade return true
      *
      * @param string $name

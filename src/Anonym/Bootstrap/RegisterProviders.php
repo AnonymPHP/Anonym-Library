@@ -15,6 +15,13 @@ namespace Anonym\Bootstrap;
 class RegisterProviders
 {
 
+    /**
+     *
+     *
+     * @param Bootstrap $app
+     * @throws BindNotRespondingException
+     * @throws ProviderException
+     */
     public function __construct(Bootstrap $app)
     {
 
