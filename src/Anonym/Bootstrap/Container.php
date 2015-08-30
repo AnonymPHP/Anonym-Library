@@ -71,7 +71,7 @@ abstract class Container
         }
 
         if (!$callback instanceof Closure) {
-            $callback = $this->getClosure($callback);
+            $callback = $this->getClosure($class, $callback);
         }
 
         return $this;
@@ -80,11 +80,16 @@ abstract class Container
     /**
      * get closure from string
      *
-     *
+     * @param string $class
+     * @param string $callback
      * @return Closure
      */
-    protected function getClosure()
+    protected function getClosure($class, $callback)
     {
+
+        return function ($abstract, $parameters = []) use ($class, $callback) {
+
+        };
 
     }
 
