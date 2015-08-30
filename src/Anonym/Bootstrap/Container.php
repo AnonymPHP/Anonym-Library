@@ -105,7 +105,7 @@ class Container
      */
     protected function addInstance($class, $callback)
     {
-        static::$container[$callback] = $callback;
+        static::$container[$class] = $callback;
 
         return $this;
     }
