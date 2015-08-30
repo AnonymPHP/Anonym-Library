@@ -78,6 +78,8 @@ trait Container
             $bind = Singleton::bind($name);
         } elseif ($this->isFacade($name)) {
             $bind = $this->facade($name);
+        }else{
+            return false;
         }
 
         $response = $bind instanceof Closure ? $bind() : $bind;
