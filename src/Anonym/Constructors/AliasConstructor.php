@@ -12,6 +12,7 @@ namespace Anonym\Constructors;
 
 
 use Anonym\Bootstrap\AliasLoader;
+use Anonym\Bootstrap\Bootstrap;
 use Anonym\Facades\Config;
 
 /**

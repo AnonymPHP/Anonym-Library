@@ -43,7 +43,7 @@ class Container
      *
      * @var array
      */
-    protected $aliases;
+    protected static $aliases;
 
     /**
      * an array of types bindigs
