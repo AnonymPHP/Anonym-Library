@@ -25,7 +25,7 @@ class Facade
      *
      * @var Container
      */
-    private static $container;
+    protected static $container;
 
     /**
      * load the facade instance
