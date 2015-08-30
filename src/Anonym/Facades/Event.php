@@ -29,6 +29,6 @@ class Event extends Facade
      */
     protected static function getFacadeClass()
     {
-        return "Event";
+        return "event";
     }
 }
