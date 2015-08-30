@@ -21,9 +21,8 @@ use Anonym\Support\Arr;
  * Class DatabaseConstructor
  * @package Anonym\Constructors
  */
-class DatabaseConstructor
+class DatabaseConstructor extends Container
 {
-    use Container;
 
     /**
      *  register the database base
