@@ -11,9 +11,6 @@
 
 namespace Anonym\Facades;
 
-
-use Anonym\Bootstrap\Container;
-
 /**
  * Class App
  * @package Anonym\Facades
