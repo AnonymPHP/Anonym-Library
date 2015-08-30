@@ -39,7 +39,6 @@ class Bootstrap
         HelpersConstructor::class,
         AliasConstructor::class,
         DatabaseConstructor::class,
-        HandlerConstructor::class,
     ];
 
     /**
