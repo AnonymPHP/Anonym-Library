@@ -95,14 +95,7 @@ class Bootstrap extends Container
         $bootstraps = $this->constructors;
         foreach ($bootstraps as $boot) {
             if (is_string($boot)) {
-                $app = $this;
-                $this->bind(
-                    $boot,
-                    function () use ($boot, $app) {
-                        return new $boot($app);
-                    },
-                    true
-                );
+                new $boot($this);
             }
         }
     }
