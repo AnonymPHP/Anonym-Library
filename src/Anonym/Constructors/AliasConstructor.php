@@ -33,6 +33,7 @@ class AliasConstructor
     public function __construct(Bootstrap $app)
     {
         $aliases = Config::get('general.alias');
+        AliasLoader::setInstances($aliases);
 
         // add the aliases to singleton
         foreach($aliases as $alias)
@@ -42,6 +43,5 @@ class AliasConstructor
             });
         }
 
-        AliasLoader::setInstances($aliases);
     }
 }

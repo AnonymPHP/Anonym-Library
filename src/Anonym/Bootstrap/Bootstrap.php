@@ -56,6 +56,12 @@ class Bootstrap extends Container
     private $version;
 
     /**
+     * the general configs
+     *
+     * @var array
+     */
+    private $general;
+    /**
      *
      * @param string name the name of framework application
      * @param int version the version of framework application
@@ -66,8 +72,18 @@ class Bootstrap extends Container
         $this->name = $name;
         $this->version = $version;
 
+        $this->readGeneralConfigs();
         $this->resolveHelpers();
         $this->resolveBootstraps();
+    }
+
+    /**
+     * read default configs
+     */
+    private function readGeneralConfigs()
+    {
+        $configs = include(CONFIG. 'general.php');
+        $this->setGeneral($configs);
     }
 
     /**
@@ -75,8 +91,7 @@ class Bootstrap extends Container
      */
     private function resolveHelpers()
     {
-        $helpers = include(CONFIG.'general.php');
-        $helpers = $helpers['helpers'];
+        $helpers = $this->getGeneral()['helpers'];
 
         if (count($helpers)) {
             foreach ($helpers as $helper) {
@@ -85,6 +100,24 @@ class Bootstrap extends Container
                 }
             }
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getGeneral()
+    {
+        return $this->general;
+    }
+
+    /**
+     * @param array $general
+     * @return Bootstrap
+     */
+    public function setGeneral($general)
+    {
+        $this->general = $general;
+        return $this;
     }
 
     /**
