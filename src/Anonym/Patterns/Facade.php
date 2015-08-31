@@ -11,7 +11,7 @@
 namespace Anonym\Patterns;
 
 use Anonym\Bootstrap\AliasLoader;
-use Anonym\Bootstrap\Container;
+use Anonym\Container\Container;
 use InvalidArgumentException;
 
 /**
