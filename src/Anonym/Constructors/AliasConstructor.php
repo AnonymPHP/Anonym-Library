@@ -32,7 +32,7 @@ class AliasConstructor
      */
     public function __construct(Bootstrap $app)
     {
-        $aliases = Config::get('general.alias');
+        $aliases = $app->getGeneral()['alias'];
         AliasLoader::setInstances($aliases);
 
         // add the aliases to singleton
