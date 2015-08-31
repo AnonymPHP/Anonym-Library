@@ -128,11 +128,16 @@ class Container
      *
      * @param mixed $abstract
      * @param array $parameters
+     * @throws AliasNotFoundException
      * @return mixed
      */
     public function make($abstract, $parameters = [])
     {
         $alias = $this->getAlias($abstract);
+
+        if (!$this->isBinded($alias)) {
+             throw new AliasNotFoundException(sprintf('Target alias %s not found', $alias));
+        }
 
         if (isset($this->instances[$alias])) {
             return $this->instances[$alias];
