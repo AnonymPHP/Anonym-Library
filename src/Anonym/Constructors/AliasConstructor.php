@@ -25,13 +25,22 @@ class AliasConstructor
 {
 
     /**
-     * register the provider
+     * register the providers
      *
+     * @param Bootstrap $app
      * @return mixed
      */
-    public function __construct()
+    public function __construct(Bootstrap $app)
     {
         $aliases = Config::get('general.alias');
+
+        // add the aliases to singleton
+        foreach($aliases as $alias)
+        {
+            $app->singleton($alias, function() use($alias){
+               return (new AliasLoader())->load($alias);
+            });
+        }
 
         AliasLoader::setInstances($aliases);
     }

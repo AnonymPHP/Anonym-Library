@@ -10,7 +10,7 @@
 
 
 namespace Anonym\Bootstrap;
-
+use Anonym\Facades\Config;
 /**
  * Class RegisterProviders
  * @package Anonym\Bootstrap
@@ -28,7 +28,7 @@ class RegisterProviders
     public function __construct(Bootstrap $app)
     {
 
-        $providers = $app->make('facades.config')->get('general.providers');
+        $providers = Config::get('general.providers');
 
         foreach ($providers as $provider) {
             $provider = new $provider();
