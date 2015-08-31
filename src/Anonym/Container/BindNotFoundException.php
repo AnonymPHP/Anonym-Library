@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Container;
 use Exception;
 
 /**

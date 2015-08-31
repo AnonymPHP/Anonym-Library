@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Container;
 use Exception;
 
 /**

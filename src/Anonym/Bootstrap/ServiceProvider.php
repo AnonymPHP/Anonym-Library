@@ -9,7 +9,7 @@
  */
 
 namespace Anonym\Bootstrap;
-
+use Anonym\Container\Container;
 /**
  * Class ServiceProvider
  * @package Anonym\Bootstrap

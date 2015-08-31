@@ -8,10 +8,8 @@
  * Thanks for using
  */
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Container;
 
-
-use Anonym\Patterns\Singleton;
 use ReflectionClass;
 use Closure;
 

@@ -13,11 +13,9 @@ namespace Anonym\Bootstrap;
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\HandlerConstructor;
-use Anonym\Constructors\HelpersConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
-use Anonym\Bootstrap\RegisterProviders;
-
+use Anonym\Container\Container;
 /**
  * the starter class of framework
  *
