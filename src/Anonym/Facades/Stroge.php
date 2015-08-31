@@ -30,5 +30,6 @@ class Stroge extends Facade
     {
         $filesystem = new Filesystem();
         $filesystem->setConfig(Config::get('stroge.filesystem'));
+        return $filesystem;
     }
 }

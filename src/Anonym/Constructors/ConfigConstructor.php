@@ -11,6 +11,7 @@
 namespace Anonym\Constructors;
 
 use Anonym\Components\Config\ConfigLoader;
+use Anonym\Components\Config\Reposity;
 
 /**
  * the config constructor
@@ -20,14 +21,16 @@ use Anonym\Components\Config\ConfigLoader;
  */
 class ConfigConstructor
 {
+
     /**
-     * load the config files
+     * create a new instance and set the configs
      *
-     * @return array
      */
-    public function getConfigs()
+    public function __construct()
     {
         $loader = new ConfigLoader(CONFIG);
-        return $loader->loadConfigs();
+        $configs = $loader->loadConfigs();
+        Reposity::setCache($configs);
     }
+
 }
