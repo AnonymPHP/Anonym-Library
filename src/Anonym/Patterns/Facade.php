@@ -64,21 +64,23 @@ class Facade
      */
     private static function resolveFacadeClass($class)
     {
+        $instance = $class;
         $class = is_string($class) ? $class : get_class($class);
 
         $container = static::getContainer();
 
         if (!$container->isBinded($class)) {
-            $container->singleton($class, function () use ($class) {
-                if (is_string($class)) {
-                    return (new AliasLoader())->load($class);
-                } elseif (is_object($class) && !$class instanceof Facade) {
-                    return $class;
+            $container->singleton($class, function () use ($instance) {
+                if (is_string($instance)) {
+                    return (new AliasLoader())->load($instance);
+                } elseif (is_object($instance) && !$instance instanceof Facade) {
+                    return $instance;
                 } else {
                     throw new InvalidArgumentException('Your class cant be an instance of facade or anything else');
                 }
             });
         }
+
         return $class;
     }
 
