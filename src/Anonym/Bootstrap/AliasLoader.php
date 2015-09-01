@@ -9,8 +9,6 @@
  */
 
 namespace Anonym\Bootstrap;
-
-
 /**
  * the loader for alias
  *
