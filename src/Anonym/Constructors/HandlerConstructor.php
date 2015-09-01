@@ -14,6 +14,7 @@ namespace Anonym\Constructors;
 use Anonym\Facades\Config;
 use Anonym\Support\ErrorListener;
 use Anonym\Support\ErrorException;
+use Anonym\Support\LogListener;
 
 /**
  * Class HandlerConstructor
@@ -53,6 +54,11 @@ class HandlerConstructor
                     $listen->send();
                 }
             );
+        }
+
+
+        if (true === Config::get('error.handler.log')) {
+            LogListener::setRegistered(true);
         }
 
     }
