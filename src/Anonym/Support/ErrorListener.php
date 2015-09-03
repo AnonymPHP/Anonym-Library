@@ -10,15 +10,13 @@
 
 namespace Anonym\Support;
 
-
-use Anonym\Bootstrap\Container;
 use Anonym\Components\HttpClient\Response;
 
 /**
  * Class ErrorListener
  * @package Anonym\Support
  */
-class ErrorListener extends Container
+class ErrorListener
 {
 
     /**
@@ -59,9 +57,6 @@ class ErrorListener extends Container
 
     /**
      * send the exception message
-     *
-     * @throws \Anonym\Bootstrap\BindNotFoundException
-     * @throws \Anonym\Bootstrap\BindNotRespondingException
      * @throws \Anonym\Components\HttpClient\HttpResponseException
      */
     public function send()
