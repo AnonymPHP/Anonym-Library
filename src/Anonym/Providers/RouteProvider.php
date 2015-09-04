@@ -26,7 +26,7 @@ class RouteProvider extends ServiceProvider
     public function register()
     {
         // if php on server, run router
-        if (Config::get('general.server' === 1 )) {
+        if (isset($_SERVER)) {
             include ROUTE_PHP;
             $router = new Router($this->make('http.request'));
             $router->run();
