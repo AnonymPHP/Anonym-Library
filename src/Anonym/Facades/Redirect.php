@@ -10,8 +10,6 @@
 
 
 namespace Anonym\Facades;
-
-
 use Anonym\Patterns\Facade;
 
 /**
