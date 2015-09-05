@@ -12,7 +12,10 @@
 namespace Anonym\Facades;
 
 
-class Validation
+use Anonym\Patterns\Facade;
+
+class Validation extends Facade
 {
+
 
 }
