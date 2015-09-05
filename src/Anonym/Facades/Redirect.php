@@ -18,7 +18,7 @@ class Redirect extends Facade
 {
 
     protected static function getFacadeClass(){
-
+        return 'redirect';
     }
 
 }
