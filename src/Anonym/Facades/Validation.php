@@ -18,4 +18,8 @@ class Validation extends Facade
 {
 
 
+    protected static function getFacadeClass(){
+
+    }
+
 }
