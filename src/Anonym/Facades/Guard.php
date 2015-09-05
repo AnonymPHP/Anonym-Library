@@ -14,6 +14,10 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * Class Guard
+ * @package Anonym\Facades
+ */
 class Guard extends Facade
 {
 
