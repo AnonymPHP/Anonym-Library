@@ -17,8 +17,13 @@ use Anonym\Patterns\Facade;
 class Guard extends Facade
 {
 
+    /**
+     * get a guard facade instance
+     *
+     * @return string
+     */
     protected static function getFacadeClass(){
-
+        return 'guard';
     }
 
 }
