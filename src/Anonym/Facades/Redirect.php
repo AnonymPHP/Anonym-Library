@@ -14,6 +14,10 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * Class Redirect
+ * @package Anonym\Facades
+ */
 class Redirect extends Facade
 {
 
