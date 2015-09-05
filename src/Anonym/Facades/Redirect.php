@@ -17,6 +17,11 @@ use Anonym\Patterns\Facade;
 class Redirect extends Facade
 {
 
+    /**
+     *
+     *
+     * @return string
+     */
     protected static function getFacadeClass(){
         return 'redirect';
     }
