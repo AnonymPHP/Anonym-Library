@@ -12,7 +12,9 @@
 namespace Anonym\Facades;
 
 
-class Guard
+use Anonym\Patterns\Facade;
+
+class Guard extends Facade
 {
 
 }
