@@ -17,4 +17,8 @@ use Anonym\Patterns\Facade;
 class Redirect extends Facade
 {
 
+    protected static function getFacadeClass(){
+
+    }
+
 }
