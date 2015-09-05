@@ -17,7 +17,11 @@ use Anonym\Patterns\Facade;
 class Validation extends Facade
 {
 
-
+    /**
+     * return the validation facade
+     *
+     * @return string
+     */
     protected static function getFacadeClass(){
         return 'validation';
     }
