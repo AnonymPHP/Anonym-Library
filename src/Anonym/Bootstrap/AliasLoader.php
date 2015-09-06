@@ -70,7 +70,4 @@ class AliasLoader
     {
         self::$instances = $instances;
     }
-
-
-
 }
