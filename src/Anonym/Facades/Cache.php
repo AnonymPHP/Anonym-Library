@@ -24,10 +24,7 @@ class Cache extends Facade
      */
     protected static function getFacadeClass()
     {
-        $configs = Config::get('stroge.cache');
-        $driver = isset($configs['driver']) ? $configs['driver'] : '';
-
-        return (new \Anonym\Components\Cache\Cache())->driver($driver, $configs);
+        return 'cache';
     }
 
 }
