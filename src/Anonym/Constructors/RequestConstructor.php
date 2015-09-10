@@ -13,6 +13,7 @@ namespace Anonym\Constructors;
 
 use Anonym\Bootstrap\Bootstrap;
 use Anonym\Components\HttpClient\Request;
+use Anonym\Components\Security\Validation;
 
 class RequestConstructor
 {
@@ -25,11 +26,17 @@ class RequestConstructor
     public function __construct(Bootstrap $app)
     {
 
+        $app->singleton('validation', function(){
+
+            return new Validation();
+        });
+
         // register the request
         $app->bind(
             'http.request',
-            function () {
-                return new Request();
+            function () use ($app) {
+
+                return new Request($app->make('validation'));
             },
             true
         );
