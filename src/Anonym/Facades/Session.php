@@ -27,6 +27,6 @@ class Session extends Facade
      */
     protected static function getFacadeClass()
     {
-        return "session";
+        return 'session.stroge';
     }
 }
