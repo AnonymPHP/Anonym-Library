@@ -35,7 +35,8 @@
     "anonym-php/anonym-view": "~1.2@dev",
     "anonym-php/anonym-console": "~1.2@dev",
     "symfony/finder": "2.7.*",
-    "danielstjules/stringy": "~1.8"
+    "danielstjules/stringy": "~1.8",
+    "philo/laravel-blade": "2.*"
   },
   "autoload": {
     "psr-4": {
