@@ -78,5 +78,7 @@ class ErrorListener
         }
         $response->setContent($content);
         $response->send();
+
+        exit;
     }
 }
