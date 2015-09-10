@@ -12,7 +12,7 @@ namespace Anonym\Container;
 
 use ReflectionClass;
 use Closure;
-
+use Anonym\Bootstrap\AliasNotFoundException;
 /**
  * the container class of framework
  *
