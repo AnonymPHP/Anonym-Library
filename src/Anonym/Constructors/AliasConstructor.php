@@ -43,5 +43,6 @@ class AliasConstructor
             });
         }
 
+        $app->instance('app', $app);
     }
 }
