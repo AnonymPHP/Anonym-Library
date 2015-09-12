@@ -22,6 +22,10 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\FileViewFinder;
 use Illuminate\View\Factory;
 
+/**
+ * Class Blade
+ * @package Anonym\View
+ */
 class Blade {
 
     /**
