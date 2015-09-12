@@ -93,8 +93,7 @@ class Facade
      */
     public static function __callStatic($method, $args = [])
     {
-        $class = static::resolveFacadeClass(static::getFacadeClass());
-        $instance = static::getContainer()->make($class);
+        $instance = static::resolveFacadeClass(static::getFacadeClass());
 
         return call_user_func_array([$instance, $method], $args);
     }
@@ -108,8 +107,7 @@ class Facade
      */
     public function __call($method, $args)
     {
-        $class = static::resolveFacadeClass(static::getFacadeClass());
-        $instance = static::getContainer()->make($class);
+        $instance = static::resolveFacadeClass(static::getFacadeClass());
 
         return call_user_func_array([$instance, $method], $args);
     }
