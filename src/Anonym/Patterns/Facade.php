@@ -69,7 +69,7 @@ class Facade
 
         $container = static::getContainer();
 
-        if (!$container->isBinded($class)) {
+        if (!$container->resolved($class)) {
             $container->singleton($class, function () use ($instance) {
                 if (is_string($instance)) {
                     return (new AliasLoader())->load($instance);
