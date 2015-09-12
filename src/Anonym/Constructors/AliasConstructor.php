@@ -37,10 +37,10 @@ class AliasConstructor
         AliasLoader::setInstances($aliases);
 
         // add the aliases to singleton
-        foreach($aliases as $alias)
+        foreach($aliases as $key => $value)
         {
-            $app->singleton($alias, function() use($alias){
-               return (new AliasLoader())->load($alias);
+            $app->singleton($key, function() use($key){
+               return (new AliasLoader())->load($key);
             });
         }
 
