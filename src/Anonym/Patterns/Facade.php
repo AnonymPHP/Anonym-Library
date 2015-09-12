@@ -28,6 +28,12 @@ class Facade
      */
     protected static $container;
 
+    /**
+     * the resolved object instances
+     *
+     * @var array
+     */
+    protected static $resolvedInstance;
 
     /**
      * create a new instance and register container
@@ -64,7 +70,7 @@ class Facade
             return static::$resolvedInstance[$name];
         }
 
-        return static::$resolvedInstance[$name] = static::$app[$name];
+        return static::$resolvedInstance[$name] = static::$container[$name];
     }
 
     /**
