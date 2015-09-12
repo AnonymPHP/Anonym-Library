@@ -30,6 +30,14 @@ class Facade
 
 
     /**
+     * create a new instance and register container
+     *
+     * @param Container $container
+     */
+    public function __construct(Container $container){
+        static::$container = $container;
+    }
+    /**
      * get the facade class
      *
      * @throws FacadeException
