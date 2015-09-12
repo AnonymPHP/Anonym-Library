@@ -16,13 +16,14 @@ use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
 use Illuminate\Container\Container;
+use ArrayAccess;
 /**
  * the starter class of framework
  *
  * Class Bootstrap
  * @package Anonym\Bootstrap
  */
-class Bootstrap extends Container
+class Bootstrap extends Container implements ArrayAccess
 {
 
     /**
