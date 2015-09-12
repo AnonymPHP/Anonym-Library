@@ -10,3 +10,12 @@
 
 include 'vendor/autoload.php';
 
+$container = new \Illuminate\Container\Container();
+
+$container->bind('test', function(){
+
+   return new \Anonym\Container\Container();
+});
+
+
+
