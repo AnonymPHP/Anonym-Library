@@ -28,20 +28,6 @@ class Facade
      */
     protected static $container;
 
-    /**
-     * load the facade instance
-     *
-     * @return bool|Object
-     * @throws FacadeException
-     */
-    private static function getContainer()
-    {
-        if (!static::$container instanceof Container) {
-            static::$container = new Container();
-        }
-
-        return static::$container;
-    }
 
     /**
      * get the facade class
@@ -55,33 +41,22 @@ class Facade
     }
 
     /**
-     * do resolve returned value
+     * Resolve the facade root instance from the container.
      *
-     * @param mixed $class
-     * @throws InvalidArgumentException
-     * @return Object|bool
-     *
+     * @param  string  $name
+     * @return mixed
      */
-    private static function resolveFacadeClass($class)
+    protected static function resolveFacadeClass($name)
     {
-        $instance = $class;
-        $class = is_string($class) ? $class : get_class($class);
-
-        $container = static::getContainer();
-
-        if (!$container->resolved($class)) {
-            $container->singleton($class, function () use ($instance) {
-                if (is_string($instance)) {
-                    return (new AliasLoader())->load($instance);
-                } elseif (is_object($instance) && !$instance instanceof Facade) {
-                    return $instance;
-                } else {
-                    throw new InvalidArgumentException('Your class cant be an instance of facade or anything else');
-                }
-            });
+        if (is_object($name)) {
+            return $name;
         }
 
-        return $class;
+        if (isset(static::$resolvedInstance[$name])) {
+            return static::$resolvedInstance[$name];
+        }
+
+        return static::$resolvedInstance[$name] = static::$app[$name];
     }
 
     /**
