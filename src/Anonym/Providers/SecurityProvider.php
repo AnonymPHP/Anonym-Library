@@ -15,6 +15,7 @@ use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Components\Security\CsrfToken;
 use Anonym\Components\Security\Firewall\Firewall\Firewall;
 use Anonym\Components\Security\TypeHint;
+use Anonym\Facades\App;
 use Anonym\Facades\Config;
 use Anonym\Components\Security\Firewall\IpFirewall;
 
@@ -116,17 +117,17 @@ class SecurityProvider extends ServiceProvider
 
         if ($configs['status'] === true) {
             $field = $configs['field_name'];
-            $this->bind(
+            App::singleton(
                 'security.csrf',
                 function () use ($field) {
                     return (new CsrfToken())->setFormFieldName($field);
                 }
             );
 
-            $request = $this->make('http.request');
+            $request = App::make('http.request');
 
             if ($request->getMethod() === 'POST') {
-                $this->make('security.csrf')->run();
+                App::make('security.csrf')->run();
             }
         }
 
