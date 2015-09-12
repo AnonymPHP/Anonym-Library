@@ -35,6 +35,7 @@
     "anonym-php/anonym-view": "~1.2@dev",
     "anonym-php/anonym-console": "~1.2@dev",
     "danielstjules/stringy": "~1.8",
+    "symfony/debug": "2.7.*",
     "illuminate/container": "5.2.*"
   },
   "autoload": {
