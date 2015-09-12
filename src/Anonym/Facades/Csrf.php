@@ -16,4 +16,8 @@ use Anonym\Patterns\Facade;
 class Csrf extends Facade
 {
 
+    protected static function getFacadeClass(){
+        return 'security.csrf';
+    }
+
 }
