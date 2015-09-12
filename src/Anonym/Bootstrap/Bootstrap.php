@@ -16,6 +16,7 @@ use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
 use Illuminate\Container\Container;
+use HttpException;
 /**
  * the starter class of framework
  *
@@ -74,6 +75,18 @@ class Bootstrap extends Container
         $this->resolveHelpers();
         $this->resolveBootstraps();
 
+    }
+
+    /**
+     * throw an http exception with given datas
+     *
+     * @param int $code
+     * @param string $message
+     * @param array $headers
+     * @throws HttpException
+     */
+    public function abort($code = 503, $message = '', array $headers  = []){
+        throw new HttpException($code, $message, null, $headers);
     }
 
     /**
