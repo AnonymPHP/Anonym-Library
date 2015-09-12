@@ -13,7 +13,7 @@ namespace Anonym\Providers;
 
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Components\Route\Router;
-use Anonym\Facades\Config;
+use Anonym\Facades\App;
 
 class RouteProvider extends ServiceProvider
 {
@@ -28,7 +28,7 @@ class RouteProvider extends ServiceProvider
         // if php on server, run router
         if (!isset($_SERVER['argv'])) {
             include ROUTE_PHP;
-            $router = new Router($this->make('http.request'));
+            $router = new Router(App::make('http.request'));
             $router->run();
         }
     }
