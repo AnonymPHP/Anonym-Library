@@ -11,8 +11,8 @@
 namespace Anonym\Patterns;
 
 use Anonym\Bootstrap\AliasLoader;
-use Anonym\Container\Container;
 use InvalidArgumentException;
+use Illuminate\Container\Container;
 
 /**
  * Class Facade
