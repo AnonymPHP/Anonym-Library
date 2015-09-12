@@ -14,6 +14,7 @@ namespace Anonym\Constructors;
 use Anonym\Bootstrap\AliasLoader;
 use Anonym\Bootstrap\Bootstrap;
 use Anonym\Facades\Config;
+use Anonym\Patterns\Facade;
 
 /**
  * the provider of alias
@@ -44,5 +45,7 @@ class AliasConstructor
         }
 
         $app->instance('app', $app);
+
+        $app->instance('facade', new Facade($app));
     }
 }
