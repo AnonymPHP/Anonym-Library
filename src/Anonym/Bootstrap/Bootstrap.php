@@ -17,6 +17,7 @@ use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
 use Illuminate\Container\Container;
 use HttpException;
+
 /**
  * the starter class of framework
  *
@@ -36,7 +37,6 @@ class Bootstrap extends Container
         ConfigConstructor::class,
         AliasConstructor::class,
         DatabaseConstructor::class,
-        HandlerConstructor::class,
         RegisterProviders::class
     ];
 
@@ -60,6 +60,7 @@ class Bootstrap extends Container
      * @var array
      */
     private $general;
+
     /**
      *
      * @param string name the name of framework application
@@ -85,7 +86,8 @@ class Bootstrap extends Container
      * @param array $headers
      * @throws HttpException
      */
-    public function abort($code = 503, $message = '', array $headers  = []){
+    public function abort($code = 503, $message = '', array $headers = [])
+    {
         throw new HttpException($code, $message, null, $headers);
     }
 
@@ -94,7 +96,7 @@ class Bootstrap extends Container
      */
     private function readGeneralConfigs()
     {
-        $configs = include(CONFIG. 'general.php');
+        $configs = include(CONFIG . 'general.php');
         $this->setGeneral($configs);
     }
 
