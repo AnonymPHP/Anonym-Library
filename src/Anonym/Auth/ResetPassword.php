@@ -10,7 +10,10 @@
 
 namespace Anonym\Auth;
 
-
+/**
+ * Trait ResetPassword
+ * @package Anonym\Auth
+ */
 trait ResetPassword
 {
 
