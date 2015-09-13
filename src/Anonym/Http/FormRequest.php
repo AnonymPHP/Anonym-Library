@@ -11,7 +11,7 @@
 namespace Anonym\Http;
 
 
-class Http
+class FormRequest
 {
 
 }
