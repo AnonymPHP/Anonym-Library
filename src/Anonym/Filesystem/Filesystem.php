@@ -7,6 +7,10 @@ use FilesystemIterator;
 use Symfony\Component\Finder\Finder;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
+/**
+ * Class Filesystem
+ * @package Anonym\Filesystem
+ */
 class Filesystem
 {
 
