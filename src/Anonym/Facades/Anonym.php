@@ -11,7 +11,19 @@
 namespace Anonym\Facades;
 
 
-class Anonym
+use Anonym\Patterns\Facade;
+
+/**
+ * Class Anonym
+ * @package Anonym\Facades
+ */
+class Anonym extends Facade
 {
 
+    /**
+     * @return string
+     */
+    protected static function getFacadeClass(){
+        return 'anonym';
+    }
 }
