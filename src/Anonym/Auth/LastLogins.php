@@ -19,6 +19,11 @@ class LastLogins
      */
     private $base;
 
+    /**
+     * create a new instance and register base instance
+     *
+     * @param Base $base
+     */
     public function __construct(Base $base){
 
     }
