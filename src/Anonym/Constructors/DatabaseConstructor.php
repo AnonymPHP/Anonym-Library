@@ -28,14 +28,13 @@ class DatabaseConstructor
     /**
      *  register the database base
      *
-     * @param Bootstrap $app
      */
-    public function __construct(Bootstrap $app)
+    public function __construct()
     {
 
 
         if (true === Config::get('database.autostart')) {
-            $app->singleton(
+            App::singleton(
                 'database.base',
                 function () {
                     $configs = Config::get('database');
@@ -45,6 +44,12 @@ class DatabaseConstructor
                     return new Base($connectionConfigs);
                 }
             );
+
+            App::singleton(Base::class, function(){
+                return App::make('database.base');
+            });
+
+
         }
     }
 }
