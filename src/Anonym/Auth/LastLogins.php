@@ -48,6 +48,14 @@ class LastLogins
     }
 
     /**
+     * get happened errors
+     *
+     * @return mixed
+     */
+    public function getErrorInfo(){
+        return $this->base->errorInfo();
+    }
+    /**
      * return maded last 5 login proccess
      *
      * @return mixed
