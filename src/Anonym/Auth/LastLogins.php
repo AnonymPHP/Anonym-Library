@@ -9,9 +9,18 @@
  */
 
 namespace Anonym\Auth;
-
+use Anonym\Components\Database\Base;
 
 class LastLogins
 {
+
+    /**
+     * @var Base
+     */
+    private $base;
+
+    public function __construct(Base $base){
+
+    }
 
 }
