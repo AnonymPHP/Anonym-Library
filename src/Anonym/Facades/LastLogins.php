@@ -14,6 +14,10 @@ namespace Anonym\Facades;
 use Anonym\Patterns\Facade;
 use Anonym\Auth\LastLogins as Login;
 
+/**
+ * Class LastLogins
+ * @package Anonym\Facades
+ */
 class LastLogins extends Facade
 {
 
