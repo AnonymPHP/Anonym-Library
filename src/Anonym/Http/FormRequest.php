@@ -11,7 +11,6 @@
 namespace Anonym\Http;
 use Anonym\Components\HttpClient\Request;
 use Anonym\Components\HttpClient\Response;
-use Anonym\Facades\App;
 
 /**
  * Class FormRequest
