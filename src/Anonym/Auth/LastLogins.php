@@ -37,6 +37,13 @@ class LastLogins
         $this->base = $base;
     }
 
+
+    /**
+     * build database query
+     *
+     * @param null $limit
+     * @return mixed
+     */
     private function buildQuery($limit = null)
     {
 
@@ -48,6 +55,8 @@ class LastLogins
             if (null !== $limit) {
                 $read->limit($limit);
             }
+
+            return $read->build();
         });
     }
 }
