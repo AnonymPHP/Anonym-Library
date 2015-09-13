@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Auth;
+
 use Anonym\Components\Database\Base;
 
 /**
@@ -28,8 +29,10 @@ class LastLogins
      *
      * @param Base $base
      */
-    public function __construct(Base $base){
+    public function __construct(Base $base)
+    {
 
+        $this->base = $base;
     }
 
 }
