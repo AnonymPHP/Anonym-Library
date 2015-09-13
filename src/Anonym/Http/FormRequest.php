@@ -11,7 +11,13 @@
 namespace Anonym\Http;
 
 
-class FormRequest
+use Anonym\Components\HttpClient\Request;
+
+/**
+ * Class FormRequest
+ * @package Anonym\Http
+ */
+class FormRequest extends Request
 {
 
 }
