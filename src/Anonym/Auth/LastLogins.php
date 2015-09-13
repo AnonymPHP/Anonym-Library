@@ -21,6 +21,13 @@ use Anonym\Components\Security\Authentication\Login;
 class LastLogins
 {
 
+
+    /**
+     * the name of table
+     *
+     * @var string
+     */
+    private $table;
     /**
      * @var Base
      */
@@ -35,6 +42,7 @@ class LastLogins
     {
 
         $this->base = $base;
+        $this->table = Login::LOGIN_LOGS_TABLE;
     }
 
     /**
@@ -82,7 +90,7 @@ class LastLogins
     private function buildQuery($limit = null)
     {
 
-        $table = Login::LOGIN_LOGS_TABLE;
+        $table = $this->table;
 
         return $this->base->read($table, function (Read $read) use ($limit) {
             $read->select('*');
