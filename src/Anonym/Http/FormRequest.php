@@ -10,6 +10,7 @@
 
 namespace Anonym\Http;
 use Anonym\Components\HttpClient\Request;
+use Anonym\Components\HttpClient\Response;
 use Anonym\Facades\App;
 
 /**
@@ -25,7 +26,7 @@ class FormRequest extends Request
      * @return mixed
      */
     public function forbiddenResponse(){
-        return App::make('http.response')->setStatusCode(403)->setContent('Forbidden');
+        return Response::make('Forbidden', 403);
     }
 
 }
