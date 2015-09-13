@@ -37,6 +37,33 @@ class LastLogins
         $this->base = $base;
     }
 
+    /**
+     * get login logs with limit variable
+     *
+     * @param int $limit
+     * @return mixed
+     */
+    public function getLoginsWithLimit($limit = 5){
+        return $this->buildQuery($limit)->fetchAll();
+    }
+
+    /**
+     * return maded last 5 login proccess
+     *
+     * @return mixed
+     */
+    public function getLast5Login()
+    {
+        return $this->getLoginsWithLimit();
+    }
+    /**
+     * return all logins logs
+     *
+     * @return array
+     */
+    public function getAllLogins(){
+        return $this->buildQuery()->fetchAll();
+    }
 
     /**
      * build database query
