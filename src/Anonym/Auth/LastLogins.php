@@ -11,6 +11,8 @@
 namespace Anonym\Auth;
 
 use Anonym\Components\Database\Base;
+use Anonym\Components\Database\Mode\Read;
+use Anonym\Components\Security\Authentication\Login;
 
 /**
  * Class LastLogins
@@ -35,6 +37,17 @@ class LastLogins
         $this->base = $base;
     }
 
+    private function buildQuery($limit = null)
+    {
 
+        $table = Login::LOGIN_LOGS_TABLE;
 
+        return $this->base->read($table, function (Read $read) use ($limit) {
+            $read->select('*');
+
+            if (null !== $limit) {
+                $read->limit($limit);
+            }
+        });
+    }
 }
