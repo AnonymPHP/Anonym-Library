@@ -12,6 +12,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Components\Security\Authentication\Guard;
 use Anonym\Components\Security\CsrfToken;
 use Anonym\Components\Security\Firewall\Firewall\Firewall;
 use Anonym\Components\Security\TypeHint;
@@ -49,6 +50,7 @@ class SecurityProvider extends ServiceProvider
                 $this->registerTypeHint();
             }
         }
+
     }
 
 
