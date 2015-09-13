@@ -82,6 +82,14 @@ class LastLogins
     }
 
     /**
+     * clean all logs
+     *
+     * @return mixed
+     */
+    public function cleanLogs(){
+        return $this->base->query(sprintf('TRUNCATE %s', $this->table));
+    }
+    /**
      * build database query
      *
      * @param null $limit
