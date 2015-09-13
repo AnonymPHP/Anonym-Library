@@ -9,10 +9,7 @@
  */
 
 namespace Anonym\Http;
-
-
 use Anonym\Components\HttpClient\Request;
-
 /**
  * Class FormRequest
  * @package Anonym\Http
