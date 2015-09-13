@@ -11,6 +11,10 @@
 namespace Anonym\Auth;
 use Anonym\Components\Database\Base;
 
+/**
+ * Class LastLogins
+ * @package Anonym\Auth
+ */
 class LastLogins
 {
 
