@@ -441,4 +441,14 @@ class Filesystem
     {
         return $this->deleteDirectory($directory, true);
     }
+
+    /**
+     * create a new file in your path
+     *
+     * @param string $path
+     * @return bool
+     */
+    public function create($path){
+        return touch($path);
+    }
 }
