@@ -24,6 +24,6 @@ class Anonym extends Facade
      * @return string
      */
     protected static function getFacadeClass(){
-        return 'anonym';
+        return App::make(Kernel::class, [App::make('app')]);
     }
 }
