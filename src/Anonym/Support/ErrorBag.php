@@ -25,6 +25,7 @@ class ErrorBag
      * add an error
      *
      * @param string $message
+     * @return $this
      */
     public function add($message = ''){
         $this->errors[] = $message;
