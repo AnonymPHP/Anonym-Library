@@ -13,6 +13,10 @@ namespace Anonym\Support;
 
 use Anonym\Facades\Session;
 
+/**
+ * Class ErrorBag
+ * @package Anonym\Support
+ */
 class ErrorBag
 {
 
