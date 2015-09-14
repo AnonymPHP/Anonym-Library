@@ -11,6 +11,8 @@
 namespace Anonym\Support;
 
 
+use Anonym\Facades\Session;
+
 class ErrorBag
 {
 
@@ -63,6 +65,14 @@ class ErrorBag
         return $this;
     }
 
+    /**
+     *
+     * @return $this
+     */
+    public function run(){
+        Session::set(self::SESSION_ERROR_NAME, $this->errors);
+        return $this;
+    }
 
 
 }
