@@ -107,6 +107,12 @@ class LastLogins
                 $read->limit($limit);
             }
 
+            if (null !== $username) {
+                $read->where([[
+                    'username','=', $username
+                ]]);
+            }
+
             return $read->build();
         });
     }
