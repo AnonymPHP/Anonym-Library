@@ -11,7 +11,9 @@
 namespace Anonym\Providers;
 
 
-class ErrorBagServiceProvider
+use Illuminate\Support\ServiceProvider;
+
+class ErrorBagServiceProvider extends ServiceProvider
 {
 
 }
