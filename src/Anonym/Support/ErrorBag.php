@@ -14,6 +14,8 @@ namespace Anonym\Support;
 class ErrorBag
 {
 
+    const SESSION_ERROR_NAME = 'error_bag_errors';
+
     /**
      * an array type of errors
      *

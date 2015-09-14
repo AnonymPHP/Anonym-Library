@@ -12,6 +12,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Facades\App;
+use Anonym\Facades\Session;
 use Anonym\Support\ErrorBag;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,8 +26,12 @@ class ErrorBagServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        App::singleton('errors.bag', function(){
-           return new ErrorBag();
+        App::singleton('errors.bag', function () {
+            $bag = new ErrorBag();
+
+            if ($has = Session::has()) {
+                $bag->setErrors($has);
+            }
         });
     }
 }
