@@ -49,10 +49,11 @@ class LastLogins
      * get login logs with limit variable
      *
      * @param int $limit
+     * @param string $username
      * @return mixed
      */
-    public function getLoginsWithLimit($limit = 5){
-        return $this->buildQuery($limit)->fetchAll();
+    public function getLoginsWithLimit($limit = 5, $username = null){
+        return $this->buildQuery($limit, $username)->fetchAll();
     }
 
     /**
@@ -66,15 +67,17 @@ class LastLogins
     /**
      * return maded last 5 login proccess
      *
+     * @param string $username
      * @return mixed
      */
-    public function getLast5Login()
+    public function getLast5Login($username = null)
     {
-        return $this->getLoginsWithLimit();
+        return $this->getLoginsWithLimit(5, $username);
     }
     /**
      * return all logins logs
      *
+     * @param string $username
      * @return array
      */
     public function getAllLogins($username = null){
@@ -92,7 +95,9 @@ class LastLogins
     /**
      * build database query
      *
+     *
      * @param null $limit
+     * @param null $username
      * @return mixed
      */
     private function buildQuery($limit = null, $username = null)
