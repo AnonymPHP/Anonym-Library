@@ -14,8 +14,11 @@ namespace Anonym\Providers;
 use Anonym\Facades\App;
 use Anonym\Facades\Session;
 use Anonym\Support\ErrorBag;
-use Illuminate\Support\ServiceProvider;
-
+use Anonym\Bootstrap\ServiceProvider;
+/**
+ * Class ErrorBagServiceProvider
+ * @package Anonym\Providers
+ */
 class ErrorBagServiceProvider extends ServiceProvider
 {
 
@@ -35,3 +38,4 @@ class ErrorBagServiceProvider extends ServiceProvider
         });
     }
 }
+
