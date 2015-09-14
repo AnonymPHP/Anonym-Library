@@ -77,8 +77,8 @@ class LastLogins
      *
      * @return array
      */
-    public function getAllLogins(){
-        return $this->buildQuery()->fetchAll();
+    public function getAllLogins($username = null){
+        return $this->buildQuery(null, $username)->fetchAll();
     }
 
     /**
