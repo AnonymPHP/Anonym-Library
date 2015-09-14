@@ -11,7 +11,22 @@
 namespace Anonym\Facades;
 
 
-class ErrorBag
+use Anonym\Patterns\Facade;
+
+/**
+ * Class ErrorBag
+ * @package Anonym\Facades
+ */
+class ErrorBag extends Facade
 {
+
+    /**
+     * get facade class
+     *
+     * @return string
+     */
+    protected static function getFacadeClass(){
+        return 'errors.bag';
+    }
 
 }
