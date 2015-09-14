@@ -95,12 +95,12 @@ class LastLogins
      * @param null $limit
      * @return mixed
      */
-    private function buildQuery($limit = null)
+    private function buildQuery($limit = null, $username = null)
     {
 
         $table = $this->table;
 
-        return $this->base->read($table, function (Read $read) use ($limit) {
+        return $this->base->read($table, function (Read $read) use ($limit, $username) {
             $read->select('*');
 
             if (null !== $limit) {
