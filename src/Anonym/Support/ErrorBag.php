@@ -56,10 +56,7 @@ class ErrorBag
      */
     public function getErrors()
     {
-        $return =  $this->errors;
-
-        $this->errors = [];
-        return $this;
+        return $this->errors;
     }
 
     /**
