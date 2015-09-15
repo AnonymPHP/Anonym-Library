@@ -85,9 +85,11 @@ class Element
      * @return $this
      */
     public static function table($table){
-        $this->orm->setTable($table);
+        $instance = new static();
 
-        return $this;
+        $instance->orm->setTable($table);
+
+        return $instance;
     }
 
     /**
