@@ -78,5 +78,16 @@ class ErrorBag
         return $this;
     }
 
+    /**
+     * clean errors
+     *
+     * @return $this
+     */
+    public function clean(){
+        Session::delete(self::SESSION_ERROR_NAME);
+
+        return $this;
+    }
+
 
 }
