@@ -41,6 +41,12 @@ class Element
      */
     private function findCalledClassTableVariable()
     {
+        $vars = get_class_vars($this);
+
+        if (isset($vars[ElementOrm::TABLE_NAME])) {
+            return $vars[ElementOrm::TABLE_NAME];
+        }
+
         $class = get_called_class();
         return $this->resolveClassName($class);
     }
