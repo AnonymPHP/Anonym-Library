@@ -79,6 +79,18 @@ class Element
     }
 
     /**
+     * create orm instance with selected table
+     *
+     * @param string $table
+     * @return $this
+     */
+    public static function table($table){
+        $this->orm->setTable($table);
+
+        return $this;
+    }
+
+    /**
      * call the methods
      *
      * @param       $method
