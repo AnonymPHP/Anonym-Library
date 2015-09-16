@@ -31,6 +31,9 @@ class ConfigConstructor
         $loader = new ConfigLoader(CONFIG);
         $configs = $loader->loadConfigs();
         Reposity::setCache($configs);
+
+        // we will set default timezone
+        date_default_timezone_set($configs['general']['timezone']);
     }
 
 }
