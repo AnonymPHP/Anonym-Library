@@ -28,7 +28,10 @@ class ConfigConstructor
      */
     public function __construct()
     {
-        $loader = new ConfigLoader(CONFIG);
+
+        $cachedPath  = SYSTEM.'cached_configs.php';
+
+        $loader = new ConfigLoader(CONFIG, $cachedPath);
         $configs = $loader->loadConfigs();
         Reposity::setCache($configs);
 
