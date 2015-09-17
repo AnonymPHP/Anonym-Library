@@ -79,6 +79,13 @@ class Bootstrap extends Container
     }
 
     /**
+     * @return string
+     */
+    public function getCompiledPath(){
+        return SYSTEM.'_compiled.php';
+    }
+
+    /**
      * throw an http exception with given datas
      *
      * @param int $code
