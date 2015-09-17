@@ -142,7 +142,7 @@ class Bootstrap extends Container
         $bootstraps = $this->constructors;
         foreach ($bootstraps as $boot) {
             if (is_string($boot)) {
-                $this->make($boot, [$this]);
+                $this->singleton($boot, new $boot($this));
             }
         }
     }
