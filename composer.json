@@ -37,7 +37,8 @@
     "anonym-php/anonym-console": "~1.2@dev",
     "danielstjules/stringy": "~1.8",
     "symfony/debug": "2.7.*",
-    "illuminate/container": "5.2.*"
+    "illuminate/container": "5.2.*",
+    "classpreloader/classpreloader": "~2.0"
   },
   "autoload": {
     "psr-4": {
