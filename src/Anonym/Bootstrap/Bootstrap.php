@@ -75,7 +75,6 @@ class Bootstrap extends Container
         $this->readGeneralConfigs();
         $this->resolveHelpers();
         $this->resolveBootstraps();
-
     }
 
     /**
