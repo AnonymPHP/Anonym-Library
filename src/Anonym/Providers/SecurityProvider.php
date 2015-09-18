@@ -124,7 +124,7 @@ class SecurityProvider extends ServiceProvider
 
             $request = App::make('http.request');
 
-            if ($request->getMethod() === 'POST') {
+            if ($request->isPost()) {
                 App::make('security.csrf')->run();
             }
         }
