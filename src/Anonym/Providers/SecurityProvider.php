@@ -87,8 +87,6 @@ class SecurityProvider extends ServiceProvider
      * register the full firewall
      *
      * @param array $firewall
-     * @throws \Anonym\Components\Security\Exception\ClassInstanceException
-     * @throws \Anonym\Components\Security\Exception\FirewallException
      */
     private function registerFullFirewall(array $firewall = [])
     {
@@ -111,8 +109,6 @@ class SecurityProvider extends ServiceProvider
      * register the csrf token
      *
      * @param array $configs
-     * @throws \Anonym\Bootstrap\BindNotFoundException
-     * @throws \Anonym\Bootstrap\BindNotRespondingException
      */
     private function registerCsrfSecurity(array $configs = [])
     {
