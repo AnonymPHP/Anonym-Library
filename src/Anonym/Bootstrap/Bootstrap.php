@@ -81,7 +81,7 @@ class Bootstrap extends Container
      * @return string
      */
     public function getCompiledPath(){
-        return RESOURCE.'bootstrap/_compiled.php';
+        return RESOURCE.'bootstrap/_compiled.php.cache';
     }
 
     /**
