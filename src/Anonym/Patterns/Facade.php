@@ -43,6 +43,7 @@ class Facade
     public function __construct(Container $container){
         static::$container = $container;
     }
+
     /**
      * get the facade class
      *
