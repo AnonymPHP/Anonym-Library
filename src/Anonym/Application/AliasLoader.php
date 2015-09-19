@@ -36,7 +36,13 @@ class AliasLoader
         if (isset(static::$aliases[$alias])) {
             return class_alias(static::$aliases[$alias], $alias);
         }
+    }
 
+    /**
+     *  register the laod method to autoload callback
+     */
+    public function register(){
+        spl_autoload_register([$this, 'load'], true, true);
     }
 
     /**
