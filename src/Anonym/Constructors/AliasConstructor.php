@@ -11,6 +11,7 @@
 namespace Anonym\Constructors;
 use Anonym\Bootstrap\Bootstrap;
 use Anonym\Application\AliasLoader;
+use Anonym\Patterns\Facade;
 
 /**
  * the provider of alias
@@ -30,6 +31,8 @@ class AliasConstructor
      */
     public function __construct(Bootstrap $app)
     {
+        Facade::setApplication($app);
+
         $aliases = $app->getGeneral()['alias'];
         $loader = new AliasLoader($aliases);
 
