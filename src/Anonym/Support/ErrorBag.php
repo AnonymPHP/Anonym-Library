@@ -79,6 +79,8 @@ class ErrorBag
             $this->errors = $errors;
         }
 
+        $this->clean();
+
         return;
     }
     /**

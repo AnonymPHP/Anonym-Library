@@ -32,10 +32,9 @@ class ErrorBagServiceProvider extends ServiceProvider
         App::singleton('errors.bag', function () {
             $bag = new ErrorBag();
 
-            if ($has = Session::has()) {
-                $bag->setErrors($has);
-            }
+            $bag->init();
         });
+
     }
 }
 
