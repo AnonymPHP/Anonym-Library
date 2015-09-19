@@ -63,6 +63,7 @@ class Facade
      */
     protected static function resolveFacadeClass($name)
     {
+        var_dump($name);
         if (is_object($name)) {
             return $name;
         }
