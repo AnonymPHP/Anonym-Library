@@ -15,6 +15,7 @@ use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
+use Anonym\Application\AliasLoader;
 use Illuminate\Container\Container;
 use HttpException;
 
@@ -62,6 +63,13 @@ class Bootstrap extends Container
     private $general;
 
     /**
+     * the alias loader
+     *
+     * @var AliasLoader
+     */
+    private $aliasLoader;
+
+    /**
      *
      * @param string name the name of framework application
      * @param int version the version of framework application
@@ -72,7 +80,7 @@ class Bootstrap extends Container
         $this->name = $name;
         $this->version = $version;
 
-        $this->readGeneralConfigs();
+        $this->readGeneralConfigsAndRegisterAliases();
         $this->resolveHelpers();
         $this->resolveBootstraps();
     }
@@ -100,11 +108,41 @@ class Bootstrap extends Container
     /**
      * read default configs
      */
-    private function readGeneralConfigs()
+    private function readGeneralConfigsAndRegisterAliases()
     {
         $configs = include(CONFIG . 'general.php');
         $this->setGeneral($configs);
+
+        $aliases = $configs['aliases'];
+        $this->setAliasLoader(new AliasLoader($aliases));
+
+        $aliases = array_filter('strtolower',$aliases);
+        foreach($aliases as $alias => $values){
+            $values = (array) $values;
+
+            foreach($values as $value){
+                $this->getAliasLoader()->alias($alias, $value);
+            }
+        }
+
     }
+
+    /**
+     * @return AliasLoader
+     */
+    public function getAliasLoader()
+    {
+        return $this->aliasLoader;
+    }
+
+    /**
+     * @param AliasLoader $aliasLoader
+     */
+    public function setAliasLoader($aliasLoader)
+    {
+        $this->aliasLoader = $aliasLoader;
+    }
+
 
     /**
      * resolve the helpers

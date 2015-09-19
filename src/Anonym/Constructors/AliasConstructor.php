@@ -35,7 +35,6 @@ class AliasConstructor
         Facade::setApplication($app);
 
         $aliases = $app->getGeneral()['alias'];
-        $loader = new AliasLoader($aliases);
 
         $loader->register();
     }
