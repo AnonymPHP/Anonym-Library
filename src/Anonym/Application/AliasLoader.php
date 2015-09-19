@@ -26,13 +26,21 @@ class AliasLoader
 
 
     /**
+     * create a new instance and register the aliases
+     *
+     * @param array $aliases
+     */
+    public function __construct($aliases){
+        static::$aliases = $aliases;
+    }
+
+    /**
      * load a class with it's alias
      *
      * @param string $alias
      * @return bool
      */
     public function load($alias){
-
         if (isset(static::$aliases[$alias])) {
             return class_alias(static::$aliases[$alias], $alias);
         }
@@ -56,5 +64,6 @@ class AliasLoader
     {
         static::$aliases[$class] = $alias;
     }
+
 
 }

@@ -9,12 +9,8 @@
  */
 
 namespace Anonym\Constructors;
-
-
-use Anonym\Bootstrap\AliasLoader;
 use Anonym\Bootstrap\Bootstrap;
-use Anonym\Facades\Config;
-use Anonym\Patterns\Facade;
+use Anonym\Application\AliasLoader;
 
 /**
  * the provider of alias
@@ -25,6 +21,7 @@ use Anonym\Patterns\Facade;
 class AliasConstructor
 {
 
+
     /**
      * register the providers
      *
@@ -34,18 +31,8 @@ class AliasConstructor
     public function __construct(Bootstrap $app)
     {
         $aliases = $app->getGeneral()['alias'];
-        AliasLoader::setInstances($aliases);
+        $loader = new AliasLoader($aliases);
 
-        // add the aliases to singleton
-        foreach($aliases as $key => $value)
-        {
-            $app->singleton($key, function() use($key){
-               return (new AliasLoader())->load($key);
-            });
-        }
-
-        $app->instance('app', $app);
-
-        $app->instance('facade', new Facade($app));
+        $loader->register();
     }
 }
