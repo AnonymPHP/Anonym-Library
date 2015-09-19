@@ -70,6 +70,18 @@ class ErrorBag
     }
 
     /**
+     *  start the error bag
+     *
+     * @return mixed
+     */
+    public function init(){
+        if ($errors = Session::has(self::SESSION_ERROR_NAME)) {
+            $this->errors = $errors;
+        }
+
+        return;
+    }
+    /**
      *
      * @return $this
      */
