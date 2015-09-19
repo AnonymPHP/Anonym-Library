@@ -23,6 +23,6 @@ class App extends Facade
      */
     protected static function getFacadeClass()
     {
-        return 'app';
+        return static::$container;
     }
 }
