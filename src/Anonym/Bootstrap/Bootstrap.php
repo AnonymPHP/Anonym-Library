@@ -12,12 +12,10 @@ namespace Anonym\Bootstrap;
 
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
-use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\ConfigConstructor;
-use Anonym\Constructors\AliasConstructor;
 use Anonym\Application\AliasLoader;
-use Anonym\Patterns\Facade;
 use Illuminate\Container\Container;
+use Anonym\Patterns\Facade;
 use HttpException;
 
 /**
@@ -37,7 +35,6 @@ class Bootstrap extends Container
     private $constructors = [
         RequestConstructor::class,
         ConfigConstructor::class,
-        AliasConstructor::class,
         DatabaseConstructor::class,
         RegisterProviders::class
     ];
@@ -115,9 +112,10 @@ class Bootstrap extends Container
         $this->setGeneral($configs);
 
         $aliases = $configs['alias'];
+
         $this->setAliasLoader(new AliasLoader($aliases));
 
-        $aliases = array_filter('strtolower',$aliases);
+        $aliases = array_filter($aliases, 'strtolower');
         foreach($aliases as $alias => $values) {
             $values = (array)$values;
 
