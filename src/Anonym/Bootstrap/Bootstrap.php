@@ -86,8 +86,9 @@ class Bootstrap extends Container
     /**
      * @return string
      */
-    public function getCompiledPath(){
-        return RESOURCE.'bootstrap/_compiled.php.cache';
+    public function getCompiledPath()
+    {
+        return RESOURCE . 'bootstrap/_compiled.php.cache';
     }
 
     /**
@@ -112,11 +113,14 @@ class Bootstrap extends Container
         $this->setGeneral($configs);
 
         $aliases = $configs['alias'];
-
         $this->setAliasLoader(new AliasLoader($aliases));
 
-        $aliases = array_filter($aliases, 'strtolower');
-        foreach($aliases as $alias => $values) {
+        $lower = [];
+        foreach ($aliases as $key => $value) {
+            $lower[strtolower($key)] = $value;
+        }
+
+        foreach ($lower as $alias => $values) {
             $values = (array)$values;
 
             foreach ($values as $value) {

@@ -71,6 +71,7 @@ class Facade
             return static::$resolvedInstance[$name];
         }
 
+
         return static::$resolvedInstance[$name] = static::$container[$name];
     }
 
