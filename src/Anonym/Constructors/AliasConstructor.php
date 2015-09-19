@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Constructors;
+
 use Anonym\Bootstrap\Bootstrap;
 use Anonym\Application\AliasLoader;
 use Anonym\Patterns\Facade;
