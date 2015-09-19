@@ -114,7 +114,7 @@ class Bootstrap extends Container
         $configs = include(CONFIG . 'general.php');
         $this->setGeneral($configs);
 
-        $aliases = $configs['aliases'];
+        $aliases = $configs['alias'];
         $this->setAliasLoader(new AliasLoader($aliases));
 
         $aliases = array_filter('strtolower',$aliases);
