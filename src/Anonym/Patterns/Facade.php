@@ -36,11 +36,11 @@ class Facade
     protected static $resolvedInstance;
 
     /**
-     * create a new instance and register container
+     * register the laravel container
      *
      * @param Container $container
      */
-    public function __construct(Container $container){
+    public static function setApplication(Container $container){
         static::$container = $container;
     }
 
