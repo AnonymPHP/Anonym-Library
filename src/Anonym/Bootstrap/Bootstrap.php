@@ -118,15 +118,16 @@ class Bootstrap extends Container
         $this->setAliasLoader(new AliasLoader($aliases));
 
         $aliases = array_filter('strtolower',$aliases);
-        foreach($aliases as $alias => $values){
-            $values = (array) $values;
+        foreach($aliases as $alias => $values) {
+            $values = (array)$values;
 
-            foreach($values as $value){
+            foreach ($values as $value) {
                 $this->getAliasLoader()->alias($alias, $value);
             }
         }
 
         Facade::setApplication($this);
+        $this->getAliasLoader()->register();
     }
 
     /**
