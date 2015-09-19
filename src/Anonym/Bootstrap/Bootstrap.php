@@ -16,6 +16,7 @@ use Anonym\Constructors\HandlerConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Constructors\AliasConstructor;
 use Anonym\Application\AliasLoader;
+use Anonym\Patterns\Facade;
 use Illuminate\Container\Container;
 use HttpException;
 
@@ -114,6 +115,8 @@ class Bootstrap extends Container
         $this->setGeneral($configs);
 
         $aliases = $configs['aliases'];
+
+
         $this->setAliasLoader(new AliasLoader($aliases));
 
         $aliases = array_filter('strtolower',$aliases);
@@ -125,6 +128,7 @@ class Bootstrap extends Container
             }
         }
 
+        Facade::setApplication($this);
     }
 
     /**
