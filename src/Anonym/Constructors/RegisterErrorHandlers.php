@@ -35,7 +35,7 @@ class RegisterErrorHandlers
         $this->registerErrorHandler();
         $this->registerExceptionHandler();
 
-        App::singleton('error.logger', function(){
+        App::bind('error.logger', function(){
             return new Logger();
         });
     }
