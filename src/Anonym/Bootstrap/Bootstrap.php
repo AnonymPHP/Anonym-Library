@@ -10,6 +10,7 @@
 
 namespace Anonym\Bootstrap;
 
+use Anonym\Constructors\RegisterErrorHandlers;
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
@@ -33,9 +34,10 @@ class Bootstrap extends Container
      * @var array
      */
     private $constructors = [
+        RegisterErrorHandlers::class,
+        DatabaseConstructor::class,
         RequestConstructor::class,
         ConfigConstructor::class,
-        DatabaseConstructor::class,
         RegisterProviders::class
     ];
 
