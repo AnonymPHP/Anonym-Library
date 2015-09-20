@@ -99,6 +99,7 @@ class Handler
 
     /**
      * @param HttpException $e
+     * @return mixed
      */
     protected function generateHttpExceptionResponse(HttpException $e)
     {
