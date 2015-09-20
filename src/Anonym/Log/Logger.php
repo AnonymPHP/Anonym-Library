@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Log;
+
 use Psr\Log\LoggerInterface;
 
 /**
@@ -73,7 +74,7 @@ class Logger implements LoggerInterface
      */
     public function error($message, array $context = array())
     {
-        .
+
     }
 
     /**
@@ -147,4 +148,5 @@ class Logger implements LoggerInterface
 
     }
 }
+
 
