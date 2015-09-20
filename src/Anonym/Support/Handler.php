@@ -16,6 +16,7 @@ use Anonym\Log\Logger;
 use Anonym\Facades\Config;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Bootstrap\HttpException;
+use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\ExceptionHandler;
 
 /**
@@ -114,8 +115,18 @@ class Handler
         }
     }
 
+    /**
+     * create response objecto to exception message
+     *
+     * @param Exception $e
+     * @return mixed
+     */
     protected function generateExceptionResponse(Exception $e){
 
+        $e = FlattenException::create($e);
+        $content = $this->decoreate($this->exceptionHandler->getContent($e), $this->exceptionHandler->getStylesheet($e), 'utf-8');
+
+        return response($content, 500);
     }
 
     /**
