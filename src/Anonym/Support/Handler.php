@@ -66,7 +66,16 @@ class Handler
     {
         $this->file = $filesystem;
         $this->logger = new Logger();
-        $this->exceptionHandler = ExceptionHandler::register(config('error.debug'));
+    }
+
+    /**
+     *
+     *
+     * @return $this
+     */
+    public function fire(){
+        $this->exceptionHandler = ExceptionHandler::register($this->isDebug());
+        return $this;
     }
 
     /**
