@@ -21,6 +21,11 @@ use Anonym\Components\HttpClient\Query as Abst;
 class Query extends Facade
 {
 
+    /**
+     * get the query facade
+     *
+     * @return string
+     */
     protected static function getFacadeClass(){
         return Abst::class;
     }
