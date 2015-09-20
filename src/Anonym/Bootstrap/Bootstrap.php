@@ -10,10 +10,12 @@
 
 namespace Anonym\Bootstrap;
 
+use Anonym\Components\Config\Reposity;
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Application\AliasLoader;
+use Anonym\Facades\Config;
 use Illuminate\Container\Container;
 use Anonym\Patterns\Facade;
 use HttpException;
@@ -83,6 +85,7 @@ class Bootstrap extends Container
         $this->resolveBootstraps();
     }
 
+
     /**
      * @return string
      */
@@ -111,7 +114,6 @@ class Bootstrap extends Container
     {
         $configs = include(CONFIG . 'general.php');
         $this->setGeneral($configs);
-
         $aliases = $configs['alias'];
         $this->setAliasLoader(new AliasLoader($aliases));
 
