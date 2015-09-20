@@ -51,6 +51,13 @@ class Handler
     private $exceptionHandler;
 
     /**
+     * the bool type to debugging
+     *
+     * @var bool
+     */
+    private $debug;
+
+    /**
      * create a new instance and register filesystem
      *
      * @param Filesystem $filesystem
@@ -60,6 +67,24 @@ class Handler
         $this->file = $filesystem;
         $this->logger = new Logger();
         $this->exceptionHandler = ExceptionHandler::register(config('error.debug'));
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isDebug()
+    {
+        return $this->debug;
+    }
+
+    /**
+     * @param boolean $debug
+     * @return Handler
+     */
+    public function setDebug($debug)
+    {
+        $this->debug = $debug;
+        return $this;
     }
 
     /**
