@@ -10,6 +10,7 @@
 
 namespace Anonym\Support;
 
+use Anonym\Log\Logger;
 use Exception;
 use HttpException;
 use ErrorException;
@@ -61,6 +62,15 @@ class Handler
     public function handleExceptions(Exception $e)
     {
 
+    }
+
+    /**
+     * write your exception to log
+     *
+     * @param Exception $e
+     */
+    protected function writeToLog(Exception $e){
+        $logger = new Logger($e);
     }
 
     /**
