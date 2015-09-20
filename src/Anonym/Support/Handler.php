@@ -77,7 +77,7 @@ class Handler
         return $manager->generate([
             'content' => $content,
             'css'       => $css,
-            'charset'  => $content
+            'charset'  => $charset
         ]);
     }
 
