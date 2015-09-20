@@ -10,12 +10,10 @@
 
 namespace Anonym\Bootstrap;
 
-use Anonym\Components\Config\Reposity;
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Anonym\Application\AliasLoader;
-use Anonym\Facades\Config;
 use Illuminate\Container\Container;
 use Anonym\Patterns\Facade;
 use HttpException;
