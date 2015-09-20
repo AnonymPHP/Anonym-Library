@@ -51,7 +51,7 @@ class Logger
 
         $pattern = "[%s] Message = %s : (File-Line) = %s-%d \n";
         $time = date('d.m.Y- h:i');
-        $content = sprintf($pattern, $time, $exception->getMessage(), $exception->getFile(), $exception->getLine());
+        $content = sprintf($pattern, $time, $exception->getMessage() ?: '', $exception->getFile() ?: '', $exception->getLine() ?: 0);
 
         $this->filesystem->append($this->path, $content);
     }
