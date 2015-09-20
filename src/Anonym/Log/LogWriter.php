@@ -11,6 +11,10 @@
 namespace Anonym\Log;
 use Symfony\Component\Debug\BufferingLogger;
 
+/**
+ * Class LogWriter
+ * @package Anonym\Log
+ */
 class LogWriter extends BufferingLogger
 {
 
