@@ -29,10 +29,24 @@ class RegisterErrorHandlers
      * @param Bootstrap $app
      */
     public function __construct(Bootstrap $app){
-        $handler = $app->make(Handler::class);
+        $this->handler = $app->make(Handler::class);
 
         $this->registerErrorHandler();
         $this->registerExceptionHandler();
     }
 
+
+    /**
+     *  register the error handler
+     */
+    protected function registerErrorHandler(){
+        set_error_handler([$this->handler, 'handleErrors']);
+    }
+
+    /**
+     *  register the exception handler
+     */
+    protected function registerExceptionHandler(){
+        set_exception_handler([$this->handler, 'handleExceptions']);
+    }
 }
