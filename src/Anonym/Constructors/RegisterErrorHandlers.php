@@ -31,7 +31,7 @@ class RegisterErrorHandlers
      */
     public function __construct(Bootstrap $app){
         $this->handler = $app->make(Handler::class);
-
+        $this->handler->setDebug($app->getGeneral()['debug']);
         $this->registerErrorHandler();
         $this->registerExceptionHandler();
 
