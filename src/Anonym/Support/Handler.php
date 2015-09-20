@@ -10,13 +10,12 @@
 
 namespace Anonym\Support;
 
-use Anonym\Facades\Config;
-use Anonym\Facades\Response;
 use Exception;
-use HttpException;
 use ErrorException;
 use Anonym\Log\Logger;
+use Anonym\Facades\Config;
 use Anonym\Filesystem\Filesystem;
+use Anonym\Bootstrap\HttpException;
 use Symfony\Component\Debug\ExceptionHandler;
 
 /**
@@ -100,7 +99,7 @@ class Handler
     /**
      * @param HttpException $e
      */
-    public function generateHttpExceptionResponse(HttpException $e)
+    protected function generateHttpExceptionResponse(HttpException $e)
     {
         $statusCode = $e->getStatusCode();
 
@@ -113,6 +112,10 @@ class Handler
         }else{
             return $this->generateExceptionResponse($e);
         }
+    }
+
+    protected function generateExceptionResponse(Exception $e){
+
     }
 
     /**
