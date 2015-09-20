@@ -10,7 +10,6 @@
 
 namespace Anonym\Constructors;
 
-use Anonym\Log\Logger;
 use Anonym\Support\Handler;
 use Anonym\Bootstrap\Bootstrap;
 

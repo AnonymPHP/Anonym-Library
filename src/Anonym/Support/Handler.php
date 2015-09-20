@@ -58,6 +58,12 @@ class Handler
     private $debug;
 
     /**
+     * @var bool
+     */
+    private $log;
+
+
+    /**
      * create a new instance and register filesystem
      *
      * @param Filesystem $filesystem
@@ -66,6 +72,24 @@ class Handler
     {
         $this->file = $filesystem;
         $this->logger = new Logger();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isLog()
+    {
+        return $this->log;
+    }
+
+    /**
+     * @param boolean $log
+     * @return Handler
+     */
+    public function setLog($log)
+    {
+        $this->log = $log;
+        return $this;
     }
 
     /**
