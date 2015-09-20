@@ -44,6 +44,12 @@ class Handler
 
     }
 
+    /**
+     * determine the given exception is an http exception
+     *
+     * @param Exception $e
+     * @return bool
+     */
     protected function isHttpException(Exception $e){
         return $e instanceof HttpException;
     }
