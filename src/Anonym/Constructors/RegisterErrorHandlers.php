@@ -35,9 +35,6 @@ class RegisterErrorHandlers
         $this->registerErrorHandler();
         $this->registerExceptionHandler();
 
-        App::bind('error.logger', function(){
-            return new Logger();
-        });
     }
 
 

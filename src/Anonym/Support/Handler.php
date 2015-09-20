@@ -58,7 +58,7 @@ class Handler
     public function __construct(Filesystem $filesystem)
     {
         $this->file = $filesystem;
-        $this->logger = app('error.logger');
+        $this->logger = new Logger();
         $this->exceptionHandler = new ExceptionHandler(Config::get('app.debug'));
     }
 
