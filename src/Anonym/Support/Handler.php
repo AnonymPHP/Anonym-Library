@@ -201,6 +201,8 @@ class Handler
                 return false;
             }
         }
+
+        return true;
     }
 
     /**
