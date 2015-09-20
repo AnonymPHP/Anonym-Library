@@ -11,6 +11,7 @@
 namespace Anonym\Support;
 
 use Anonym\Facades\Config;
+use Anonym\Facades\Response;
 use Exception;
 use HttpException;
 use ErrorException;
@@ -86,10 +87,31 @@ class Handler
             $this->writeToLog($e);
         }
 
-        if($this->isHttpException($e)){
-            $this->sendHttpExceptionResponse($e);
+        if ($this->isHttpException($e)) {
+            $response = $this->generateHttpExceptionResponse($e);
+        } else {
+            $response = $this->generateExceptionResponse($e);
+        }
+
+        $response->send();
+    }
+
+
+    /**
+     * @param HttpException $e
+     */
+    public function generateHttpExceptionResponse(HttpException $e)
+    {
+        $statusCode = $e->getStatusCode();
+
+        if(view()->exists("errors.{$statusCode}")){
+            $content = view("errors.{$statusCode}", [
+                'message' => $e->getMessage()
+            ]);
+
+            return response($content, $statusCode)->setHeaders($e->getHeaders());
         }else{
-            $this->sendExceptionResponse($e);
+            return $this->generateExceptionResponse($e);
         }
     }
 
