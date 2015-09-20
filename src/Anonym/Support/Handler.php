@@ -105,7 +105,7 @@ class Handler
      */
     protected function writeToLog(Exception $e)
     {
-
+        $this->logger->write($e);
     }
 
     /**
