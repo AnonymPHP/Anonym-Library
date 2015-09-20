@@ -14,4 +14,8 @@ namespace Anonym\Log;
 class Logger
 {
 
+    public function write(){
+
+    }
+
 }
