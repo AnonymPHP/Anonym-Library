@@ -10,13 +10,13 @@
 
 namespace Anonym\Support;
 
-use Anonym\Facades\App;
-use Anonym\Log\Logger;
+use Anonym\Facades\Config;
 use Exception;
 use HttpException;
 use ErrorException;
+use Anonym\Log\Logger;
 use Anonym\Filesystem\Filesystem;
-
+use Symfony\Component\Debug\ExceptionHandler;
 
 /**
  * Class Handler
@@ -45,6 +45,11 @@ class Handler
     private $file;
 
     /**
+     * @var ExceptionHandler
+     */
+    private $exceptionHandler;
+
+    /**
      * create a new instance and register filesystem
      *
      * @param Filesystem $filesystem
@@ -53,6 +58,7 @@ class Handler
     {
         $this->file = $filesystem;
         $this->logger = app('error.logger');
+        $this->exceptionHandler = new ExceptionHandler(Config::get('app.debug'));
     }
 
     /**
@@ -80,7 +86,11 @@ class Handler
             $this->writeToLog($e);
         }
 
-
+        if($this->isHttpException($e)){
+            $this->sendHttpExceptionResponse($e);
+        }else{
+            $this->sendExceptionResponse($e);
+        }
     }
 
     /**
