@@ -102,7 +102,7 @@ class Bootstrap extends Container
      */
     public function abort($code = 503, $message = '', array $headers = [])
     {
-        throw new HttpException($code, $message, null, $headers);
+        throw new HttpException($code, $message, $headers);
     }
 
     /**
