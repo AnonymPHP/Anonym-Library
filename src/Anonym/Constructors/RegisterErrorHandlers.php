@@ -10,6 +10,7 @@
 
 namespace Anonym\Constructors;
 
+use Anonym\Log\Logger;
 use Anonym\Support\Handler;
 use Anonym\Bootstrap\Bootstrap;
 
@@ -33,6 +34,10 @@ class RegisterErrorHandlers
 
         $this->registerErrorHandler();
         $this->registerExceptionHandler();
+
+        App::singleton('error.logger', function(){
+            return new Logger();
+        });
     }
 
 

@@ -10,6 +10,7 @@
 
 namespace Anonym\Support;
 
+use Anonym\Facades\App;
 use Anonym\Log\Logger;
 use Exception;
 use HttpException;
@@ -25,6 +26,21 @@ class Handler
 {
 
     /**
+     * A list of the exception types that should not be reported.
+
+     *
+     * @var array
+     */
+    protected $dontLog;
+
+    /**
+     * the error logger
+     *
+     * @var Logger
+     */
+    protected $logger;
+
+    /**
      * @var Filesystem
      */
     private $file;
@@ -37,6 +53,7 @@ class Handler
     public function __construct(Filesystem $filesystem)
     {
         $this->file = $filesystem;
+        $this->logger = app('error.logger');
     }
 
     /**
@@ -50,7 +67,6 @@ class Handler
      */
     public function handleErrors($code, $message, $file, $line)
     {
-
         // throw a new error.
         throw new ErrorException($message, 0, $code, $file, $line);
     }
