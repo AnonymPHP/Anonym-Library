@@ -9,13 +9,10 @@
  */
 
 namespace Anonym\Log;
+use Psr\Log\LoggerInterface;
 
-
-class Logger
+class Logger implements LoggerInterface
 {
 
-    public function write(){
-
-    }
-
 }
+
