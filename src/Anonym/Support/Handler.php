@@ -30,7 +30,7 @@ class Handler
      *
      * @var array
      */
-    protected $dontLog;
+    protected $dontLog = [];
 
     /**
      * the error logger
@@ -76,11 +76,26 @@ class Handler
      */
     public function handleExceptions(Exception $e)
     {
-         if($this->shouldBeLog($e)){
-             $this->writeToLog($e);
-         }
+        if ($this->shouldBeLog($e)) {
+            $this->writeToLog($e);
+        }
 
 
+    }
+
+    /**
+     * Determine if the exception should be reported.
+     *
+     * @param Exception $e
+     * @return bool
+     */
+    protected function shouldBeLog($e)
+    {
+        foreach ($this->dontLog as $instance) {
+            if ($e instanceof $instance) {
+                return false;
+            }
+        }
     }
 
     /**
@@ -90,7 +105,7 @@ class Handler
      */
     protected function writeToLog(Exception $e)
     {
-        $logger = new Logger($e);
+
     }
 
     /**
