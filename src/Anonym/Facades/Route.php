@@ -12,7 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-
+use Anonym\Components\Route\RouteCollector;
 /**
  * Class Route
  * @package Anonym\Facades
@@ -28,6 +28,6 @@ class Route extends Facade
      */
     protected static function getFacadeClass()
     {
-        return "route";
+        return RouteCollector::class;
     }
 }
