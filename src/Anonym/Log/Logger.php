@@ -9,143 +9,51 @@
  */
 
 namespace Anonym\Log;
-
-use Psr\Log\LoggerInterface;
+use Exception;
+use Anonym\Filesystem\Filesystem;
 
 /**
  * Class Logger
  * @package Anonym\Log
  */
-class Logger implements LoggerInterface
+class Logger
 {
 
     /**
-     * System is unusable.
+     * the instance of filesystem
      *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
+     * @var Filesystem
      */
-    public function emergency($message, array $context = array())
-    {
+    private $filesystem;
 
+    /**
+     * the default path to log file
+     *
+     * @var string
+     */
+    private $path;
+    /**
+     * create a new instance and register filesystem
+     *
+     * @param Filesystem $filesystem
+     */
+    public function __construct(Filesystem $filesystem, $path = APP.'logs/error.log'){
+        $this->filesystem = $filesystem;
+        $this->path = $path;
     }
 
     /**
-     * Action must be taken immediately.
+     * write error to error.log
      *
-     * Example: Entire website down, database unavailable, etc. This should
-     * trigger the SMS alerts and wake you up.
-     *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
+     * @param Exception $exception
      */
-    public function alert($message, array $context = array())
-    {
+    public function write(Exception $exception){
 
-    }
+        $pattern = "[%s] = %s : %s-%d";
+        $time = date('d.m.Y- h:i');
+        $content = sprintf($pattern, $time, $exception->getMessage(), $exception->getFile(), $exception->getLine());
 
-    /**
-     * Critical conditions.
-     *
-     * Example: Application component unavailable, unexpected exception.
-     *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
-     */
-    public function critical($message, array $context = array())
-    {
-
-    }
-
-    /**
-     * Runtime errors that do not require immediate action but should typically
-     * be logged and monitored.
-     *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
-     */
-    public function error($message, array $context = array())
-    {
-
-    }
-
-    /**
-     * Exceptional occurrences that are not errors.
-     *
-     * Example: Use of deprecated APIs, poor use of an API, undesirable things
-     * that are not necessarily wrong.
-     *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
-     */
-    public function warning($message, array $context = array())
-    {
-
-    }
-
-    /**
-     * Normal but significant events.
-     *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
-     */
-    public function notice($message, array $context = array())
-    {
-
-    }
-
-    /**
-     * Interesting events.
-     *
-     * Example: User logs in, SQL logs.
-     *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
-     */
-    public function info($message, array $context = array())
-    {
-
-    }
-
-    /**
-     * Detailed debug information.
-     *
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
-     */
-    public function debug($message, array $context = array())
-    {
-
-    }
-
-    /**
-     * Logs with an arbitrary level.
-     *
-     * @param mixed $level
-     * @param string $message
-     * @param array $context
-     *
-     * @return null
-     */
-    public function log($level, $message, array $context = array())
-    {
-
+        $this->filesystem->append($this->path, $content);
     }
 }
 

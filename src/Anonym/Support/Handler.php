@@ -71,7 +71,7 @@ class Handler
     public function __construct(Filesystem $filesystem)
     {
         $this->file = $filesystem;
-        $this->logger = new Logger();
+        $this->logger = new Logger($filesystem);
     }
 
     /**
