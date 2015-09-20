@@ -11,6 +11,10 @@
 namespace Anonym\Log;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Class Logger
+ * @package Anonym\Log
+ */
 class Logger implements LoggerInterface
 {
 
