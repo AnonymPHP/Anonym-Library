@@ -59,7 +59,7 @@ class Handler
     {
         $this->file = $filesystem;
         $this->logger = new Logger();
-        $this->exceptionHandler = new ExceptionHandler(Config::get('error.debug'));
+        $this->exceptionHandler = ExceptionHandler::register(config('error.debug'));
     }
 
     /**
