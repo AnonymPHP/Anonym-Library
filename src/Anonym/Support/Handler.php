@@ -27,7 +27,6 @@ class Handler
 
     /**
      * A list of the exception types that should not be reported.
-
      *
      * @var array
      */
@@ -77,6 +76,10 @@ class Handler
      */
     public function handleExceptions(Exception $e)
     {
+         if($this->shouldBeLog($e)){
+             $this->writeToLog($e);
+         }
+
 
     }
 
@@ -85,7 +88,8 @@ class Handler
      *
      * @param Exception $e
      */
-    protected function writeToLog(Exception $e){
+    protected function writeToLog(Exception $e)
+    {
         $logger = new Logger($e);
     }
 
@@ -102,8 +106,8 @@ class Handler
 
         return $manager->generate([
             'content' => $content,
-            'css'       => $css,
-            'charset'  => $charset
+            'css' => $css,
+            'charset' => $charset
         ]);
     }
 
