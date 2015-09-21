@@ -34,9 +34,9 @@ class Bootstrap extends Container
      */
     private $constructors = [
         RegisterErrorHandlers::class,
+        ConfigConstructor::class,
         DatabaseConstructor::class,
         RequestConstructor::class,
-        ConfigConstructor::class,
         RegisterProviders::class
     ];
 
