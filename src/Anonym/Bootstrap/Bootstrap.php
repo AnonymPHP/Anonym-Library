@@ -17,7 +17,6 @@ use Anonym\Constructors\ConfigConstructor;
 use Anonym\Application\AliasLoader;
 use Illuminate\Container\Container;
 use Anonym\Patterns\Facade;
-use HttpException;
 
 /**
  * the starter class of framework
