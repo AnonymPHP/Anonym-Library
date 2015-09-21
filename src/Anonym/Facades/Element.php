@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file belongs to the AnoynmFramework
  *
@@ -10,97 +11,23 @@
 
 namespace Anonym\Facades;
 
-use Anonym\Components\Element\Element as ElementOrm;
-use Anonym\Patterns\Singleton;
+use Anonym\Patterns\Facade;
+use Anonym\Components\Element\Model;
 
 /**
  * Class Element
- * @package Anonym\Components\Facade
+ * @package Anonym\Facades
  */
-class Element
-{
+class Element extends Facade{
 
     /**
-     * @var ElementOrm
-     */
-    public $orm;
-
-    /**
-     * Sınıfı başlatır
-     */
-    public function __construct()
-    {
-        $this->orm = new ElementOrm(App::make('database.base'));
-        $this->orm->setTable($this->findCalledClassTableVariable());
-    }
-
-    /**
-     * Hangi sınıftan çağrıldığını arar
+     * return facade instance or class name
      *
      * @return mixed
      */
-    private function findCalledClassTableVariable()
-    {
-        $vars = get_class_vars(self::class);
-
-        if (isset($vars['table'])) {
-            return $vars['table'];
-        }
-
-        $class = get_called_class();
-        return $this->resolveClassName($class);
+    protected static function getFacadeClass(){
+        return Model::class;
     }
 
 
-    /**
-     * resolve the class name
-     *
-     * @param string $name
-     * @return mixed
-     */
-    private function resolveClassName($name = '')
-    {
-        $explodeClass = explode('\\', $name);
-        return end($explodeClass);
-    }
-
-    /**
-     * Static kullanım desteği
-     *
-     * @param       $method
-     * @param array $params
-     * @return mixed
-     */
-    public static function __callStatic($method, $params = [])
-    {
-        $instance = new static();
-
-        return call_user_func_array([$instance->orm, $method], $params);
-    }
-
-    /**
-     * create orm instance with selected table
-     *
-     * @param string $table
-     * @return $this
-     */
-    public static function table($table){
-        $instance = new static();
-
-        $instance->orm->setTable($table);
-
-        return $instance;
-    }
-
-    /**
-     * call the methods
-     *
-     * @param       $method
-     * @param array $params
-     * @return mixed
-     */
-    public function __call($method, $params = [])
-    {
-        return call_user_func_array([$this->orm, $method], $params);
-    }
 }
