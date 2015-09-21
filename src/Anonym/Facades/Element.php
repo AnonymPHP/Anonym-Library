@@ -43,8 +43,8 @@ class Element
     {
         $vars = get_class_vars(self::class);
 
-        if (isset($vars[ElementOrm::TABLE_NAME])) {
-            return $vars[ElementOrm::TABLE_NAME];
+        if (isset($vars['table'])) {
+            return $vars['table'];
         }
 
         $class = get_called_class();
@@ -84,8 +84,7 @@ class Element
      * @param string $table
      * @return $this
      */
-    public static function table($table)
-    {
+    public static function table($table){
         $instance = new static();
 
         $instance->orm->setTable($table);
