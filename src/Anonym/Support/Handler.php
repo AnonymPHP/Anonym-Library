@@ -31,7 +31,9 @@ class Handler
      *
      * @var array
      */
-    protected $dontLog = [];
+    protected $dontLog = [
+        HttpException::class,
+    ];
 
     /**
      * the error logger
