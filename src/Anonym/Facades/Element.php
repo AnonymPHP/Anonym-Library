@@ -41,7 +41,7 @@ class Element
      */
     private function findCalledClassTableVariable()
     {
-        $vars = get_class_vars($this);
+        $vars = get_class_vars(self::class);
 
         if (isset($vars[ElementOrm::TABLE_NAME])) {
             return $vars[ElementOrm::TABLE_NAME];
@@ -84,7 +84,8 @@ class Element
      * @param string $table
      * @return $this
      */
-    public static function table($table){
+    public static function table($table)
+    {
         $instance = new static();
 
         $instance->orm->setTable($table);
