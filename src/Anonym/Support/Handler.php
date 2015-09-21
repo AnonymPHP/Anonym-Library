@@ -133,7 +133,6 @@ class Handler
      */
     public function handleErrors($code, $message, $file, $line)
     {
-        // throw a new error.
         throw new ErrorException($message, 0, $code, $file, $line);
     }
 
@@ -143,6 +142,7 @@ class Handler
      */
     public function handleExceptions(Exception $e)
     {
+
         if ($this->shouldBeLog($e)) {
             $this->writeToLog($e);
         }
@@ -165,12 +165,13 @@ class Handler
     {
         $statusCode = $e->getStatusCode();
 
+
         if(view()->exists("errors.{$statusCode}")){
             $content = view("errors.{$statusCode}", [
                 'message' => $e->getMessage()
             ]);
 
-            return response($content, $statusCode)->setHeaders($e->getHeaders());
+            return response($content->execute(), $statusCode)->setHeaders($e->getHeaders());
         }else{
             return $this->generateExceptionResponse($e);
         }
