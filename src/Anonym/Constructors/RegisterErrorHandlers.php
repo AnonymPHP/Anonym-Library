@@ -13,6 +13,10 @@ namespace Anonym\Constructors;
 use Anonym\Support\Handler;
 use Anonym\Bootstrap\Bootstrap;
 
+/**
+ * Class RegisterErrorHandlers
+ * @package Anonym\Constructors
+ */
 class RegisterErrorHandlers
 {
 
