@@ -11,6 +11,7 @@
 
 namespace Anonym\Facades;
 
+
 use Anonym\Patterns\Facade;
 use Anonym\Components\Element\Model;
 
@@ -18,16 +19,6 @@ use Anonym\Components\Element\Model;
  * Class Element
  * @package Anonym\Facades
  */
-class Element extends Facade{
-
-    /**
-     * return facade instance or class name
-     *
-     * @return mixed
-     */
-    protected static function getFacadeClass(){
-        return Model::class;
-    }
-
-
+class Element extends Model{
+    // do nothing
 }
