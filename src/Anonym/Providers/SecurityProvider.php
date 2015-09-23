@@ -10,7 +10,7 @@
 
 namespace Anonym\Providers;
 
-
+use GUMP;
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Components\Security\Authentication\Guard;
 use Anonym\Components\Security\CsrfToken;
@@ -60,11 +60,13 @@ class SecurityProvider extends ServiceProvider
      *  clean all query string
      */
     private function filterGetParameters(){
-        $_GET =  array_map(function($value){
 
-        }, $_GET);
+        if(!is_array($_GET)){
+            $_GET = [];
+        }
+
+        $_GET =  GUMP::xss_clean($_GET);
     }
-
 
     /**
      * register the type hint
