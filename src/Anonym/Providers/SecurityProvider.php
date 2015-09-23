@@ -51,6 +51,18 @@ class SecurityProvider extends ServiceProvider
             }
         }
 
+        $this->filterGetParameters();
+
+    }
+
+
+    /**
+     *  clean all query string
+     */
+    private function filterGetParameters(){
+        $_GET =  array_map(function($value){
+
+        }, $_GET);
     }
 
 
