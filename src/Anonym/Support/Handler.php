@@ -165,13 +165,12 @@ class Handler
     {
         $statusCode = $e->getStatusCode();
 
-
         if(view()->exists("errors.{$statusCode}")){
             $content = view("errors.{$statusCode}", [
                 'message' => $e->getMessage()
             ]);
 
-            return response($content->execute(), $statusCode)->setHeaders($e->getHeaders());
+            return response($content->render(), $statusCode)->setHeaders($e->getHeaders());
         }else{
             return $this->generateExceptionResponse($e);
         }
