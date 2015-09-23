@@ -11,8 +11,7 @@
 namespace Anonym\Support;
 
 use Closure;
-
-
+use BadMethodCallException;
 /**
  * Class Macroable
  * @package Anonym\Support
@@ -41,4 +40,11 @@ class Macroable
     }
 
 
+    public function __call($method, $args){
+        if (isset($this->macros[$method])) {
+            return call_user_func_array($this->macros[$method], $args);
+        }else{
+            throw new BadMethodCallException(sprintf('%s method is not exists', $method));
+        }
+    }
 }
