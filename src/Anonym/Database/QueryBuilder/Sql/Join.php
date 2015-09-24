@@ -14,4 +14,34 @@ namespace Anonym\Database\QueryBuilder\Sql;
 class Join
 {
 
+    /**
+     * the type of joiner
+     *
+     * @var string
+     */
+    public $type = 'INNER';
+
+
+    /**
+     * the table name of joiner table
+     *
+     * @var string
+     */
+    public $joinedTable;
+
+
+    /**
+     * the column name
+     *
+     * @var string
+     */
+    public $joinHomeColumn;
+
+
+    /**
+     * the column name of joiner table
+     *
+     * @var string
+     */
+    public $joinerColumn;
 }
