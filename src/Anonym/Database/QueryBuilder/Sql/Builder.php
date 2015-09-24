@@ -157,7 +157,10 @@ class Builder extends QueryPatterns
             $statement = $value;
         }else{
 
-            $column[] = 'AND';
+            if (!isset($column[3])) {
+                $column[] = 'AND';
+            }
+
             $statement = isset($column[2]) ? $column[2] : null;
         }
 
@@ -165,6 +168,8 @@ class Builder extends QueryPatterns
         $this->where[] = $column;
         return $this;
     }
+
+
 
     /**
      *
