@@ -155,13 +155,14 @@ class Builder extends QueryPatterns
      */
     public function where($column, $value = null){
         if($value !== null){
-            $this->where[$column] = '?';
+            $where = [$column, '=', '?', 'AND'];
 
             $statement = $value;
         }else{
-            $this->where = array_merge($this->where, $column);
 
-            $statement = isset($column[2]) ? $column[2] : '';
+            $column[] = 'AND';
+            $this->where = array_merge($this->where, $column);
+            $statement = isset($column[2]) ? $column[2] : null;
         }
 
         $this->preparedParameters[] = $statement;

@@ -10,8 +10,15 @@
 
 namespace Anonym\Database\QueryBuilder;
 
-
+/**
+ * Class WhereBuilder
+ * @package Anonym\Database\QueryBuilder
+ */
 class WhereBuilder
 {
+
+    public function buildWhereQuery(){
+
+    }
 
 }
