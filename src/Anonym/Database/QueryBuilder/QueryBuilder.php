@@ -94,7 +94,7 @@ abstract class QueryBuilder
 
         foreach ($where as $w) {
             list($column, $operator, $value, $mode) = $w;
-            $builded .= "$column $operator $value $mode";
+            $builded .= " $column $operator $value $mode";
         }
 
         if (Str::endsWith($builded, 'AND')) {
