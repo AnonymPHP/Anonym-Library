@@ -117,6 +117,8 @@ class SelectWithAll extends QueryBuilder
      */
     public function buildQuery()
     {
+        return $this->replacePattern([
 
+        ]);
     }
 }
