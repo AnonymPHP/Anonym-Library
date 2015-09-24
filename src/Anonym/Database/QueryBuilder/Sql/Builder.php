@@ -34,6 +34,9 @@ class Builder extends QueryPatterns
     const MULTIPILE_INSERT = MultipileInsert::class;
     const SINGLE_INSERT = SingleInsert::class;
 
+
+    const WHERE_UPDATE;
+
     /**
      * the mode of read
      *
@@ -69,12 +72,20 @@ class Builder extends QueryPatterns
      */
     protected $table;
 
+
     /**
      * the parameters to prepared statements
      *
      * @var array
      */
     protected $preparedParameters;
+
+    /**
+     * the parameter for where queries
+     *
+     * @var array
+     */
+    protected $where;
 
     /**
      * create a new instance and register container
@@ -122,4 +133,12 @@ class Builder extends QueryPatterns
         return $this;
     }
 
+
+    public function update(array $parameters = []){
+
+        if($this->where){
+
+        }
+
+    }
 }
