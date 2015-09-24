@@ -9,7 +9,7 @@
  */
 
 namespace Anonym\Database\QueryBuilder;
-
+use Anonym\Support\Str;
 
 /**
  * Interface QueryBuilderInterface
