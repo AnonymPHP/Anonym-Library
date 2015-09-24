@@ -27,6 +27,6 @@ class WithoutWhere extends QueryBuilder
      */
     public function buildQuery()
     {
-        // TODO: Implement buildQuery() method.
+
     }
 }
