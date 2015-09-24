@@ -41,6 +41,7 @@ class WhereBuilder
             $builded = rtrim($builded, 'OR');
         }
 
+        return $builded;
     }
 
 }
