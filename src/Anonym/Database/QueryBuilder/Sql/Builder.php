@@ -15,8 +15,10 @@ use Anonym\Database\QueryBuilder\Sql\Delete\WithWhere;
 use Anonym\Database\QueryBuilder\Sql\Update\WhereUpdate;
 use Anonym\Database\QueryBuilder\Sql\Insert\SingleInsert;
 use Anonym\Database\QueryBuilder\Sql\Delete\WithoutWhere;
+use Anonym\Database\QueryBuilder\Sql\Select\SelectWithAll;
 use Anonym\Database\QueryBuilder\Sql\Insert\MultipileInsert;
 use Anonym\Database\QueryBuilder\Sql\Update\WithoutWhereUpdate;
+
 
 /**
  * Class Builder
@@ -378,6 +380,7 @@ class Builder extends QueryPatterns
             'order' => $this->order,
         ];
 
+        $instance = $this->container->make(SelectWithAll::class,);
 
     }
 }
