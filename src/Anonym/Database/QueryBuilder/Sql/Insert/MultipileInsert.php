@@ -20,10 +20,6 @@ use Anonym\Database\QueryBuilder\QueryBuilder;
 class MultipileInsert extends QueryBuilder
 {
 
-    /**
-     * @var array
-     */
-    protected $parameters;
 
     /**
      * create a new instance
