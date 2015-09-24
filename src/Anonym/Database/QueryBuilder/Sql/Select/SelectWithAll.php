@@ -10,7 +10,7 @@
 
 namespace Anonym\Database\QueryBuilder\Sql\Select;
 
-use Anonym\Components\Database\Builders\Join;
+use Anonym\Database\QueryBuilder\Sql\Join;
 use Anonym\Database\QueryBuilder\QueryBuilder;
 
 /**
@@ -102,6 +102,11 @@ class SelectWithAll extends QueryBuilder
      * @return string
      */
     protected function prepareJoin(Join $join){
+
+        $type = $join->type.' JOIN';
+
+        $string .= sprintf("%s %s ON %s.%s = %s.%s", $type, $value[0], $value[0], $value[1], $table, $value[2]);
+
 
     }
 
