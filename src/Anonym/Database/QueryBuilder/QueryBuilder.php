@@ -45,13 +45,27 @@ abstract class QueryBuilder
      * @param array $parameters
      * @return string
      */
-    protected function buildUpdateAndInsertSetter(array $parameters){
-        $builded  = '';
+    protected function buildUpdateAndInsertSetter(array $parameters)
+    {
+        $builded = '';
 
-        foreach($parameters as $key => $value){
+        foreach ($parameters as $key => $value) {
             $builded .= "$key = $value,";
         }
 
-        return rtrim($builded,',');
+        return rtrim($builded, ',');
+    }
+
+    /**
+     * replace pattern string with given datas
+     *
+     * @param array $datas
+     */
+    protected function replacePattern(array $datas)
+    {
+        $search = array_keys($datas);
+        $replaceWith = array_values($datas);
+
+
     }
 }

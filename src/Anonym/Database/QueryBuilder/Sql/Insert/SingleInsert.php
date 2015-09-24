@@ -9,13 +9,14 @@
  */
 
 namespace Anonym\Database\QueryBuilder\Sql\Insert;
+
 use Anonym\Database\QueryBuilder\QueryBuilder;
 
 /**
  * Class SingleInsert
  * @package Anonym\Database\QueryBuilder\Sql
  */
-class SingleInsert extends  QueryBuilder
+class SingleInsert extends QueryBuilder
 {
 
     /**
@@ -31,7 +32,8 @@ class SingleInsert extends  QueryBuilder
      * @param array $parameters
      * @param string $table
      */
-    public function __construct($patterns = [],array $parameters = [], $table){
+    public function __construct($patterns = [], array $parameters = [], $table)
+    {
         $this->pattern = $patterns['single'];
         $this->parameters = $parameters;
         $this->table = $table;
@@ -46,7 +48,12 @@ class SingleInsert extends  QueryBuilder
     {
         $parameters = array_fill_keys($this->parameters, '?');
 
-        $this->buildUpdateAndInsertSetter($parameters);
+        $builded = $this->buildUpdateAndInsertSetter($parameters);
+        $builded = $this->replacePattern([
+            ':from' => $this->table,
+            ':insert' => $builded
+        ]);
 
+        return $builded;
     }
 }
