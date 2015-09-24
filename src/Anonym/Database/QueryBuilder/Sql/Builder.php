@@ -132,6 +132,7 @@ class Builder extends QueryPatterns
      * @var array
      */
     protected $select;
+
     /**
      * create a new instance and register container
      *
@@ -349,7 +350,8 @@ class Builder extends QueryPatterns
      * @param array|string $limit
      * @return $this
      */
-    public function limit($limit){
+    public function limit($limit)
+    {
         $this->limit = $limit;
         return $this;
     }
@@ -360,7 +362,8 @@ class Builder extends QueryPatterns
      * @param array $selects
      * @return $this
      */
-    public function select($selects = []){
+    public function select($selects = [])
+    {
         $this->select = $selects;
         return $this;
     }
@@ -370,7 +373,8 @@ class Builder extends QueryPatterns
      *
      * @return $this
      */
-    public function get(){
+    public function get()
+    {
         $parameters = [
             'join' => $this->join,
             'select' => $this->select,
@@ -380,7 +384,12 @@ class Builder extends QueryPatterns
             'order' => $this->order,
         ];
 
-        $instance = $this->container->make(SelectWithAll::class,);
+        $instance = $this->container->make(SelectWithAll::class, [
+            'patterns' => $this->select,
+            'parameters' => $parameters,
+            'table' => $this->table
+        ]);
+
 
     }
 }
