@@ -20,12 +20,6 @@ class SingleInsert extends QueryBuilder
 {
 
     /**
-     *
-     * @var array
-     */
-    protected $parameters;
-
-    /**
      * create a new instance and register pattern
      *
      * @param array $patterns
