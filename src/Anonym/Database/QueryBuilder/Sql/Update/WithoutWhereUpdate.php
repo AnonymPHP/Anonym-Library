@@ -39,6 +39,13 @@ class WithoutWhereUpdate extends QueryBuilder
      */
     public function buildQuery()
     {
+        $update = $this->buildUpdateAndInsertSetter($this->parameters);
 
+        $builded = $this->replacePattern([
+            ':from' => $this->table,
+            ':update' => $update
+        ]);
+
+        return $builded;
     }
 }
