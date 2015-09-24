@@ -170,6 +170,25 @@ class Builder extends QueryPatterns
     }
 
 
+    /**
+     * add a or where query
+     *
+     * @param array|string $column
+     * @param null $value
+     * @return Builder
+     */
+    public function orWhere($column, $value = null){
+        if($value !== null){
+            $column = [$column, '=', '?', 'OR'];
+        }
+
+        if(!isset($column[3])){
+            $column[] = 'OR';
+        }
+
+        return $this->where($column);
+    }
+
 
     /**
      *
