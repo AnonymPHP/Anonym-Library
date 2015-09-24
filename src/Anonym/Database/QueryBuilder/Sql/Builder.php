@@ -113,6 +113,11 @@ class Builder extends QueryPatterns
     protected $join;
 
     /**
+     * @var string
+     */
+    protected $group;
+
+    /**
      * create a new instance and register container
      *
      * @param Container $container
@@ -282,7 +287,8 @@ class Builder extends QueryPatterns
      * @param string $type
      * @return $this
      */
-    public function orderBy($column, $type = 'DESC'){
+    public function orderBy($column, $type = 'DESC')
+    {
         $this->order = [$column, $type];
 
         return $this;
@@ -293,7 +299,8 @@ class Builder extends QueryPatterns
      *
      * @return Builder
      */
-    public function rand(){
+    public function rand()
+    {
         return $this->orderBy('', 'RAND()');
     }
 
@@ -303,8 +310,21 @@ class Builder extends QueryPatterns
      * @param Join $join
      * @return $this
      */
-    public function join(Join $join){
+    public function join(Join $join)
+    {
         $this->join = $join;
+        return $this;
+    }
+
+    /**
+     * register group
+     *
+     * @param string $group
+     * @return mixed
+     */
+    public function group($group)
+    {
+        $this->group = $group;
         return $this;
     }
 }
