@@ -13,6 +13,10 @@ namespace Anonym\Database\QueryBuilder\Sql\Update;
 
 use Anonym\Database\QueryBuilder\QueryBuilder;
 
+/**
+ * Class WhereUpdate
+ * @package Anonym\Database\QueryBuilder\Sql\Update
+ */
 class WhereUpdate extends QueryBuilder
 {
 
