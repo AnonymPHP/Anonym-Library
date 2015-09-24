@@ -10,8 +10,18 @@
 
 namespace Anonym\Database\QueryBuilder\Sql\Update;
 
+use Anonym\Database\QueryBuilder\QueryBuilder;
 
-class WithoutWhereUpdate
+class WithoutWhereUpdate extends QueryBuilder
 {
 
+    /**
+     * build and return query string
+     *
+     * @return string
+     */
+    public function buildQuery()
+    {
+
+    }
 }
