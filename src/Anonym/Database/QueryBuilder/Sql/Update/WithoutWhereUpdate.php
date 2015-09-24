@@ -12,8 +12,25 @@ namespace Anonym\Database\QueryBuilder\Sql\Update;
 
 use Anonym\Database\QueryBuilder\QueryBuilder;
 
+/**
+ * Class WithoutWhereUpdate
+ * @package Anonym\Database\QueryBuilder\Sql\Update
+ */
 class WithoutWhereUpdate extends QueryBuilder
 {
+
+    /**
+     * create a new instance
+     *
+     * @param array $patterns
+     * @param array $parameters
+     * @param string $table
+     */
+    public function __construct($patterns, array $parameters = [], $table){
+        $this->pattern = $patterns['without_where'];
+        $this->parameters = $parameters;
+        $this->table = $table;
+    }
 
     /**
      * build and return query string
