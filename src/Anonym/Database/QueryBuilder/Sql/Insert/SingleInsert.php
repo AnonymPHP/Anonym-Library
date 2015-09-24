@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Database\QueryBuilder\Sql;
+namespace Anonym\Database\QueryBuilder\Sql\Insert;
 use Anonym\Database\QueryBuilder\QueryBuilder;
 
 /**
@@ -19,12 +19,20 @@ class SingleInsert extends  QueryBuilder
 {
 
     /**
+     *
+     * @var array
+     */
+    protected $parameters;
+
+    /**
      * create a new instance and register pattern
      *
      * @param array $patterns
+     * @param array $parameters
      */
-    public function __construct($patterns = []){
+    public function __construct($patterns = [],array $parameters = []){
         $this->pattern = $patterns['single'];
+        $this->parameters = $parameters;
     }
 
     /**

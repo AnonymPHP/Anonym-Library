@@ -11,8 +11,8 @@
 namespace Anonym\Database\QueryBuilder\Sql;
 
 use Illuminate\Container\Container;
-use Anonym\Database\QueryBuilder\Sql\SingleInsert;
-use Anonym\Database\QueryBuilder\Sql\MultipileInsert;
+use Anonym\Database\QueryBuilder\Sql\Insert\SingleInsert;
+use Anonym\Database\QueryBuilder\Sql\Insert\MultipileInsert;
 /**
  * Class Builder
  * @package Anonym\Database\QueryBuilder
@@ -62,6 +62,13 @@ class Builder extends QueryPatterns
     protected $query;
 
     /**
+     * the name of selected table
+     *
+     * @var string
+     */
+    protected $table;
+
+    /**
      * create a new instance and register container
      *
      * @param Container $container
@@ -70,6 +77,16 @@ class Builder extends QueryPatterns
         $this->container = $container;
     }
 
+    /**
+     * select the selected table
+     *
+     * @param string $table
+     * @return $this
+     */
+    public function table($table){
+        $this->table = $table;
+        return $this;
+    }
     /**
      * build a new insert query
      *
@@ -84,7 +101,7 @@ class Builder extends QueryPatterns
             $mode = self::SINGLE_INSERT;
         }
 
-        $instance = $this->container->make($mode, ['patterns' => $this->insert]);
+        $instance = $this->container->make($mode, ['patterns' => $this->insert, 'parameters' => $parameters]);
 
         $this->query = $instance->buildQuery();
         return $this;

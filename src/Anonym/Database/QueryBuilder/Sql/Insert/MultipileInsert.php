@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Database\QueryBuilder\Sql;
+namespace Anonym\Database\QueryBuilder\Sql\Insert;
 
 
 class MultipileInsert

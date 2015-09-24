@@ -10,3 +10,9 @@
 
 include 'vendor/autoload.php';
 
+$container = new \Illuminate\Container\Container();
+$builder = new Anonym\Database\QueryBuilder\Sql\Builder($container);
+
+$builder->insert([
+    'test' => 'bb'
+]);
