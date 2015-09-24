@@ -138,9 +138,6 @@ class Builder extends QueryPatterns
             'table' => $this->table
             ]);
 
-        if ($instance instanceof WhereUpdate) {
-            $instance->setWhere($this->where);
-        }
 
         $this->query = $instance->buildQuery();
         return $this;
@@ -184,13 +181,15 @@ class Builder extends QueryPatterns
             $mode = self::WITHOUTWHERE_UPDATE;
         }
 
-
-
         $instance = $this->container->make($mode, [
             'patterns' => $this->update,
             'parameters' => $parameters,
             'table' => $this->table
         ]);
+
+        if ($instance instanceof WhereUpdate) {
+            $instance->setWhere($this->where);
+        }
 
         $this->query = $instance->buildQuery();
 
