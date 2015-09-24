@@ -115,7 +115,7 @@ class Builder extends QueryPatterns
 
         $this->preparedParameters = array_values($parameters);
 
-        $instance = $this->container->make($mode, ['patterns' => $this->insert, 'parameters' => $parameters, 'table' => $this->table]);
+        $instance = $this->container->make($mode, ['patterns' => $this->insert, 'parameters' => array_keys($parameters), 'table' => $this->table]);
 
         $this->query = $instance->buildQuery();
         return $this;
