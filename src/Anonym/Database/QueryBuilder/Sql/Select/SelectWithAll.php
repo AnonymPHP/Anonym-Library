@@ -26,10 +26,26 @@ class SelectWithAll extends QueryBuilder
      * @param $table
      */
     public function __construct($patterns, $parameters, $table){
-        $this->prepareToBuild($patterns);
+        $this->prepareToBuild($patterns, $parameters);
         $this->parameters = $parameters;
         $this->table = $table;
     }
+
+
+    /**
+     * prepare pattern to build
+     *
+     * @param array $patterns
+     * @param array $parameters
+     */
+    protected function prepareToBuild($patterns, $parameters){
+        if(null !== $parameters['where']){
+            $this->pattern = $patterns['with_where'];
+        }else{
+            $this->pattern = $parameters['without_where'];
+        }
+    }
+
     /**
      * build and return query string
      *
