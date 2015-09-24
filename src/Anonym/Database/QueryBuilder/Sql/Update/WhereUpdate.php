@@ -17,6 +17,11 @@ class WhereUpdate extends QueryBuilder
 {
 
     /**
+     * @var array
+     */
+    protected $where;
+
+    /**
      * create a new instance
      *
      * @param array $patterns
@@ -29,6 +34,24 @@ class WhereUpdate extends QueryBuilder
         $this->table = $table;
     }
 
+    /**
+     * @return array
+     */
+    public function getWhere()
+    {
+        return $this->where;
+    }
+
+    /**
+     * @param array $where
+     * @return $this
+     */
+    public function setWhere($where)
+    {
+        $this->where = $where;
+        return $this;
+    }
+
 
     /**
      * build and return query string
@@ -37,6 +60,7 @@ class WhereUpdate extends QueryBuilder
      */
     public function buildQuery()
     {
+        $update = $this->buildUpdateAndInsertSetter($this->parameters);
 
     }
 }
