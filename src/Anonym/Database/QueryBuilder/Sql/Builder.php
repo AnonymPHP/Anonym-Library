@@ -166,6 +166,7 @@ class Builder extends QueryPatterns
 
         $this->preparedParameters[] = $statement;
 
+
         return $this;
     }
 
