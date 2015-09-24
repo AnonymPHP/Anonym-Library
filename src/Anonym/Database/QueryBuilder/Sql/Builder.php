@@ -362,4 +362,13 @@ class Builder extends QueryPatterns
         $this->select = $selects;
         return $this;
     }
+
+    /**
+     * create read parameters
+     *
+     * @return $this
+     */
+    public function read(){
+
+    }
 }
