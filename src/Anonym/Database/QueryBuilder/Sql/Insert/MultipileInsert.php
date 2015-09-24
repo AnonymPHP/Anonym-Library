@@ -45,6 +45,12 @@ class MultipileInsert extends QueryBuilder
      */
     public function buildQuery()
     {
+        $builded = '';
 
+        foreach($this->parameters as $value){
+            $columns = array_keys($value);
+
+            $parameters = array_fill(0, count($columns)-1, '?');
+        }
     }
 }
