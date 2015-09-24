@@ -11,8 +11,10 @@
 namespace Anonym\Database\QueryBuilder\Sql;
 
 use Illuminate\Container\Container;
+use Anonym\Database\QueryBuilder\Sql\Delete\WithWhere;
 use Anonym\Database\QueryBuilder\Sql\Update\WhereUpdate;
 use Anonym\Database\QueryBuilder\Sql\Insert\SingleInsert;
+use Anonym\Database\QueryBuilder\Sql\Delete\WithoutWhere;
 use Anonym\Database\QueryBuilder\Sql\Insert\MultipileInsert;
 use Anonym\Database\QueryBuilder\Sql\Update\WithoutWhereUpdate;
 
@@ -41,7 +43,10 @@ class Builder extends QueryPatterns
      *  the constants for update quires
      */
     const WHERE_UPDATE = WhereUpdate::class;
-    const WITHOUTWHERE_UPDATE= WithoutWhereUpdate::class;
+    const WITHOUTWHERE_UPDATE = WithoutWhereUpdate::class;
+
+    const WHERE_DELETE;
+    const  WITHOUTWHERE_DELETE;
 
     /**
      * the mode of read
@@ -136,7 +141,7 @@ class Builder extends QueryPatterns
         $instance = $this->container->make($mode, ['patterns' => $this->insert,
             'parameters' => $parameters,
             'table' => $this->table
-            ]);
+        ]);
 
 
         $this->query = $instance->buildQuery();
@@ -150,12 +155,13 @@ class Builder extends QueryPatterns
      * @param null $value
      * @return $this
      */
-    public function where($column, $value = null){
-        if($value !== null){
+    public function where($column, $value = null)
+    {
+        if ($value !== null) {
             $column = [$column, '=', '?', 'AND'];
 
             $statement = $value;
-        }else{
+        } else {
 
             if (!isset($column[3])) {
                 $column[] = 'AND';
@@ -177,12 +183,13 @@ class Builder extends QueryPatterns
      * @param null $value
      * @return Builder
      */
-    public function orWhere($column, $value = null){
-        if($value !== null){
+    public function orWhere($column, $value = null)
+    {
+        if ($value !== null) {
             $column = [$column, '=', '?', 'OR'];
 
             $statement = $value;
-        }else{
+        } else {
 
             if (!isset($column[3])) {
                 $column[] = 'OR';
@@ -204,11 +211,12 @@ class Builder extends QueryPatterns
      * @param array $parameters
      * @return $this
      */
-    public function update(array $parameters = []){
+    public function update(array $parameters = [])
+    {
 
-        if($this->where){
+        if ($this->where) {
             $mode = self::WHERE_UPDATE;
-        }else{
+        } else {
             $mode = self::WITHOUTWHERE_UPDATE;
         }
 
@@ -227,7 +235,8 @@ class Builder extends QueryPatterns
         return $this;
     }
 
-    public function delete(){
+    public function delete()
+    {
 
     }
 }
