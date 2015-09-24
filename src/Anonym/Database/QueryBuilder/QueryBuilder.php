@@ -76,28 +76,31 @@ abstract class QueryBuilder
         return str_replace($search, $replaceWith, $this->pattern);
     }
 
+
     /**
-     * build where query
+     * build where query with given datas
      *
-     * @param array $queries
-     * @param string $mode
+     * @param array $where
      * @return string
      */
-    protected function buildWhereQuery($queries, $mode = 'AND'){
-
+    public function buildWhereQuery($where = [])
+    {
         $builded = '';
-        foreach ($queries as $key => $value) {
 
-            if (!is_array($value)) {
-                $builded .= "$key = $value $mode";
-            }else{
-                list($column, $operator, $value) = $value;
-
-                $builded .= "$column $operator $value $mode";
-            }
+        if (is_object($where)) {
+            $where = (array)$where;
+        }
+        foreach ($where as $w) {
+            list($column, $operator, $value, $mode) = $w;
+            $builded .= "$column $operator $value $mode";
         }
 
-
-        return rtrim($builded, $mode);
+        if (Str::endsWith($builded, 'AND')) {
+            $builded = rtrim($builded, 'AND');
+        } elseif (Str::endsWith($builded, 'OR')) {
+            $builded = rtrim($builded, 'OR');
+        }
+        return $builded;
     }
+
 }
