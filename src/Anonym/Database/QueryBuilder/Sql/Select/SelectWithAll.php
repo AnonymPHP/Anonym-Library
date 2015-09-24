@@ -96,7 +96,7 @@ class SelectWithAll extends QueryBuilder
     }
 
     /**
-     * prepare join parameter to value
+     * prepare join parameter for query
      *
      * @param Join $join
      * @return string
