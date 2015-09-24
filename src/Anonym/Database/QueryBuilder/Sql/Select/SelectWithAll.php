@@ -11,6 +11,7 @@
 namespace Anonym\Database\QueryBuilder\Sql\Select;
 
 use Anonym\Database\QueryBuilder\QueryBuilder;
+
 /**
  * Class SelectWithAll
  * @package Anonym\Database\QueryBuilder\Sql\Select
@@ -25,7 +26,8 @@ class SelectWithAll extends QueryBuilder
      * @param array $parameters
      * @param $table
      */
-    public function __construct($patterns, $parameters, $table){
+    public function __construct($patterns, $parameters, $table)
+    {
         $this->prepareToBuild($patterns, $parameters);
         $this->parameters = $parameters;
         $this->table = $table;
@@ -38,12 +40,25 @@ class SelectWithAll extends QueryBuilder
      * @param array $patterns
      * @param array $parameters
      */
-    protected function prepareToBuild($patterns, $parameters){
-        if(null !== $parameters['where']){
+    protected function prepareToBuild($patterns, $parameters)
+    {
+        if (null !== $parameters['where']) {
             $this->pattern = $patterns['with_where'];
-        }else{
+        } else {
             $this->pattern = $parameters['without_where'];
         }
+    }
+
+    /**
+     *
+     * Grup sorgusunu oluşturur
+     * @param $group
+     * @return string
+     */
+    protected function prepareGroup($group)
+    {
+
+        return "GROUP BY $group";
     }
 
     /**
