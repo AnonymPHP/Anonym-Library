@@ -11,7 +11,18 @@
 namespace Anonym\Database\QueryBuilder\Sql\Update;
 
 
-class WhereUpdate
+use Anonym\Database\QueryBuilder\QueryBuilder;
+
+class WhereUpdate extends QueryBuilder
 {
 
+    /**
+     * build and return query string
+     *
+     * @return string
+     */
+    public function buildQuery()
+    {
+
+    }
 }
