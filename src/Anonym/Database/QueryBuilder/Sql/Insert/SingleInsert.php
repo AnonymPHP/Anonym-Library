@@ -29,10 +29,12 @@ class SingleInsert extends  QueryBuilder
      *
      * @param array $patterns
      * @param array $parameters
+     * @param string $table
      */
-    public function __construct($patterns = [],array $parameters = []){
+    public function __construct($patterns = [],array $parameters = [], $table){
         $this->pattern = $patterns['single'];
         $this->parameters = $parameters;
+        $this->table = $table;
     }
 
     /**

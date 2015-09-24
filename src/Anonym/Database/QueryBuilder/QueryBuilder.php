@@ -26,6 +26,13 @@ abstract class QueryBuilder
     protected $pattern;
 
     /**
+     * the name of table
+     *
+     * @var string
+     */
+    protected $table;
+
+    /**
      * build and return query string
      *
      * @return string
