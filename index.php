@@ -19,3 +19,4 @@ $builder->update([
     'aa' => 'bb'
 ]);
 
+print_r($builder);
