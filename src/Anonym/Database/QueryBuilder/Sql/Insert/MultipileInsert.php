@@ -51,6 +51,19 @@ class MultipileInsert extends QueryBuilder
             $columns = array_keys($value);
 
             $parameters = array_fill(0, count($columns)-1, '?');
+
+            $columns = join(',', $columns);
+            $parameters = join(',', $parameters);
+
+            $builded .= $this->replacePattern([
+                ':from' => $this->table,
+                ':clms' => $columns,
+                ':values' => $parameters
+            ]).';';
         }
+
+        var_dump($builded);
     }
+
+
 }

@@ -56,6 +56,6 @@ class QueryPatterns
      */
     protected $insert = [
         'single' => 'INSERT INTO :from SET :insert',
-        'multipile' => 'INSERT INTO :from (:coluns) VALUES :values'
+        'multipile' => 'INSERT INTO :from (:clms) VALUES (:values)'
     ];
 }
