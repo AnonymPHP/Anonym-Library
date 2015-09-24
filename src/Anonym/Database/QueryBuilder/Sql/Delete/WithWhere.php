@@ -11,7 +11,22 @@
 namespace Anonym\Database\QueryBuilder\Sql\Delete;
 
 
-class WithWhere
+use Anonym\Database\QueryBuilder\QueryBuilder;
+
+/**
+ * Class WithWhere
+ * @package Anonym\Database\QueryBuilder\Sql\Delete
+ */
+class WithWhere extends QueryBuilder
 {
 
+    /**
+     * build and return query string
+     *
+     * @return string
+     */
+    public function buildQuery()
+    {
+
+    }
 }
