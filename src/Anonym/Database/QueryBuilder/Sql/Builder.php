@@ -159,5 +159,6 @@ class Builder extends QueryPatterns
             'table' => $this->table
         ]);
 
+        $this->query = $instance->buildQuery();
     }
 }
