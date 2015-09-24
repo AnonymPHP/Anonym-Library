@@ -81,6 +81,13 @@ class SelectWithAll extends QueryBuilder
         }
     }
 
+    protected function prepareOrder($order){
+        list($column, $type) = $order;
+
+        $type = strtoupper($type);
+        return "ORDER BY $column $type";
+    }
+
     /**
      * build and return query string
      *
