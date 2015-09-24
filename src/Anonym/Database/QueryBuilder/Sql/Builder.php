@@ -118,6 +118,12 @@ class Builder extends QueryPatterns
     protected $group;
 
     /**
+     * the parameters of array
+     *
+     * @var string|array
+     */
+    protected $limit;
+    /**
      * create a new instance and register container
      *
      * @param Container $container
@@ -327,4 +333,6 @@ class Builder extends QueryPatterns
         $this->group = $group;
         return $this;
     }
+
+
 }
