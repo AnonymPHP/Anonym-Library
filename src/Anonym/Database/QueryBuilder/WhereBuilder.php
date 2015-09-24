@@ -17,7 +17,13 @@ namespace Anonym\Database\QueryBuilder;
 class WhereBuilder
 {
 
-    public function buildWhereQuery(){
+    public function buildWhereQuery($where = []){
+
+        if(is_object($where)){
+            $where = (array) $where;
+        }
+
+
 
     }
 
