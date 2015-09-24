@@ -77,8 +77,8 @@ class SelectWithAll extends QueryBuilder
 
         if (count($limit) === 1) {
             return "LIMIT {$limit[0]}";
-        }else{
-            return "LIMIT ".join(',', $limit);
+        } else {
+            return "LIMIT " . join(',', $limit);
         }
     }
 
@@ -88,7 +88,8 @@ class SelectWithAll extends QueryBuilder
      * @param array $order
      * @return string
      */
-    protected function prepareOrder($order){
+    protected function prepareOrder($order)
+    {
         list($column, $type) = $order;
 
         $type = strtoupper($type);
@@ -101,13 +102,12 @@ class SelectWithAll extends QueryBuilder
      * @param Join $join
      * @return string
      */
-    protected function prepareJoin(Join $join){
+    protected function prepareJoin(Join $join)
+    {
 
-        $type = $join->type.' JOIN';
+        $type = $join->type . ' JOIN';
 
-        $string .= sprintf("%s %s ON %s.%s = %s.%s", $type, $value[0], $value[0], $value[1], $table, $value[2]);
-
-
+        return sprintf("%s %s ON %s.%s = %s.%s", $type, $this->table, $this->table, $join->joinHomeColumn, $join->joinedTable, $join->joinerColumn);
     }
 
     /**
