@@ -45,8 +45,8 @@ class Builder extends QueryPatterns
     const WHERE_UPDATE = WhereUpdate::class;
     const WITHOUTWHERE_UPDATE = WithoutWhereUpdate::class;
 
-    const WHERE_DELETE;
-    const  WITHOUTWHERE_DELETE;
+    const WHERE_DELETE = WithWhere::class;
+    const  WITHOUTWHERE_DELETE = WithoutWhere::class;
 
     /**
      * the mode of read
@@ -238,5 +238,21 @@ class Builder extends QueryPatterns
     public function delete()
     {
 
+
+        if ($this->where) {
+            $mode = self::WHERE_DELETE;
+        } else {
+            $mode = self::WITHOUTWHERE_DELETE;
+        }
+
+        $instance = $this->container->make($mode, [
+            'patterns' => $this->delete,
+            'where'    => $this->where,
+            'table'    => $this->table
+        ]);
+
+        $this->query = $instance->buildQuery();
+
+        return $this;
     }
 }
