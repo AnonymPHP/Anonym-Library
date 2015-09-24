@@ -269,7 +269,7 @@ class Builder extends QueryPatterns
     }
 
     /**
-     * add a new order by parameter
+     * add a new order by query
      *
      * @param string $column
      * @param string $type
@@ -279,5 +279,14 @@ class Builder extends QueryPatterns
         $this->order = [$column, $type];
 
         return $this;
+    }
+
+    /**
+     * add a new rand order
+     *
+     * @return Builder
+     */
+    public function rand(){
+        return $this->orderBy('', 'RAND()');
     }
 }
