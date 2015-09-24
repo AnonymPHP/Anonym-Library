@@ -99,6 +99,13 @@ class Builder extends QueryPatterns
     protected $where;
 
     /**
+     * the parameter for order by queries
+     *
+     * @var array
+     */
+    protected $order;
+
+    /**
      * create a new instance and register container
      *
      * @param Container $container
@@ -257,6 +264,19 @@ class Builder extends QueryPatterns
         ]);
 
         $this->query = $instance->buildQuery();
+
+        return $this;
+    }
+
+    /**
+     * add a new order by parameter
+     *
+     * @param string $column
+     * @param string $type
+     * @return $this
+     */
+    public function orderBy($column, $type = 'DESC'){
+        $this->order = [$column, $type];
 
         return $this;
     }
