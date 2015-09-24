@@ -116,13 +116,15 @@ class SelectWithAll extends QueryBuilder
      * @param string|array $select
      * @return string
      */
-    protected function prepareSelect($select){
+    protected function prepareSelect($select)
+    {
         if (is_array($select)) {
             $select = join(',', $select);
         }
 
         return $select;
     }
+
     /**
      * build and return query string
      *
@@ -135,17 +137,25 @@ class SelectWithAll extends QueryBuilder
 
         $replace = [
             ':select' => $parameters['select'] ? $this->prepareSelect($parameters['select']) : '*',
-            ':from'   => $this->table,
-            ':group'  => $parameters['group']  ? $this->prepareGroup($parameters['group']) : '',
-            ':join'   => $parameters['join'] instanceof Join ? $this->prepareJoin($parameters['join']): '',
-            ':order'  => $parameters['order'] ? $this->prepareOrder($parameters['order']) : '',
-            ':limit'   => $parameters['limit'] ? $this->prepareLimit($parameters['limit']) : ''
+            ':from' => $this->table,
+            ':group' => $parameters['group'] ? $this->prepareGroup($parameters['group']) : '',
+            ':join' => $parameters['join'] instanceof Join ? $this->prepareJoin($parameters['join']) : '',
+            ':order' => $parameters['order'] ? $this->prepareOrder($parameters['order']) : '',
+            ':limit' => $parameters['limit'] ? $this->prepareLimit($parameters['limit']) : ''
         ];
 
-        if(is_array($parameters['where'])){
+        if (is_array($parameters['where'])) {
             $replace[':where'] = $this->buildWhereQuery($parameters['where']);
         }
 
-        return $this->replacePattern($replace);
+        $string = $this->replacePattern($replace);
+
+        if(!strstr($string, '  ')){
+            return $string;
+        }else{
+
+            $new = array_map(function($value){
+            }, explode(' ', $string));
+        }
     }
 }
