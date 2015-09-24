@@ -9,21 +9,14 @@
  */
 
 namespace Anonym\Database\QueryBuilder\Sql;
-use Anonym\Database\QueryBuilder\QueryBuilderInterface;
+use Anonym\Database\QueryBuilder\QueryBuilder;
 
 /**
  * Class SingleInsert
  * @package Anonym\Database\QueryBuilder\Sql
  */
-class SingleInsert implements QueryBuilderInterface
+class SingleInsert extends  QueryBuilder
 {
-
-    /**
-     * the pattern string
-     *
-     * @var string
-     */
-    protected $pattern;
 
     /**
      * create a new instance and register pattern
