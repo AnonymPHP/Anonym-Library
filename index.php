@@ -15,10 +15,7 @@ $builder = new Anonym\Database\QueryBuilder\Sql\Builder($container);
 
 $builder->table('users');
 
-$builder->insert([
-        ['aa' => 'bb'],
-        ['aaac' => 'bbbc']
-    ]
-);
-
+$builder->update([
+    'aa' => 'bb'
+]);
 
