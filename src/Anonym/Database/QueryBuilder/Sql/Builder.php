@@ -11,8 +11,10 @@
 namespace Anonym\Database\QueryBuilder\Sql;
 
 use Illuminate\Container\Container;
+use Anonym\Database\QueryBuilder\Sql\Update\WhereUpdate;
 use Anonym\Database\QueryBuilder\Sql\Insert\SingleInsert;
 use Anonym\Database\QueryBuilder\Sql\Insert\MultipileInsert;
+use Anonym\Database\QueryBuilder\Sql\Update\WithoutWhereUpdate;
 
 /**
  * Class Builder
@@ -35,7 +37,11 @@ class Builder extends QueryPatterns
     const SINGLE_INSERT = SingleInsert::class;
 
 
-    const WHERE_UPDATE;
+    /**
+     *  the constants for update quires
+     */
+    const WHERE_UPDATE = WhereUpdate::class;
+    const WITHOUTWHERE_UPDATE= WithoutWhereUpdate::class;
 
     /**
      * the mode of read
@@ -127,7 +133,10 @@ class Builder extends QueryPatterns
 
         $this->preparedParameters = array_values($parameters);
 
-        $instance = $this->container->make($mode, ['patterns' => $this->insert, 'parameters' => $parameters, 'table' => $this->table]);
+        $instance = $this->container->make($mode, ['patterns' => $this->insert,
+            'parameters' => $parameters,
+            'table' => $this->table
+            ]);
 
         $this->query = $instance->buildQuery();
         return $this;
@@ -137,8 +146,18 @@ class Builder extends QueryPatterns
     public function update(array $parameters = []){
 
         if($this->where){
-
+            $mode = self::WHERE_UPDATE;
+        }else{
+            $mode = self::WITHOUTWHERE_UPDATE;
         }
+
+        $this->preparedParameters = array_values($parameters);
+
+        $instance = $this->container->make($mode, [
+            'patterns' => $this->update,
+            'parameters' => $parameters,
+            'table' => $this->table
+        ]);
 
     }
 }
