@@ -165,7 +165,7 @@ class Builder extends QueryPatterns
         }
 
         $this->preparedParameters[] = $statement;
-        $this->where = array_merge($this->where, $column);
+        $this->where[] = $column;
         return $this;
     }
 
