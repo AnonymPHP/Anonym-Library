@@ -368,7 +368,16 @@ class Builder extends QueryPatterns
      *
      * @return $this
      */
-    public function read(){
+    public function get(){
+        $parameters = [
+            'join' => $this->join,
+            'select' => $this->select,
+            'group' => $this->group,
+            'where' => $this->where,
+            'limit' => $this->limit,
+            'order' => $this->order,
+        ];
+
 
     }
 }
