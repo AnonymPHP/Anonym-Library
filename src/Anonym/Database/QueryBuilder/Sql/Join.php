@@ -52,8 +52,37 @@ class Join
      * @param string $type
      * @return $this
      */
-    public function type($type = 'INNER'){
+    public function type($type = 'INNER')
+    {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * register the join home column variable
+     *
+     * @param string $column
+     * @return $this
+     */
+    public function home($column = '')
+    {
+        $this->joinHomeColumn = $column;
+
+        return $this;
+    }
+
+    /**
+     * register join parameters
+     *
+     * @param string $table
+     * @param string $column
+     * @return $this
+     */
+    public function join($table, $column)
+    {
+        $this->joinedTable = $table;
+        $this->joinerColumn = $column;
 
         return $this;
     }
