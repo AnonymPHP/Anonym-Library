@@ -10,6 +10,7 @@
 
 namespace Anonym\Database\QueryBuilder\Sql\Select;
 
+use Anonym\Components\Database\Builders\Join;
 use Anonym\Database\QueryBuilder\QueryBuilder;
 
 /**
@@ -92,6 +93,16 @@ class SelectWithAll extends QueryBuilder
 
         $type = strtoupper($type);
         return "ORDER BY $column $type";
+    }
+
+    /**
+     * prepare join parameter to value
+     *
+     * @param Join $join
+     * @return string
+     */
+    protected function prepareJoin(Join $join){
+
     }
 
     /**
