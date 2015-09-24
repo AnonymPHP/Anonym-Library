@@ -40,10 +40,7 @@ class WithoutWhereUpdate extends QueryBuilder
     public function buildQuery()
     {
 
-        $keys = array_keys($this->parameters);
-        $parameters = array_fill_keys($keys, '?');
-
-        $update = $this->buildUpdateAndInsertSetter($parameters);
+        $update = $this->buildUpdateAndInsertSetter($this->parameters);
 
         $builded = $this->replacePattern([
             ':from' => $this->table,

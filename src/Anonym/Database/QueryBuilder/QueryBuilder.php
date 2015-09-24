@@ -75,4 +75,14 @@ abstract class QueryBuilder
 
         return str_replace($search, $replaceWith, $this->pattern);
     }
+
+    /**
+     * build where query
+     *
+     * @param array $queries
+     * @param string $mode
+     */
+    protected function buildWhereQuery($queries, $mode = 'AND'){
+
+    }
 }
