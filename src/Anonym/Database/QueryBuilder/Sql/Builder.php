@@ -226,4 +226,8 @@ class Builder extends QueryPatterns
 
         return $this;
     }
+
+    public function delete(){
+
+    }
 }
