@@ -88,7 +88,12 @@ abstract class QueryBuilder
         $builded = '';
 
         foreach ($queries as $key => $value) {
-            $builded .= "$key = $value $mode";
+
+            if (!is_array($value)) {
+                $builded .= "$key = $value $mode";
+            }else{
+
+            }
         }
 
 
