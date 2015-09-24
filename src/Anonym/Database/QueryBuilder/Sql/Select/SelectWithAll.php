@@ -62,6 +62,26 @@ class SelectWithAll extends QueryBuilder
     }
 
     /**
+     * prepare limit query
+     *
+     * @param mixed $limit
+     * @return string
+     */
+    protected function prepareLimit($limit)
+    {
+        if (is_string($limit)) {
+
+            $limit = explode(',', $limit);
+        }
+
+        if (count($limit) === 1) {
+            return "LIMIT {$limit[0]}";
+        }else{
+            return "LIMIT ".join(',', $limit);
+        }
+    }
+
+    /**
      * build and return query string
      *
      * @return string
