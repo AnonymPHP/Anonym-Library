@@ -54,6 +54,8 @@ class SingleInsert extends QueryBuilder
             ':insert' => $builded
         ]);
 
+
+
         return $builded;
     }
 }
