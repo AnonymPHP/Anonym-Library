@@ -44,7 +44,9 @@ class SingleInsert extends  QueryBuilder
      */
     public function buildQuery()
     {
+        $parameters = array_fill_keys($this->parameters, '?');
 
+        $this->buildUpdateAndInsertSetter($parameters);
 
     }
 }
