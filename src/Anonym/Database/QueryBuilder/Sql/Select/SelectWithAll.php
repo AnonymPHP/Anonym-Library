@@ -150,11 +150,16 @@ class SelectWithAll extends QueryBuilder
 
         $string = $this->replacePattern($replace);
 
-        if(!strstr($string, '  ')){
+        if (!strstr($string, '  ')) {
             return $string;
-        }else{
+        } else {
 
-            $new = array_map(function($value){
+            $new = array_map(function ($value) {
+
+                if($value !== ''){
+                    return $value;
+                }
+
             }, explode(' ', $string));
         }
     }
