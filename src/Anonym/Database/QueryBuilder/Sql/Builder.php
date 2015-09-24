@@ -30,4 +30,15 @@ class Builder extends QueryPatterns
      */
     protected $mode;
 
+    /**
+     * the values to query
+     *
+     * @var array
+     */
+    protected $values;
+
+
+
+
+
 }
