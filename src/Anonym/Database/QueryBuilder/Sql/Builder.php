@@ -235,9 +235,14 @@ class Builder extends QueryPatterns
         return $this;
     }
 
+
+    /**
+     * build a delete query
+     *
+     * @return $this
+     */
     public function delete()
     {
-
 
         if ($this->where) {
             $mode = self::WHERE_DELETE;
@@ -247,8 +252,8 @@ class Builder extends QueryPatterns
 
         $instance = $this->container->make($mode, [
             'patterns' => $this->delete,
-            'where'    => $this->where,
-            'table'    => $this->table
+            'where' => $this->where,
+            'table' => $this->table
         ]);
 
         $this->query = $instance->buildQuery();
