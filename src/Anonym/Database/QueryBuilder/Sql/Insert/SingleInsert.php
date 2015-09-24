@@ -9,12 +9,13 @@
  */
 
 namespace Anonym\Database\QueryBuilder\Sql;
+use Anonym\Database\QueryBuilder\QueryBuilderInterface;
 
 /**
  * Class SingleInsert
  * @package Anonym\Database\QueryBuilder\Sql
  */
-class SingleInsert
+class SingleInsert implements QueryBuilderInterface
 {
 
     /**
@@ -33,4 +34,13 @@ class SingleInsert
         $this->pattern = $patterns['single'];
     }
 
+    /**
+     * build and return query string
+     *
+     * @return string
+     */
+    public function buildQuery()
+    {
+
+    }
 }
