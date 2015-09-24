@@ -33,6 +33,12 @@ abstract class QueryBuilder
     protected $table;
 
     /**
+     * the parameters
+     *
+     * @var array
+     */
+    protected $parameters;
+    /**
      * build and return query string
      *
      * @return string
