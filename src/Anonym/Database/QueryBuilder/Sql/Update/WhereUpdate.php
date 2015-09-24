@@ -29,7 +29,7 @@ class WhereUpdate extends QueryBuilder
      * @param string $table
      */
     public function __construct($patterns, array $parameters = [], $table){
-        $this->pattern = $patterns['without_where'];
+        $this->pattern = $patterns['with_where'];
         $this->parameters = $parameters;
         $this->table = $table;
     }
@@ -62,12 +62,7 @@ class WhereUpdate extends QueryBuilder
     {
         $update = $this->buildUpdateAndInsertSetter($this->parameters);
 
-
-        $keys = array_keys($this->where);
-        $where = array_fill_keys($keys, '?');
-
-        $buildedWhere = $this->buildWhereQuery($where);
-
+        $buildedWhere = $this->buildWhereQuery($this->where);
         return $this->replacePattern([
             ':from' => $this->table,
             ':update'=> $update,

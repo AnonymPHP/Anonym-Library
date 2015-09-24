@@ -90,6 +90,8 @@ abstract class QueryBuilder
         if (is_object($where)) {
             $where = (array)$where;
         }
+
+
         foreach ($where as $w) {
             list($column, $operator, $value, $mode) = $w;
             $builded .= "$column $operator $value $mode";
@@ -100,6 +102,7 @@ abstract class QueryBuilder
         } elseif (Str::endsWith($builded, 'OR')) {
             $builded = rtrim($builded, 'OR');
         }
+
         return $builded;
     }
 
