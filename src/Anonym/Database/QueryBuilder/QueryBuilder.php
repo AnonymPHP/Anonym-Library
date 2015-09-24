@@ -39,4 +39,19 @@ abstract class QueryBuilder
      */
     abstract public function buildQuery();
 
+    /**
+     * build sql query string to update and insert methods
+     *
+     * @param array $parameters
+     * @return string
+     */
+    protected function buildUpdateAndInsertSetter(array $parameters){
+        $builded  = '';
+
+        foreach($parameters as $key => $value){
+            $builded .= "$key = $value,";
+        }
+
+        return rtrim($builded,',');
+    }
 }
