@@ -38,6 +38,8 @@ class WithoutWhere extends QueryBuilder
      */
     public function buildQuery()
     {
-
+        return $this->replacePattern([
+            ':from' => $this->table
+        ]);
     }
 }
