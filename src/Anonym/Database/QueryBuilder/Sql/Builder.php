@@ -123,6 +123,13 @@ class Builder extends QueryPatterns
      * @var string|array
      */
     protected $limit;
+
+    /**
+     * the parameter of array
+     *
+     * @var array
+     */
+    protected $select;
     /**
      * create a new instance and register container
      *
@@ -334,5 +341,25 @@ class Builder extends QueryPatterns
         return $this;
     }
 
+    /**
+     * register the limit variable
+     *
+     * @param array|string $limit
+     * @return $this
+     */
+    public function limit($limit){
+        $this->limit = $limit;
+        return $this;
+    }
 
+    /**
+     * register the select variable
+     *
+     * @param array $selects
+     * @return $this
+     */
+    public function select($selects = []){
+        $this->select = $selects;
+        return $this;
+    }
 }
