@@ -138,6 +138,10 @@ class Builder extends QueryPatterns
             'table' => $this->table
             ]);
 
+        if ($instance instanceof WhereUpdate) {
+            $instance->setWhere($this->where);
+        }
+
         $this->query = $instance->buildQuery();
         return $this;
     }
