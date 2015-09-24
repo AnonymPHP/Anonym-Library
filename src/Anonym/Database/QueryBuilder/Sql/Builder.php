@@ -146,9 +146,21 @@ class Builder extends QueryPatterns
         return $this;
     }
 
-
+    /**
+     * add a where value
+     *
+     * @param array|string $column
+     * @param null $value
+     * @return $this
+     */
     public function where($column, $value = null){
+        if($value !== null){
+            $this->where[$column] = $value;
+        }else{
+            $this->where = array_merge($this->where, $column);
+        }
 
+        return $this;
     }
 
     /**
