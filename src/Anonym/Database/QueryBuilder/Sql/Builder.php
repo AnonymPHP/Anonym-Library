@@ -155,10 +155,16 @@ class Builder extends QueryPatterns
      */
     public function where($column, $value = null){
         if($value !== null){
-            $this->where[$column] = $value;
+            $this->where[$column] = '?';
+
+            $statement = $value;
         }else{
             $this->where = array_merge($this->where, $column);
+
+            $statement = isset($column[2]) ? $column[2] : '';
         }
+
+        $this->preparedParameters[] = $statement;
 
         return $this;
     }
@@ -178,7 +184,7 @@ class Builder extends QueryPatterns
             $mode = self::WITHOUTWHERE_UPDATE;
         }
 
-        $this->preparedParameters = array_values($parameters);
+
 
         $instance = $this->container->make($mode, [
             'patterns' => $this->update,
