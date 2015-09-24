@@ -44,4 +44,17 @@ class Join
      * @var string
      */
     public $joinerColumn;
+
+
+    /**
+     * register the join type
+     *
+     * @param string $type
+     * @return $this
+     */
+    public function type($type = 'INNER'){
+        $this->type = $type;
+
+        return $this;
+    }
 }
