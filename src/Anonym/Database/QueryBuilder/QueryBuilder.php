@@ -86,13 +86,14 @@ abstract class QueryBuilder
     protected function buildWhereQuery($queries, $mode = 'AND'){
 
         $builded = '';
-
         foreach ($queries as $key => $value) {
 
             if (!is_array($value)) {
                 $builded .= "$key = $value $mode";
             }else{
+                list($column, $operator, $value) = $value;
 
+                $builded .= "$column $operator $value $mode";
             }
         }
 
