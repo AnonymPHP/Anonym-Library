@@ -63,7 +63,7 @@ class WhereUpdate extends QueryBuilder
         $update = $this->buildUpdateAndInsertSetter($this->parameters);
 
 
-        $keys = array_keys($this->parameters);
+        $keys = array_keys($this->where);
         $where = array_fill_keys($keys, '?');
 
         $buildedWhere = $this->buildWhereQuery($where);
