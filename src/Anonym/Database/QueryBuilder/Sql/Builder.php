@@ -147,6 +147,13 @@ class Builder extends QueryPatterns
     }
 
 
+    /**
+     *
+     * build and update query
+     *
+     * @param array $parameters
+     * @return $this
+     */
     public function update(array $parameters = []){
 
         if($this->where){
@@ -164,5 +171,7 @@ class Builder extends QueryPatterns
         ]);
 
         $this->query = $instance->buildQuery();
+
+        return $this;
     }
 }
