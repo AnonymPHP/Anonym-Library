@@ -60,12 +60,13 @@ abstract class QueryBuilder
      * replace pattern string with given datas
      *
      * @param array $datas
+     * @return string
      */
     protected function replacePattern(array $datas)
     {
         $search = array_keys($datas);
         $replaceWith = array_values($datas);
 
-
+        return str_replace($search, $replaceWith, $this->pattern);
     }
 }
