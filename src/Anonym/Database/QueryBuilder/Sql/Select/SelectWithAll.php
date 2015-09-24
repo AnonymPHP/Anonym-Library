@@ -134,12 +134,12 @@ class SelectWithAll extends QueryBuilder
         $parameters = $this->parameters;
 
         $replace = [
-            ':select' => $parameters['select'] ? $this->prepareSelect($parameters['select']) : null,
+            ':select' => $parameters['select'] ? $this->prepareSelect($parameters['select']) : '*',
             ':from'   => $this->table,
-            ':group'  => $parameters['group']  ? $this->prepareGroup($parameters['group']) : null,
-            ':join'   => $parameters['join'] instanceof Join ? $this->prepareJoin($parameters['join']): null,
-            ':order'  => $parameters['order'] ? $this->prepareOrder($parameters['order']) : null,
-            'limit'   => $parameters['limit'] ? $this->prepareLimit($parameters['limit']) : null
+            ':group'  => $parameters['group']  ? $this->prepareGroup($parameters['group']) : '',
+            ':join'   => $parameters['join'] instanceof Join ? $this->prepareJoin($parameters['join']): '',
+            ':order'  => $parameters['order'] ? $this->prepareOrder($parameters['order']) : '',
+            ':limit'   => $parameters['limit'] ? $this->prepareLimit($parameters['limit']) : ''
         ];
 
         if(is_array($parameters['where'])){

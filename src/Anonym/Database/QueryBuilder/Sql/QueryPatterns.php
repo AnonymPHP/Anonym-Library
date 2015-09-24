@@ -22,7 +22,7 @@ class QueryPatterns
      *
      * @var array
      */
-    protected $select = [
+    protected $selectPattern = [
 
         'with_where' => 'SELECT :select FROM :from :join :group WHERE:where :order :limit',
         'without_where' => 'SELECT :select FROM :from :join :group :order :limit'

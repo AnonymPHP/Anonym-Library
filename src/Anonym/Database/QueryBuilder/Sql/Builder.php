@@ -385,7 +385,7 @@ class Builder extends QueryPatterns
         ];
 
         $instance = $this->container->make(SelectWithAll::class, [
-            'patterns' => $this->select,
+            'patterns' => $this->selectPattern,
             'parameters' => $parameters,
             'table' => $this->table
         ]);

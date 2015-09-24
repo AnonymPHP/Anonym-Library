@@ -13,4 +13,6 @@ include 'vendor/autoload.php';
 $container = new \Illuminate\Container\Container();
 $builder = new Anonym\Database\QueryBuilder\Sql\Builder($container);
 
-$builder->table('users')->orWhere('key', 'value')->where('aa', 'bb');
+$builder->table('users')->orWhere('key', 'value')->where('aa', 'bb')->get();
+
+
