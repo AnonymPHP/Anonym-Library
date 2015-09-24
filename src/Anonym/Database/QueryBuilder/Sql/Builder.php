@@ -70,6 +70,13 @@ class Builder extends QueryPatterns
     protected $table;
 
     /**
+     * the parameters to prepared statements
+     *
+     * @var array
+     */
+    protected $preparedParameters;
+
+    /**
      * create a new instance and register container
      *
      * @param Container $container
@@ -105,6 +112,8 @@ class Builder extends QueryPatterns
         } else {
             $mode = self::SINGLE_INSERT;
         }
+
+        $this->preparedParameters = array_values($parameters);
 
         $instance = $this->container->make($mode, ['patterns' => $this->insert, 'parameters' => $parameters, 'table' => $this->table]);
 

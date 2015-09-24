@@ -45,5 +45,6 @@ class SingleInsert extends  QueryBuilder
     public function buildQuery()
     {
 
+
     }
 }
