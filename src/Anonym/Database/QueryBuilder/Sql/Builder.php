@@ -147,6 +147,10 @@ class Builder extends QueryPatterns
     }
 
 
+    public function where($column, $value = null){
+
+    }
+
     /**
      *
      * build and update query
