@@ -23,6 +23,13 @@ class Builder extends QueryPatterns
     const WITH_WHERE = 1;
     const WITHOUT_WHERE = 0;
 
+
+    /**
+     * the constants for insert queries
+     */
+    const MULTIPILE_INSERT = 2;
+    const SINGLE_INSERT = 3;
+
     /**
      * the mode of read
      *
@@ -39,6 +46,16 @@ class Builder extends QueryPatterns
 
 
 
+    public function insert(array $parameters = []){
 
+        if (count($parameters) > 1 && isset($parameters[1])) {
+            $mode = self::MULTIPILE_INSERT;
+        }else{
+            $mode = self::SINGLE_INSERT;
+        }
+
+
+
+    }
 
 }
