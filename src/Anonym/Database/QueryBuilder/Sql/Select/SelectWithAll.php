@@ -111,14 +111,35 @@ class SelectWithAll extends QueryBuilder
     }
 
     /**
+     * prepare select query
+     *
+     * @param string|array $select
+     * @return string
+     */
+    protected function prepareSelect($select){
+        if (is_array($select)) {
+            $select = join(',', $select);
+        }
+
+        return $select;
+    }
+    /**
      * build and return query string
      *
      * @return string
      */
     public function buildQuery()
     {
-        return $this->replacePattern([
 
-        ]);
+        $parameters = $this->parameters;
+
+        $replace = [
+            ':select' => $parameters['select'] ? $this->prepareSelect($parameters['select']) : null,
+            ':from'   => $this->table,
+            ':group'  => $parameters['group']  ? $this->prepareGroup($parameters['group']) : null,
+            ':join'   => $parameters['join'] instanceof Join ? $this->prepareJoin($parameters['join']): null,
+            ':order'  => $parameters['order'] ? $this->prepareOrder($parameters['order']) : null,
+            'limit'   => $parameters['limit'] ? $this->prepareLimit($parameters['limit']) : null;
+        ];
     }
 }
