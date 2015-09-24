@@ -24,7 +24,7 @@ class QueryPatterns
      */
     protected $select = [
 
-        'with_where' => 'SELECT :select FROM :from :join :group WHERE :where :order :limit',
+        'with_where' => 'SELECT :select FROM :from :join :group WHERE:where :order :limit',
         'without_where' => 'SELECT :select FROM :from :join :group :order :limit'
     ];
 
@@ -35,7 +35,7 @@ class QueryPatterns
      * @var array
      */
     protected $delete = [
-        'with_where' => 'DELETE FROM :from WHERE :where',
+        'with_where' => 'DELETE FROM :from WHERE:where',
         'without_where' => 'DELETE FROM :from'
     ];
 
@@ -45,7 +45,7 @@ class QueryPatterns
      * @var array
      */
     protected $update = [
-        'with_where' => 'UPDATE :from SET :update WHERE :where',
+        'with_where' => 'UPDATE :from SET :update WHERE:where',
         'without_where' => 'UPDATE :from SET :update'
     ];
 
