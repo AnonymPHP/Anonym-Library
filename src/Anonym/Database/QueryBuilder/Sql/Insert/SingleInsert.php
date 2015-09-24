@@ -35,7 +35,7 @@ class SingleInsert extends QueryBuilder
     public function __construct($patterns = [], array $parameters = [], $table)
     {
         $this->pattern = $patterns['single'];
-        $this->parameters = $parameters;
+        $this->parameters = array_keys($parameters);
         $this->table = $table;
     }
 

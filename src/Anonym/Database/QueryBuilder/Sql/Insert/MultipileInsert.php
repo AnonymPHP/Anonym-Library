@@ -50,10 +50,11 @@ class MultipileInsert extends QueryBuilder
         foreach($this->parameters as $value){
             $columns = array_keys($value);
 
-            $parameters = array_fill(0, count($columns)-1, '?');
+            $parameters = array_fill(0, count($columns), '?');
 
             $columns = join(',', $columns);
             $parameters = join(',', $parameters);
+
 
             $builded .= $this->replacePattern([
                 ':from' => $this->table,

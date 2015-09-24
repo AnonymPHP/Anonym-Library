@@ -107,6 +107,7 @@ class Builder extends QueryPatterns
     public function insert(array $parameters = [])
     {
 
+
         if (count($parameters) > 1 && isset($parameters[1])) {
             $mode = self::MULTIPILE_INSERT;
         } else {
@@ -115,7 +116,7 @@ class Builder extends QueryPatterns
 
         $this->preparedParameters = array_values($parameters);
 
-        $instance = $this->container->make($mode, ['patterns' => $this->insert, 'parameters' => array_keys($parameters), 'table' => $this->table]);
+        $instance = $this->container->make($mode, ['patterns' => $this->insert, 'parameters' => $parameters, 'table' => $this->table]);
 
         $this->query = $instance->buildQuery();
         return $this;
