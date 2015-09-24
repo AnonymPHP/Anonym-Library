@@ -49,6 +49,6 @@ class WithWhere extends QueryBuilder
     {
         return $this->replacePattern([
             ':from' => $this->table,
-            ':where' => $this->buildWhereQuery($this->where));
+            ':where' => $this->buildWhereQuery($this->where)]);
     }
 }
