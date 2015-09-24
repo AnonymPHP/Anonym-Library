@@ -180,13 +180,20 @@ class Builder extends QueryPatterns
     public function orWhere($column, $value = null){
         if($value !== null){
             $column = [$column, '=', '?', 'OR'];
+
+            $statement = $value;
+        }else{
+
+            if (!isset($column[3])) {
+                $column[] = 'OR';
+            }
+
+            $statement = isset($column[2]) ? $column[2] : null;
         }
 
-        if(!isset($column[3])){
-            $column[] = 'OR';
-        }
-
-        return $this->where($column);
+        $this->preparedParameters[] = $statement;
+        $this->where[] = $column;
+        return $this;
     }
 
 
