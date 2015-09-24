@@ -10,6 +10,8 @@
 
 namespace Anonym\Database\QueryBuilder;
 
+use Anonym\Support\Str;
+
 /**
  * Class WhereBuilder
  * @package Anonym\Database\QueryBuilder
@@ -17,13 +19,27 @@ namespace Anonym\Database\QueryBuilder;
 class WhereBuilder
 {
 
-    public function buildWhereQuery($where = []){
+    public function buildWhereQuery($where = [])
+    {
 
-        if(is_object($where)){
-            $where = (array) $where;
+        $builded = '';
+
+        if (is_object($where)) {
+            $where = (array)$where;
+        }
+
+        foreach ($where as $w) {
+
+            list($column, $operator, $value, $mode) = $w;
+            $builded .= "$column $operator $value $mode";
         }
 
 
+        if (Str::endsWith($builded, 'AND')) {
+            $builded = rtrim($builded, 'AND');
+        } elseif (Str::endsWith($builded, 'OR')) {
+            $builded = rtrim($builded, 'OR');
+        }
 
     }
 
