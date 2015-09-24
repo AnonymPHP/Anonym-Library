@@ -296,4 +296,15 @@ class Builder extends QueryPatterns
     public function rand(){
         return $this->orderBy('', 'RAND()');
     }
+
+    /**
+     * register join instance
+     *
+     * @param Join $join
+     * @return $this
+     */
+    public function join(Join $join){
+        $this->join = $join;
+        return $this;
+    }
 }
