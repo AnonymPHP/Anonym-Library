@@ -81,8 +81,17 @@ abstract class QueryBuilder
      *
      * @param array $queries
      * @param string $mode
+     * @return string
      */
     protected function buildWhereQuery($queries, $mode = 'AND'){
 
+        $builded = '';
+
+        foreach ($queries as $key => $value) {
+            $builded .= "$key = $value $mode";
+        }
+
+
+        return rtrim($builded, $mode);
     }
 }
