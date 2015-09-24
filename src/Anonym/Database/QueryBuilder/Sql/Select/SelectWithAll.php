@@ -139,7 +139,13 @@ class SelectWithAll extends QueryBuilder
             ':group'  => $parameters['group']  ? $this->prepareGroup($parameters['group']) : null,
             ':join'   => $parameters['join'] instanceof Join ? $this->prepareJoin($parameters['join']): null,
             ':order'  => $parameters['order'] ? $this->prepareOrder($parameters['order']) : null,
-            'limit'   => $parameters['limit'] ? $this->prepareLimit($parameters['limit']) : null;
+            'limit'   => $parameters['limit'] ? $this->prepareLimit($parameters['limit']) : null
         ];
+
+        if(is_array($parameters['where'])){
+            $replace[':where'] = $this->buildWhereQuery($parameters['where']);
+        }
+
+        return $this->replacePattern($replace);
     }
 }
