@@ -21,6 +21,17 @@ class WithoutWhere extends QueryBuilder
 {
 
     /**
+     * create a new instance
+     *
+     * @param array $patterns
+     * @param string $table
+     */
+    public function __construct($patterns, $table){
+        $this->pattern = $patterns['without_where'];
+        $this->table = $table;
+    }
+
+    /**
      * build and return query string
      *
      * @return string
