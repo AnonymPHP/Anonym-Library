@@ -106,6 +106,13 @@ class Builder extends QueryPatterns
     protected $order;
 
     /**
+     * the instance of join
+     *
+     * @var Join
+     */
+    protected $join;
+
+    /**
      * create a new instance and register container
      *
      * @param Container $container
