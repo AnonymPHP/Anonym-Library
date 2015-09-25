@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Constructor;
 use Anonym\Facades\Config;
 /**
  * Class RegisterProviders
