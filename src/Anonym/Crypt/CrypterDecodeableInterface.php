@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\\Crypt;
+    namespace Anonym\Crypt;
 
     /**
      * Interface CrypterDecodeableInterface
-     * @package Anonym\\Crypt
+     * @package Anonym\Crypt
      */
     interface CrypterDecodeableInterface
     {

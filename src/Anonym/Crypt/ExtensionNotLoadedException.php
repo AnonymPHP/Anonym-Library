@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\\Crypt;
+    namespace Anonym\Crypt;
     use Exception;
 
     /**
      * Class ExtensionNotLoadedException
-     * @package Anonym\\Crypt
+     * @package Anonym\Crypt
      */
     class ExtensionNotLoadedException extends Exception
     {

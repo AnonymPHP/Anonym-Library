@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\\Crypt;
+    namespace Anonym\Crypt;
 
     /**
      * Interface CrypterInterface
-     * @package Anonym\\Crypt
+     * @package Anonym\Crypt
      */
     interface CrypterEncodeableInterface
     {
