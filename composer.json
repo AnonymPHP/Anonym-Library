@@ -31,7 +31,11 @@
     "phpmailer/phpmailer": "~5.2",
     "symfony/process": "~2.4",
     "mtdowling/cron-expression": "~1.0",
-    "nesbot/carbon": "~1.19"
+    "nesbot/carbon": "~1.19",
+    "m6web/firewall": "dev-master",
+    "wixel/gump": "dev-master",
+    "symfony/finder": "2.7.*"
+
   },
   "autoload": {
     "psr-4": {
