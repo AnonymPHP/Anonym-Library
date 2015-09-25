@@ -10,7 +10,7 @@
 
 namespace Anonym\Facades;
 
-use Anonym\Filesystem\Filesystem;
+use Anonym\Filesystem\FilesystemManager as Filesystem;
 use Anonym\Patterns\Facade;
 
 /**
