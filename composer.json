@@ -26,7 +26,9 @@
     "league/flysystem": "~1.0",
     "league/flysystem-rackspace": "~1.0",
     "predis/predis" : "1.0.3",
-    "symfony/console": "2.7.*"
+    "symfony/console": "2.7.*",
+    "swiftmailer/swiftmailer": "5.4.1",
+    "phpmailer/phpmailer": "~5.2"
   },
   "autoload": {
     "psr-4": {
