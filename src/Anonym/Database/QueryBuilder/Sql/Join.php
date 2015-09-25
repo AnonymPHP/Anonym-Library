@@ -47,6 +47,20 @@ class Join
 
 
     /**
+     * create a new instance and register parameters
+     *
+     * @param string $type
+     * @param string $firstColumn
+     * @param string $targetTable
+     * @param string $targetColumn
+     */
+    public function __construct($type = 'INNER', $firstColumn, $targetTable, $targetColumn){
+        $this->type($type);
+        $this->home($firstColumn);
+        $this->join($targetTable, $targetColumn);
+    }
+
+    /**
      * register the join type
      *
      * @param string $type
