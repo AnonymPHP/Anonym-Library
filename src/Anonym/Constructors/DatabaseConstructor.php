@@ -11,7 +11,7 @@
 namespace Anonym\Constructors;
 
 
-use Anonym\Bootstrap\Bootstrap;
+use Anonym\Application\Application;
 use Anonym\Database\Base;
 use Anonym\Facades\App;
 use Anonym\Facades\Config;

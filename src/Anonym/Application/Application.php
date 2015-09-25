@@ -24,7 +24,7 @@ use Anonym\Patterns\Facade;
  * Class Bootstrap
  * @package Anonym\Bootstrap
  */
-class Bootstrap extends Container
+class Application extends Container
 {
 
     /**

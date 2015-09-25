@@ -11,7 +11,7 @@
 namespace Anonym\Constructors;
 
 
-use Anonym\Bootstrap\Bootstrap;
+use Anonym\Application\Application;
 use Anonym\Http\Request;
 use Anonym\Security\Validation;
 

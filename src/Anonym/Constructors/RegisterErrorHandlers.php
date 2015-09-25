@@ -11,7 +11,7 @@
 namespace Anonym\Constructors;
 
 use Anonym\Support\Handler;
-use Anonym\Bootstrap\Bootstrap;
+use Anonym\Application\Application;
 
 /**
  * Class RegisterErrorHandlers
