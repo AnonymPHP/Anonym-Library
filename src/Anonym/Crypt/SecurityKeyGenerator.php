@@ -8,6 +8,7 @@
      */
 
     namespace Anonym\Crypt;
+    use Anonym\Facades\Config;
 
     /**
      * Class SecurityKeyGenerator
@@ -23,20 +24,12 @@
          */
         public function create()
         {
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $len = strlen($ip);
-            $letters = [];
-            for ($i = 'a', $j = 1; $j <= 26; $i++, $j++) {
-                $letters[$j] = $i;
+
+            if(null === $get = Config::get('general.app_key')){
+                $get = 'AnonymFrameworkRandom'.$_SERVER['SERVER_ADDR'];
             }
-            $bas = substr($ip, 0, 2);
-            $con = $letters[$len];
-            $son = substr($ip, $len - 1, 1);
-            $int = strval($len).$son;
-            $con2 = $letters[$int];
-            $serverIP = $_SERVER['SERVER_ADDR'];
-            $message = $son . $serverIP . $con . $con2 . $ip . $bas;
-            return md5($message);
+
+            return md5($get);
         }
 
         /**

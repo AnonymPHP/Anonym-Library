@@ -62,7 +62,7 @@ class Reposity implements ArrayAccess
      */
     public function get($config)
     {
-        return Arr::get(static::$cache, $config, []);
+        return Arr::get(static::$cache, $config, null);
     }
 
 
