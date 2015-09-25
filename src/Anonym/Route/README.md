@@ -10,7 +10,7 @@ Launch the component
 include 'vendor/autoload.php';
 use Anonym\Route\RouteCollector;
 use Anonym\Route\Router;
-use Anonym\HttpClient\Request;
+use Anonym\Http\Request;
 $collector = new RouteCollector();
 
 ```

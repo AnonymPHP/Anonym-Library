@@ -7,9 +7,9 @@
  *
  */
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 
-use Anonym\HttpClient\Server;
+use Anonym\Http\Server;
 use Anonym\Upload\FileUpload;
 use Anonym\Cookie\Http\CookieBag;
 use Anonym\Security\Validation as Validate;
@@ -19,7 +19,7 @@ use Anonym\Security\Validation as Validate;
  * the class of request
  *
  * Class Request
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class Request
 {
@@ -638,7 +638,7 @@ class Request
 
 
     /**
-     * @return \Anonym\HttpClient\Server
+     * @return \Anonym\Http\Server
      */
     public function getServer()
     {
@@ -648,7 +648,7 @@ class Request
     /**
      * register the server instance
      *
-     * @param \Anonym\HttpClient\Server $server
+     * @param \Anonym\Http\Server $server
      * @return Request
      */
     public function setServer(Server $server)

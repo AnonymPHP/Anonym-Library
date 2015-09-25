@@ -10,7 +10,7 @@
 
 namespace Anonym\Route;
 
-use Anonym\HttpClient\Request;
+use Anonym\Http\Request;
 use Anonym\Route\Matchers\NewMatcher;
 
 

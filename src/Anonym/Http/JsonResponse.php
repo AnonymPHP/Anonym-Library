@@ -7,8 +7,8 @@
      *
      */
 
-    namespace Anonym\HttpClient;
-    use Anonym\HttpClient\Response;
+    namespace Anonym\Http;
+    use Anonym\Http\Response;
 
     /**
      * Bu sınıf AnonymFramework' de kullanılmak üzere tasarlanmıştır, Json Response leri oluşturmak üzere tasarlanmıştır

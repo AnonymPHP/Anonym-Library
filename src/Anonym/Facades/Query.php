@@ -12,7 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-use Anonym\Components\HttpClient\Query as Abst;
+use Anonym\Components\Http\Query as Abst;
 
 /**
  * Class Query

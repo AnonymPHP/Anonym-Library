@@ -11,7 +11,7 @@
 
 namespace Anonym\Route;
 
-use Anonym\HttpClient\Request;
+use Anonym\Http\Request;
 use Anonym\Security\Validation;
 
 /**

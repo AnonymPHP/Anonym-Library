@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\HttpClient;
+    namespace Anonym\Http;
     use Exception;
 
     /**
      * Class HttpResponseException
-     * @package Anonym\HttpClient
+     * @package Anonym\Http
      */
     class HttpResponseException extends Exception
     {

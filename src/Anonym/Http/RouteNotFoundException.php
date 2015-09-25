@@ -8,12 +8,12 @@
  * Thanks for using
  */
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 use Exception;
 
 /**
  * Class RouteNotFoundException
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class RouteNotFoundException extends Exception
 {

@@ -9,8 +9,8 @@
  */
 
 namespace Anonym\Http;
-use Anonym\HttpClient\Request;
-use Anonym\HttpClient\Response;
+use Anonym\Http\Request;
+use Anonym\Http\Response;
 
 /**
  * Class FormRequest

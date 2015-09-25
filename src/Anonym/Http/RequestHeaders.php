@@ -7,11 +7,11 @@
  *
  */
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 
 /**
  * Class RequestHeaders
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class RequestHeaders
 {

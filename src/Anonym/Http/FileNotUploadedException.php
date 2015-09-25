@@ -8,12 +8,12 @@
  * Thanks for using
  */
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 use Exception;
 
 /**
  * Class FileNotUploadedException
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class FileNotUploadedException extends Exception
 {

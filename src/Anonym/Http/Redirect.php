@@ -9,12 +9,12 @@
  */
 
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 use Anonym\Route\AsCollector;
 
 /**
  * Class Redirect
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class Redirect
 {

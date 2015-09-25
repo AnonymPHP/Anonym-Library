@@ -9,5 +9,5 @@
 
 include "vendor/autoload.php";
 
-$request = new \Anonym\HttpClient\Request();
+$request = new \Anonym\Http\Request();
 echo $request->getBaseUri();

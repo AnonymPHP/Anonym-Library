@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\HttpClient;
-    use Anonym\HttpClient\RedirectUrlEmptyException;
+    namespace Anonym\Http;
+    use Anonym\Http\RedirectUrlEmptyException;
 
     /**
      * Class Redirect
-     * @package Anonym\HttpClient
+     * @package Anonym\Http
      */
     class RedirectResponse extends Response implements ResponseInterface
     {

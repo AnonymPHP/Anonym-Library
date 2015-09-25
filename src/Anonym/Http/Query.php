@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 
 /**
  * Class Query
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class Query
 {

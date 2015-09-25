@@ -13,8 +13,8 @@ namespace Anonym\Route;
 
 use Closure;
 use Illuminate\View\View;
-use Anonym\HttpClient\Request;
-use Anonym\HttpClient\Response;
+use Anonym\Http\Request;
+use Anonym\Http\Response;
 use Anonym\View\ViewExecuteInterface;
 
 /**

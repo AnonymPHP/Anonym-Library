@@ -7,11 +7,11 @@
  *
  */
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 
 /**
  * Class Input
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class Input
 {

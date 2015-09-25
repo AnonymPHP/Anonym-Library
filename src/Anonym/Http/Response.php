@@ -7,18 +7,18 @@
  *
  */
 
-namespace Anonym\HttpClient;
+namespace Anonym\Http;
 
 use Anonym\Support\Macroable;
 use Anonym\Cookie\Cookie;
 use Anonym\Cookie\CookieContainer;
 use Anonym\Cookie\UseCookieHeaders;
-use Anonym\HttpClient\HttpResponseException;
-use Anonym\HttpClient\ResponseInterface;
+use Anonym\Http\HttpResponseException;
+use Anonym\Http\ResponseInterface;
 
 /**
  * Class Response
- * @package Anonym\HttpClient
+ * @package Anonym\Http
  */
 class Response implements ResponseInterface
 {

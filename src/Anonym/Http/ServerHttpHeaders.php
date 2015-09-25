@@ -7,8 +7,8 @@
      *
      */
 
-    namespace Anonym\HttpClient;
-    use Anonym\HttpClient\RequestHeaders;
+    namespace Anonym\Http;
+    use Anonym\Http\RequestHeaders;
 
     class ServerHttpHeaders extends RequestHeaders
     {
