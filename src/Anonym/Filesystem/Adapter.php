@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Filesystem;
+namespace Anonym\Filesystem;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\FilesystemInterface;
 

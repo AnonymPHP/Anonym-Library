@@ -7,7 +7,7 @@
  *
  */
 
-namespace Anonym\Components\Filesystem;
+namespace Anonym\Filesystem;
 
 use League\Flysystem\Adapter\Local as LocalAdapter;
 use League\Flysystem\Rackspace\RackspaceAdapter;
@@ -21,7 +21,7 @@ use Aws\S3\S3Client;
 
 /**
  * Class Filesystem
- * @package Anonym\Components\Filesystem
+ * @package Anonym\Filesystem
  */
 class FilesystemManager
 {

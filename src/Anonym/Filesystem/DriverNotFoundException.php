@@ -8,12 +8,12 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Filesystem;
+namespace Anonym\Filesystem;
 use Exception;
 
 /**
  * Class DriverNotFoundException
- * @package Anonym\Components\Filesystem
+ * @package Anonym\Filesystem
  */
 class DriverNotFoundException extends Exception
 {
