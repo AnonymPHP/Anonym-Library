@@ -57,8 +57,34 @@ class Kernel extends SymfonyConsole
      * @var array
      */
     protected $kernel = [
-        ScheduleRunCommands::class,
+        MigrationForgetCommand::class,
         ScheduleCleanCommands::class,
+        LoginLogsClearCommand::class,
+        MakeMiddlewareCommand::class,
+        MakeMigrationCommand::class,
+        ClearCompiledCommand::class,
+        DeploySeedAllCommand::class,
+        ScheduleRunCommands::class,
+        BackupLoaderCommand::class,
+        BackupForgetCommand::class,
+        MigrationRunCommand::class,
+        ConfigCacheCommand::class,
+        MakeBackupCommand::class,
+        DeploySeedCommand::class,
+        CacheTableCommand::class,
+        CacheClearCommand::class,
+        MakeModelCommand::class,
+        MakeSeedCommand::class,
+        OptimizeCommand::class,
+        MakeController::class,
+        MakeListener::class,
+        Installation::class,
+        MakeCommand::class,
+        MakeBlade::class,
+        Migration::class,
+        MakeEvent::class,
+        MakeView::class,
+        Backup::class
     ];
 
     /**
