@@ -33,11 +33,12 @@ class ConfigConstructor
 
         $application->singleton('config', function () use($application) {
 
-            $config = $application->getGeneral()['config'];
+            $driver = $application->getGeneral()['config'];
 
 
 
         });
+
 
 
         $cachedPath = SYSTEM . 'cached_configs.php';
