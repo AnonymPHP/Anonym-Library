@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Class ZendDataCache
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class ZendDataCache implements DriverAdapterInterface,
     DriverInterface,

@@ -8,7 +8,7 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 use Memcache;
 
@@ -16,7 +16,7 @@ use Memcache;
  * the driver of memcache
  *
  * Class MemcacheDriver
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class MemcacheDriver implements DriverInterface,
     DriverAdapterInterface,

@@ -8,12 +8,12 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 use Exception;
 /**
  * Class DriverNotFlushableException
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class DriverNotFlushableException extends Exception
 {

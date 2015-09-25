@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Class XCacheDriver
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class XCacheDriver implements DriverInterface,
     DriverAdapterInterface,

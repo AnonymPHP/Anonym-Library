@@ -8,12 +8,12 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 use Exception;
 
 /**
  * Class DriverNotInstalledException
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class DriverNotInstalledException extends Exception
 {

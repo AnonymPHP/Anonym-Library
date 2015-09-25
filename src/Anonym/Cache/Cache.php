@@ -7,12 +7,12 @@
  *
  */
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 
 /**
  * Class Cache
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class Cache extends ConfigRepository implements CacheInterface
 {

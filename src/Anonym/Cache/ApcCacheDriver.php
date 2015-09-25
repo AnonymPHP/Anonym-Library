@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Class ApcCacheDriver
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class ApcCacheDriver implements DriverInterface, DriverAdapterInterface
 {

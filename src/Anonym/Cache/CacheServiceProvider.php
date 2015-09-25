@@ -7,14 +7,14 @@
  *
  */
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Facades\Config;
 /**
  * service provider of cache component
  *
  * Class CacheServiceProvider
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class CacheServiceProvider extends ServiceProvider
 {

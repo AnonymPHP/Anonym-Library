@@ -8,14 +8,14 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 use Exception;
 use Predis\Client as PredisClient;
 
 /**
  * Class PredisCacheDriver
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class PredisCacheDriver implements DriverAdapterInterface,
     DriverInterface,

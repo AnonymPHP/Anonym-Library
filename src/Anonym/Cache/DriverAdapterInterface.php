@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Interface DriverAdapterInterface
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 interface DriverAdapterInterface
 {

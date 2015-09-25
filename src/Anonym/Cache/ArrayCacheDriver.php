@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Class ArrayCacheDriver
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class ArrayCacheDriver implements DriverAdapterInterface,
     DriverInterface,

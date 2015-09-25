@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Interface CacheInterface
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 interface CacheInterface
 {

@@ -8,12 +8,12 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 use Exception;
 
 /**
  * Class PredisClientException
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 class PredisClientException extends Exception
 {

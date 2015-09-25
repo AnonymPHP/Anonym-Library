@@ -8,14 +8,14 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
-use Anonym\Components\Filesystem\Filesystem;
-use Anonym\Components\Filesystem\FilesystemAdapter;
+use Anonym\Filesystem\Filesystem;
+use Anonym\Filesystem\FilesystemAdapter;
 
 /**
  * Class LocalDriver
- * @package Anonym\Components\Caches
+ * @package Anonym\Caches
  */
 class FileCacheDriver extends ConfigRepository implements DriverInterface,
     DriverAdapterInterface,

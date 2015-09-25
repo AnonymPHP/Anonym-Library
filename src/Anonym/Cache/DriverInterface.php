@@ -1,10 +1,10 @@
 <?php
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Interface DriverInterface
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 interface DriverInterface
 {

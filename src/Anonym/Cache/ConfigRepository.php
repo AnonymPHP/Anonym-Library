@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Class AbstractDriver
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 abstract class ConfigRepository
 {

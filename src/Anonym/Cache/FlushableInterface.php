@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Cache;
+namespace Anonym\Cache;
 
 /**
  * Interface FlushableInterface
- * @package Anonym\Components\Cache
+ * @package Anonym\Cache
  */
 interface FlushableInterface
 {
