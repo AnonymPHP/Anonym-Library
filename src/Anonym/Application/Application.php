@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Application;
 
 use Anonym\Constructors\RegisterErrorHandlers;
 use Anonym\Constructors\DatabaseConstructor;
