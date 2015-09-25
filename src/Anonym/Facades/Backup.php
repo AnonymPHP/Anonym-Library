@@ -11,7 +11,7 @@
 namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
-use Anonym\Components\Tools\Backup as BackupDispatcher;
+use Anonym\Tools\Backup as BackupDispatcher;
 use Anonym\Patterns\Singleton;
 
 /**

@@ -10,8 +10,8 @@
 
 namespace Anonym\Constructors;
 
-use Anonym\Components\Config\ConfigLoader;
-use Anonym\Components\Config\Reposity;
+use Anonym\Config\ConfigLoader;
+use Anonym\Config\Reposity;
 
 /**
  * the config constructor

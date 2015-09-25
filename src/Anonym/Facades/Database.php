@@ -10,7 +10,7 @@
 
 namespace Anonym\Facades;
 
-use Anonym\Components\Database\Base;
+use Anonym\Database\Base;
 
 /**
  * Class Database

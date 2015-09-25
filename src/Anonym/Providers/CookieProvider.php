@@ -13,7 +13,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\ServiceProvider;
-use Anonym\Components\Cookie\UseCookieHeaders;
+use Anonym\Cookie\UseCookieHeaders;
 
 /**
  * Class CookieProvider

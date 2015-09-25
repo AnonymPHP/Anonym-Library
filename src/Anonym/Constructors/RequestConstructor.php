@@ -12,8 +12,8 @@ namespace Anonym\Constructors;
 
 
 use Anonym\Bootstrap\Bootstrap;
-use Anonym\Components\Http\Request;
-use Anonym\Components\Security\Validation;
+use Anonym\Http\Request;
+use Anonym\Security\Validation;
 
 class RequestConstructor
 {

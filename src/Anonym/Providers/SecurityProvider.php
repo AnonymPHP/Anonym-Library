@@ -12,13 +12,13 @@ namespace Anonym\Providers;
 
 use GUMP;
 use Anonym\Bootstrap\ServiceProvider;
-use Anonym\Components\Security\Authentication\Guard;
-use Anonym\Components\Security\CsrfToken;
-use Anonym\Components\Security\Firewall\Firewall\Firewall;
-use Anonym\Components\Security\TypeHint;
+use Anonym\Security\Authentication\Guard;
+use Anonym\Security\CsrfToken;
+use Anonym\Security\Firewall\Firewall\Firewall;
+use Anonym\Security\TypeHint;
 use Anonym\Facades\App;
 use Anonym\Facades\Config;
-use Anonym\Components\Security\Firewall\IpFirewall;
+use Anonym\Security\Firewall\IpFirewall;
 
 /**
  * Class SecurityProvider

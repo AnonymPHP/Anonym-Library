@@ -12,7 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-use Anonym\Components\Security\Authentication\Login as LoginDispatcher;
+use Anonym\Security\Authentication\Login as LoginDispatcher;
 use Anonym\Patterns\Singleton;
 
 /**

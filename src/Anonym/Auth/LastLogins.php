@@ -10,9 +10,9 @@
 
 namespace Anonym\Auth;
 
-use Anonym\Components\Database\Base;
-use Anonym\Components\Database\Mode\Read;
-use Anonym\Components\Security\Authentication\Login;
+use Anonym\Database\Base;
+use Anonym\Database\Mode\Read;
+use Anonym\Security\Authentication\Login;
 
 /**
  * Class LastLogins

@@ -11,7 +11,7 @@
 namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
-use Anonym\Components\View\View as Manager;
+use Anonym\View\View as Manager;
 /**
  * Class View
  * @package Anonym\Facades
@@ -22,7 +22,7 @@ class View extends Facade
     /**
      * get the view facade
      *
-     * @return \Anonym\Components\View\View
+     * @return \Anonym\View\View
      */
     protected static function getFacadeClass()
     {

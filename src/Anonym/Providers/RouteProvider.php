@@ -12,7 +12,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\ServiceProvider;
-use Anonym\Components\Route\Router;
+use Anonym\Route\Router;
 use Anonym\Facades\App;
 
 class RouteProvider extends ServiceProvider

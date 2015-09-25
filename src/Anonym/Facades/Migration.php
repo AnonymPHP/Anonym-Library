@@ -10,7 +10,7 @@
 
 namespace Anonym\Facades;
 
-use Anonym\Components\Tools\MigrationManager;
+use Anonym\Tools\MigrationManager;
 use Anonym\Patterns\Facade;
 use Anonym\Patterns\Singleton;
 

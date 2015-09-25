@@ -13,7 +13,7 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 use Anonym\Patterns\Singleton;
-use Anonym\Components\Security\Authentication\Register as RegisterDispatcher;
+use Anonym\Security\Authentication\Register as RegisterDispatcher;
 
 /**
  * Class Register

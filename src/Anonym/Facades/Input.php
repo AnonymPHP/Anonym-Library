@@ -12,7 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-use Anonym\Components\Http\Input as Abst;
+use Anonym\Http\Input as Abst;
 
 /**
  * Class Input

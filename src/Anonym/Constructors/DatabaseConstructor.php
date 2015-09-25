@@ -12,7 +12,7 @@ namespace Anonym\Constructors;
 
 
 use Anonym\Bootstrap\Bootstrap;
-use Anonym\Components\Database\Base;
+use Anonym\Database\Base;
 use Anonym\Facades\App;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;

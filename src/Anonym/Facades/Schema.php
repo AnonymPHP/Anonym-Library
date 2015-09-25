@@ -12,7 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-use Anonym\Components\Tools\Schema as SchemaInstance;
+use Anonym\Tools\Schema as SchemaInstance;
 use Anonym\Patterns\Singleton;
 
 /**

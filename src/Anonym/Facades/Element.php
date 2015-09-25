@@ -9,8 +9,8 @@
  */
 
 namespace Anonym\Facades;
-use  Anonym\Components\Database\Base;
-use Anonym\Components\Element\Element as Orm;
+use  Anonym\Database\Base;
+use Anonym\Element\Element as Orm;
 class Element
 {
 
