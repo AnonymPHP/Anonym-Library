@@ -7,11 +7,11 @@
  *
  */
 
-namespace Anonym\Components\Security;
+namespace Anonym\Security;
 
 /**
  * Interface CsrfTokenInterface
- * @package Anonym\Components\Security
+ * @package Anonym\Security
  */
 interface CsrfTokenInterface
 {

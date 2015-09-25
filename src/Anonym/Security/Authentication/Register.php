@@ -7,15 +7,15 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Security\Authentication;
 
-    use Anonym\Components\Database\Base;
-    use Anonym\Components\Database\Mode\Insert;
-    use Anonym\Components\Security\Exception\RegisterArgumentsException;
+    use Anonym\Database\Base;
+    use Anonym\Database\Mode\Insert;
+    use Anonym\Security\Exception\RegisterArgumentsException;
 
     /**
      * Class Register
-     * @package Anonym\Components\Security\Authentication
+     * @package Anonym\Security\Authentication
      */
     class Register extends Authentication implements RegisterInterface
     {

@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+    namespace Anonym\Security;
 
     /**
      * Interface KeyGeneratorInterface
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     interface KeyGeneratorInterface
     {

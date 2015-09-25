@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Security\Authentication;
 
     /**
      * Interface LoginInterface
-     * @package Anonym\Components\Security\Authentication
+     * @package Anonym\Security\Authentication
      */
     interface LoginInterface
     {

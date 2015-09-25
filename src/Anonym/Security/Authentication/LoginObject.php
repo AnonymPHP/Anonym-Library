@@ -7,13 +7,13 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Security\Authentication;
 
     use ArrayAccess;
 
     /**
      * Class AuthenticationLoginObject
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class LoginObject implements ArrayAccess
     {

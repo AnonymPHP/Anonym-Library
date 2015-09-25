@@ -7,15 +7,15 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
-    use Anonym\Components\Security\Authentication\AuthenticationMatcherInterface;
-    use Anonym\Components\Security\Authentication\Authentication;
+    namespace Anonym\Security\Authentication;
+    use Anonym\Security\Authentication\AuthenticationMatcherInterface;
+    use Anonym\Security\Authentication\Authentication;
 
     /**
      * Session ile kullanıcının giriş yapıp yapmadığını kontrol eder
      *
      * Class AuthenticationSessionMatcher
-     * @package Anonym\Components\Security\Exception
+     * @package Anonym\Security\Exception
      */
     class SessionMatcher extends  Authentication implements  AuthenticationMatcherInterface
     {

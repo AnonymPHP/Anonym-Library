@@ -7,13 +7,13 @@
      *
      */
 
-    namespace Anonym\Components\Security;
-    use Anonym\Components\HttpClient\ServerHttpHeaders;
-    use Anonym\Components\HttpClient\Response;
+    namespace Anonym\Security;
+    use Anonym\HttpClient\ServerHttpHeaders;
+    use Anonym\HttpClient\Response;
 
     /**
      * Class AccessSecurity
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class AccessSecurity extends ServerHttpHeaders
     {

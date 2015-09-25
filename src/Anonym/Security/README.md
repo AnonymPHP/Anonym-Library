@@ -45,8 +45,8 @@ Login, Exit and more in this namespace
 
 ```php
 
-use Anonym\Components\Security\Authentication\Login;
-use Anonym\Components\Security\Authentication\AuthenticationLoginObject;
+use Anonym\Security\Authentication\Login;
+use Anonym\Security\Authentication\AuthenticationLoginObject;
 $login = new Login($db, $tables);
 
 $remember = true; // giriş işlemi cookie 'e atanacakmı?
@@ -67,7 +67,7 @@ var_dump($login); // false or AuthenticationLoginObject
 
 ```php
 
-use Anonym\Components\Security\Authentication\Register;
+use Anonym\Security\Authentication\Register;
 
 $register = new Register($db, $tables);
 $register = register->register([
@@ -82,7 +82,7 @@ var_dump($register); // true or false
 
 ```php
 
-use Anonym\Components\Security\Authentication\Logout;
+use Anonym\Security\Authentication\Logout;
 $logout = new Logout();
 $logout->logout(); // true
 

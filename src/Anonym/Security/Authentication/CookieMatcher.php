@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Security\Authentication;
 
     /**
      * Class AuthenticationCookieMatcher
-     * @package Anonym\Components\Security\Authentication
+     * @package Anonym\Security\Authentication
      */
     class CookieMatcher extends Authentication implements  AuthenticationMatcherInterface
     {

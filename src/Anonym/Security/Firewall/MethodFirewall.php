@@ -7,12 +7,12 @@
      *
      */
 
-       namespace Anonym\Components\Security\Firewall;
+       namespace Anonym\Security\Firewall;
 
-    use Anonym\Components\Security\Firewall\FirewallCheckerInterface;
+    use Anonym\Security\Firewall\FirewallCheckerInterface;
     /**
      * Class MethodFirewall
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class MethodFirewall extends FirewallChecker implements FirewallCheckerInterface
     {

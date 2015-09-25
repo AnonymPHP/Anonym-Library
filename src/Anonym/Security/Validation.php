@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\Components\Security;
+namespace Anonym\Security;
 use GUMP;
 /**
  * Class Validation
- * @package Anonym\Components\Security
+ * @package Anonym\Security
  */
 class Validation extends GUMP
 {

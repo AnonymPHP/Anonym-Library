@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Security\Authentication;
 
     /**
      * Interface AuthenticationMatcherInterface
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     interface MatcherInterface
     {

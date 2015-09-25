@@ -7,7 +7,7 @@
  *
  */
 
-namespace Anonym\Components\Security;
+namespace Anonym\Security;
 
 /**
  * the class of type hint
@@ -15,7 +15,7 @@ namespace Anonym\Components\Security;
  * uses for string,integer,array,float,resource types hint
  *
  * Class TypeHint
- * @package Anonym\Components\Security
+ * @package Anonym\Security
  */
 class TypeHint
 {

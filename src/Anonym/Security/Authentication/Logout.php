@@ -7,14 +7,14 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Security\Authentication;
 
-    use Anonym\Components\Cookie\Cookie;
-    use Anonym\Components\Session\Session;
+    use Anonym\Cookie\Cookie;
+    use Anonym\Session\Session;
 
     /**
      * Class Logout
-     * @package Anonym\Components\Security\Authentication
+     * @package Anonym\Security\Authentication
      */
     class Logout extends Authentication
     {

@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Security\Exception;
+    namespace Anonym\Security\Exception;
     use Exception;
 
     /**
      * Class VariableNotFoundException
-     * @package Anonym\Components\Security\Exception
+     * @package Anonym\Security\Exception
      */
     class VariableNotFoundException extends Exception
     {

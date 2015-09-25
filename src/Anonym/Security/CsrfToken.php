@@ -7,15 +7,15 @@
      *
      */
 
-    namespace Anonym\Components\Security;
-    use Anonym\Components\Security\Exception\VariableNotFoundException;
-    use Anonym\Components\Session\SessionManager as Session;
-    use Anonym\Components\HttpClient\Input;
-    use Anonym\Components\Security\Exception\CsrfTokenMatchException;
-    use Anonym\Components\Security\CsrfTokenInterface;
+    namespace Anonym\Security;
+    use Anonym\Security\Exception\VariableNotFoundException;
+    use Anonym\Session\SessionManager as Session;
+    use Anonym\HttpClient\Input;
+    use Anonym\Security\Exception\CsrfTokenMatchException;
+    use Anonym\Security\CsrfTokenInterface;
     /**
      * Class CsrfToken
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class CsrfToken implements CsrfTokenInterface
     {

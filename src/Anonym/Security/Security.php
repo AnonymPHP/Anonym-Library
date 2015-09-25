@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+    namespace Anonym\Security;
 
     /**
      * Class Security
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class Security
     {

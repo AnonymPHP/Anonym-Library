@@ -7,17 +7,17 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
-    use Anonym\Components\HttpClient\Request;
-    use Anonym\Components\Cookie\Cookie;
-    use Anonym\Components\Cookie\CookieInterface;
-    use Anonym\Components\Database\Base;
-    use Anonym\Components\Session\StrogeInterface;
+    namespace Anonym\Security\Authentication;
+    use Anonym\HttpClient\Request;
+    use Anonym\Cookie\Cookie;
+    use Anonym\Cookie\CookieInterface;
+    use Anonym\Database\Base;
+    use Anonym\Session\StrogeInterface;
     use Anonym\Facades\App;
 
     /**
      * Class Authentication
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class Authentication
     {

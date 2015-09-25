@@ -9,13 +9,13 @@
  */
 
 
-namespace Anonym\Components\Security\Authentication;
+namespace Anonym\Security\Authentication;
 
-use Anonym\Components\Security\Security;
+use Anonym\Security\Security;
 
 /**
  * Class Guard
- * @package Anonym\Components\Security\Authentication
+ * @package Anonym\Security\Authentication
  */
 class Guard extends Authentication
 {

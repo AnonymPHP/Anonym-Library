@@ -7,24 +7,24 @@
      *
      */
 
-       namespace Anonym\Components\Security\Firewall\Firewall;
+       namespace Anonym\Security\Firewall\Firewall;
 
-    use Anonym\Components\Security\Exception\FirewallException;
-    use Anonym\Components\Security\Firewall\UserAgentFirewall;
-    use Anonym\Components\Security\Firewall\EncodingFirewall;
-    use Anonym\Components\Security\Firewall\LanguageFirewall;
-    use Anonym\Components\Security\Firewall\AcceptFirewall;
-    use Anonym\Components\Security\Firewall\ConnectionFirewall;
-    use Anonym\Components\Security\Firewall\RefererFirewall;
-    use Anonym\Components\Security\Firewall\MethodFirewall;
-    use Anonym\Components\Security\Firewall\CheckerSetterInterface;
-    use Anonym\Components\HttpClient\ServerHttpHeaders;
-    use Anonym\Components\Security\Exception\ClassInstanceException;
-    use Anonym\Components\Security\Firewall\FirewallCheckerInterface;
+    use Anonym\Security\Exception\FirewallException;
+    use Anonym\Security\Firewall\UserAgentFirewall;
+    use Anonym\Security\Firewall\EncodingFirewall;
+    use Anonym\Security\Firewall\LanguageFirewall;
+    use Anonym\Security\Firewall\AcceptFirewall;
+    use Anonym\Security\Firewall\ConnectionFirewall;
+    use Anonym\Security\Firewall\RefererFirewall;
+    use Anonym\Security\Firewall\MethodFirewall;
+    use Anonym\Security\Firewall\CheckerSetterInterface;
+    use Anonym\HttpClient\ServerHttpHeaders;
+    use Anonym\Security\Exception\ClassInstanceException;
+    use Anonym\Security\Firewall\FirewallCheckerInterface;
 
     /**
      * Class Firewall
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class Firewall extends ServerHttpHeaders
     {

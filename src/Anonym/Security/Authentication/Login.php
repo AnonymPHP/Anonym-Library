@@ -7,17 +7,17 @@
  *
  */
 
-namespace Anonym\Components\Security\Authentication;
+namespace Anonym\Security\Authentication;
 
-use Anonym\Components\Database\Base;
-use Anonym\Components\Database\Mode\Read;
-use Anonym\Components\Database\Mode\Insert;
+use Anonym\Database\Base;
+use Anonym\Database\Mode\Read;
+use Anonym\Database\Mode\Insert;
 
-use Anonym\Components\Security\Security;
+use Anonym\Security\Security;
 
 /**
  * Class Login
- * @package Anonym\Components\Security\Authentication
+ * @package Anonym\Security\Authentication
  */
 class Login extends Authentication implements LoginInterface
 {

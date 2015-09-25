@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Security;
-    use Anonym\Components\Crypt\SecurityKeyGenerator as ParentGenerator;
+    namespace Anonym\Security;
+    use Anonym\Crypt\SecurityKeyGenerator as ParentGenerator;
 
     /**
      * Class SecurityKeyGenerator
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class SecurityKeyGenerator extends ParentGenerator implements KeyGeneratorInterface
     {

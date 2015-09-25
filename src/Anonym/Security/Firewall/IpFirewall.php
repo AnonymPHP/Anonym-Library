@@ -7,14 +7,14 @@
  *
  */
 
-namespace Anonym\Components\Security\Firewall;
+namespace Anonym\Security\Firewall;
 
-use Anonym\Components\Security\Exception\FirewallException;
+use Anonym\Security\Exception\FirewallException;
 use M6Web\Component\Firewall\Firewall as ParentFirewall;
 
 /**
  * Class Firewall
- * @package Anonym\Components\Security
+ * @package Anonym\Security
  */
 class IpFirewall extends ParentFirewall implements FirewallCheckerInterface
 {

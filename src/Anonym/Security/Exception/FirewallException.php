@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Security\Exception;
+    namespace Anonym\Security\Exception;
     use Exception;
     /**
      * Class FirewallException
-     * @package Anonym\Components\Security\Exception
+     * @package Anonym\Security\Exception
      */
     class FirewallException extends Exception
     {

@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Security\Exception;
+    namespace Anonym\Security\Exception;
     use Exception;
 
     /**
      * Class RegisterArgumentsException
-     * @package Anonym\Components\Security\Authentication
+     * @package Anonym\Security\Authentication
      */
     class RegisterArgumentsException extends Exception
     {

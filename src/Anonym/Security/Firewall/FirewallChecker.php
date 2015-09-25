@@ -7,10 +7,10 @@
      *
      */
 
-       namespace Anonym\Components\Security\Firewall;
+       namespace Anonym\Security\Firewall;
     /**
      * Class FirewallChecker
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     abstract class FirewallChecker implements CheckerSetterInterface
     {

@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Security\Exception;
+    namespace Anonym\Security\Exception;
     use Exception;
 
     /**
      * Class ClassInstanceException
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     class ClassInstanceException extends Exception
     {

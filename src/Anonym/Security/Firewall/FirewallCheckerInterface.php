@@ -7,11 +7,11 @@
      *
      */
 
-       namespace Anonym\Components\Security\Firewall;
+       namespace Anonym\Security\Firewall;
 
     /**
      * Interface FirewallInterface
-     * @package Anonym\Components\Security
+     * @package Anonym\Security
      */
     interface FirewallCheckerInterface
     {
