@@ -31,7 +31,9 @@ class ConfigConstructor
     public function __construct(Application $application)
     {
 
-        $application->singleton('config', function () use($application) {
+        $cachedPath = $application->getSystemPath(). 'cached_configs.php';
+
+        $application->singleton('config', function () use($application) use($cachedPath){
 
             $driver = $application->getGeneral()['config'];
 
