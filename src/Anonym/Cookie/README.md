@@ -10,7 +10,7 @@ Sınıfın Çağrımı
 
 ```php 
 
-use Anonym\Components\Cookie\Cookie;
+use Anonym\Cookie\Cookie;
 $cookie = new Cookie();
 ```
 
@@ -90,7 +90,7 @@ Verileri göndermek
 Cookie atanması yapıldıktan sonra bunun tarayıcıya bildirilmesi gerekir.
 
 ```php
-use Anonym\Components\Cookie\UseCookieHeaders; 
+use Anonym\Cookie\UseCookieHeaders; 
 
 $useHeaders = new UseCookieHeaders();
 $useHeaders->useCookies();

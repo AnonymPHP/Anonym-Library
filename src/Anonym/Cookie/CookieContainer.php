@@ -7,13 +7,13 @@
  *
  */
 
-namespace Anonym\Components\Cookie;
+namespace Anonym\Cookie;
 
-use Anonym\Components\Cookie\Http\CookieJar;
+use Anonym\Cookie\Http\CookieJar;
 
 /**
  * Class CookieContainer
- * @package Anonym\Components\Cookie
+ * @package Anonym\Cookie
  */
 class CookieContainer
 {

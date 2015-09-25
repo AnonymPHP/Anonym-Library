@@ -7,11 +7,11 @@
  *
  */
 
-namespace Anonym\Components\Cookie;
+namespace Anonym\Cookie;
 
 /**
  * Interface CookieInterface
- * @package Anonym\Components\Cookie
+ * @package Anonym\Cookie
  */
 interface CookieInterface
 {

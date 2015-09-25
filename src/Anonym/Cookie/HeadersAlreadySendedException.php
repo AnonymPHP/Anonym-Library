@@ -7,13 +7,13 @@
  *
  */
 
-namespace Anonym\Components\Cookie;
+namespace Anonym\Cookie;
 
 use Exception;
 
 /**
  * Class HeadersAlreadySendedException
- * @package Anonym\Components\Cookie
+ * @package Anonym\Cookie
  */
 class HeadersAlreadySendedException extends Exception
 {

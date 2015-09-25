@@ -7,11 +7,11 @@
  *
  */
 
-namespace Anonym\Components\Cookie;
+namespace Anonym\Cookie;
 
 /**
  * Class Base64Encoder
- * @package Anonym\Components\Cookie
+ * @package Anonym\Cookie
  */
 class Base64Encoder implements CookieEncoderInterface
 {

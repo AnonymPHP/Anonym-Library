@@ -5,14 +5,14 @@
  *
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
-namespace Anonym\Components\Cookie\Http;
+namespace Anonym\Cookie\Http;
 
-use Anonym\Components\Cookie\ReposityInterface;
-use Anonym\Components\HttpClient\RequestHeaders;
+use Anonym\Cookie\ReposityInterface;
+use Anonym\HttpClient\RequestHeaders;
 
 /**
  * Class CookieBag
- * @package Anonym\Components\Cookie\Http
+ * @package Anonym\Cookie\Http
  */
 class CookieBag extends RequestHeaders implements ReposityInterface
 {

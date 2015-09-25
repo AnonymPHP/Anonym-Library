@@ -7,14 +7,14 @@
  *
  */
 
-namespace Anonym\Components\Cookie;
+namespace Anonym\Cookie;
 
-use Anonym\Components\Crypt\AnonymCrypt;
-use Anonym\Components\Crypt\SecurityKeyGenerator;
+use Anonym\Crypt\AnonymCrypt;
+use Anonym\Crypt\SecurityKeyGenerator;
 
 /**
  * Class AnonymEncode
- * @package Anonym\Components\Cookie
+ * @package Anonym\Cookie
  */
 class AnonymEncode extends AnonymCrypt implements CookieEncoderInterface
 {

@@ -7,13 +7,13 @@
  *
  */
 
-namespace Anonym\Components\Cookie;
+namespace Anonym\Cookie;
 
-use Anonym\Components\Cookie\HeadersAlreadySendedException;
+use Anonym\Cookie\HeadersAlreadySendedException;
 
 /**
  * Class UseCookieHeaders
- * @package Anonym\Components\Cookie
+ * @package Anonym\Cookie
  */
 class UseCookieHeaders
 {

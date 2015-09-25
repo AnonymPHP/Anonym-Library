@@ -5,7 +5,7 @@
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Cookie\Http;
+namespace Anonym\Cookie\Http;
 
 use DateTime;
 use InvalidArgumentException;
