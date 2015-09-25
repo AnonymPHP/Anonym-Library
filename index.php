@@ -15,8 +15,6 @@ $builder = new Anonym\Database\QueryBuilder\Sql\Builder($container);
 
 $builder->table('users')->orWhere('key', 'value')->where('aa', 'bb')->group('test')->orderBy('id', 'DESC');
 
-$join = (new \Anonym\Database\QueryBuilder\Sql\Join())->home('id')->type('INNER')->join('kategoriler', 'kategori_id');
 
-$builder->join($join);
 
 print_r($builder->get());

@@ -54,7 +54,7 @@ class Join
      * @param string $targetTable
      * @param string $targetColumn
      */
-    public function __construct($type = 'INNER', $firstColumn, $targetTable, $targetColumn){
+    public function __construct($type = 'INNER', $firstColumn ='', $targetTable = '', $targetColumn = ''){
         $this->type($type);
         $this->home($firstColumn);
         $this->join($targetTable, $targetColumn);
