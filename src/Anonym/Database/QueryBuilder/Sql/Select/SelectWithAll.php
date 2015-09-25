@@ -154,13 +154,15 @@ class SelectWithAll extends QueryBuilder
             return $string;
         } else {
 
-            $new = array_map(function ($value) {
+            $new = [];
 
+            foreach (explode(' ', $string) as $value) {
                 if($value !== ''){
-                    return $value;
+                    $new[] = $value;
                 }
+            }
 
-            }, explode(' ', $string));
+            return join(' ', $new);
         }
     }
 }
