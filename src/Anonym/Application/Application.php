@@ -166,6 +166,15 @@ class Application extends Container
         }
     }
 
+
+    /**
+     * return system path
+     *
+     * @return mixed
+     */
+    public function getSystemPath(){
+        return SYSTEM;
+    }
     /**
      * @return array
      */
