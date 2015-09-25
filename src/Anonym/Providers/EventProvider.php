@@ -11,8 +11,9 @@
 namespace Anonym\Providers;
 
 use Anonym\Facades\Config;
-use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Event\EventCollector;
+use Anonym\Filesystem\Filesystem;
+use Anonym\Bootstrap\ServiceProvider;
 
 /**
  * Class EventProvider
@@ -28,6 +29,13 @@ class EventProvider extends ServiceProvider
      */
     public function register()
     {
+
+        if (Config::has('event.events')) {
+            $events = Config::get('event.events');
+
+            file_exists(APP. 'events.php')
+        }
+
         $events = Config::get('event.events');
         EventCollector::setListeners($events);
 
