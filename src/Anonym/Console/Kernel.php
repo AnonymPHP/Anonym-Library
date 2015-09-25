@@ -4,21 +4,21 @@
  * @copyright AnonymMedya, 2015
  */
 
-namespace Anonym\Components\Console;
+namespace Anonym\Console;
 
-use Anonym\Components\Console\Schedule\ScheduleCleanCommands;
+use Anonym\Console\Schedule\ScheduleCleanCommands;
 use Symfony\Component\Console\Application as SymfonyConsole;
-use Anonym\Components\Console\Schedule\ScheduleRunCommands;
+use Anonym\Console\Schedule\ScheduleRunCommands;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\ArrayInput;
-use Anonym\Components\Cron\EventReposity;
-use Anonym\Components\Cron\Cron;
+use Anonym\Cron\EventReposity;
+use Anonym\Cron\Cron;
 use Illuminate\Contracts\Container\Container;
 
 /**
  * Class Console
- * @package Anonym\Components\Console
+ * @package Anonym\Console
  */
 class Kernel extends SymfonyConsole
 {

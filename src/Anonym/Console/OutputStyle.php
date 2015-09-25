@@ -1,5 +1,5 @@
 <?php
-    namespace Anonym\Components\Console;
+    namespace Anonym\Console;
 
     use Symfony\Component\Console\Style\SymfonyStyle;
     use Symfony\Component\Console\Input\InputInterface;

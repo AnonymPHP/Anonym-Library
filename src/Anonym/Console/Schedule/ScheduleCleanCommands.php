@@ -9,9 +9,9 @@
  */
 
 
-namespace Anonym\Components\Console\Schedule;
-use Anonym\Components\Console\Command;
-use Anonym\Components\Cron\Cron as Schedule;
+namespace Anonym\Console\Schedule;
+use Anonym\Console\Command;
+use Anonym\Cron\Cron as Schedule;
 
 class ScheduleCleanCommands extends Command
 {

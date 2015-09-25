@@ -4,8 +4,8 @@
      * @copyright AnonymMedya, 2015
      */
 
-    namespace Anonym\Components\Console;
-    use Anonym\Components\Cron\Cron;
+    namespace Anonym\Console;
+    use Anonym\Cron\Cron;
     use Symfony\Component\Console\Command\Command as SymfonyCommand;
     use Symfony\Component\Console\Input\InputInterface;
     use Symfony\Component\Console\Output\OutputInterface;
@@ -14,7 +14,7 @@
 
     /**
      * Class Command
-     * @package Anonym\Components\Console
+     * @package Anonym\Console
      */
     class Command extends SymfonyCommand
     {

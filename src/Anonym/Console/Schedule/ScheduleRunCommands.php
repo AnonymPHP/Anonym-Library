@@ -9,13 +9,13 @@
  */
 
 
-namespace Anonym\Components\Console\Schedule;
+namespace Anonym\Console\Schedule;
 
-use Anonym\Components\Cron\Cron as Schedule;
-use Anonym\Components\Cron\EventReposity;
-use Anonym\Components\Console\Command;
-use Anonym\Components\Cron\Task\Task;
-use Anonym\Components\Cron\Task\TaskReposity;
+use Anonym\Cron\Cron as Schedule;
+use Anonym\Cron\EventReposity;
+use Anonym\Console\Command;
+use Anonym\Cron\Task\Task;
+use Anonym\Cron\Task\TaskReposity;
 
 class ScheduleRunCommands extends Command
 {

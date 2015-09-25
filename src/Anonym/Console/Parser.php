@@ -4,7 +4,7 @@
      * @copyright AnonymMedya, 2015
      */
 
-    namespace Anonym\Components\Console;
+    namespace Anonym\Console;
 
     use InvalidArgumentException;
     use Exception;
@@ -13,7 +13,7 @@
 
     /**
      * Class Parser
-     * @package Anonym\Components\Console
+     * @package Anonym\Console
      */
     class Parser
     {

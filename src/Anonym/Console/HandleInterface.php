@@ -5,7 +5,7 @@
      * @copyright AnonymMedya, 2015
      */
 
-    namespace Anonym\Components\Console;
+    namespace Anonym\Console;
     use Symfony\Component\Console\Input\InputInterface;
     use Symfony\Component\Console\Output\OutputInterface;
 
