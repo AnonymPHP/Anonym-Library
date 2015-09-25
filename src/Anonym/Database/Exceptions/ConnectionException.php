@@ -8,12 +8,12 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Database\Exceptions;
+namespace Anonym\Database\Exceptions;
 use Exception;
 
 /**
  * Class ConnectionException
- * @package Anonym\Components\Database\Exceptions
+ * @package Anonym\Database\Exceptions
  */
 class ConnectionException extends Exception
 {

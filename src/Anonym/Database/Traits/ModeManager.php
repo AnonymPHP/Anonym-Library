@@ -3,18 +3,18 @@
 /**
  *  AnonymFramework Model Manager, Database Sınıfına yeni modlar eklenmesi bu sınıfta gerçekleşir
  *
- * @package  Anonym\Components\Database\Traits;
+ * @package  Anonym\Database\Traits;
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database\Traits;
+namespace Anonym\Database\Traits;
 
 use BadFunctionCallException;
-use Anonym\Components\Database\Mode\ModeManager as Mode;
+use Anonym\Database\Mode\ModeManager as Mode;
 
 /**
  * Class ModeManager
- * @package Anonym\Components\Database\Traits
+ * @package Anonym\Database\Traits
  */
 trait ModeManager
 {

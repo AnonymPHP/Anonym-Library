@@ -3,15 +3,15 @@
 /**
  *  AnonymFramework Builders Select Trait -> select sorgular� burada olu�turulur
  *
- * @package Anonym\Components\Database\Builders
+ * @package Anonym\Database\Builders
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database\Builders;
+namespace Anonym\Database\Builders;
 
 /**
  * Class Select
- * @package Anonym\Components\Database\Builders
+ * @package Anonym\Database\Builders
  */
 class Select
 {

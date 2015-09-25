@@ -1,14 +1,14 @@
 <?php
 
-namespace Anonym\Components\Database\Mode;
+namespace Anonym\Database\Mode;
 
-use Anonym\Components\Database\Base;
-use Anonym\Components\Database\Builders\Where;
-use Anonym\Components\Database\Traits\Where as TraitWhere;
+use Anonym\Database\Base;
+use Anonym\Database\Builders\Where;
+use Anonym\Database\Traits\Where as TraitWhere;
 
 /**
  * Class Update
- * @package Anonym\Components\Database\Mode
+ * @package Anonym\Database\Mode
  */
 class Update extends ModeManager
 {

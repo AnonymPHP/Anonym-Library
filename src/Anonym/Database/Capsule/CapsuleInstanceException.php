@@ -8,12 +8,12 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Database\Capsule;
+namespace Anonym\Database\Capsule;
 use Exception;
 
 /**
  * Class CapsuleInstanceException
- * @package Anonym\Components\Database\Capsule
+ * @package Anonym\Database\Capsule
  */
 class CapsuleInstanceException extends Exception
 {

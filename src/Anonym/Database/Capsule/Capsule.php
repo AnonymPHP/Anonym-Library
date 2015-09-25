@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Database\Capsule;
+namespace Anonym\Database\Capsule;
 
-use Anonym\Components\Database\Base;
+use Anonym\Database\Base;
 use ArrayAccess;
 /**
  * Class Capsule
- * @package Anonym\Components\Database\Capsule
+ * @package Anonym\Database\Capsule
  */
 class Capsule implements ArrayAccess
 {

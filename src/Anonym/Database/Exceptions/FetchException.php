@@ -8,14 +8,14 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Database\Exceptions;
+namespace Anonym\Database\Exceptions;
 use Exception;
 
 /**
  * the exception of fetch
  *
  * Class FetchException
- * @package Anonym\Components\Database\Exceptions
+ * @package Anonym\Database\Exceptions
  */
 class FetchException extends Exception
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Anonym\Components\Database\Mode;
+namespace Anonym\Database\Mode;
 
-use Anonym\Components\Database\Base;
-use Anonym\Components\Database\Traits\Where as TraitWhere;
+use Anonym\Database\Base;
+use Anonym\Database\Traits\Where as TraitWhere;
 
 /**
  * Class Insert
- * @package Anonym\Components\Database\Mode
+ * @package Anonym\Database\Mode
  */
 class Insert extends ModeManager
 {

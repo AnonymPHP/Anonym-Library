@@ -5,11 +5,11 @@
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database\Builders;
+namespace Anonym\Database\Builders;
 
 /**
  * Class Join
- * @package Anonym\Components\Database\Builders
+ * @package Anonym\Database\Builders
  */
 class Join
 {

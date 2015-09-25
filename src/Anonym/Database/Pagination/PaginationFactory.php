@@ -7,7 +7,7 @@
  *
  * Thanks for using
  */
-namespace Anonym\Components\Database\Pagination;
+namespace Anonym\Database\Pagination;
 use Closure;
 
 class PaginationFactory

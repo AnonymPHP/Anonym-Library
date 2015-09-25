@@ -3,17 +3,17 @@
  *  AnonymFramework Connection Manager Trait, veritabanı baağlantısını başlatır ve sonlandırılması
  *  ması bu trait de gerçekleşir
  *
- * @package  Anonym\Components\Database\Traits;
+ * @package  Anonym\Database\Traits;
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database\Traits;
+namespace Anonym\Database\Traits;
 
 use PDO;
 use mysqli;
 /**
  * Class ConnectionManager
- * @package Anonym\Components\Database\Traits
+ * @package Anonym\Database\Traits
  */
 trait ConnectionManager
 {

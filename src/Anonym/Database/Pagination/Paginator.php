@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Database\Pagination;
+namespace Anonym\Database\Pagination;
 
 /**
  * Class Paginator
- * @package Anonym\Components\Database\Pagination
+ * @package Anonym\Database\Pagination
  */
 class Paginator extends PaginationFactory
 {

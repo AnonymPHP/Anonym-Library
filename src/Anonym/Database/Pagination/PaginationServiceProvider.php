@@ -8,16 +8,16 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Database\Pagination;
+namespace Anonym\Database\Pagination;
 
 
 use Anonym\Bootstrap\ServiceProvider;
-use Anonym\Components\HttpClient\Request;
+use Anonym\HttpClient\Request;
 use Anonym\Facades\App;
 use GUMP;
 /**
  * Class PaginationServiceProvider
- * @package Anonym\Components\Database\Pagination
+ * @package Anonym\Database\Pagination
  */
 class PaginationServiceProvider extends ServiceProvider
 {

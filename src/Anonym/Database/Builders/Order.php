@@ -3,15 +3,15 @@
 /**
  *  AnonymFramework Builders Order Trait -> order sorgular� burada olu�turulur
  *
- * @package Anonym\Components\Database\Builders
+ * @package Anonym\Database\Builders
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database\Builders;
+namespace Anonym\Database\Builders;
 
 /**
  * Class Order
- * @package Anonym\Components\Database\Builders
+ * @package Anonym\Database\Builders
  */
 class Order
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Anonym\Components\Database\Traits;
+namespace Anonym\Database\Traits;
 
 /**
  * Trait Builder
- * @package Anonym\Components\Database\Traits
+ * @package Anonym\Database\Traits
  */
 trait Builder
 {

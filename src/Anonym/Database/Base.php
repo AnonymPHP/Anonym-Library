@@ -4,23 +4,23 @@
  *  AnonymFramework Veritabanı ana sınıfı
  *  # builderler ve alt sınıflarla ilişikiyi kuracak
  *
- * @package Anonym\Components\Database
+ * @package Anonym\Database
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database;
+namespace Anonym\Database;
 
-use Anonym\Components\Database\Mode\Delete;
-use Anonym\Components\Database\Mode\Read;
-use Anonym\Components\Database\Mode\Update;
-use Anonym\Components\Database\Mode\Insert;
-use Anonym\Components\Database\Traits\ConnectionManager;
-use Anonym\Components\Database\Traits\ModeManager;
+use Anonym\Database\Mode\Delete;
+use Anonym\Database\Mode\Read;
+use Anonym\Database\Mode\Update;
+use Anonym\Database\Mode\Insert;
+use Anonym\Database\Traits\ConnectionManager;
+use Anonym\Database\Traits\ModeManager;
 use PDO;
 use mysqli;
 /**
  * Class Base
- * @package Anonym\Components\Database
+ * @package Anonym\Database
  */
 class Base extends Starter
 {
@@ -32,7 +32,7 @@ class Base extends Starter
      * create a new instance and use the configs
      *
      * @param array $configs
-     * @throws \Anonym\Components\Database\Exceptions\ConnectionException
+     * @throws \Anonym\Database\Exceptions\ConnectionException
      */
     public function __construct(array $configs = [])
     {

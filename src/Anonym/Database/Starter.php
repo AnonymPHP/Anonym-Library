@@ -10,15 +10,15 @@
  */
 
 
-namespace Anonym\Components\Database;
-use Anonym\Components\Database\Exceptions\ConnectionException;
+namespace Anonym\Database;
+use Anonym\Database\Exceptions\ConnectionException;
 use PDO;
 use PDOException;
 use mysqli;
 
 /**
  * Class Starter
- * @package Anonym\Components\Database
+ * @package Anonym\Database
  */
 class Starter
 {

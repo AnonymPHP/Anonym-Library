@@ -1,22 +1,22 @@
 <?php
-namespace Anonym\Components\Database\Mode;
+namespace Anonym\Database\Mode;
 
 /**
- * @package  Anonym\Components\Database\Base;
+ * @package  Anonym\Database\Base;
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-use Anonym\Components\Database\Managers\BuildManager;
-use Anonym\Components\Database\Pagination\Paginator;
-use Anonym\Components\Database\Traits\Builder;
-use Anonym\Components\Database\Base;
+use Anonym\Database\Managers\BuildManager;
+use Anonym\Database\Pagination\Paginator;
+use Anonym\Database\Traits\Builder;
+use Anonym\Database\Base;
 
 class ModeManager
 {
 
     use Builder;
 
-    ## Anonym\Components\Database\Base
+    ## Anonym\Database\Base
 
     /**
      * @var Base
@@ -71,7 +71,7 @@ class ModeManager
     ];
 
     /**
-     * @return \Anonym\Components\Database\Base
+     * @return \Anonym\Database\Base
      */
     public function getBase()
     {
@@ -121,7 +121,7 @@ class ModeManager
     /**
      * Yeni bir query Sorgusu olu�turur
      *
-     * @return \Anonym\Components\Database\Builders\BuildManager
+     * @return \Anonym\Database\Builders\BuildManager
      */
     public function getQuery()
     {
@@ -135,7 +135,7 @@ class ModeManager
     /**
      * Sorguyu buildManager ��ine atar
      *
-     * @return \Anonym\Components\Database\Builders\BuildManager
+     * @return \Anonym\Database\Builders\BuildManager
      */
     public function build()
     {

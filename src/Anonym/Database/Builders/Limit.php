@@ -3,15 +3,15 @@
 /**
  *  AnonymFramework Limit Builder -> limit sorgular� burada olu�tururlur
  *
- * @package  Anonym\Components\Database\Builders;
+ * @package  Anonym\Database\Builders;
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database\Builders;
+namespace Anonym\Database\Builders;
 
 /**
  * Class Limit
- * @package Anonym\Components\Database\Builders
+ * @package Anonym\Database\Builders
  */
 class Limit
 {

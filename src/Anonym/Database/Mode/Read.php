@@ -3,25 +3,25 @@
 /**
  *  AnonymFramework Database Read Mode -> veritabanından veri okumakda kullanılır
  *
- * @package Anonym\Components\Database\Mode
+ * @package Anonym\Database\Mode
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
-namespace Anonym\Components\Database\Mode;
+namespace Anonym\Database\Mode;
 
-use Anonym\Components\Database\Base;
-use Anonym\Components\Database\Builders\Group;
-use Anonym\Components\Database\Builders\Join;
-use Anonym\Components\Database\Builders\Limit;
-use Anonym\Components\Database\Builders\Order;
-use Anonym\Components\Database\Builders\Select;
-use Anonym\Components\Database\Builders\Where;
-use Anonym\Components\Database\Traits\Builder;
+use Anonym\Database\Base;
+use Anonym\Database\Builders\Group;
+use Anonym\Database\Builders\Join;
+use Anonym\Database\Builders\Limit;
+use Anonym\Database\Builders\Order;
+use Anonym\Database\Builders\Select;
+use Anonym\Database\Builders\Where;
+use Anonym\Database\Traits\Builder;
 use Anonym\Facades\Config;
 
 /**
  * Class Read
- * @package Anonym\Components\Database\Mode
+ * @package Anonym\Database\Mode
  */
 class Read extends ModeManager
 {
@@ -102,7 +102,7 @@ class Read extends ModeManager
      *
      * @param string $order
      * @param string $type
-     * @return \Anonym\Components\Database\Mode\Read
+     * @return \Anonym\Database\Mode\Read
      */
     public function order($order, $type = 'DESC')
     {
@@ -127,7 +127,7 @@ class Read extends ModeManager
 
     /**
      * @param int $page
-     * @return \Anonym\Components\Database\Mode\Read
+     * @return \Anonym\Database\Mode\Read
      */
     public function page($page)
     {
@@ -146,7 +146,7 @@ class Read extends ModeManager
      * Group By sorgusu ekler
      *
      * @param string $group
-     * @return \Anonym\Components\Database\Mode\Read
+     * @return \Anonym\Database\Mode\Read
      */
     public function group($group)
     {
@@ -162,7 +162,7 @@ class Read extends ModeManager
      *
      * @param string $as
      * @param mixed $select
-     * @return  \Anonym\Components\Database\Mode\Read
+     * @return  \Anonym\Database\Mode\Read
      */
     public function create($as, $select)
     {
@@ -176,7 +176,7 @@ class Read extends ModeManager
      * Limit sorgusu oluşturur
      *
      * @param string $limit
-     * @return \Anonym\Components\Database\Mode\Read
+     * @return \Anonym\Database\Mode\Read
      */
     public function limit($limit)
     {
@@ -189,7 +189,7 @@ class Read extends ModeManager
 
     /**
      * @param string $as
-     * @return \Anonym\Components\Database\Mode\Read
+     * @return \Anonym\Database\Mode\Read
      */
     public function setAs($as)
     {

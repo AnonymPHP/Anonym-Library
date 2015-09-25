@@ -1,19 +1,19 @@
 <?php
 
-namespace Anonym\Components\Database\Managers;
+namespace Anonym\Database\Managers;
 
-use Anonym\Components\Database\Exceptions\FetchException;
-use Anonym\Components\Database\Exceptions\QueryException;
-use Anonym\Components\Database\Helpers\Pagination;
+use Anonym\Database\Exceptions\FetchException;
+use Anonym\Database\Exceptions\QueryException;
+use Anonym\Database\Helpers\Pagination;
 use mysqli_stmt;
 use PDO;
 use PDOStatement;
-use Anonym\Components\Database\Base;
+use Anonym\Database\Base;
 use mysqli;
 
 /**
  * Class BuildManager
- * @package Anonym\Components\Database\Builders
+ * @package Anonym\Database\Builders
  */
 class BuildManager
 {
