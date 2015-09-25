@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\HttpClient;
+namespace Anonym\HttpClient;
 
 /**
  * Class Server
- * @package Anonym\Components\HttpClient
+ * @package Anonym\HttpClient
  */
 class Server
 {

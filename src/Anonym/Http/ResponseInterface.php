@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\HttpClient;
+    namespace Anonym\HttpClient;
 
     /**
      * Interface ResponseInterface
-     * @package Anonym\Components\HttpClient
+     * @package Anonym\HttpClient
      */
     interface ResponseInterface
     {

@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\HttpClient;
+namespace Anonym\HttpClient;
 
 /**
  * Class XmlResponse
- * @package Anonym\Components\HttpClient
+ * @package Anonym\HttpClient
  */
 class XmlResponse extends Response implements ResponseInterface
 {

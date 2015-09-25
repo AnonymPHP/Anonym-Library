@@ -9,12 +9,12 @@
  */
 
 
-namespace Anonym\Components\HttpClient;
-use Anonym\Components\Route\AsCollector;
+namespace Anonym\HttpClient;
+use Anonym\Route\AsCollector;
 
 /**
  * Class Redirect
- * @package Anonym\Components\HttpClient
+ * @package Anonym\HttpClient
  */
 class Redirect
 {

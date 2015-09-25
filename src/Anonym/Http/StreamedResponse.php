@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\HttpClient;
-    use Anonym\Components\HttpClient\Response;
+    namespace Anonym\HttpClient;
+    use Anonym\HttpClient\Response;
 
     /**
      * Class StreamedResponse
-     * @package Anonym\Components\HttpClient
+     * @package Anonym\HttpClient
      */
     class StreamedResponse extends Response implements ResponseInterface
     {

@@ -7,19 +7,19 @@
  *
  */
 
-namespace Anonym\Components\HttpClient;
+namespace Anonym\HttpClient;
 
-use Anonym\Components\HttpClient\Server;
-use Anonym\Components\Upload\FileUpload;
-use Anonym\Components\Cookie\Http\CookieBag;
-use Anonym\Components\Security\Validation as Validate;
+use Anonym\HttpClient\Server;
+use Anonym\Upload\FileUpload;
+use Anonym\Cookie\Http\CookieBag;
+use Anonym\Security\Validation as Validate;
 
 
 /**
  * the class of request
  *
  * Class Request
- * @package Anonym\Components\HttpClient
+ * @package Anonym\HttpClient
  */
 class Request
 {
@@ -638,7 +638,7 @@ class Request
 
 
     /**
-     * @return \Anonym\Components\HttpClient\Server
+     * @return \Anonym\HttpClient\Server
      */
     public function getServer()
     {
@@ -648,7 +648,7 @@ class Request
     /**
      * register the server instance
      *
-     * @param \Anonym\Components\HttpClient\Server $server
+     * @param \Anonym\HttpClient\Server $server
      * @return Request
      */
     public function setServer(Server $server)
