@@ -25,7 +25,8 @@
     "league/flysystem-aws-s3-v3": "~1.0",
     "league/flysystem": "~1.0",
     "league/flysystem-rackspace": "~1.0",
-    "predis/predis" : "1.0.3"
+    "predis/predis" : "1.0.3",
+    "symfony/console": "2.7.*"
   },
   "autoload": {
     "psr-4": {
