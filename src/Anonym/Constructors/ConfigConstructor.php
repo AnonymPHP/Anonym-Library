@@ -35,10 +35,9 @@ class ConfigConstructor
 
             $driver = $application->getGeneral()['config'];
 
-
+            $loader = new ConfigLoader($application->getConfigPath(), $cachedPath);
 
         });
-
 
 
         $cachedPath = SYSTEM . 'cached_configs.php';
