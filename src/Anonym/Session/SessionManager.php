@@ -9,16 +9,16 @@
  */
 
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 
-use Anonym\Components\Cookie\Cookie;
-use Anonym\Components\Crypt\Crypter;
+use Anonym\Cookie\Cookie;
+use Anonym\Crypt\Crypter;
 
 use Closure;
 
 /**
  * Class SessionManager
- * @package Anonym\Components\Session
+ * @package Anonym\Session
  */
 class SessionManager
 {

@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 
 /**
  * Class EncryptedStroge
- * @package Anonym\Components\Session
+ * @package Anonym\Session
  */
 class EncryptedStroge extends Stroge
 {

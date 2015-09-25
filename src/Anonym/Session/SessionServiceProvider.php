@@ -8,19 +8,19 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 
 use Anonym\Bootstrap\ServiceProvider;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 use Anonym\Facades\App;
 use Anonym\Facades\Stroge;
-use Anonym\Components\Cache\Cache;
-use Anonym\Components\Cookie\Cookie;
-use Anonym\Components\Crypt\Crypter;
+use Anonym\Cache\Cache;
+use Anonym\Cookie\Cookie;
+use Anonym\Crypt\Crypter;
 /**
  * Class SessionServiceProvider
- * @package Anonym\Components\Session
+ * @package Anonym\Session
  */
 class SessionServiceProvider extends ServiceProvider
 {

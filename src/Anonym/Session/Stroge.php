@@ -9,14 +9,14 @@
  */
 
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 
 use SessionHandlerInterface;
-use Anonym\Components\Crypt\AnonymCrypt;
+use Anonym\Crypt\AnonymCrypt;
 
 /**
  * Class Stroge
- * @package Anonym\Components\Session
+ * @package Anonym\Session
  */
 class Stroge implements StrogeInterface
 {

@@ -9,15 +9,15 @@
  */
 
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 
-use Anonym\Components\Cache\DriverAdapterInterface as CacheDriverInterface;
-use Anonym\Components\Cache\FlushableInterface;
+use Anonym\Cache\DriverAdapterInterface as CacheDriverInterface;
+use Anonym\Cache\FlushableInterface;
 use SessionHandlerInterface;
 
 /**
  * Class CacheSessionHandler
- * @package Anonym\Components\Session
+ * @package Anonym\Session
  */
 class CacheSessionHandler implements SessionHandlerInterface
 {

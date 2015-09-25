@@ -9,10 +9,10 @@
  */
 
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 
 use SessionHandlerInterface;
-use Anonym\Components\Cookie\Cookie;
+use Anonym\Cookie\Cookie;
 
 class CookieSessionHandler implements SessionHandlerInterface
 {

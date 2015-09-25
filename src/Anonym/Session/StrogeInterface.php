@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 
 /**
  * Interface StrogeInterface
- * @package Anonym\Components\Session
+ * @package Anonym\Session
  */
 interface StrogeInterface
 {

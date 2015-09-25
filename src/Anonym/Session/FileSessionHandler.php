@@ -9,14 +9,14 @@
  */
 
 
-namespace Anonym\Components\Session;
+namespace Anonym\Session;
 use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
 use Symfony\Component\Finder\Finder;
 
 /**
  * Class FileSessionHandler
- * @package Anonym\Components\Session
+ * @package Anonym\Session
  */
 class FileSessionHandler implements SessionHandlerInterface
 {
