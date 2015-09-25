@@ -6,11 +6,11 @@
  * @see http://gemframework.com
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
 /**
  * Interface MigrationInterface
- * @package Anonym\Components\Tools\MigrationDatabase\Tools\Migration
+ * @package Anonym\Tools\MigrationDatabase\Tools\Migration
  */
 interface MigrationInterface
 {

@@ -6,12 +6,12 @@
  * @see http://gemframework.com
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
 
 /**
  * Class Table
- * @package Anonym\Components\Tools
+ * @package Anonym\Tools
  */
 class Table implements TableInterface
 {

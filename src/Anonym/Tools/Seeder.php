@@ -8,10 +8,10 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
 use Illuminate\Container\Container;
-use Anonym\Components\Console\Command;
+use Anonym\Console\Command;
 /**
  * Class Seeder
  * @package Anonym\Database\Tools\Backup

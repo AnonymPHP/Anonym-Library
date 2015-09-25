@@ -6,15 +6,15 @@
  * @see http://gemframework.com
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
-use Anonym\Components\Database\Base;
+use Anonym\Database\Base;
 use Exception;
 use Symfony\Component\Finder\Finder;
 
 /**
  * Class MigrationManager
- * @package Anonym\Components\Tools
+ * @package Anonym\Tools
  */
 class MigrationManager
 {

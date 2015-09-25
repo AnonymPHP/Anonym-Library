@@ -5,11 +5,11 @@
      * @author vahitserifsaglam <vahit.serif119@gmail.com>
      * @see http://gemframework.com
      */
-    namespace Anonym\Components\Tools;
+    namespace Anonym\Tools;
 
-    use Anonym\Components\Database\Base;
-    use Anonym\Components\Database\Builders\BuildManager;
-    use Anonym\Components\Filesystem\Filesystem;
+    use Anonym\Database\Base;
+    use Anonym\Database\Builders\BuildManager;
+    use Anonym\Filesystem\Filesystem;
     use Anonym\Database\Tools\BackupInterface;
 
     /**

@@ -6,13 +6,13 @@
  * @see http://gemframework.com
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
 use Exception;
-use Anonym\Components\Database\Base;
+use Anonym\Database\Base;
 /**
  * Class Schema
- * @package Anonym\Components\Tools
+ * @package Anonym\Tools
  */
 class Schema
 {

@@ -6,11 +6,11 @@
  * @see http://gemframework.com
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
 /**
  * Class Migration
- * @package Anonym\Components\Tools\MigrationDatabase\Tools
+ * @package Anonym\Tools\MigrationDatabase\Tools
  */
 abstract class Migration
 {

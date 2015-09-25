@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
 /**
  * Class Chield
- * @package Anonym\Components\Tools
+ * @package Anonym\Tools
  */
 class Chield implements TableInterface
 {

@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Tools;
+namespace Anonym\Tools;
 
 /**
  * Class Blueprint

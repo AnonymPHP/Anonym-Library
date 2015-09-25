@@ -8,10 +8,10 @@
 
 namespace Anonym\Database\Tools\Backup;
 
-use Anonym\Components\Database\Base;
-use Anonym\Components\Database\Builders\BuildManager;
-use Anonym\Components\Database\Mode\Insert;
-use Anonym\Components\Filesystem\Filesystem;
+use Anonym\Database\Base;
+use Anonym\Database\Builders\BuildManager;
+use Anonym\Database\Mode\Insert;
+use Anonym\Filesystem\Filesystem;
 use Anonym\Database\Tools\LoadInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
