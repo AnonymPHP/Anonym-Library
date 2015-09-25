@@ -9,13 +9,13 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 /**
  * the insterface for access dispatcher
  *
  * Interface AccessDispatcherInterface
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 interface AccessDispatcherInterface
 {

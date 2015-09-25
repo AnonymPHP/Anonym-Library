@@ -9,16 +9,16 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
-use Anonym\Components\HttpClient\Request;
-use Anonym\Components\Security\Validation;
+use Anonym\HttpClient\Request;
+use Anonym\Security\Validation;
 
 /**
  * the parent class of controllers
  *
  * Class Controller
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 abstract class Controller
 {

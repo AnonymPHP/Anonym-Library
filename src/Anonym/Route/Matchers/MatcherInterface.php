@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Route\Matchers;
+namespace Anonym\Route\Matchers;
 
 /**
  * Interface MatcherInterface
- * @package Anonym\Components\Route\Matchers
+ * @package Anonym\Route\Matchers
  */
 interface MatcherInterface
 {

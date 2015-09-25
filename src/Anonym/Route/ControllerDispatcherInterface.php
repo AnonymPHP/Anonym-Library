@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 /**
  * Interface ControllerDispatcherInterface
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 interface ControllerDispatcherInterface
 {
@@ -20,7 +20,7 @@ interface ControllerDispatcherInterface
     /**
      * dispatch the controller
      *
-     * @return \Anonym\Components\Route\Controller
+     * @return \Anonym\Route\Controller
      */
     public function dispatch();
 }

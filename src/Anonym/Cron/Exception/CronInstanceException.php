@@ -8,19 +8,20 @@
  * Thanks for using
  */
 
-namespace Anonym\Route;
 
+namespace Anonym\Components\Cron\Exception;
 use Exception;
 
+
 /**
- * Class FilterMatchException
- * @package Anonym\Route
+ * Class CronInstanceException
+ * @package Anonym\Components\Cron\Exception
  */
-class FilterMatchException extends Exception
+class CronInstanceException extends Exception
 {
 
     /**
-     * create a new instance and register exception message
+     * throw the exception
      *
      * @param string $message
      */

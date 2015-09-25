@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 use Exception;
 
@@ -17,7 +17,7 @@ use Exception;
  * the class of route match exception
  *
  * Class RouteMatchException
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class RouteMatchException extends Exception
 {

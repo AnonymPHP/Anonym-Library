@@ -9,15 +9,15 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
-use Anonym\Components\HttpClient\Request;
+use Anonym\HttpClient\Request;
 
 /**
  * the class of access dispatcher
  *
  * Class AccessDispatcher
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class AccessDispatcher implements AccessDispatcherInterface
 {

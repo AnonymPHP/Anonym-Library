@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 use Anonym\Facades\App;
 
 /**
  * Class ControllerDispatcher
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class ControllerDispatcher implements ControllerDispatcherInterface
 {
@@ -45,7 +45,7 @@ class ControllerDispatcher implements ControllerDispatcherInterface
      * dispatch the controller
      *
      * @throws ControllerException
-     * @return \Anonym\Components\Route\Controller
+     * @return \Anonym\Route\Controller
      */
     public function dispatch()
     {

@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 /**
  * Interface RouteMatcherInterface
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 interface RouteMatcherInterface
 {

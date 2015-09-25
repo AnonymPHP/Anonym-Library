@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 /**
  * Class AsCollector
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class AsCollector
 {
