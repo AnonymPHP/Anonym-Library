@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 /**
  * throw the exception
  *
  * Class DriverNotInstalledException
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 class DriverNotInstalledException extends DriverException
 {

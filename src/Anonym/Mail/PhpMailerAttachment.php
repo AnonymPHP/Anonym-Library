@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 /**
  * the attachment class for phpmailer driver
  *
  * Class PhpMailerAttachment
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 class PhpMailerAttachment extends Attachment
 {

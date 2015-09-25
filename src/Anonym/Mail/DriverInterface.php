@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 /**
  * the interface of driver
  *
  * Interface DriverInterface
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 interface DriverInterface
 {

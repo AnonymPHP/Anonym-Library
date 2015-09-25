@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 use Anonym\Facades\Config;
 /**
  * the component of mail
  *
  * Class Mail
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 class Mail
 {

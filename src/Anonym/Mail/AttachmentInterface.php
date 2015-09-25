@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 /**
  * Interface AttachmentInterface
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 interface AttachmentInterface
 {

@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 use Swift_Message;
 use Swift_Mailer;
@@ -18,7 +18,7 @@ use Swift_SmtpTransport;
  * the driver of swift mailer
  *
  * Class SwiftMailerDriver
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 class SwiftMailerDriver implements DriverInterface
 {

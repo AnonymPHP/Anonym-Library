@@ -8,14 +8,14 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 use Swift_Attachment;
 /**
  * the class of swift attachment
  *
  * Class SwiftAttachment
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 class SwiftAttachment extends Attachment implements SwiftAttachmentInterface
 {

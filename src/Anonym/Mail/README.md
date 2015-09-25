@@ -12,7 +12,7 @@ How Can I Create A Instance
 ------------------------
 
 ```php
-use Anonym\Components\Mail\Mail;
+use Anonym\Mail\Mail;
 
 $mail = new Mail();
 

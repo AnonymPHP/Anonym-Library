@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 /**
  * Class Attachment
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 abstract class Attachment implements AttachmentInterface
 {

@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 use Exception;
 
@@ -16,7 +16,7 @@ use Exception;
  * the exception of driver
  *
  * Class DriverException
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 class DriverException extends Exception
 {

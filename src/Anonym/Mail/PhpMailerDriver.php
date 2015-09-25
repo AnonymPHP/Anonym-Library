@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Mail;
+namespace Anonym\Mail;
 
 use PHPMailer;
 
@@ -16,7 +16,7 @@ use PHPMailer;
  * the driver of phpmailer for AnonymFramework mail component
  *
  * Class PhpMailerDriver
- * @package Anonym\Components\Mail
+ * @package Anonym\Mail
  */
 class PhpMailerDriver implements DriverInterface
 {
