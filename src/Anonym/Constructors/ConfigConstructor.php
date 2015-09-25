@@ -43,9 +43,9 @@ class ConfigConstructor
         $application->singleton('config', function () use ($application, $cachedPath) {
 
             $return = null;
-            $driver = $application->getGeneral()['config'];
             $loaded = (new ConfigLoader($application->getConfigPath(), $cachedPath))->loadConfigs();
 
+            $driver = Arr::get($loaded, 'general.config');
             switch ($driver) {
                 case 'memcache':
                     $memcache = new MemcacheDriver();
