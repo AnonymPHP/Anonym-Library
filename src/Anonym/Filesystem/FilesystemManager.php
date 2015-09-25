@@ -23,7 +23,7 @@ use Aws\S3\S3Client;
  * Class Filesystem
  * @package Anonym\Components\Filesystem
  */
-class Filesystem
+class FilesystemManager
 {
 
     /**
