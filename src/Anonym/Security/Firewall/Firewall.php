@@ -18,7 +18,7 @@
     use Anonym\Security\Firewall\RefererFirewall;
     use Anonym\Security\Firewall\MethodFirewall;
     use Anonym\Security\Firewall\CheckerSetterInterface;
-    use Anonym\HttpClient\ServerHttpHeaders;
+    use Anonym\Http\ServerHttpHeaders;
     use Anonym\Security\Exception\ClassInstanceException;
     use Anonym\Security\Firewall\FirewallCheckerInterface;
 

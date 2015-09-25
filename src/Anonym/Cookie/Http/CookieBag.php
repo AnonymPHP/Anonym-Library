@@ -8,7 +8,7 @@
 namespace Anonym\Cookie\Http;
 
 use Anonym\Cookie\ReposityInterface;
-use Anonym\HttpClient\RequestHeaders;
+use Anonym\Http\RequestHeaders;
 
 /**
  * Class CookieBag

@@ -12,7 +12,7 @@ namespace Anonym\Database\Pagination;
 
 
 use Anonym\Bootstrap\ServiceProvider;
-use Anonym\HttpClient\Request;
+use Anonym\Http\Request;
 use Anonym\Facades\App;
 use GUMP;
 /**

@@ -10,7 +10,7 @@
     namespace Anonym\Security;
     use Anonym\Security\Exception\VariableNotFoundException;
     use Anonym\Session\SessionManager as Session;
-    use Anonym\HttpClient\Input;
+    use Anonym\Http\Input;
     use Anonym\Security\Exception\CsrfTokenMatchException;
     use Anonym\Security\CsrfTokenInterface;
     /**

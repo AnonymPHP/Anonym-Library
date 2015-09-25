@@ -8,8 +8,8 @@
      */
 
     namespace Anonym\Security;
-    use Anonym\HttpClient\ServerHttpHeaders;
-    use Anonym\HttpClient\Response;
+    use Anonym\Http\ServerHttpHeaders;
+    use Anonym\Http\Response;
 
     /**
      * Class AccessSecurity

@@ -8,7 +8,7 @@
      */
 
     namespace Anonym\Security\Authentication;
-    use Anonym\HttpClient\Request;
+    use Anonym\Http\Request;
     use Anonym\Cookie\Cookie;
     use Anonym\Cookie\CookieInterface;
     use Anonym\Database\Base;
