@@ -1,5 +1,8 @@
 <?php
 
+namespace Anonym\Cookie;
+use Anonym\Bootstrap\ServiceProvider;
+
 /**
  * This file belongs to the AnoynmFramework
  *
@@ -8,9 +11,16 @@
  *
  * Thanks for using
  */
-class CookieServiceProvider
+class CookieServiceProvider extends ServiceProvider
 {
 
+    /**
+     *
+     *  register the provider
+     *
+     */
+    public function register(){
 
+    }
 
 }
