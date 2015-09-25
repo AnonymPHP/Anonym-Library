@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\View;
+namespace Anonym\View;
 
 use Illuminate\Container\Container;
 use Illuminate\Events\Dispatcher;

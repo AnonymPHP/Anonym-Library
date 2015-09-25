@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\View;
+namespace Anonym\View;
 
 /**
  * Class View
- * @package Anonym\Components\View
+ * @package Anonym\View
  */
 class View extends Blade
 {

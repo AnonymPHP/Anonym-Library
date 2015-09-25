@@ -10,7 +10,7 @@
 
 include 'vendor/autoload.php';
 
-$view = new \Anonym\Components\View\View([
+$view = new \Anonym\View\View([
     'cache' => 'cache',
     'view'  => 'views'
 ]);

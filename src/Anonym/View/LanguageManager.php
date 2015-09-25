@@ -7,12 +7,12 @@
  *
  * Thanks for using
  */
-namespace Anonym\Components\View;
+namespace Anonym\View;
 /**
  * the class of language manager
  *
  * Class LanguageManager
- * @package Anonym\Components\View
+ * @package Anonym\View
  */
 class LanguageManager
 {
