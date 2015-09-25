@@ -8,12 +8,12 @@ Bu bileşen cron job ekleme ve silme gibi işler için kullanılır.
 Sınıfın Çağrımı
 --------------
 
-Cronjob ile ilgili sınıflar `Anonym\Components\Cron` namespace içinde bulunur.
+Cronjob ile ilgili sınıflar `Anonym\Cron` namespace içinde bulunur.
 
 ```php
 
-use Anonym\Components\Cron\BasicCron;
-use Anonym\Components\Cron\Task;
+use Anonym\Cron\BasicCron;
+use Anonym\Cron\Task;
 
 
 $cron = new BasicCron();

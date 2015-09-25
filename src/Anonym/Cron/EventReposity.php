@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\Components\Cron;
+namespace Anonym\Cron;
 
 /**
  * Class EventReposity
- * @package Anonym\Components\Cron
+ * @package Anonym\Cron
  */
 class EventReposity
 {

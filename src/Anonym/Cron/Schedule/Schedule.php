@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\Components\Cron\Schedule;
+namespace Anonym\Cron\Schedule;
 use Closure;
 /**
  * Class Schedule
- * @package Anonym\Components\Cron\Job
+ * @package Anonym\Cron\Job
  */
 class Schedule
 {

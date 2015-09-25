@@ -9,20 +9,20 @@
  */
 
 
-namespace Anonym\Components\Cron;
+namespace Anonym\Cron;
 
-use Anonym\Components\Cron\Crontab\Crontab as CrontabManager;
-use Anonym\Components\Cron\Exception\CronInstanceException;
-use Anonym\Components\Cron\Crontab\Job as CronEntry;
-use Anonym\Components\Cron\Task\TaskReposity;
-use Anonym\Components\Cron\Task\ClosureTask;
-use Anonym\Components\Cron\Task\ExecTask;
+use Anonym\Cron\Crontab\Crontab as CrontabManager;
+use Anonym\Cron\Exception\CronInstanceException;
+use Anonym\Cron\Crontab\Job as CronEntry;
+use Anonym\Cron\Task\TaskReposity;
+use Anonym\Cron\Task\ClosureTask;
+use Anonym\Cron\Task\ExecTask;
 use Symfony\Component\Process\Process;
 use Closure;
 
 /**
  * Class BasicCron
- * @package Anonym\Components\Cron
+ * @package Anonym\Cron
  */
 class BasicCron
 {

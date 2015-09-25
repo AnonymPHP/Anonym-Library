@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\Components\Cron\Task;
+namespace Anonym\Cron\Task;
 use Closure;
 /**
  * Class Task
- * @package Anonym\Components\Cron\Task
+ * @package Anonym\Cron\Task
  */
 class Task
 {

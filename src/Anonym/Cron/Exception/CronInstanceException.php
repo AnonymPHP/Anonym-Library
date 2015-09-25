@@ -9,13 +9,13 @@
  */
 
 
-namespace Anonym\Components\Cron\Exception;
+namespace Anonym\Cron\Exception;
 use Exception;
 
 
 /**
  * Class CronInstanceException
- * @package Anonym\Components\Cron\Exception
+ * @package Anonym\Cron\Exception
  */
 class CronInstanceException extends Exception
 {

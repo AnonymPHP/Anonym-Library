@@ -9,9 +9,9 @@
  */
 
 
-namespace Anonym\Components\Cron\Task;
+namespace Anonym\Cron\Task;
 
-use Anonym\Components\Cron\Schedule\Schedule;
+use Anonym\Cron\Schedule\Schedule;
 use Carbon\Carbon;
 use Cron\CronExpression;
 use Symfony\Component\Process\Process;
@@ -19,7 +19,7 @@ use Closure;
 
 /**
  * Class TaskReposity
- * @package Anonym\Components\Cron\Task
+ * @package Anonym\Cron\Task
  */
 class TaskReposity extends Schedule
 {

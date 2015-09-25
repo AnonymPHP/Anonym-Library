@@ -9,12 +9,12 @@
  */
 
 
-namespace Anonym\Components\Cron\Task;
+namespace Anonym\Cron\Task;
 
 
 /**
  * Interface TaskInterface
- * @package Anonym\Components\Cron\Task
+ * @package Anonym\Cron\Task
  */
 interface TaskInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Anonym\Components\Cron\Crontab;
+namespace Anonym\Cron\Crontab;
 
 
 /**

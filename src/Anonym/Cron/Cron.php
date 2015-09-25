@@ -9,15 +9,15 @@
  */
 
 
-namespace Anonym\Components\Cron;
+namespace Anonym\Cron;
 
-use Anonym\Components\Cron\Task\TaskReposity;
-use Anonym\Components\Cron\Task\Task;
+use Anonym\Cron\Task\TaskReposity;
+use Anonym\Cron\Task\Task;
 use Closure;
 
 /**
  * Class Cron
- * @package Anonym\Components\Cron
+ * @package Anonym\Cron
  */
 class Cron
 {
