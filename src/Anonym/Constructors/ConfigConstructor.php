@@ -11,12 +11,15 @@
 namespace Anonym\Constructors;
 
 use Anonym\Application\Application;
+use Anonym\Cache\MemcacheDriver;
+use Anonym\Cache\RedisCacheDriver;
 use Anonym\Config\ApcReposity;
 use Anonym\Config\ConfigLoader;
 use Anonym\Config\MemcacheReposity;
 use Anonym\Config\RedisReposity;
 use Anonym\Config\Reposity;
 use Anonym\Config\XcacheReposity;
+use Anonym\Support\Arr;
 
 /**
  * the config constructor
@@ -44,11 +47,17 @@ class ConfigConstructor
 
             switch ($driver) {
                 case 'memcache':
-                    return new MemcacheReposity($loaded);
+                    $memcache = new MemcacheDriver();
+                    $memcache->boot(Arr::get($loaded, 'stroge.cache.memcache', []));
+
+                    return new MemcacheReposity($loaded, $memcache->getDriver());
                     break;
 
                 case 'redis':
-                    return new RedisReposity($loaded);
+                    $redis = new RedisCacheDriver();
+                    $redis->boot(Arr::get($loaded, 'stroge.cache.redis'));
+
+                    return new RedisReposity($loaded, $redis->getRedis());
                     break;
 
                 case 'xcache':
