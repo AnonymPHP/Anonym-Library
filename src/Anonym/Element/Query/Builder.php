@@ -14,4 +14,19 @@ namespace Anonym\Element\Query;
 class Builder
 {
 
+    /**
+     * the instance of laravel container
+     *
+     * @var Container
+     */
+    protected $container;
+
+    /**
+     * the instance of grammer
+     *
+     * @var Grammer
+     */
+    protected $grammer;
+
+
 }
