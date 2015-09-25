@@ -3,14 +3,14 @@
  *  Bu Sınıf AnonymFramework'de Veritabanı işlemlerini yapmak için tasarlanmıştır
  */
 
-namespace Anonym\Components\Element;
+namespace Anonym\Element;
 
-use Anonym\Components\Database\Base;
-use Anonym\Components\Database\Mode\Delete;
-use Anonym\Components\Database\Mode\Read;
-use Anonym\Components\Database\Mode\Update;
-use Anonym\Components\Database\Mode\Insert;
-use Anonym\Components\Database\Mode\ModeManager;
+use Anonym\Database\Base;
+use Anonym\Database\Mode\Delete;
+use Anonym\Database\Mode\Read;
+use Anonym\Database\Mode\Update;
+use Anonym\Database\Mode\Insert;
+use Anonym\Database\Mode\ModeManager;
 use Exception;
 use PDO;
 
@@ -282,7 +282,7 @@ class Element
      * paginate the datas
      *
      * @param int $perPage
-     * @return \Anonym\Components\Database\Pagination\Paginator|bool
+     * @return \Anonym\Database\Pagination\Paginator|bool
      */
     public function paginate($perPage = 15)
     {
@@ -300,7 +300,7 @@ class Element
      * paginate the datas
      *
      * @param int $perPage
-     * @return \Anonym\Components\Database\Pagination\Paginator|bool
+     * @return \Anonym\Database\Pagination\Paginator|bool
      */
     public function simplePaginate($perPage = 15)
     {

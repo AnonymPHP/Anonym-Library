@@ -8,8 +8,8 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Element;
-use  Anonym\Components\Database\Base;
+namespace Anonym\Element;
+use  Anonym\Database\Base;
 use Anonym\Facades\App;
 
 class Model
