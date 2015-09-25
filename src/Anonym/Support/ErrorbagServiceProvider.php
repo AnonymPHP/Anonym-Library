@@ -11,7 +11,9 @@
 namespace Anonym\Support;
 
 
-class ErrorbagServiceProvider
+use Anonym\Bootstrap\ServiceProvider;
+
+class ErrorbagServiceProvider extends ServiceProvider
 {
 
 }
