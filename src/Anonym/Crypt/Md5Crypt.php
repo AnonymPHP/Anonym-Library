@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Crypt;
+    namespace Anonym\\Crypt;
 
     /**
      * Class Md5Crypt
-     * @package Anonym\Components\Crypt
+     * @package Anonym\\Crypt
      */
     class Md5Crypt implements CrypterEncodeableInterface
     {

@@ -7,14 +7,14 @@
      *
      */
 
-    namespace Anonym\Components\Crypt;
+    namespace Anonym\\Crypt;
     use Exception;
     use InvalidArgumentException;
-    use Anonym\Components\Crypt\CrypterEncodeableInterface;
-    use Anonym\Components\Crypt\CrypterDecodeableInterface;
+    use Anonym\\Crypt\CrypterEncodeableInterface;
+    use Anonym\\Crypt\CrypterDecodeableInterface;
     /**
      * Class AnonymCrypt
-     * @package Anonym\Components\Crypt
+     * @package Anonym\\Crypt
      */
     class AnonymCrypt implements CrypterDecodeableInterface,CrypterEncodeableInterface
     {

@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Crypt;
+    namespace Anonym\\Crypt;
 
     /**
      * Class SecurityKeyGenerator
-     * @package Anonym\Components\Crypt
+     * @package Anonym\\Crypt
      */
     class SecurityKeyGenerator implements SecurityKeyGeneratorInterface
     {

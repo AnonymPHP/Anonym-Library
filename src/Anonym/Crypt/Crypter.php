@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Crypt;
+    namespace Anonym\\Crypt;
 
     /**
      * Class Crypter
-     * @package Anonym\Components\Crypt
+     * @package Anonym\\Crypt
      */
     class Crypter
     {

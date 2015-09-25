@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Crypt;
+    namespace Anonym\\Crypt;
 
     /**
      * Class Base64Crypt
-     * @package Anonym\Components\Crypt
+     * @package Anonym\\Crypt
      */
     class Base64Crypt implements CrypterEncodeableInterface, CrypterDecodeableInterface
     {
