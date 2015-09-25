@@ -51,7 +51,7 @@ class ConfigConstructor
                     $memcache = new MemcacheDriver();
                     $memcache->boot(Arr::get($loaded, 'stroge.cache.memcache', []));
 
-                    $return = MemcacheReposity($loaded, $memcache->getDriver());
+                    $return = new MemcacheReposity($loaded, $memcache->getDriver());
                     break;
 
                 case 'redis':
@@ -73,15 +73,14 @@ class ConfigConstructor
                     break;
             }
 
+            date_default_timezone_set(Arr::get($loaded, 'general.timezone'));
+
+
             return $return;
         });
 
 
-        $configs = $loader->loadConfigs();
-        Reposity::setCache($configs);
-
         // we will set default timezone
-        date_default_timezone_set($configs['general']['timezone']);
     }
 
 }
