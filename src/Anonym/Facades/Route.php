@@ -12,7 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-use Anonym\Components\Route\RouteCollector;
+use Anonym\Route\RouteCollector;
 /**
  * Class Route
  * @package Anonym\Facades
