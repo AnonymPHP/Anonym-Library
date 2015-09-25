@@ -11,8 +11,12 @@
 namespace Anonym\Constructors;
 
 use Anonym\Application\Application;
+use Anonym\Config\ApcReposity;
 use Anonym\Config\ConfigLoader;
+use Anonym\Config\MemcacheReposity;
+use Anonym\Config\RedisReposity;
 use Anonym\Config\Reposity;
+use Anonym\Config\XcacheReposity;
 
 /**
  * the config constructor
@@ -31,20 +35,36 @@ class ConfigConstructor
     public function __construct(Application $application)
     {
 
-        $cachedPath = $application->getSystemPath(). 'cached_configs.php';
+        $cachedPath = $application->getSystemPath() . 'cached_configs.php';
 
-        $application->singleton('config', function () use($application) use($cachedPath){
+        $application->singleton('config', function () use ($application, $cachedPath) {
 
             $driver = $application->getGeneral()['config'];
+            $loaded = (new ConfigLoader($application->getConfigPath(), $cachedPath))->loadConfigs();
 
-            $loader = new ConfigLoader($application->getConfigPath(), $cachedPath);
+            switch ($driver) {
+                case 'memcache':
+                    return new MemcacheReposity($loaded);
+                    break;
 
+                case 'redis':
+                    return new RedisReposity($loaded);
+                    break;
+
+                case 'xcache':
+                    return new XcacheReposity($loaded);
+                    break;
+                case 'apc':
+                    return new ApcReposity($loaded);
+                    break;
+
+                case 'standart':
+                    return new Reposity($loaded);
+                    break;
+            }
         });
 
 
-        $cachedPath = SYSTEM . 'cached_configs.php';
-
-        $loader = new ConfigLoader(CONFIG, $cachedPath);
         $configs = $loader->loadConfigs();
         Reposity::setCache($configs);
 
