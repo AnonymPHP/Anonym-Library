@@ -10,6 +10,7 @@
 
 namespace Anonym\Constructors;
 
+use Anonym\Application\Application;
 use Anonym\Config\ConfigLoader;
 use Anonym\Config\Reposity;
 
@@ -27,10 +28,19 @@ class ConfigConstructor
      * create a new instance and set the configs
      *
      */
-    public function __construct()
+    public function __construct(Application $application)
     {
 
-        $cachedPath  = SYSTEM.'cached_configs.php';
+        $application->singleton('config', function () use($application) {
+
+            $config = $application->getGeneral()['config'];
+
+
+
+        });
+
+
+        $cachedPath = SYSTEM . 'cached_configs.php';
 
         $loader = new ConfigLoader(CONFIG, $cachedPath);
         $configs = $loader->loadConfigs();
