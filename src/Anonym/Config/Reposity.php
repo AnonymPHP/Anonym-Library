@@ -25,6 +25,16 @@ class Reposity implements ArrayAccess
      */
     private static $cache;
 
+    /**
+     * create a new instance and register caches
+     *
+     * @param null $cache
+     */
+    public function __construct($cache = null){
+        if ($cache !== null && is_array($cache)) {
+            static::$cache = $cache;
+        }
+    }
 
     /**
      * @return array
