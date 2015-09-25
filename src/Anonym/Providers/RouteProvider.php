@@ -12,6 +12,7 @@ namespace Anonym\Providers;
 
 
 use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Cookie\UseCookieHeaders;
 use Anonym\Route\Router;
 use Anonym\Facades\App;
 
@@ -31,5 +32,8 @@ class RouteProvider extends ServiceProvider
             $router = new Router(App::make('http.request'));
             $router->run();
         }
+
+        $cookies = new UseCookieHeaders();
+        $cookies->useCookies();
     }
 }
