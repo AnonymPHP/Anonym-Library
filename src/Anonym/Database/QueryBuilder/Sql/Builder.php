@@ -369,6 +369,17 @@ class Builder extends QueryPatterns
     }
 
     /**
+     * register query
+     *
+     * @param string $query
+     * @return $this
+     */
+    public function query($query){
+        $this->query = $query;
+        return $this;
+    }
+
+    /**
      * create read parameters
      *
      * @return $this
