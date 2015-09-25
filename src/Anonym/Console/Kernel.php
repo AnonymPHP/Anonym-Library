@@ -268,6 +268,4 @@ class Kernel extends SymfonyConsole
         $this->kernel = $kernel;
         return $this;
     }
-
-
 }
