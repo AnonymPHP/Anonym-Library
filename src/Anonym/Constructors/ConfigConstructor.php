@@ -42,6 +42,7 @@ class ConfigConstructor
 
         $application->singleton('config', function () use ($application, $cachedPath) {
 
+            $return = null;
             $driver = $application->getGeneral()['config'];
             $loaded = (new ConfigLoader($application->getConfigPath(), $cachedPath))->loadConfigs();
 
@@ -50,27 +51,29 @@ class ConfigConstructor
                     $memcache = new MemcacheDriver();
                     $memcache->boot(Arr::get($loaded, 'stroge.cache.memcache', []));
 
-                    return new MemcacheReposity($loaded, $memcache->getDriver());
+                    $return = MemcacheReposity($loaded, $memcache->getDriver());
                     break;
 
                 case 'redis':
                     $redis = new RedisCacheDriver();
                     $redis->boot(Arr::get($loaded, 'stroge.cache.redis'));
 
-                    return new RedisReposity($loaded, $redis->getRedis());
+                    $return = new RedisReposity($loaded, $redis->getRedis());
                     break;
 
                 case 'xcache':
-                    return new XcacheReposity($loaded);
+                    $return = new XcacheReposity($loaded);
                     break;
                 case 'apc':
-                    return new ApcReposity($loaded);
+                    $return = new ApcReposity($loaded);
                     break;
 
                 case 'standart':
-                    return new Reposity($loaded);
+                    $return = new Reposity($loaded);
                     break;
             }
+
+            return $return;
         });
 
 
