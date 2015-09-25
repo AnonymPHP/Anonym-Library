@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Ftp;
+    namespace Anonym\Upload\Ftp;
 
 
     interface FtpConnectionInterface

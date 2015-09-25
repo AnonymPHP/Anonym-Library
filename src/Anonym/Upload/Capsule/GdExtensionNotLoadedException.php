@@ -7,13 +7,13 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Capsule;
+    namespace Anonym\Upload\Capsule;
 
     use Exception;
 
     /**
      * Class GdExtensionNotLoadedException
-     * @package Anonym\Components\Upload\Capsule
+     * @package Anonym\Upload\Capsule
      */
     class GdExtensionNotLoadedException extends Exception
     {

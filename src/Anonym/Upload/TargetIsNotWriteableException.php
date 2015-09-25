@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
+    namespace Anonym\Upload;
     use Exception;
 
     /**
      * Class TargetIsNotWriteableException
-     * @package Anonym\Components\Upload
+     * @package Anonym\Upload
      */
     class TargetIsNotWriteableException extends  Exception
     {

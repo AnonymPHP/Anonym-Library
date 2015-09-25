@@ -7,13 +7,13 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Multiple;
+    namespace Anonym\Upload\Multiple;
 
-    use Anonym\Components\Upload\Ftp\FtpImageUpload;
+    use Anonym\Upload\Ftp\FtpImageUpload;
 
     /**
      * Class FtpMutlipileImage
-     * @package Anonym\Components\Upload\Multiple
+     * @package Anonym\Upload\Multiple
      */
     class FtpMultipileImage extends MultipileUpload
     {

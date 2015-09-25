@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
-    use Anonym\Components\Upload\Capsule\ImageCapsule;
+    namespace Anonym\Upload;
+    use Anonym\Upload\Capsule\ImageCapsule;
     /**
      * Class ImageUpload
-     * @package Anonym\Components\Upload
+     * @package Anonym\Upload
      */
 
     class ImageUpload extends Upload

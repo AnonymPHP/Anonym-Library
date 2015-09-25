@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
+    namespace Anonym\Upload;
 
     use Exception;
 

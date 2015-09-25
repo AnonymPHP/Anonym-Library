@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Capsule;
+    namespace Anonym\Upload\Capsule;
 
     use ArrayAccess;
-    use Anonym\Components\Upload\TargetIsNotReadableException;
-    use Anonym\Components\Upload\TargetIsNotWriteableException;
+    use Anonym\Upload\TargetIsNotReadableException;
+    use Anonym\Upload\TargetIsNotWriteableException;
 
     class FileCapsule implements ArrayAccess
     {

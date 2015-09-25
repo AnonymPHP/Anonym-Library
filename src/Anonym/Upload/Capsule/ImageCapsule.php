@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Capsule;
+    namespace Anonym\Upload\Capsule;
 
     /**
      * Class ImageCapsule
-     * @package Anonym\Components\Upload\Capsule
+     * @package Anonym\Upload\Capsule
      */
     class ImageCapsule extends FileCapsule
     {

@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
+    namespace Anonym\Upload;
 
 
     /**
      * Class ImageUploadTypes
-     * @package Anonym\Components\Upload
+     * @package Anonym\Upload
      */
     class ImageUploadTypes
     {

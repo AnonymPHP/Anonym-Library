@@ -7,14 +7,14 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Multiple;
+    namespace Anonym\Upload\Multiple;
 
-    use Anonym\Components\Upload\Upload;
-    use Anonym\Components\Upload\FileUpload;
+    use Anonym\Upload\Upload;
+    use Anonym\Upload\FileUpload;
 
     /**
      * Class MultipileUpload
-     * @package Anonym\Components\Upload\Multiple
+     * @package Anonym\Upload\Multiple
      */
     class MultipileUpload
     {

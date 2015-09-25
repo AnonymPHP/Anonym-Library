@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
-    use Anonym\Components\Upload\CheckerInterface;
+    namespace Anonym\Upload;
+    use Anonym\Upload\CheckerInterface;
     /**
      * Class FileChecker
-     * @package Anonym\Components\Upload
+     * @package Anonym\Upload
      */
     class FileChecker implements CheckerInterface
     {

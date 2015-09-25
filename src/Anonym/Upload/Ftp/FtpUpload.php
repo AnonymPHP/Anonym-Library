@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Ftp;
-    use Anonym\Components\Upload\Upload;
+    namespace Anonym\Upload\Ftp;
+    use Anonym\Upload\Upload;
 
     /**
      * Class FtpUpload
-     * @package Anonym\Components\Upload\Ftp
+     * @package Anonym\Upload\Ftp
      */
     class FtpUpload extends Upload
     {

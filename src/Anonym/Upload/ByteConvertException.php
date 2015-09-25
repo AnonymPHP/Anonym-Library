@@ -7,13 +7,13 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
+    namespace Anonym\Upload;
 
     use Exception;
 
     /**
      * Class ByteConvertException
-     * @package Anonym\Components\Upload
+     * @package Anonym\Upload
      */
     class ByteConvertException extends Exception
     {

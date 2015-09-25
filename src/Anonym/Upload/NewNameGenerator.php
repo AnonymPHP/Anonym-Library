@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
+    namespace Anonym\Upload;
 
     /**
      * Class NewNameGenerator
-     * @package Anonym\Components\Upload
+     * @package Anonym\Upload
      */
 
     class NewNameGenerator

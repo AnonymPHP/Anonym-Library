@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Upload;
+    namespace Anonym\Upload;
     use Exception;
 
     /**
      * Class FileTypeException
-     * @package Anonym\Components\Upload
+     * @package Anonym\Upload
      */
     class FileTypeException extends  Exception
     {

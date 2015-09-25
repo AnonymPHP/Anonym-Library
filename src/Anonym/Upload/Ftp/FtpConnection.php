@@ -7,11 +7,11 @@
      *
      */
 
-    namespace Anonym\Components\Upload\Ftp;
+    namespace Anonym\Upload\Ftp;
 
     /**
      * Class FtpConnection
-     * @package Anonym\Components\Upload\Ftp
+     * @package Anonym\Upload\Ftp
      */
 
     class FtpConnection implements FtpConnectionInterface
