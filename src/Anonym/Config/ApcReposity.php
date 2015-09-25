@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Config;
-    use Anonym\Components\Config\Reposity;
+    namespace Anonym\Config;
+    use Anonym\Config\Reposity;
 
     /**
      * Class ApcReposity
-     * @package Anonym\Components\Config
+     * @package Anonym\Config
      */
     class ApcReposity extends Reposity
     {

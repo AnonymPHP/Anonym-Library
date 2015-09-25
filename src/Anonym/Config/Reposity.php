@@ -7,7 +7,7 @@
  *
  */
 
-namespace Anonym\Components\Config;
+namespace Anonym\Config;
 
 use Anonym\Support\Arr;
 use ArrayAccess;

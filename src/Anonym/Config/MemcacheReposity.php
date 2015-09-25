@@ -7,16 +7,16 @@
      *
      */
 
-    namespace Anonym\Components\Config;
+    namespace Anonym\Config;
 
-    use Anonym\Components\Config\Reposity;
+    use Anonym\Config\Reposity;
     use Memcache;
 
     /**
      * Yükleme işlemlerini yaparken Redis eklentisini kullanılır
      *
      * Class MemcacheReposity
-     * @package Anonym\Components\Config
+     * @package Anonym\Config
      */
     class MemcacheReposity extends Reposity
     {

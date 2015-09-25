@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Config;
+    namespace Anonym\Config;
 
     use Symfony\Component\Finder\Finder;
     use Symfony\Component\Finder\SplFileInfo;
@@ -15,7 +15,7 @@
 
     /**
      * Class ConfigLoader
-     * @package Anonym\Components\Config
+     * @package Anonym\Config
      */
     class ConfigLoader
     {

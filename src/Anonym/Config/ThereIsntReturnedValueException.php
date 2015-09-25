@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Config;
+    namespace Anonym\Config;
     use Exception;
 
     /**
      * Class ThereIsntReturnedValueException
-     * @package Anonym\Components\Config
+     * @package Anonym\Config
      */
     class ThereIsntReturnedValueException extends Exception
     {

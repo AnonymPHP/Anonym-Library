@@ -7,12 +7,12 @@
      *
      */
 
-    namespace Anonym\Components\Config;
+    namespace Anonym\Config;
     use Exception;
 
     /**
      * Class ExtensionNotLoadedException
-     * @package Anonym\Components\Config
+     * @package Anonym\Config
      */
     class ExtensionNotLoadedException extends Exception
     {
