@@ -16,7 +16,7 @@ use BadMethodCallException;
  * Class Macroable
  * @package Anonym\Support
  */
-class Macroable
+trait Macroable
 {
 
     /**
