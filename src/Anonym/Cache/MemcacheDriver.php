@@ -10,6 +10,7 @@
 
 namespace Anonym\Cache;
 
+use Anonym\Support\Arr;
 use Memcache;
 
 /**
@@ -109,11 +110,19 @@ class MemcacheDriver implements DriverInterface,
      */
     public function boot(array $configs = [])
     {
-        $host = isset($configs['host']) ? $configs['host'] : '127.0.0.1';
-        $port = isset($configs['port']) ? $configs['port'] : 11211;
-        $memcache = new Memcache();
-        $memcache->connect($host, $port);
-        $this->setDriver($memcache);
+
+
+        // find hostname and port address, if they are not exists in configs register default values
+        //  default value of hostname is 127.0.0.1
+        //  defualt value of port address is 11211
+        $host = Arr::get($configs, 'host', '127.0.0.1');
+        $port = Arr::get($configs, 'port', 11211);
+        $timeout = Arr::get($configs, 'timeout', 30);
+
+        $driver = new Memcache();
+        $driver->connect($host, $port, $timeout);
+
+        $this->setDriver($driver);
     }
 
     /**
