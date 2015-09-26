@@ -11,6 +11,7 @@
 
 namespace Anonym\Http;
 
+use Anonym\Cookie\CookieInterface;
 use Anonym\Session\StrogeInterface;
 use Anonym\Support\ErrorBag;
 use Anonym\Route\AsCollector;
@@ -36,14 +37,22 @@ class Redirect
     protected $errorBag;
 
     /**
+     * the instance of cookie
+     *
+     * @var CookieInterface
+     */
+    protected $cookie;
+
+    /**
      * create a new instance with error bag
      *
      * @param ErrorBag $errorBag
      * @param StrogeInterface $session
      */
-    public function __construct(ErrorBag $errorBag, StrogeInterface $session){
+    public function __construct(ErrorBag $errorBag, StrogeInterface $session, CookieInterface $cookie){
         $this->errorBag = $errorBag;
         $this->session = $session;
+        $this->cookie = $cookie;
     }
     /**
      * redirect user to somewhere else
