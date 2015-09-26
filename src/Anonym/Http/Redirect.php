@@ -59,10 +59,14 @@ class Redirect
      *
      * @param string $url
      * @param int $time
+     * @param array $headers
      */
-    public function to($url = '', $time = 0)
+    public function to($url = '', $time = 0,array $headers = [])
     {
         $redirect = new RedirectResponse($url, $time);
+
+        $redirect->setHeaders($headers);
+
     }
 
     /**
