@@ -14,6 +14,7 @@ namespace Anonym\Session;
 use Anonym\Cookie\Cookie;
 use Anonym\Crypt\Crypter;
 
+use Anonym\Support\Arr;
 use Closure;
 
 /**
@@ -104,7 +105,7 @@ class SessionManager
      */
     private function initalizeDriver($handler)
     {
-        if ($this->configs['encrypt']) {
+        if (Arr::get($this->configs, 'encrypt', false) === true) {
             return new EncryptedStroge($this->configs, $handler, $this->crypt);
         } else {
             return new Stroge($this->configs, $handler, $this->crypt);
