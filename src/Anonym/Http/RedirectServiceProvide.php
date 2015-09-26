@@ -11,7 +11,13 @@
 namespace Anonym\Http;
 
 
-class RedirectServiceProvider
+use Anonym\Application\ServiceProvider;
+
+/**
+ * Class RedirectServiceProvider
+ * @package Anonym\Http
+ */
+class RedirectServiceProvider extends ServiceProvider
 {
 
 }
