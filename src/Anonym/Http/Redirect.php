@@ -63,7 +63,6 @@ class Redirect
     public function to($url = '', $time = 0)
     {
         $redirect = new RedirectResponse($url, $time);
-        $redirect->send();
     }
 
     /**
