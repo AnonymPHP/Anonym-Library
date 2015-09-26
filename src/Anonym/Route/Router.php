@@ -8,15 +8,15 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
-use Anonym\Components\HttpClient\Request;
-use Anonym\Components\Route\Matchers\NewMatcher;
+use Anonym\HttpClient\Request;
+use Anonym\Route\Matchers\NewMatcher;
 
 
 /**
  * Class Router
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class Router implements RouterInterface
 {

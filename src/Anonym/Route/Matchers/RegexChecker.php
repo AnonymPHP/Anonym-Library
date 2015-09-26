@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Route\Matchers;
+namespace Anonym\Route\Matchers;
 
 
-use Anonym\Components\Route\RouteMatcher;
-use Anonym\Components\Route\ParameterBag;
+use Anonym\Route\RouteMatcher;
+use Anonym\Route\ParameterBag;
 
 class RegexChecker extends RouteMatcher implements MatcherInterface
 {

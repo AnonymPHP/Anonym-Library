@@ -8,13 +8,13 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 /**
  * The interface of action dispatcher class
  *
  * Interface ActionDispatcherInterface
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 interface ActionDispatcherInterface
 {

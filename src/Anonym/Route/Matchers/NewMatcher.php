@@ -8,16 +8,16 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Route\Matchers;
+namespace Anonym\Route\Matchers;
 
 
-use Anonym\Components\Route\FilterMatchException;
-use Anonym\Components\Route\ParameterBag;
-use Anonym\Components\Route\RouteMatcher;
+use Anonym\Route\FilterMatchException;
+use Anonym\Route\ParameterBag;
+use Anonym\Route\RouteMatcher;
 
 /**
  * Class ExplodeMatcher
- * @package Anonym\Components\Route\Matchers
+ * @package Anonym\Route\Matchers
  */
 class NewMatcher extends RouteMatcher implements MatcherInterface
 {

@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 use Exception;
 
 /**
  * Class FilterMatchException
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class FilterMatchException extends Exception
 {

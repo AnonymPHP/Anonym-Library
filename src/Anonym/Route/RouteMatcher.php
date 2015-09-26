@@ -8,14 +8,14 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
-use Anonym\Components\Route\Matchers\MatcherInterface;
-use Anonym\Components\Route\Matchers\NewMatcher;
+use Anonym\Route\Matchers\MatcherInterface;
+use Anonym\Route\Matchers\NewMatcher;
 
 /**
  * Class RouteMatcher
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class RouteMatcher implements RouteMatcherInterface, MatcherInterface
 {

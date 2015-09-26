@@ -9,15 +9,15 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
-use Anonym\Components\HttpClient\Request;
+use Anonym\HttpClient\Request;
 
 /**
  * the interface of access classes
  *
  * Interface AccessInterface
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 interface MiddlewareInterface
 {

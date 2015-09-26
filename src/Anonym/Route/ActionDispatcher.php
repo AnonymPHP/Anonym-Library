@@ -9,19 +9,19 @@
  */
 
 
-namespace Anonym\Components\Route;
+namespace Anonym\Route;
 
 use Closure;
 use Illuminate\View\View;
-use Anonym\Components\HttpClient\Request;
-use Anonym\Components\HttpClient\Response;
-use Anonym\Components\View\ViewExecuteInterface;
+use Anonym\HttpClient\Request;
+use Anonym\HttpClient\Response;
+use Anonym\View\ViewExecuteInterface;
 
 /**
  * the class of action dispatcher
  *
  * Class ActionDispatcher
- * @package Anonym\Components\Route
+ * @package Anonym\Route
  */
 class ActionDispatcher implements ActionDispatcherInterface
 {
