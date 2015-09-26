@@ -41,5 +41,9 @@
     "psr-4": {
       "Anonym\\": "src/Anonym/"
     }
+  },
+
+  "replace": {
+    "anonym-php/anonym-route": "self.version"
   }
 }
