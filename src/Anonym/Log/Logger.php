@@ -49,7 +49,7 @@ class Logger
      */
     public function write(Exception $exception){
 
-        $pattern = "[%s] Message = %s : (File-Line) = %s-%d \n";
+        $pattern = "[%s]%s - (%s:%d) \n";
         $time = date('d.m.Y- h:i');
         $content = sprintf($pattern, $time, $exception->getMessage() ?: '', $exception->getFile() ?: '', $exception->getLine() ?: 0);
 
