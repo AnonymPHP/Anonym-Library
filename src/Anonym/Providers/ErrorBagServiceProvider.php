@@ -29,7 +29,7 @@ class ErrorBagServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        App::singleton('errors.bag', function () {
+         $this->singleton('errors.bag', function () {
             $bag = new ErrorBag();
 
             $bag->init();
