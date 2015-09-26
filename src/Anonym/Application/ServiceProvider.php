@@ -25,4 +25,18 @@ abstract class ServiceProvider extends Container
      */
     abstract public function register();
 
+
+    /**
+     * listen a event
+     *
+     * @param string $listen
+     * @param mixed $callback
+     * @return $this
+     */
+    public function listenEvent($listen, $callback){
+        $this->make('event')->listen($listen, $callback);
+
+        return $this;
+    }
+
 }
