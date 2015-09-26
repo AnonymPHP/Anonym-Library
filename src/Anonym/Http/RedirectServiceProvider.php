@@ -12,6 +12,7 @@ namespace Anonym\Http;
 
 
 use Anonym\Application\ServiceProvider;
+use Anonym\Facades\Redirect;
 
 /**
  * Class RedirectServiceProvider
@@ -27,7 +28,7 @@ class RedirectServiceProvider extends ServiceProvider
     public function register()
     {
         $this->listenEvent('redirect:sending', function () {
-
+            Redirect::send();
         });
     }
 }
