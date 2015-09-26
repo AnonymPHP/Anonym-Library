@@ -20,4 +20,12 @@ use Anonym\Application\ServiceProvider;
 class RedirectServiceProvider extends ServiceProvider
 {
 
+    /**
+     * register the provider
+     *
+     */
+    public function register()
+    {
+
+    }
 }
