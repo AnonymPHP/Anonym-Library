@@ -4,7 +4,7 @@
  * @copyright AnonymMedya, 2015
  */
 
-namespace Anonym\Application\Console;
+namespace Anonym\Console;
 
 
 use Anonym\Application\Console\Schedule\ScheduleCleanCommands;

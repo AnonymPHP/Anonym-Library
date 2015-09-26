@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Application\Console\Schedule;
+namespace Anonym\Console\Schedule;
 use Anonym\Application\Console\Command;
 use Anonym\Cron\Cron as Schedule;
 
