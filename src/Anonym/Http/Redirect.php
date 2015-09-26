@@ -73,13 +73,19 @@ class Redirect
         return $this;
     }
 
+
+    /**
+     * @param array|string $name
+     * @param mixed $message
+     * @return $this
+     */
     public function withInput($name, $message = null){
         if(!is_array($name)){
             $name = [$name, $message];
         }
 
-        foreach($name as $name => $message){
-            $this->session->set($name, $message);
+        foreach($name as $key => $message){
+            $this->session->set($key, $message);
         }
 
         return $this;
