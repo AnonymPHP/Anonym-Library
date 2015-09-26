@@ -49,6 +49,23 @@ class Redirect
     }
 
     /**
+     * add or set error messages
+     *
+     * @param array|string $message
+     * @return $this
+     */
+    public function withError($message){
+        if (is_array($message)) {
+            $this->errorBag->setErrors($message);
+        }else{
+            $this->errorBag->add($message);
+        }
+
+        return $this;
+    }
+
+
+    /**
      * redirect user to it referer url
      *
      * @param int $time

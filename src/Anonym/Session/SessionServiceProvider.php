@@ -11,13 +11,13 @@
 namespace Anonym\Session;
 
 use Anonym\Application\ServiceProvider;
+use Anonym\Session\StrogeInterface;
 use Anonym\Facades\Config;
+use Anonym\Facades\Stroge;
 use Anonym\Support\Arr;
 use Anonym\Facades\App;
-use Anonym\Facades\Stroge;
-use Anonym\Cache\Cache;
-use Anonym\Cookie\Cookie;
-use Anonym\Crypt\Crypter;
+
+
 /**
  * Class SessionServiceProvider
  * @package Anonym\Session
@@ -77,9 +77,7 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        $this->singleton(
-            'session.stroge',
-            function () {
+        $this->singleton(StrogeInterface::class,function () {
                 $driver = Config::get('stroge.session.driver');
 
                 return App::make('session')->driver($driver);
