@@ -1,4 +1,4 @@
-Anonym-Http
+Anonym-HttpClient
 ================
 
 Bu açıklamada http client de sahip olunan sınıfların nasıl kullanıldığını açıklıyorum.
