@@ -10,6 +10,8 @@
 
 
 namespace Anonym\Bootstrap;
+
+use Anonym\Application\Application;
 use Anonym\Facades\Config;
 /**
  * Class RegisterProviders
@@ -22,10 +24,9 @@ class RegisterProviders
      * create a new instance
      *
      * @param Bootstrap $app
-     * @throws BindNotRespondingException
      * @throws ProviderException
      */
-    public function __construct(Bootstrap $app)
+    public function __construct(Application $app)
     {
 
         $providers = Config::get('general.providers');
