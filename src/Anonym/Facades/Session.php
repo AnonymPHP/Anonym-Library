@@ -12,7 +12,7 @@ namespace Anonym\Facades;
 
 
 use Anonym\Patterns\Facade;
-
+use Anonym\Session\StrogeInterface;
 /**
  * the facade of session
  *
@@ -27,6 +27,6 @@ class Session extends Facade
      */
     protected static function getFacadeClass()
     {
-        return 'session.stroge';
+        return StrogeInterface::class;
     }
 }
