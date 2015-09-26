@@ -44,6 +44,23 @@
   },
 
   "replace": {
-    "anonym-php/anonym-route": "self.version"
+    "anonym-php/anonym-route": "self.version",
+    "anonym-php/anonym-security" : "self.version",
+    "anonym-php/anonym-assets" :"self.version",
+    "anonym-php/anonym-console":"self.version",
+    "anonym-php/anonym-httpfoundation" :"self.version",
+    "anonym-php/anonym-cookie":"self.version",
+    "anonym-php/anonym-crypt" :"self.version",
+    "anonym-php/anonym-session":"self.version",
+    "anonym-php/anonym-database":"self.version",
+    "anonym-php/anonym-database-tool":"self.version",
+    "anonym-php/anonym-element-orm" : "self.version",
+    "anonym-php/anonym-event" :"self.version",
+    "anonym-php/anonym-filesystem" : "self.version",
+    "anonym-php/anonym-config":"self.version",
+    "anonym-components/support":"self.version",
+    "anonym-php/anonym-mail":"self.version",
+    "anonym-php/anonym-view":"self.version",
+    "anonym-php/cron":"self.version"
   }
 }
