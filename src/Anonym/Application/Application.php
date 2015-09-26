@@ -95,6 +95,15 @@ class Application extends Container
     }
 
     /**
+     * return the config files path
+     *
+     * @return mixed
+     */
+    public function getConfigPath(){
+        return CONFIG;
+    }
+
+    /**
      * throw an http exception with given datas
      *
      * @param int $code
