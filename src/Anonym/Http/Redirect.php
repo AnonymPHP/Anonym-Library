@@ -108,6 +108,7 @@ class Redirect
      *
      * @param array|string $name
      * @param mixed $message
+     * @param int $time
      * @return $this
      */
     public function withCookie($name, $message = null, $time = 3600){
