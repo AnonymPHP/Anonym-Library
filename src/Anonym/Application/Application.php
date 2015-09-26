@@ -16,6 +16,7 @@ use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Illuminate\Container\Container;
 use Anonym\Patterns\Facade;
+use Closure;
 
 /**
  * the starter class of framework
@@ -68,6 +69,20 @@ class Application extends Container
     private $aliasLoader;
 
     /**
+     * this callback will execute before application start
+     *
+     * @var Closure
+     */
+    protected $before;
+
+    /**
+     * this callback will execute after application start
+     *
+     * @var Closure
+     */
+    protected $after;
+
+    /**
      *
      * @param string name the name of framework application
      * @param int version the version of framework application
@@ -78,11 +93,54 @@ class Application extends Container
         $this->name = $name;
         $this->version = $version;
 
+
+        $this->runApplicationWithEvents();
+
+    }
+
+
+    /**
+     * run application with before and after events
+     *
+     *
+     */
+    protected function runApplicationWithEvents(){
+
+
+        if (is_callable($before = $this->before)) {
+            $before($this);
+        }
+
         $this->readGeneralConfigsAndRegisterAliases();
         $this->resolveHelpers();
         $this->resolveApplications();
+
+        if (is_callable($after = $this->after)) {
+            $after($this->after);
+        }
     }
 
+    /**
+     * register before callback
+     *
+     * @param Closure $before
+     * @return $this
+     */
+    public function before(Closure $before){
+        $this->before = $before;
+        return $this;
+    }
+
+    /**
+     * register after callback
+     *
+     * @param Closure $after
+     * @return $this
+     */
+    public function after(Closure $after){
+        $this->after = $after;
+        return $this;
+    }
 
     /**
      * @return string
