@@ -49,7 +49,7 @@ class Redirect
      *
      * @var bool
      */
-    protected  $sended;
+    protected $sended;
 
     /**
      * create a new instance with error bag
@@ -58,7 +58,8 @@ class Redirect
      * @param StrogeInterface $session
      * @param RedirectResponse $redirect
      */
-    public function __construct(ErrorBag $errorBag, StrogeInterface $session, RedirectResponse $redirect){
+    public function __construct(ErrorBag $errorBag, StrogeInterface $session, RedirectResponse $redirect)
+    {
         $this->errorBag = $errorBag;
         $this->session = $session;
         $this->redirector = $redirect;
@@ -73,7 +74,7 @@ class Redirect
      * @param array $headers
      * @return $this
      */
-    public function to($url = '', $time = 0,array $headers = [])
+    public function to($url = '', $time = 0, array $headers = [])
     {
         $this->redirector->setTarget($url)->setTime($time)->setHeaders($headers);
 
@@ -86,10 +87,11 @@ class Redirect
      * @param array|string $message
      * @return $this
      */
-    public function withError($message){
+    public function withError($message)
+    {
         if (is_array($message)) {
             $this->errorBag->setErrors($message);
-        }else{
+        } else {
             $this->errorBag->add($message);
         }
 
@@ -104,12 +106,13 @@ class Redirect
      * @param mixed $message
      * @return $this
      */
-    public function withInput($name, $message = null){
-        if(!is_array($name)){
+    public function withInput($name, $message = null)
+    {
+        if (!is_array($name)) {
             $name = [$name, $message];
         }
 
-        foreach($name as $key => $message){
+        foreach ($name as $key => $message) {
             $this->session->set($key, $message);
         }
 
@@ -125,23 +128,26 @@ class Redirect
      * @param int $time
      * @return $this
      */
-    public function withCookie($name, $message = null, $time = 3600){
-        if(!is_array($name)){
+    public function withCookie($name, $message = null, $time = 3600)
+    {
+        if (!is_array($name)) {
             $name = [$name, $message];
         }
 
-        foreach($name as $key => $message){
+        foreach ($name as $key => $message) {
             $this->redirector->getCookieBase()->set($key, $message, $time);
         }
 
         return $this;
     }
+
     /**
      * redirect user to it referer url
      *
      * @param int $time
      */
-    public function back($time = 0){
+    public function back($time = 0)
+    {
         $redirect = new RedirectResponse((new Request())->back(), $time);
         $redirect->send();
     }
@@ -153,12 +159,13 @@ class Redirect
      * @param string $name
      * @throws RouteNotFoundException
      */
-    public function route($name = ''){
+    public function route($name = '')
+    {
         $routes = AsCollector::getAs();
 
         if (isset($routes[$name])) {
             $this->to($routes[$name]);
-        }else{
+        } else {
             throw new RouteNotFoundException(sprintf('%s Route Not Found'));
         }
     }
