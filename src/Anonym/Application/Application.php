@@ -14,7 +14,6 @@ use Anonym\Constructors\RegisterErrorHandlers;
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
-use Anonym\Constructor\RegisterProviders;
 use Illuminate\Container\Container;
 use Anonym\Patterns\Facade;
 use HttpException;
