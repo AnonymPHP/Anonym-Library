@@ -11,7 +11,7 @@
 namespace Anonym\Application\Console;
 
 use Anonym\Support\TemplateGenerator;
-use Anonym\Application\Console\Command;
+use Anonym\Console\Command;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Application\Console\HandleInterface;
 use Symfony\Component\Console\Input\InputInterface;

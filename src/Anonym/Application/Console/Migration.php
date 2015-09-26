@@ -1,7 +1,7 @@
 <?php
 namespace Anonym\Application\Console;
 
-use Anonym\Application\Console\Command as AnonymCommand;
+use Anonym\Console\Command as AnonymCommand;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Support\TemplateGenerator;
 use Symfony\Component\Console\Output\OutputInterface;

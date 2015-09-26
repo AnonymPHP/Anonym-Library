@@ -11,7 +11,7 @@
 namespace Anonym\Application\Console;
 
 
-use Anonym\Application\Console\Command;
+use Anonym\Console\Command;
 use Anonym\Application\Console\HandleInterface;
 use Anonym\Filesystem\Filesystem;
 use Symfony\Component\Console\Output\OutputInterface;

@@ -13,7 +13,7 @@ namespace Anonym\Application\Console;
 use Anonym\Application\Console\HandleInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
-use Anonym\Application\Console\Command;
+use Anonym\Console\Command;
 use Anonym\Facades\Anonym;
 /**
  * Class MakeMigrationCommand

@@ -12,7 +12,7 @@
 namespace Anonym\Application\Console;
 
 
-use Anonym\Application\Console\Command;
+use Anonym\Console\Command;
 use Anonym\Application\Console\HandleInterface;
 use Anonym\Facades\Stroge;
 use Anonym\Filesystem\Filesystem;

@@ -17,7 +17,7 @@ use ClassPreloader\Parser\DirVisitor;
 use ClassPreloader\Parser\FileVisitor;
 use ClassPreloader\Parser\NodeTraverser;
 use Symfony\Component\Process\Process;
-use Anonym\Application\Console\Command;
+use Anonym\Console\Command;
 use ClassPreloader\Exceptions\SkipFileException;
 use Anonym\Application\Console\HandleInterface;
 use Symfony\Component\Console\Input\InputInterface;
