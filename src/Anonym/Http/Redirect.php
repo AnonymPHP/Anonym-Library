@@ -22,6 +22,11 @@ use Anonym\Route\AsCollector;
 class Redirect
 {
 
+    /**
+     * the instance of session
+     *
+     * @var StrogeInterface
+     */
     protected $session;
     /**
      * the instance of error bag
@@ -68,7 +73,17 @@ class Redirect
         return $this;
     }
 
+    public function withInput($name, $message = null){
+        if(!is_array($name)){
+            $name = [$name, $message];
+        }
 
+        foreach($name as $name => $message){
+            $this->session->set($name, $message);
+        }
+
+        return $this;
+    }
 
     /**
      * redirect user to it referer url
