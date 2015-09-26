@@ -13,7 +13,7 @@ namespace Anonym\Providers;
 use Anonym\Facades\Config;
 use Anonym\Event\EventCollector;
 use Anonym\Filesystem\Filesystem;
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 
 /**
  * Class EventProvider

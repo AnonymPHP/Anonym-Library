@@ -10,7 +10,7 @@
 
 namespace Anonym\Patterns;
 
-use Anonym\Bootstrap\AliasLoader;
+use Anonym\Application\AliasLoader;
 use InvalidArgumentException;
 use Illuminate\Container\Container;
 

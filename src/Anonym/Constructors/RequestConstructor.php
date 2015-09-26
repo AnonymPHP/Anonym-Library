@@ -21,9 +21,9 @@ class RequestConstructor
     /**
      * add the request  and response to container
      *
-     * @param Bootstrap $app
+     * @param Application $app
      */
-    public function __construct(Bootstrap $app)
+    public function __construct(Application $app)
     {
 
         $app->singleton('validation', function(){

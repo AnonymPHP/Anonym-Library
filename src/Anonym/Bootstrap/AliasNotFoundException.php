@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Application;
 
 use Exception;
 
 /**
  * Class AliasNotFoundException
- * @package Anonym\Bootstrap
+ * @package Anonym\Application
  */
 class AliasNotFoundException extends Exception
 {

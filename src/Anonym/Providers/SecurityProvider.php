@@ -11,7 +11,7 @@
 namespace Anonym\Providers;
 
 use GUMP;
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 use Anonym\Security\Authentication\Guard;
 use Anonym\Security\CsrfToken;
 use Anonym\Security\Firewall\Firewall\Firewall;

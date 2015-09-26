@@ -10,7 +10,7 @@
 
 namespace Anonym\Support;
 
-use Anonym\Bootstrap\Container;
+use Anonym\Application\Container;
 
 /**
  * Class Csrf
@@ -23,8 +23,8 @@ class Csrf extends Container
      * get the csrf token
      *
      * @return bool|string
-     * @throws \Anonym\Bootstrap\BindNotFoundException
-     * @throws \Anonym\Bootstrap\BindNotRespondingException
+     * @throws \Anonym\Application\BindNotFoundException
+     * @throws \Anonym\Application\BindNotRespondingException
      */
     public function getToken()
     {

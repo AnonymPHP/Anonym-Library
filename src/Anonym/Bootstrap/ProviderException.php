@@ -8,13 +8,13 @@
  * Thanks for using
  */
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Application;
 
 use Exception;
 
 /**
  * Class ProviderException
- * @package Anonym\Bootstrap
+ * @package Anonym\Application
  */
 class ProviderException extends Exception
 {

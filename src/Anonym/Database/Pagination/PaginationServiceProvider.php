@@ -11,7 +11,7 @@
 namespace Anonym\Database\Pagination;
 
 
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 use Anonym\Http\Request;
 use Anonym\Facades\App;
 use GUMP;

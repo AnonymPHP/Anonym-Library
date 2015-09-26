@@ -11,7 +11,7 @@
 namespace Anonym\Support;
 
 
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 use Anonym\Facades\ErrorBag;
 use Anonym\Facades\View;
 

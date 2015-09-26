@@ -10,7 +10,7 @@
 
 namespace Anonym\Session;
 
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 use Anonym\Facades\App;

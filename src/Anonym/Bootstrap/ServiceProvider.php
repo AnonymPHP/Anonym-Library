@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Application;
 use Illuminate\Container\Container;
 /**
  * Class ServiceProvider
- * @package Anonym\Bootstrap
+ * @package Anonym\Application
  */
 abstract class ServiceProvider extends Container
 {

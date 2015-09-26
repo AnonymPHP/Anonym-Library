@@ -22,14 +22,14 @@ use HttpException;
 /**
  * the starter class of framework
  *
- * Class Bootstrap
- * @package Anonym\Bootstrap
+ * Class Application
+ * @package Anonym\Application
  */
 class Application extends Container
 {
 
     /**
-     * bootstraps class repository
+     * Applications class repository
      *
      * @var array
      */
@@ -82,7 +82,7 @@ class Application extends Container
 
         $this->readGeneralConfigsAndRegisterAliases();
         $this->resolveHelpers();
-        $this->resolveBootstraps();
+        $this->resolveApplications();
     }
 
 
@@ -91,7 +91,7 @@ class Application extends Container
      */
     public function getCompiledPath()
     {
-        return RESOURCE . 'bootstrap/_compiled.php.cache';
+        return RESOURCE . 'Application/_compiled.php.cache';
     }
 
     /**
@@ -186,7 +186,7 @@ class Application extends Container
 
     /**
      * @param array $general
-     * @return Bootstrap
+     * @return Application
      */
     public function setGeneral($general)
     {
@@ -197,10 +197,10 @@ class Application extends Container
     /**
      *  resolve the constructor classes
      */
-    private function resolveBootstraps()
+    private function resolveApplications()
     {
-        $bootstraps = $this->constructors;
-        foreach ($bootstraps as $boot) {
+        $Applications = $this->constructors;
+        foreach ($Applications as $boot) {
             if (is_string($boot)) {
                 $this->singleton($boot, new $boot($this));
             }

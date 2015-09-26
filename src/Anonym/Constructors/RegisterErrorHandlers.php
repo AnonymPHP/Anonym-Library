@@ -30,9 +30,9 @@ class RegisterErrorHandlers
     /**
      * create a new instance and register handlers
      *
-     * @param Bootstrap $app
+     * @param Application $app
      */
-    public function __construct(Bootstrap $app){
+    public function __construct(Application $app){
         $this->handler = $app->make(Handler::class);
         $this->handler->setDebug($app->getGeneral()['debug'])->setLog($app->getGeneral()['log'])->fire();
         $this->registerErrorHandler();

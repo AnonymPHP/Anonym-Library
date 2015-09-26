@@ -11,7 +11,7 @@
 namespace Anonym\Providers;
 
 
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 use Anonym\Cookie\UseCookieHeaders;
 use Anonym\Route\Router;
 use Anonym\Facades\App;

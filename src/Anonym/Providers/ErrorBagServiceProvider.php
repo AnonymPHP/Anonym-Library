@@ -14,7 +14,7 @@ namespace Anonym\Providers;
 use Anonym\Facades\App;
 use Anonym\Facades\Session;
 use Anonym\Support\ErrorBag;
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 /**
  * Class ErrorBagServiceProvider
  * @package Anonym\Providers

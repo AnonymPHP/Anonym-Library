@@ -15,7 +15,7 @@ use ErrorException;
 use Anonym\Log\Logger;
 use Anonym\Facades\Config;
 use Anonym\Filesystem\Filesystem;
-use Anonym\Bootstrap\HttpException;
+use Anonym\Application\HttpException;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\ExceptionHandler;
 

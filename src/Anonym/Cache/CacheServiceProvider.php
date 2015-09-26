@@ -8,7 +8,7 @@
  */
 
 namespace Anonym\Cache;
-use Anonym\Bootstrap\ServiceProvider;
+use Anonym\Application\ServiceProvider;
 use Anonym\Facades\Config;
 /**
  * service provider of cache component

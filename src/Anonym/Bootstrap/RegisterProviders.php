@@ -9,13 +9,13 @@
  */
 
 
-namespace Anonym\Bootstrap;
+namespace Anonym\Application;
 
 use Anonym\Application\Application;
 use Anonym\Facades\Config;
 /**
  * Class RegisterProviders
- * @package Anonym\Bootstrap
+ * @package Anonym\Application
  */
 class RegisterProviders
 {
@@ -23,7 +23,7 @@ class RegisterProviders
     /**
      * create a new instance
      *
-     * @param Bootstrap $app
+     * @param Application $app
      * @throws ProviderException
      */
     public function __construct(Application $app)
