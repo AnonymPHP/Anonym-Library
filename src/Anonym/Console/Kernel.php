@@ -9,13 +9,38 @@ namespace Anonym\Application\Console;
 use Anonym\Application\Console\Schedule\ScheduleCleanCommands;
 use Symfony\Component\Console\Application as SymfonyConsole;
 use Anonym\Application\Console\Schedule\ScheduleRunCommands;
+use Anonym\Application\Console\MigrationForgetCommand;
+use Anonym\Application\Console\LoginLogsClearCommand;
+use Anonym\Application\Console\MakeMiddlewareCommand;
+use Anonym\Application\Console\MakeMigrationCommand;
+use Anonym\Application\Console\ClearCompiledCommand;
+use Anonym\Application\Console\DeploySeedAllCommand;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Anonym\Application\Console\BackupLoaderCommand;
+use Anonym\Application\Console\BackupForgetCommand;
+use Anonym\Application\Console\MigrationRunCommand;
+use Anonym\Application\Console\ConfigCacheCommand;
+use Anonym\Application\Console\MakeBackupCommand;
+use Anonym\Application\Console\DeploySeedCommand;
+use Anonym\Application\Console\CacheTableCommand;
+use Anonym\Application\Console\CacheClearCommand;
+use Anonym\Application\Console\MakeModelCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\ArrayInput;
+use Anonym\Application\Console\MakeSeedCommand;
+use Anonym\Application\Console\OptimizeCommand;
+use Anonym\Application\Console\MakeController;
+use Illuminate\Contracts\Container\Container;
+use Anonym\Application\Console\MakeListener;
+use Anonym\Application\Console\Installation;
+use Anonym\Application\Console\MakeCommand;
+use Anonym\Application\Console\MakeBlade;
+use Anonym\Application\Console\Migration;
+use Anonym\Application\Console\MakeEvent;
+use Anonym\Application\Console\MakeView;
+use Anonym\Application\Console\Backup;
 use Anonym\Cron\EventReposity;
 use Anonym\Cron\Cron;
-use Illuminate\Contracts\Container\Container;
-
 
 /**
  * Class Console
