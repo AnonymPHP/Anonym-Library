@@ -7,9 +7,7 @@
 namespace Anonym\Console;
 
 
-use Anonym\Application\Console\Schedule\ScheduleCleanCommands;
 use Symfony\Component\Console\Application as SymfonyConsole;
-use Anonym\Application\Console\Schedule\ScheduleRunCommands;
 use Anonym\Application\Console\MigrationForgetCommand;
 use Anonym\Application\Console\LoginLogsClearCommand;
 use Anonym\Application\Console\MakeMiddlewareCommand;
@@ -20,6 +18,7 @@ use Symfony\Component\Console\Output\BufferedOutput;
 use Anonym\Application\Console\BackupLoaderCommand;
 use Anonym\Application\Console\BackupForgetCommand;
 use Anonym\Application\Console\MigrationRunCommand;
+use Anonym\Console\Schedule\ScheduleCleanCommands;
 use Anonym\Application\Console\ConfigCacheCommand;
 use Anonym\Application\Console\MakeBackupCommand;
 use Anonym\Application\Console\DeploySeedCommand;
@@ -27,6 +26,7 @@ use Anonym\Application\Console\CacheTableCommand;
 use Anonym\Application\Console\CacheClearCommand;
 use Anonym\Application\Console\MakeModelCommand;
 use Symfony\Component\Console\Input\InputOption;
+use Anonym\Console\Schedule\ScheduleRunCommands;
 use Symfony\Component\Console\Input\ArrayInput;
 use Anonym\Application\Console\MakeSeedCommand;
 use Anonym\Application\Console\OptimizeCommand;
