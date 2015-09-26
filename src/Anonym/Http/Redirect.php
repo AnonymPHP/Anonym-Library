@@ -45,6 +45,13 @@ class Redirect
     protected $redirector;
 
     /**
+     * determine headers is sended
+     *
+     * @var bool
+     */
+    protected  $sended;
+
+    /**
      * create a new instance with error bag
      *
      * @param ErrorBag $errorBag
@@ -138,7 +145,6 @@ class Redirect
         $redirect = new RedirectResponse((new Request())->back(), $time);
         $redirect->send();
     }
-
 
 
     /**
