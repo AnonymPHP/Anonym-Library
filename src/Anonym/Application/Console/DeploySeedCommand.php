@@ -12,7 +12,7 @@ namespace Anonym\Application\Console;
 
 
 use Anonym\Console\Command;
-use Anonym\Application\Console\HandleInterface;
+use Anonym\Console\HandleInterface;
 use Anonym\Tools\Seeder;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;

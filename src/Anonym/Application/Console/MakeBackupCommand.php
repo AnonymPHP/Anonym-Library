@@ -12,7 +12,7 @@ namespace Anonym\Application\Console;
 use Anonym\Facades\BackupLoader;
 use Anonym\Console\Command;
 use Anonym\Facades\Backup as BackupFacade;
-use Anonym\Application\Console\HandleInterface;
+use Anonym\Console\HandleInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

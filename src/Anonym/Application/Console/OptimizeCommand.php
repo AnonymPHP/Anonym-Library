@@ -19,7 +19,7 @@ use ClassPreloader\Parser\NodeTraverser;
 use Symfony\Component\Process\Process;
 use Anonym\Console\Command;
 use ClassPreloader\Exceptions\SkipFileException;
-use Anonym\Application\Console\HandleInterface;
+use Anonym\Console\HandleInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use PhpParser\PrettyPrinter\Standard as PrettyPrinter;
 use Symfony\Component\Console\Output\OutputInterface;

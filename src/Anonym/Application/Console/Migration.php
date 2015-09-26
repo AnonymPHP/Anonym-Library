@@ -7,7 +7,7 @@ use Anonym\Support\TemplateGenerator;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Anonym\Facades\Migration as FacadeMigration;
-use Anonym\Application\Console\HandleInterface;
+use Anonym\Console\HandleInterface;
 
 /**
  * This file belongs to the AnoynmFramework

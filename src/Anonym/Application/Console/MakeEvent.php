@@ -13,7 +13,7 @@ namespace Anonym\Application\Console;
 
 
 use Anonym\Console\Command;
-use Anonym\Application\Console\HandleInterface;
+use Anonym\Console\HandleInterface;
 use Anonym\Facades\Anonym;
 use Anonym\Facades\Stroge;
 use Anonym\Support\TemplateGenerator;
