@@ -3,8 +3,8 @@
 namespace Anonym\Cookie;
 
 use Anonym\Application\ServiceProvider;
+use Anonym\Cookie\CookieInterface;
 use Anonym\Facades\Config;
-
 /**
  * This file belongs to the AnoynmFramework
  *
@@ -23,7 +23,7 @@ class CookieServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->singleton('cookie', function () {
+        $this->singleton(CookieInterface::class, function () {
             $encode = Config::get('stroge.cookie.encode');
 
             return new Cookie($encode);
