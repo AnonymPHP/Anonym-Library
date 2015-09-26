@@ -70,6 +70,7 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
+
         $this->singleton(
             'session',
             function () use ($session) {
