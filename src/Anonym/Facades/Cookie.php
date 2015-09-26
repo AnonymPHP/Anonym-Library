@@ -10,6 +10,7 @@
 
 namespace Anonym\Facades;
 
+use Anonym\Cookie\CookieInterface;
 use Anonym\Patterns\Facade;
 
 /**
@@ -28,7 +29,7 @@ class Cookie extends Facade
      */
     protected static function getFacadeClass()
     {
-        return "cookie";
+        return CookieInterface::class;
     }
 }
 
