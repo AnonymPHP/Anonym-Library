@@ -75,6 +75,8 @@ class Redirect
 
 
     /**
+     * redirect with input
+     *
      * @param array|string $name
      * @param mixed $message
      * @return $this
