@@ -104,6 +104,24 @@ class Redirect
 
 
     /**
+     * redirect with single or multipile cookies
+     *
+     * @param array|string $name
+     * @param mixed $message
+     * @return $this
+     */
+    public function withCookie($name, $message = null){
+        if(!is_array($name)){
+            $name = [$name, $message];
+        }
+
+        foreach($name as $key => $message){
+            $this->cookie->set($key, $message);
+        }
+
+        return $this;
+    }
+    /**
      * redirect user to it referer url
      *
      * @param int $time
