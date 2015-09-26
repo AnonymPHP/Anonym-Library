@@ -26,7 +26,8 @@ class RedirectServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->listenEvent('redirect:sending', function(){
+        $this->listenEvent('redirect:sending', function () {
+
         });
     }
 }
