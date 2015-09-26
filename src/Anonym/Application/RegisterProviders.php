@@ -11,7 +11,6 @@
 
 namespace Anonym\Application;
 
-use Anonym\Application\Application;
 use Anonym\Facades\Config;
 /**
  * Class RegisterProviders
