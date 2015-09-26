@@ -93,6 +93,7 @@ class Redirect
         return $this;
     }
 
+
     /**
      * redirect user to it referer url
      *
