@@ -8,9 +8,9 @@ Launch the component
 ```php
 
 include 'vendor/autoload.php';
-use Anonym\Route\RouteCollector;
-use Anonym\Route\Router;
-use Anonym\Http\Request;
+use Anonym\Components\Route\RouteCollector;
+use Anonym\Components\Route\Router;
+use Anonym\Components\HttpClient\Request;
 $collector = new RouteCollector();
 
 ```
@@ -40,7 +40,7 @@ How to run?
 
 ```php
 
-use Anonym\Route\Router;
+use Anonym\Components\Route\Router;
 
 $router = new Router( new Request());
 $router->run();
@@ -81,7 +81,7 @@ and create controller in the "path"
 
 ```php
 
-use Anonym\Route\Controller;
+use Anonym\Components\Route\Controller;
 
 class Test extends Controller{
 

@@ -9,13 +9,13 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
-use Anonym\Http\Request;
+use Anonym\Components\HttpClient\Request;
 
 /**
  * Interface TerminateInterface
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 interface TerminateInterface
 {

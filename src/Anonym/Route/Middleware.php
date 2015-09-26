@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 use Closure;
 
@@ -17,7 +17,7 @@ use Closure;
  * the trait of middleware
  *
  * Trait Middleware
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 trait Middleware
 {

@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 
 trait ModelDispatcher

@@ -8,11 +8,11 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 /**
  * Class FilterBag
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 class FilterBag
 {

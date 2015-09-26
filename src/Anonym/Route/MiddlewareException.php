@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 use Exception;
 
@@ -17,7 +17,7 @@ use Exception;
  * the exception to middleware
  *
  * Class MiddlewareException
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 class MiddlewareException extends Exception
 {

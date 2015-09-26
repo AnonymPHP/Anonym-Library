@@ -1,5 +1,5 @@
 <?php
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 /**
  * Bu Dosya AnonymFramework'e ait bir dosyadır.

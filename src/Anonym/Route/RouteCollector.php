@@ -8,12 +8,12 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 use Closure;
 /**
  * Class RouteCollector
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 class RouteCollector
 {

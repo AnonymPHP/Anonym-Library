@@ -9,15 +9,15 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
-use Anonym\Http\Request;
+use Anonym\Components\HttpClient\Request;
 
 /**
  * the class of access bag
  *
  * Class AccessBag
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 class AccessBag
 {

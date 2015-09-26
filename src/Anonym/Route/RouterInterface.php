@@ -8,13 +8,13 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 /**
  *  A interface for Router
  *
  * Interface RouterInterface
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 interface RouterInterface
 {

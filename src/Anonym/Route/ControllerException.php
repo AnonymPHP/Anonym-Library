@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Route;
+namespace Anonym\Components\Route;
 
 use Exception;
 
@@ -17,7 +17,7 @@ use Exception;
  * the class of controller exception
  *
  * Class ControllerException
- * @package Anonym\Route
+ * @package Anonym\Components\Route
  */
 class ControllerException extends Exception
 {
