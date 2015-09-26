@@ -212,8 +212,11 @@ class Router implements RouterInterface
             $return = $this->isThereMatchUrl($collections);
         }
 
+        if (true === $return) {
+            return $return;
+        }
+
         $this->callRouteNotFoundCommand();
-        return $return;
     }
 
 
@@ -267,6 +270,7 @@ class Router implements RouterInterface
         // dispatch action dispatcher
         $content = $this->getActionDispatcher()->dispatch($collection['action'], $group);
         if (is_string($content)) {
+
             $this->sendContentString($content, $this->getRequest());
         }
     }
