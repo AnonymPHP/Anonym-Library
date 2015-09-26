@@ -36,13 +36,6 @@ class Redirect
      */
     protected $errorBag;
 
-    /**
-     * the instance of cookie
-     *
-     * @var CookieInterface
-     */
-    protected $cookie;
-
 
     /**
      * the instance of redirect response
@@ -161,16 +154,4 @@ class Redirect
         }
     }
 
-
-    /**
-     * register errors
-     *
-     * @param array $errors
-     * @return $this
-     */
-    public function withErrors($errors = []){
-        errorr()->setErrors($errors)->run();
-
-        return $this;
-    }
 }
