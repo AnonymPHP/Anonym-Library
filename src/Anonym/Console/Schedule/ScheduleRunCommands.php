@@ -13,7 +13,7 @@ namespace Anonym\Console\Schedule;
 
 use Anonym\Cron\Cron as Schedule;
 use Anonym\Cron\EventReposity;
-use Anonym\Application\Console\Command;
+use Anonym\Console\Command;
 use Anonym\Cron\Task\Task;
 use Anonym\Cron\Task\TaskReposity;
 

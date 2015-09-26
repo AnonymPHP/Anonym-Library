@@ -10,7 +10,7 @@
 
 
 namespace Anonym\Console\Schedule;
-use Anonym\Application\Console\Command;
+use Anonym\Console\Command;
 use Anonym\Cron\Cron as Schedule;
 
 class ScheduleCleanCommands extends Command
