@@ -114,6 +114,7 @@
             $this->send();
         }
 
+
         /**
          * Static olarak içeriği oluşturur
          *

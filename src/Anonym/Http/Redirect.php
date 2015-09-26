@@ -10,6 +10,8 @@
 
 
 namespace Anonym\Http;
+
+use Anonym\Support\ErrorBag;
 use Anonym\Route\AsCollector;
 
 /**
@@ -19,6 +21,21 @@ use Anonym\Route\AsCollector;
 class Redirect
 {
 
+    /**
+     * the instance of error bag
+     *
+     * @var ErrorBag
+     */
+    protected $errorBag;
+
+    /**
+     * create a new instance with error bag
+     *
+     * @param ErrorBag $errorBag
+     */
+    public function __construct(ErrorBag $errorBag){
+        $this->errorBag = $errorBag;
+    }
     /**
      * redirect user to somewhere else
      *
