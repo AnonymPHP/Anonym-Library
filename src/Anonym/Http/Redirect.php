@@ -110,13 +110,13 @@ class Redirect
      * @param mixed $message
      * @return $this
      */
-    public function withCookie($name, $message = null){
+    public function withCookie($name, $message = null, $time = 3600){
         if(!is_array($name)){
             $name = [$name, $message];
         }
 
         foreach($name as $key => $message){
-            $this->cookie->set($key, $message);
+            $this->cookie->set($key, $message, $time);
         }
 
         return $this;
