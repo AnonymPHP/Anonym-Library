@@ -49,11 +49,11 @@ class Redirect
      *
      * @param ErrorBag $errorBag
      * @param StrogeInterface $session
+     * @param RedirectResponse $redirect
      */
-    public function __construct(ErrorBag $errorBag, StrogeInterface $session, CookieInterface $cookie, RedirectResponse $redirect){
+    public function __construct(ErrorBag $errorBag, StrogeInterface $session, RedirectResponse $redirect){
         $this->errorBag = $errorBag;
         $this->session = $session;
-        $this->cookie = $cookie;
         $this->redirector = $redirect;
     }
     /**
@@ -121,7 +121,7 @@ class Redirect
         }
 
         foreach($name as $key => $message){
-            $this->cookie->set($key, $message, $time);
+            $this->redirector->getCookieBase()->set($key, $message, $time);
         }
 
         return $this;
