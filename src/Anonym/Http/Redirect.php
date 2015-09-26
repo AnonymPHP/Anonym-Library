@@ -12,6 +12,7 @@
 namespace Anonym\Http;
 
 use Anonym\Cookie\CookieInterface;
+use Anonym\Cookie\HeadersAlreadySendedException;
 use Anonym\Session\StrogeInterface;
 use Anonym\Support\ErrorBag;
 use Anonym\Route\AsCollector;
@@ -169,5 +170,27 @@ class Redirect
             throw new RouteNotFoundException(sprintf('%s Route Not Found'));
         }
     }
+
+    /**
+     * @return boolean
+     */
+    public function isSended()
+    {
+        return $this->sended;
+    }
+
+    /**
+     * send redirect responses
+     *
+     * @throws HeadersAlreadySendedException
+     */
+   public function send(){
+       if(!$this->sended){
+           $this->redirector->send();
+       }else{
+           throw new HeadersAlreadySendedException('Headers already sended, you cant send them again');
+       }
+   }
+
 
 }
