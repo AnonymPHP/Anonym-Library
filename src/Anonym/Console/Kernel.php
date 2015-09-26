@@ -6,6 +6,7 @@
 
 namespace Anonym\Application\Console;
 
+
 use Anonym\Application\Console\Schedule\ScheduleCleanCommands;
 use Symfony\Component\Console\Application as SymfonyConsole;
 use Anonym\Application\Console\Schedule\ScheduleRunCommands;
