@@ -56,6 +56,8 @@ class Redirect
         $this->session = $session;
         $this->redirector = $redirect;
     }
+
+
     /**
      * redirect user to somewhere else
      *
