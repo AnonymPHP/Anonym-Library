@@ -43,16 +43,25 @@ class Redirect
      */
     protected $cookie;
 
+
+    /**
+     * the instance of redirect response
+     *
+     * @var RedirectResponse
+     */
+    protected $redirector;
+
     /**
      * create a new instance with error bag
      *
      * @param ErrorBag $errorBag
      * @param StrogeInterface $session
      */
-    public function __construct(ErrorBag $errorBag, StrogeInterface $session, CookieInterface $cookie){
+    public function __construct(ErrorBag $errorBag, StrogeInterface $session, CookieInterface $cookie, RedirectResponse $redirect){
         $this->errorBag = $errorBag;
         $this->session = $session;
         $this->cookie = $cookie;
+        $this->redirector = $redirect;
     }
     /**
      * redirect user to somewhere else
@@ -63,10 +72,9 @@ class Redirect
      */
     public function to($url = '', $time = 0,array $headers = [])
     {
-        $redirect = new RedirectResponse($url, $time);
+        $this->redirector->setTarget($url)->setTime($time)->setHeaders($headers);
 
-        $redirect->setHeaders($headers);
-
+        return $this;
     }
 
     /**
