@@ -11,6 +11,7 @@
 
 namespace Anonym\Http;
 
+use Anonym\Session\StrogeInterface;
 use Anonym\Support\ErrorBag;
 use Anonym\Route\AsCollector;
 
@@ -21,6 +22,7 @@ use Anonym\Route\AsCollector;
 class Redirect
 {
 
+    protected $session;
     /**
      * the instance of error bag
      *
@@ -32,9 +34,11 @@ class Redirect
      * create a new instance with error bag
      *
      * @param ErrorBag $errorBag
+     * @param StrogeInterface $session
      */
-    public function __construct(ErrorBag $errorBag){
+    public function __construct(ErrorBag $errorBag, StrogeInterface $session){
         $this->errorBag = $errorBag;
+        $this->session = $session;
     }
     /**
      * redirect user to somewhere else
@@ -63,6 +67,7 @@ class Redirect
 
         return $this;
     }
+
 
 
     /**
