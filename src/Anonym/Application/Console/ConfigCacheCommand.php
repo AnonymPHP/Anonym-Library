@@ -8,12 +8,12 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
 
 use Anonym\Config\ConfigLoader;
-use Anonym\Console\Command;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\Command;
+use Anonym\Application\Console\HandleInterface;
 use Anonym\Filesystem\Filesystem;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;

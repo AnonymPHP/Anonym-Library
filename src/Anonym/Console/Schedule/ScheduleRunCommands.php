@@ -9,11 +9,11 @@
  */
 
 
-namespace Anonym\Console\Schedule;
+namespace Anonym\Application\Console\Schedule;
 
 use Anonym\Cron\Cron as Schedule;
 use Anonym\Cron\EventReposity;
-use Anonym\Console\Command;
+use Anonym\Application\Console\Command;
 use Anonym\Cron\Task\Task;
 use Anonym\Cron\Task\TaskReposity;
 

@@ -9,17 +9,17 @@
  */
 
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
-use Anonym\Console\HandleInterface;
-use Anonym\Console\Command;
+use Anonym\Application\Console\HandleInterface;
+use Anonym\Application\Console\Command;
 use Anonym\Support\TemplateGenerator;
 
 /**
  * Class Listener
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class MakeListener extends Command implements HandleInterface
 {

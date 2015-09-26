@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
 
-use Anonym\Console\Command;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\Command;
+use Anonym\Application\Console\HandleInterface;
 use Anonym\Tools\Seeder;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,7 +20,7 @@ use Symfony\Component\Finder\Finder;
 
 /**
  * Class DeploySeedCommand
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class DeploySeedCommand extends Command implements HandleInterface
 {

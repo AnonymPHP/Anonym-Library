@@ -5,13 +5,13 @@
      * @copyright AnonymMedya, 2015
      */
 
-    namespace Anonym\Console;
+    namespace Anonym\Application\Console;
     use Symfony\Component\Console\Input\InputInterface;
     use Symfony\Component\Console\Output\OutputInterface;
 
     /**
      * Interface HandleInterface
-     * @package Anonym\Console
+     * @package Anonym\Application\Console
      */
     interface HandleInterface
     {

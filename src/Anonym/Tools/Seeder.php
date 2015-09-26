@@ -11,7 +11,7 @@
 namespace Anonym\Tools;
 
 use Illuminate\Container\Container;
-use Anonym\Console\Command;
+use Anonym\Application\Console\Command;
 /**
  * Class Seeder
  * @package Anonym\Database\Tools\Backup

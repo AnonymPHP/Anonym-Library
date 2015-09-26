@@ -8,11 +8,11 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
 
-use Anonym\Console\Command;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\Command;
+use Anonym\Application\Console\HandleInterface;
 use Anonym\Facades\Anonym;
 use Anonym\Facades\Migration;
 use Anonym\Filesystem\Filesystem;
@@ -21,7 +21,7 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class CacheTableCommand
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class CacheClearCommand extends Command implements HandleInterface
 {

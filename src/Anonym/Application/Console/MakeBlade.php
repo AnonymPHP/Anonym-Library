@@ -8,18 +8,18 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
 
-use Anonym\Console\Command;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\Command;
+use Anonym\Application\Console\HandleInterface;
 use Anonym\Facades\Anonym;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class MakeBlade
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class MakeBlade extends Command implements HandleInterface
 {

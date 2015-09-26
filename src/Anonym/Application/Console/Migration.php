@@ -1,13 +1,13 @@
 <?php
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
-use Anonym\Console\Command as AnonymCommand;
+use Anonym\Application\Console\Command as AnonymCommand;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Support\TemplateGenerator;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Anonym\Facades\Migration as FacadeMigration;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\HandleInterface;
 
 /**
  * This file belongs to the AnoynmFramework

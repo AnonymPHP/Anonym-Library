@@ -9,8 +9,8 @@
  */
 
 
-namespace Anonym\Console\Schedule;
-use Anonym\Console\Command;
+namespace Anonym\Application\Console\Schedule;
+use Anonym\Application\Console\Command;
 use Anonym\Cron\Cron as Schedule;
 
 class ScheduleCleanCommands extends Command

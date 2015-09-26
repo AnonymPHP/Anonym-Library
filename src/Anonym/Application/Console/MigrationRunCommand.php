@@ -8,16 +8,16 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\HandleInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
-use Anonym\Console\Command;
+use Anonym\Application\Console\Command;
 use Anonym\Facades\Anonym;
 /**
  * Class MakeMigrationCommand
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class MigrationRunCommand extends Command implements HandleInterface
 {

@@ -4,14 +4,14 @@
      * @copyright AnonymMedya, 2015
      */
 
-    namespace Anonym\Console;
+    namespace Anonym\Application\Console;
 
     use Symfony\Component\Console\Output\OutputInterface;
     use Symfony\Component\Console\Input\InputInterface;
 
     /**
      * Interface FireInterface
-     * @package Anonym\Console
+     * @package Anonym\Application\Console
      */
     interface FireInterface
     {

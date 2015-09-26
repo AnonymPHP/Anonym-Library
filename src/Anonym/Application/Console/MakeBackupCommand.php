@@ -8,17 +8,17 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 use Anonym\Facades\BackupLoader;
-use Anonym\Console\Command;
+use Anonym\Application\Console\Command;
 use Anonym\Facades\Backup as BackupFacade;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\HandleInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MakeBackupCommand
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class MakeBackupCommand extends Command implements HandleInterface
 {

@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 use PhpParser\Lexer;
 use PhpParser\Parser;
 use Anonym\Facades\Anonym;
@@ -17,16 +17,16 @@ use ClassPreloader\Parser\DirVisitor;
 use ClassPreloader\Parser\FileVisitor;
 use ClassPreloader\Parser\NodeTraverser;
 use Symfony\Component\Process\Process;
-use Anonym\Console\Command;
+use Anonym\Application\Console\Command;
 use ClassPreloader\Exceptions\SkipFileException;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\HandleInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use PhpParser\PrettyPrinter\Standard as PrettyPrinter;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class OptimizeCommand
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class OptimizeCommand extends Command implements HandleInterface
 {

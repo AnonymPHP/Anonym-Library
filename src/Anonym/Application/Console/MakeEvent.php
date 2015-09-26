@@ -9,11 +9,11 @@
  */
 
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
 
-use Anonym\Console\Command;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\Command;
+use Anonym\Application\Console\HandleInterface;
 use Anonym\Facades\Anonym;
 use Anonym\Facades\Stroge;
 use Anonym\Support\TemplateGenerator;
@@ -22,7 +22,7 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class MakeEvent
- * @package Console\Commands
+ * @package Anonym\Application\Console
  */
 class MakeEvent extends Command implements HandleInterface
 {

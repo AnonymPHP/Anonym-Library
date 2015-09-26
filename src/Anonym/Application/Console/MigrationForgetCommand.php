@@ -8,10 +8,10 @@
  * Thanks for using
  */
 
-namespace Console\Commands;
+namespace Anonym\Application\Console;
 
-use Anonym\Console\Command;
-use Anonym\Console\HandleInterface;
+use Anonym\Application\Console\Command;
+use Anonym\Application\Console\HandleInterface;
 use Anonym\Facades\Anonym;
 use Anonym\Filesystem\Filesystem;
 use Symfony\Component\Console\Output\OutputInterface;
