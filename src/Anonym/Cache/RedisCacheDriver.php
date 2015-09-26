@@ -10,6 +10,7 @@
 
 namespace Anonym\Cache;
 
+use Anonym\Support\Arr;
 use Redis;
 
 /**
@@ -107,9 +108,11 @@ class RedisCacheDriver implements DriverAdapterInterface,
      */
     public function boot(array $configs = [])
     {
-        $host = $configs['host'];
-        $port = $configs['port'];
-        $timeOut = $configs['timeout'];
+
+        $host = Arr::get($configs, 'host', '127.0.0.1');
+        $port = Arr::get($configs, 'port', 6379);
+        $timeOut = Arr::get($configs, 'timeout', 30);
+
         $redisObj = new Redis();
         $redisObj->connect($host, $port, $timeOut);
         $redisObj->setOption(Redis::OPT_SERIALIZER,
