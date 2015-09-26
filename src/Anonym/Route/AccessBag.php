@@ -11,7 +11,7 @@
 
 namespace Anonym\Route;
 
-use Anonym\HttpClient\Request;
+use Anonym\Http\Request;
 
 /**
  * the class of access bag

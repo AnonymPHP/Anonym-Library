@@ -276,7 +276,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Anonym\\Components\\HttpClient\\": ""
+                    "Anonym\\Components\\Http\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
