@@ -113,7 +113,7 @@ class Application extends Container
         $this->readGeneralConfigs();
 
         // register all aliases
-        $this->registerAliases()
+        $this->registerAliases();
 
         // register helpers;
         $this->resolveHelpers();
