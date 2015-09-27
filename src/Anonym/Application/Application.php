@@ -111,7 +111,9 @@ class Application extends Container
             $this->runBeforeCallbacks();
         }
 
-        $this->readGeneralConfigsAndRegisterAliases();
+        // read configs/general.php for register aliases
+        $this->readGeneralConfigs();
+
         $this->resolveHelpers();
         $this->resolveApplications();
 
@@ -119,6 +121,20 @@ class Application extends Container
         if ($this->after) {
             $this->runAfterCallbacks();
         }
+    }
+
+    /**
+     * read configs/general.php for use aliases
+     */
+    private  function readGeneralConfigs(){
+
+        if (file_exists($path = $this->getCompiledPath().'general.php')) {
+            $this->setGeneral(include $path);
+        }
+    }
+
+    private function registerAliases(){
+
     }
 
     /**
@@ -196,18 +212,6 @@ class Application extends Container
         throw new HttpException($code, $message, $headers);
     }
 
-    /**
-     * read default configs
-     */
-    private function readGeneralConfigsAndRegisterAliases()
-    {
-        $configs = include(CONFIG . 'general.php');
-        $this->setGeneral($configs);
-        $aliases = $configs['alias'];
-        $this->setAliasLoader(new AliasLoader($aliases));
-        Facade::setApplication($this);
-        $this->getAliasLoader()->register();
-    }
 
     /**
      * @return AliasLoader

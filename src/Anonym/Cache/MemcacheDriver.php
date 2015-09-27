@@ -110,8 +110,6 @@ class MemcacheDriver implements DriverInterface,
      */
     public function boot(array $configs = [])
     {
-
-
         // find hostname and port address, if they are not exists in configs register default values
         //  default value of hostname is 127.0.0.1
         //  defualt value of port address is 11211
