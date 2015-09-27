@@ -11,7 +11,6 @@
 namespace Anonym\Crypt;
 
 use Anonym\Application\ServiceProvider;
-use Anonym\Facades\App;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 
