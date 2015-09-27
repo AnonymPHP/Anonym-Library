@@ -127,7 +127,7 @@ class Application extends Container
      * @return $this
      */
     public function before(Closure $before){
-        $this->before = $before;
+        $this->before[] = $before;
         return $this;
     }
 
@@ -138,7 +138,7 @@ class Application extends Container
      * @return $this
      */
     public function after(Closure $after){
-        $this->after = $after;
+        $this->after[] = $after;
         return $this;
     }
 
