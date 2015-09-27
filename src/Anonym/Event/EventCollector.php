@@ -43,7 +43,9 @@ class EventCollector
      */
     public static function setListeners($listeners)
     {
-        self::$listeners = $listeners;
+        foreach($listeners as $name => $listener){
+            static::addListener($name, $listener);
+        }
     }
 
 
