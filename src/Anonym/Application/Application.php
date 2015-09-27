@@ -14,9 +14,9 @@ use Anonym\Constructors\RegisterErrorHandlers;
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
-use Anonym\Support\Arr;
 use Illuminate\Container\Container;
 use Anonym\Patterns\Facade;
+use Anonym\Support\Arr;
 use Closure;
 
 /**
@@ -105,7 +105,8 @@ class Application extends Container
      *
      *
      */
-    protected function runApplicationWithEvents(){
+    protected function runApplicationWithEvents()
+    {
 
 
         if ($this->before) {
@@ -127,17 +128,28 @@ class Application extends Container
     /**
      * read configs/general.php for use aliases
      */
-    private  function readGeneralConfigs(){
+    private function readGeneralConfigs()
+    {
 
-        if (file_exists($path = $this->getCompiledPath().'general.php')) {
+        if (file_exists($path = $this->getCompiledPath() . 'general.php')) {
             $this->setGeneral(include $path);
         }
     }
 
-    private function registerAliases(){
+    private function registerAliases()
+    {
 
         // register this container to facades
         Facade::setApplication($this);
+
+
+        $aliases = [
+
+            'app' => ['Anonym\Application\Application' , 'Illımunate\Container\Container'],
+
+
+
+        ];
 
         // register the alias loader
         $this->setAliasLoader(new AliasLoader(Arr::get($this->getGeneral(), 'aliases')));
@@ -148,8 +160,9 @@ class Application extends Container
      *  run defined before callbacks
      *
      */
-    private function runBeforeCallbacks(){
-        foreach($this->before as $before){
+    private function runBeforeCallbacks()
+    {
+        foreach ($this->before as $before) {
             if (is_callable($before)) {
                 $before($this);
             }
@@ -160,20 +173,23 @@ class Application extends Container
      *  run defined after callbacks
      *
      */
-    private function runAfterCallbacks(){
-        foreach($this->after as $after){
+    private function runAfterCallbacks()
+    {
+        foreach ($this->after as $after) {
             if (is_callable($after)) {
                 $after($this);
             }
         }
     }
+
     /**
      * register before callback
      *
      * @param Closure $before
      * @return $this
      */
-    public function before(Closure $before){
+    public function before(Closure $before)
+    {
         $this->before[] = $before;
         return $this;
     }
@@ -184,7 +200,8 @@ class Application extends Container
      * @param Closure $after
      * @return $this
      */
-    public function after(Closure $after){
+    public function after(Closure $after)
+    {
         $this->after[] = $after;
         return $this;
     }
@@ -202,7 +219,8 @@ class Application extends Container
      *
      * @return mixed
      */
-    public function getConfigPath(){
+    public function getConfigPath()
+    {
         return CONFIG;
     }
 
@@ -259,9 +277,11 @@ class Application extends Container
      *
      * @return mixed
      */
-    public function getSystemPath(){
+    public function getSystemPath()
+    {
         return SYSTEM;
     }
+
     /**
      * @return array
      */
