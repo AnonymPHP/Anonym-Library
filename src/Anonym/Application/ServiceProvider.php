@@ -46,4 +46,25 @@ abstract class ServiceProvider extends Container
         return $this;
     }
 
+    /**
+     * @return Application
+     */
+    public function getApp()
+    {
+        return $this->app;
+    }
+
+    /**
+     * @param Application $app
+     * @return ServiceProvider
+     */
+    public function setApp(Application $app)
+    {
+        $this->app = $app;
+        return $this;
+    }
+
+
+
+
 }
