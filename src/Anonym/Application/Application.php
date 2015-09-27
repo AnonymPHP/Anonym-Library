@@ -132,7 +132,7 @@ class Application extends Container
     private function readGeneralConfigs()
     {
 
-        if (file_exists($path = $this->getCompiledPath() . 'general.php')) {
+        if (file_exists($path = $this->getConfigPath() . 'general.php')) {
             $this->setGeneral(include $path);
         }
     }
