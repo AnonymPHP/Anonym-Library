@@ -118,8 +118,8 @@ class Application extends Container
         // register helpers;
         $this->resolveHelpers();
 
-        //execute the bootstrap files
-        #$this->resolveApplications();
+        // resolve bootstrap classes
+        $this->resolveApplications();
 
         if ($this->after) {
             $this->runAfterCallbacks();
