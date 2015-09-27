@@ -29,15 +29,11 @@ class RedirectServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->listenEvent('redirect:sending', function () {
-            if(!headers_sent()){
-                Redirect::send();
-            }
-        });
-
 
         $this->after(function(){
-           Event::fire('redirect:sending');
+            if (Redirect::started()) {
+                Redirect::send();
+            }
         });
     }
 }
