@@ -9,7 +9,9 @@
  */
 
 namespace Anonym\Crypt;
+
 use Anonym\Application\ServiceProvider;
+
 /**
  * Class CrypterServiceProvider
  * @package Anonym\Crypt
@@ -24,6 +26,9 @@ class CrypterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // TODO: Implement register() method.
+
+        $this->singleton('crypting', function () {
+
+        });
     }
 }
