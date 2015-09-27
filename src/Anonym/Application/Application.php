@@ -152,6 +152,10 @@ class Application extends Container
            'session'     => ['Anonym\Session\StrogeInterface']
         ];
 
+        foreach($aliases as $alias){
+
+        }
+
         // register the alias loader
         $this->setAliasLoader(new AliasLoader(Arr::get($this->getGeneral(), 'aliases')));
         $this->getAliasLoader()->register();
