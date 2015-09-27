@@ -29,7 +29,7 @@ class CrypterServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $this->singleton('crypt:anonym', function () {
+        $this->singleton(AnonymCrypt::class, function () {
             $crypter = new AnonymCrypt();
             $configs = Config::get('crypt');
 
@@ -47,6 +47,7 @@ class CrypterServiceProvider extends ServiceProvider
 
             return $crypter;
         });
+
 
 
     }
