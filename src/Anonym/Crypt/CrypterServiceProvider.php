@@ -47,5 +47,7 @@ class CrypterServiceProvider extends ServiceProvider
 
             return $crypter;
         });
+
+
     }
 }
