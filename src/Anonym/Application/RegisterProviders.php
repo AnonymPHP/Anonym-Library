@@ -25,7 +25,7 @@ class RegisterProviders
      * @param Application $app
      * @throws ProviderException
      */
-    public function __construct(Application $app)
+    public function __construct(Application &$app)
     {
 
         $providers = Config::get('general.providers');
@@ -36,6 +36,8 @@ class RegisterProviders
             if (!$provider instanceof ServiceProvider) {
                 throw new ProviderException(sprintf('Your %s proiver must be a instance of ServiceProvider', get_class($provider)));
             }
+
+            $provider->setApp($app);
 
             $provider->register();
         }
