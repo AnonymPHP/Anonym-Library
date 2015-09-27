@@ -25,6 +25,6 @@ class Crypt extends Facade
      */
     protected static function getFacadeClass()
     {
-        return Crypter::class;
+        return 'crypting';
     }
 }
