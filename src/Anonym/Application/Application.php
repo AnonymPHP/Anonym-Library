@@ -107,19 +107,43 @@ class Application extends Container
     protected function runApplicationWithEvents(){
 
 
-        if (is_callable($before = $this->before)) {
-            $before($this);
+        if ($this->before) {
+            $this->runBeforeCallbacks();
         }
 
         $this->readGeneralConfigsAndRegisterAliases();
         $this->resolveHelpers();
         $this->resolveApplications();
 
-        if (is_callable($after = $this->after)) {
-            $after($this->after);
+
+        if ($this->after) {
+            $this->runAfterCallbacks();
         }
     }
 
+    /**
+     *  run defined before callbacks
+     *
+     */
+    private function runBeforeCallbacks(){
+        foreach($this->before as $before){
+            if (is_callable($before)) {
+                $before($this);
+            }
+        }
+    }
+
+    /**
+     *  run defined after callbacks
+     *
+     */
+    private function runAfterCallbacks(){
+        foreach($this->after as $after){
+            if (is_callable($after)) {
+                $after($this);
+            }
+        }
+    }
     /**
      * register before callback
      *
