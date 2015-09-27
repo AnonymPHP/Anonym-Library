@@ -147,7 +147,9 @@ class Application extends Container
             'redirect'    => ['Anonym\Http\Redirect'],
             'validation' => ['Anonym\Support\Validation'],
             'route'        => ['Anonym\Route\RouteCollector'],
-            'event'        => ['Anonym\Event\EventDispatcher']
+            'event'        => ['Anonym\Event\EventDispatcher'],
+            'cookie'      => ['Anonym\Cookie\CookieInterface'],
+           'session'     => ['Anonym\Session\StrogeInterface']
         ];
 
         // register the alias loader
