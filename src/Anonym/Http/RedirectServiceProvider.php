@@ -12,6 +12,8 @@ namespace Anonym\Http;
 
 
 use Anonym\Application\ServiceProvider;
+use Anonym\Facades\App;
+use Anonym\Facades\Event;
 use Anonym\Facades\Redirect;
 
 /**
@@ -31,6 +33,11 @@ class RedirectServiceProvider extends ServiceProvider
             if(!headers_sent()){
                 Redirect::send();
             }
+        });
+
+
+        App::after(function(){
+           Event::fire('redirect:sending');
         });
     }
 }
