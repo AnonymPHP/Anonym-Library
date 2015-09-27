@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Application;
+use Anonym\Facades\Event;
 use Illuminate\Container\Container;
 /**
  * Class ServiceProvider
@@ -34,7 +35,7 @@ abstract class ServiceProvider extends Container
      * @return $this
      */
     public function listenEvent($listen, $callback){
-        $this->make('event')->listen($listen, $callback);
+        Event::listen($listen, $callback);
 
         return $this;
     }
