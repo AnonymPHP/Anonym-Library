@@ -41,7 +41,6 @@ class AliasLoader
      * @return bool
      */
     public function load($alias){
-        $alias = mb_convert_case($alias, MB_CASE_TITLE);
 
         if (isset(static::$aliases[$alias])) {
             return class_alias(static::$aliases[$alias], $alias);
