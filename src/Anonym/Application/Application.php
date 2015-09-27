@@ -143,10 +143,11 @@ class Application extends Container
 
         $aliases = [
 
-            'app'         => ['Anonym\Application\Application' , 'Illımunate\Container\Container'],
-            'redirect'  => ['Anonym\Http\Redirect'],
+            'app'           => ['Anonym\Application\Application' , 'Illımunate\Container\Container'],
+            'redirect'    => ['Anonym\Http\Redirect'],
             'validation' => ['Anonym\Support\Validation'],
-
+            'route'        => ['Anonym\Route\RouteCollector'],
+            'event'        => ['Anonym\Event\EventDispatcher']
         ];
 
         // register the alias loader
