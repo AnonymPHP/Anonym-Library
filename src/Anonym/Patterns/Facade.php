@@ -88,18 +88,4 @@ class Facade
 
         return call_user_func_array([$instance, $method], $args);
     }
-
-    /**
-     * call the method in registered instances
-     *
-     * @param string $method the name of method
-     * @param array $args the variables for method
-     * @return mixed
-     */
-    public function __call($method, $args)
-    {
-        $instance = static::resolveFacadeClass(static::getFacadeClass());
-
-        return call_user_func_array([$instance, $method], $args);
-    }
 }
