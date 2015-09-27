@@ -94,9 +94,7 @@ class Application extends Container
         $this->name = $name;
         $this->version = $version;
 
-
         $this->runApplicationWithEvents();
-
     }
 
 
