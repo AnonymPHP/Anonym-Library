@@ -119,7 +119,7 @@ class Application extends Container
         $this->resolveHelpers();
 
         //execute the bootstrap files
-        $this->resolveApplications();
+        #$this->resolveApplications();
 
         if ($this->after) {
             $this->runAfterCallbacks();
@@ -156,10 +156,12 @@ class Application extends Container
             'config' => ['Anonym\Config\Reposity']
         ];
 
+
         // register aliases
-        foreach ($aliases as $alias) {
+        foreach ($aliases as $key => $alias) {
             foreach ($alias as $abstract) {
-                $this->alias($abstract, $alias);
+
+                $this->alias($abstract, $key);
             }
         }
 
