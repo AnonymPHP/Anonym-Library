@@ -160,13 +160,12 @@ class Application extends Container
         // register aliases
         foreach ($aliases as $key => $alias) {
             foreach ($alias as $abstract) {
-
                 $this->alias($abstract, $key);
             }
         }
 
         // register the alias loader
-        $this->setAliasLoader(new AliasLoader(Arr::get($this->getGeneral(), 'aliases')));
+        $this->setAliasLoader(new AliasLoader(Arr::get($this->getGeneral(), 'alias')));
         $this->getAliasLoader()->register();
     }
 
