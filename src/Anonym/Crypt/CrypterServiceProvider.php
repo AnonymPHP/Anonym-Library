@@ -29,9 +29,10 @@ class CrypterServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $this->singleton(AnonymCrypt::class, function () {
+        $configs = Config::get('crypt');
+
+        $this->bind(AnonymCrypt::class, function () use($configs){
             $crypter = new AnonymCrypt();
-            $configs = Config::get('crypt');
 
             if(false !== $mode = Arr::get($configs, 'mode', false)){
                 $crypter->setMode($mode);
@@ -48,7 +49,11 @@ class CrypterServiceProvider extends ServiceProvider
             return $crypter;
         });
 
+        $this->singleton('crypting', function() use($configs){
 
+            $crypter = Arr::get(Config::get($configs, 'crypter', AnonymCrypt::class));
+
+        });
 
     }
 }
