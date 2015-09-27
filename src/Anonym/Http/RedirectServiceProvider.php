@@ -36,7 +36,7 @@ class RedirectServiceProvider extends ServiceProvider
         });
 
 
-        App::after(function(){
+        $this->after(function(){
            Event::fire('redirect:sending');
         });
     }
