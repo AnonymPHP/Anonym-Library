@@ -274,15 +274,17 @@ class Application extends Container
      */
     private function resolveHelpers()
     {
-        $helpers = $this->getGeneral()['helpers'];
 
-        if (count($helpers)) {
-            foreach ($helpers as $helper) {
+        if(count($helpers = Arr::get($this->getGeneral(), 'helpers', []))){
+
+            foreach($helpers as $helper){
                 if (file_exists($helper)) {
                     include $helper;
                 }
             }
+
         }
+
     }
 
 
