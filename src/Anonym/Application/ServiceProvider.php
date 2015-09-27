@@ -18,6 +18,12 @@ use Illuminate\Container\Container;
 abstract class ServiceProvider extends Container
 {
 
+    /**
+     * the instance of application
+     *
+     * @var Application
+     */
+    protected $app;
 
     /**
      * register the provider
