@@ -11,6 +11,8 @@
 namespace Anonym\Crypt;
 
 use Anonym\Application\ServiceProvider;
+use Anonym\Facades\Config;
+use Anonym\Support\Arr;
 
 /**
  * Class CrypterServiceProvider
@@ -27,8 +29,23 @@ class CrypterServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $this->singleton('crypting', function () {
+        $this->singleton('crypt:anonym', function () {
+            $crypter = new AnonymCrypt();
+            $configs = Config::get('crypt');
 
+            if(false !== $mode = Arr::get($configs, 'mode', false)){
+                $crypter->setMode($mode);
+            }
+
+            if(false !== $rand = Arr::get($configs, 'rand', false)){
+                $crypter->setRand($rand);
+            }
+
+            if(false !== $alogirtym = Arr::get($configs, 'alogirtym', false)){
+                $crypter->setAlogirtym($alogirtym);
+            }
+
+            return $crypter;
         });
     }
 }
