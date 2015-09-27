@@ -203,24 +203,8 @@ class Application extends Container
     {
         $configs = include(CONFIG . 'general.php');
         $this->setGeneral($configs);
-        $aliases = $configs['alias'];
-        $this->setAliasLoader(new AliasLoader($aliases));
-
-        $lower = [];
-        foreach ($aliases as $key => $value) {
-            $lower[strtolower($key)] = $value;
-        }
-
-        foreach ($lower as $alias => $values) {
-            $values = (array)$values;
-
-            foreach ($values as $value) {
-                $this->getAliasLoader()->alias($alias, $value);
-            }
-        }
 
         Facade::setApplication($this);
-        $this->getAliasLoader()->register();
     }
 
     /**
