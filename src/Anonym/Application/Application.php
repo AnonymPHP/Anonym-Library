@@ -152,7 +152,8 @@ class Application extends Container
             'route' => ['Anonym\Route\RouteCollector'],
             'event' => ['Anonym\Event\EventDispatcher'],
             'cookie' => ['Anonym\Cookie\CookieInterface'],
-            'session' => ['Anonym\Session\StrogeInterface']
+            'session' => ['Anonym\Session\StrogeInterface'],
+            'config' => ['Anonym\Config\Reposity']
         ];
 
         // register aliases
