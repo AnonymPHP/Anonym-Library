@@ -11,6 +11,7 @@
 namespace Anonym\Crypt;
 
 use Anonym\Application\ServiceProvider;
+use Anonym\Facades\App;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 
@@ -49,10 +50,13 @@ class CrypterServiceProvider extends ServiceProvider
             return $crypter;
         });
 
-        $this->singleton('crypting', function() use($configs){
+        $app = $this;
+        $this->singleton('crypting', function() use($configs, $app){
 
             $crypter = Arr::get(Config::get($configs), 'crypter', AnonymCrypt::class);
 
+
+            return (new Crypter())->setCrypter($app->make($crypter));
         });
 
     }
