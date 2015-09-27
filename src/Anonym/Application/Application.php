@@ -203,8 +203,10 @@ class Application extends Container
     {
         $configs = include(CONFIG . 'general.php');
         $this->setGeneral($configs);
-
+        $aliases = $configs['alias'];
+        $this->setAliasLoader(new AliasLoader($aliases));
         Facade::setApplication($this);
+        $this->getAliasLoader()->register();
     }
 
     /**
