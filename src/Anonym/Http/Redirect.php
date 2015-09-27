@@ -13,6 +13,7 @@ namespace Anonym\Http;
 
 use Anonym\Cookie\CookieInterface;
 use Anonym\Cookie\HeadersAlreadySendedException;
+use Anonym\Facades\Request;
 use Anonym\Session\StrogeInterface;
 use Anonym\Support\ErrorBag;
 use Anonym\Route\AsCollector;
@@ -120,6 +121,13 @@ class Redirect
         return $this;
     }
 
+    public function isStarted(){
+        if($this->redirector->getTarget()){
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * redirect with single or multipile cookies
@@ -149,8 +157,10 @@ class Redirect
      */
     public function back($time = 0)
     {
-        $redirect = new RedirectResponse((new Request())->back(), $time);
-        $redirect->send();
+        $this->redirector->setTarget(Request::back());
+        $this->redirector->setTime($time);
+
+        return $this;
     }
 
 
