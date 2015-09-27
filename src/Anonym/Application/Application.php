@@ -137,6 +137,9 @@ class Application extends Container
         }
     }
 
+    /**
+     *  register all aliases and alias loader
+     */
     private function registerAliases()
     {
 
