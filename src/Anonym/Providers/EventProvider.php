@@ -34,6 +34,8 @@ class EventProvider extends ServiceProvider
             $events = Config::get('event.events');
 
             EventCollector::setListeners($events);
+
+
             if (file_exists( $path = APP . 'events.php')) {
                 include $path;
             }
