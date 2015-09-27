@@ -4,7 +4,10 @@ namespace Anonym\Cookie;
 
 use Anonym\Application\ServiceProvider;
 use Anonym\Cookie\CookieInterface;
+use Anonym\Cookie\Base64Encoder;
 use Anonym\Facades\Config;
+use Anonym\Support\Arr;
+
 /**
  * This file belongs to the AnoynmFramework
  *
@@ -24,9 +27,12 @@ class CookieServiceProvider extends ServiceProvider
     public function register()
     {
         $this->singleton(CookieInterface::class, function () {
-            $encode = Config::get('stroge.cookie.encode');
+            $configs = Config::get('stroge.cookie.crypting');
 
-            return new Cookie($encode);
+            $cookie =  new Cookie(Arr::get($configs, 'encode', true));
+            $encoder = $this->make(Arr::get($configs, 'encoder', Base64Encoder::class));
+
+            return $cookie->setEncoder($encoder);
         });
     }
 
