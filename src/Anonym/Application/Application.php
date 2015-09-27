@@ -143,17 +143,20 @@ class Application extends Container
 
         $aliases = [
 
-            'app'           => ['Anonym\Application\Application' , 'Illımunate\Container\Container'],
-            'redirect'    => ['Anonym\Http\Redirect'],
+            'app' => ['Anonym\Application\Application', 'Illımunate\Container\Container'],
+            'redirect' => ['Anonym\Http\Redirect'],
             'validation' => ['Anonym\Support\Validation'],
-            'route'        => ['Anonym\Route\RouteCollector'],
-            'event'        => ['Anonym\Event\EventDispatcher'],
-            'cookie'      => ['Anonym\Cookie\CookieInterface'],
-           'session'     => ['Anonym\Session\StrogeInterface']
+            'route' => ['Anonym\Route\RouteCollector'],
+            'event' => ['Anonym\Event\EventDispatcher'],
+            'cookie' => ['Anonym\Cookie\CookieInterface'],
+            'session' => ['Anonym\Session\StrogeInterface']
         ];
 
-        foreach($aliases as $alias){
-
+        // register aliases
+        foreach ($aliases as $alias) {
+            foreach ($alias as $abstract) {
+                $this->alias($abstract, $alias);
+            }
         }
 
         // register the alias loader
