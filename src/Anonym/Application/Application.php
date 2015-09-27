@@ -105,8 +105,6 @@ class Application extends Container
      */
     protected function runApplicationWithEvents()
     {
-
-
         if ($this->before) {
             $this->runBeforeCallbacks();
         }
@@ -114,9 +112,14 @@ class Application extends Container
         // read configs/general.php for register aliases
         $this->readGeneralConfigs();
 
-        $this->resolveHelpers();
-        $this->resolveApplications();
+        // register all aliases
+        $this->registerAliases()
 
+        // register helpers;
+        $this->resolveHelpers();
+
+        //execute the bootstrap files
+        $this->resolveApplications();
 
         if ($this->after) {
             $this->runAfterCallbacks();
