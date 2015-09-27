@@ -156,13 +156,15 @@ class Application extends Container
             'event' => ['Anonym\Event\EventDispatcher'],
             'cookie' => ['Anonym\Cookie\CookieInterface'],
             'session' => ['Anonym\Session\StrogeInterface'],
-            'config' => ['Anonym\Config\Reposity']
+            'config' => ['Anonym\Config\Reposity'],
+            'crypt' => ['crypting']
         ];
 
 
         // register aliases
         foreach ($aliases as $key => $alias) {
-            foreach ($alias as $abstract) {
+
+            foreach ((array) $alias as $abstract) {
                 $this->alias($abstract, $key);
             }
         }
