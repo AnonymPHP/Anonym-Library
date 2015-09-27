@@ -37,7 +37,6 @@ class RegisterProviders
                 throw new ProviderException(sprintf('Your %s proiver must be a instance of ServiceProvider', get_class($provider)));
             }
 
-            $provider->setApp($app);
 
             $provider->register();
         }

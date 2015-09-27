@@ -74,14 +74,14 @@ class Application extends Container
      *
      * @var Closure
      */
-    protected $before;
+    protected static $before;
 
     /**
      * this callback will execute after application start
      *
      * @var Closure
      */
-    protected $after;
+    protected static $after;
 
     /**
      *
@@ -105,7 +105,7 @@ class Application extends Container
      */
     protected function runApplicationWithEvents()
     {
-        if ($this->before) {
+        if (static::$before) {
             $this->runBeforeCallbacks();
         }
 
@@ -121,7 +121,7 @@ class Application extends Container
         // resolve bootstrap classes
         $this->resolveApplications();
 
-        if ($this->after) {
+        if (static::$after) {
             $this->runAfterCallbacks();
         }
     }
@@ -180,7 +180,7 @@ class Application extends Container
      */
     private function runBeforeCallbacks()
     {
-        foreach ($this->before as $before) {
+        foreach (static::$before as $before) {
             if (is_callable($before)) {
                 $before($this);
             }
@@ -193,7 +193,7 @@ class Application extends Container
      */
     private function runAfterCallbacks()
     {
-        foreach ($this->after as $after) {
+        foreach (static::$after as $after) {
             if (is_callable($after)) {
                 $after($this);
             }
@@ -204,24 +204,20 @@ class Application extends Container
      * register before callback
      *
      * @param Closure $before
-     * @return $this
      */
-    public function before(Closure $before)
+    public static function before(Closure $before)
     {
-        $this->before[] = $before;
-        return $this;
+        static::$before[] = $before;
     }
 
     /**
      * register after callback
      *
      * @param Closure $after
-     * @return $this
      */
-    public function after(Closure $after)
+    public static function after(Closure $after)
     {
-        $this->after[] = $after;
-        return $this;
+        static::$after[] = $after;
     }
 
     /**

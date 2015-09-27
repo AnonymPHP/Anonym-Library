@@ -18,12 +18,6 @@ use Illuminate\Container\Container;
 abstract class ServiceProvider extends Container
 {
 
-    /**
-     * the instance of application
-     *
-     * @var Application
-     */
-    protected $app;
 
     /**
      * register the provider
@@ -46,25 +40,8 @@ abstract class ServiceProvider extends Container
         return $this;
     }
 
-    /**
-     * @return Application
-     */
-    public function getApp()
-    {
-        return $this->app;
+
+    public function after(){
+
     }
-
-    /**
-     * @param Application $app
-     * @return ServiceProvider
-     */
-    public function setApp(Application $app)
-    {
-        $this->app = $app;
-        return $this;
-    }
-
-
-
-
 }
