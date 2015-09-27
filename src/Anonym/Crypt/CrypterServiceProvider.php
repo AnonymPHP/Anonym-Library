@@ -50,7 +50,7 @@ class CrypterServiceProvider extends ServiceProvider
         });
 
         $app = $this;
-        $this->singleton('crypting', function() use($configs, $app){
+        $this->singleton(Crypter::class, function() use($configs, $app){
 
             $crypter = Arr::get(Config::get($configs), 'crypter', AnonymCrypt::class);
 
