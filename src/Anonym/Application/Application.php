@@ -241,6 +241,15 @@ class Application extends Container
     }
 
     /**
+     * return the application path
+     *
+     * @return mixed
+     */
+    public function getApplicationPath(){
+        return APP;
+    }
+
+    /**
      * throw an http exception with given datas
      *
      * @param int $code
