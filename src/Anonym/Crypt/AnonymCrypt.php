@@ -20,11 +20,12 @@
     {
 
         /**
-         * Güvenlik anahtarı
+         * the random key for security key
          *
          * @var string
          */
         private $securityKey;
+
         /**
          * Mcrypt şifreleme türü
          *
@@ -61,7 +62,7 @@
 
 
         /**
-         * Metni şifreler
+         * encrypt the data
          *
          * @param string $value
          * @return string
