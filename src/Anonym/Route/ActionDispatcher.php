@@ -12,10 +12,10 @@
 namespace Anonym\Route;
 
 use Closure;
-use Illuminate\View\View;
+use Anonym\Facades\App;
 use Anonym\Http\Request;
 use Anonym\Http\Response;
-use Anonym\View\ViewExecuteInterface;
+use Illuminate\View\View;
 
 /**
  * the class of action dispatcher
@@ -98,7 +98,7 @@ class ActionDispatcher implements ActionDispatcherInterface
 
         // find and run middleware
         if ($middleware = $this->findMiddleware($action)) {
-            app()->call([$this, 'middleware'], $middleware);
+            App::call([$this, 'middleware'], $middleware);
         }
 
         if (is_array($action)) {
@@ -116,7 +116,7 @@ class ActionDispatcher implements ActionDispatcherInterface
             return $this->handleResponse($response);
 
         } elseif ($action instanceof Closure) {
-            return $this->handleResponse(app()->call($action, ParameterBag::getParameters()));
+            return $this->handleResponse(App::call($action, ParameterBag::getParameters()));
         } else {
             return false;
         }
@@ -230,7 +230,7 @@ class ActionDispatcher implements ActionDispatcherInterface
      */
     private function callControllerMethod(Controller $controller, $method)
     {
-        return app()->call([$controller, $method], ParameterBag::getParameters());
+        return App::call([$controller, $method], ParameterBag::getParameters());
     }
 
     /**
