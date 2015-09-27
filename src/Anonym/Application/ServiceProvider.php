@@ -9,6 +9,8 @@
  */
 
 namespace Anonym\Application;
+
+use Closure;
 use Anonym\Facades\Event;
 use Illuminate\Container\Container;
 /**
@@ -40,8 +42,25 @@ abstract class ServiceProvider extends Container
         return $this;
     }
 
+    /**
+     * regiter an application after event
+     *
+     * @param Closure $after
+     * @return $this
+     */
+    public function after(Closure $after){
+        Application::after($after);
+        return $this;
+    }
 
-    public function after(){
-
+    /**
+     * register an application before event
+     *
+     * @param Closure $before
+     * @return $this
+     */
+    public function  before(Closure $before){
+        Application::before($before);
+        return $this;
     }
 }
