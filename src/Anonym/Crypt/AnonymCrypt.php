@@ -67,7 +67,7 @@
          * @return string
          */
         public function encode($value = ''){
-            $iv = mcrypt_create_iv($this->getIvSize(), $this->getRandomizer());
+            $iv = @mcrypt_create_iv($this->getIvSize(), $this->getRandomizer());
             $base = base64_encode(serialize($this->payloadCreator($this->encrypt($value, $iv), $iv)));
             return $base;
         }
@@ -83,7 +83,7 @@
         {
             $value = trim($value);
             try {
-                $crypted = mcrypt_encrypt($this->getAlogirtym(), $this->getSecurityKey(), $value, $this->getMode(), $iv);
+                $crypted = @mcrypt_encrypt($this->getAlogirtym(), $this->getSecurityKey(), $value, $this->getMode(), $iv);
                 return $crypted;
             } catch (Exception $e) {
                 //
@@ -144,7 +144,7 @@
             $iv = $payload['iv'];
             $value = $payload['value'];
             $value = trim($value);
-            return mcrypt_decrypt($this->getAlogirtym(), $this->getSecurityKey(), $value, $this->getMode(), $iv);
+            return @mcrypt_decrypt($this->getAlogirtym(), $this->getSecurityKey(), $value, $this->getMode(), $iv);
         }
 
         /**
