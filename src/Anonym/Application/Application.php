@@ -157,7 +157,7 @@ class Application extends Container
             'cookie' => ['Anonym\Cookie\CookieInterface'],
             'session' => ['Anonym\Session\StrogeInterface'],
             'config' => ['Anonym\Config\Reposity'],
-            'crypt' => ['crypting']
+            'crypt' => ['Anonym\Crypt\Crypter']
         ];
 
 
