@@ -14,6 +14,7 @@ use Anonym\Constructors\RegisterErrorHandlers;
 use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
+use Anonym\Support\Arr;
 use Illuminate\Container\Container;
 use Anonym\Patterns\Facade;
 use Closure;
@@ -135,6 +136,12 @@ class Application extends Container
 
     private function registerAliases(){
 
+        // register this container to facades
+        Facade::setApplication($this);
+
+        // register the alias loader
+        $this->setAliasLoader(new AliasLoader(Arr::get($this->getGeneral(), 'aliases')));
+        $this->getAliasLoader()->register();
     }
 
     /**
