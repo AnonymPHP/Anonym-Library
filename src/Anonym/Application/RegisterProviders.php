@@ -25,7 +25,7 @@ class RegisterProviders
      * @param Application $app
      * @throws ProviderException
      */
-    public function __construct(Application &$app)
+    public function __construct(Application $app)
     {
 
         $providers = Config::get('general.providers');
