@@ -10,8 +10,8 @@
 
 namespace Anonym\Http;
 
-
 use Anonym\Application\ServiceProvider;
+use Anonym\Facades\Redirect;
 
 /**
  * Class RedirectSenderProvider
@@ -19,5 +19,14 @@ use Anonym\Application\ServiceProvider;
  */
 class RedirectSenderProvider extends ServiceProvider
 {
+
+    /**
+     * determine and send redirect responses
+     */
+    public function register(){
+        if(Redirect::isStarted() && false === Redirect::isSended()){
+            Redirect::send();
+        }
+    }
 
 }
