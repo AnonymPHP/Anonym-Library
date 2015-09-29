@@ -11,12 +11,13 @@
 
 namespace Anonym\Http;
 
-use Anonym\Cookie\CookieInterface;
-use Anonym\Cookie\HeadersAlreadySendedException;
+use Anonym\Facades\Session;
 use Anonym\Facades\Request;
-use Anonym\Session\StrogeInterface;
 use Anonym\Support\ErrorBag;
 use Anonym\Route\AsCollector;
+use Anonym\Cookie\CookieInterface;
+use Anonym\Cookie\HeadersAlreadySendedException;
+
 
 /**
  * Class Redirect
@@ -51,19 +52,17 @@ class Redirect
      *
      * @var bool
      */
-    protected $sended;
+    protected $sended = false;
 
     /**
      * create a new instance with error bag
      *
      * @param ErrorBag $errorBag
-     * @param StrogeInterface $session
      * @param RedirectResponse $redirect
      */
-    public function __construct(ErrorBag $errorBag, StrogeInterface $session, RedirectResponse $redirect)
+    public function __construct(ErrorBag $errorBag, RedirectResponse $redirect)
     {
         $this->errorBag = $errorBag;
-        $this->session = $session;
         $this->redirector = $redirect;
     }
 
@@ -115,14 +114,16 @@ class Redirect
         }
 
         foreach ($name as $key => $message) {
-            $this->session->set($key, $message);
+            Session::set($key, $message);
         }
 
         return $this;
     }
 
-    public function isStarted(){
-        if($this->redirector->getTarget()){
+    public function isStarted()
+    {
+
+        if ($this->redirector->getTarget()) {
             return true;
         }
 
@@ -194,13 +195,12 @@ class Redirect
      *
      * @throws HeadersAlreadySendedException
      */
-   public function send(){
-       if(!$this->sended){
-           $this->redirector->send();
-       }else{
-           throw new HeadersAlreadySendedException('Headers already sended, you cant send them again');
-       }
-   }
-
-
+    public function send()
+    {
+        if (!$this->sended) {
+            $this->redirector->send();
+        } else {
+            throw new HeadersAlreadySendedException('Headers already sended, you cant send them again');
+        }
+    }
 }
