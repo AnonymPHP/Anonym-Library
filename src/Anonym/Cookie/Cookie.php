@@ -73,6 +73,8 @@ class Cookie implements CookieInterface
      */
     public function get($name = '')
     {
+        $name = $this->getEncoder()->encode($name);
+
         if (!is_string($name)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
         }
@@ -94,6 +96,8 @@ class Cookie implements CookieInterface
      */
     public function has($name = '')
     {
+        $name = $this->getEncoder()->encode($name);
+
         if (!is_string($name)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
         }
@@ -131,9 +135,12 @@ class Cookie implements CookieInterface
         $httpOnly = false
     ) {
 
+
         if (!is_string($name)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
         }
+
+        $name = $this->getEncoder()->encode($name);
 
         if (!is_string($value)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
@@ -157,6 +164,8 @@ class Cookie implements CookieInterface
      */
     public function delete($name)
     {
+        $name = $this->getEncoder()->encode($name);
+
         return $this->set($name, '');
     }
 
