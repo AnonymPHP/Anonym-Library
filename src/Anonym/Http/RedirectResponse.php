@@ -39,9 +39,11 @@ class RedirectResponse extends Response implements ResponseInterface
      */
     public function __construct($adress = '', $time = 0)
     {
-        parent::__construct();
         $this->setTarget($adress);
         $this->setTime($time);
+
+        parent::__construct();
+
     }
     /**
      *  Eski sayfaya geri döndürür
@@ -111,7 +113,8 @@ class RedirectResponse extends Response implements ResponseInterface
         }else{
             $this->header(sprintf('Refresh:%d, url=%s', $time, $target));
         }
-        $this->send();
+
+        parent::send();
     }
 
 
