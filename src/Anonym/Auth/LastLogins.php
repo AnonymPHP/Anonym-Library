@@ -18,16 +18,17 @@ use Anonym\Security\Authentication\Login;
  * Class LastLogins
  * @package Anonym\Auth
  */
-class LastLogins
+trait LastLogins
 {
-
 
     /**
      * the name of table
      *
      * @var string
      */
-    private $table;
+    private $loginTable;
+
+
     /**
      * @var Base
      */
@@ -42,7 +43,7 @@ class LastLogins
     {
 
         $this->base = $base;
-        $this->table = Login::LOGIN_LOGS_TABLE;
+        $this->loginTable = Login::LOGIN_LOGS_TABLE;
     }
 
     /**
@@ -90,7 +91,7 @@ class LastLogins
      * @return mixed
      */
     public function cleanLogs(){
-        return $this->base->query(sprintf('TRUNCATE %s', $this->table));
+        return $this->base->query(sprintf('TRUNCATE %s', $this->loginTable));
     }
     /**
      * build database query
@@ -103,7 +104,7 @@ class LastLogins
     private function buildQuery($limit = null, $username = null)
     {
 
-        $table = $this->table;
+        $table = $this->loginTable;
 
         return $this->base->read($table, function (Read $read) use ($limit, $username) {
             $read->select('*');
