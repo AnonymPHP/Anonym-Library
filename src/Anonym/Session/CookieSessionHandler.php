@@ -70,10 +70,19 @@ class CookieSessionHandler implements SessionHandlerInterface
     public function destroy($session_id)
     {
 
-        $this->cookie->delete($session_id);
+        $this->cookie->delete($this->prepareSession($session_id));
         return true;
     }
 
+    /**
+     * prepare name for session
+     *
+     * @param string $name
+     * @return string
+     */
+    private function prepareSession($name){
+        return $name."-session";
+    }
     /**
      * Cleanup old sessions
      * @link http://php.net/manual/en/sessionhandlerinterface.gc.php
@@ -121,6 +130,8 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
+        $session_id = $this->prepareSession($session_id);
+
         return $this->cookie->has($session_id) ? $this->cookie->get($session_id) : null;
     }
 
@@ -143,8 +154,9 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        $this->cookie->set($session_id, $session_data, $this->lifetime);
+        $session_id = $this->prepareSession($session_id),
 
+        $this->cookie->set($session_id, $session_data, $this->lifetime);
         return true;
     }
 }
