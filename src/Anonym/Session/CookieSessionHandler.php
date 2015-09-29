@@ -154,7 +154,7 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        $session_id = $this->prepareSession($session_id),
+        $session_id = $this->prepareSession($session_id);
 
         $this->cookie->set($session_id, $session_data, $this->lifetime);
         return true;
