@@ -155,6 +155,7 @@ class Redirect
      * redirect user to it referer url
      *
      * @param int $time
+     * @return $this
      */
     public function back($time = 0)
     {
