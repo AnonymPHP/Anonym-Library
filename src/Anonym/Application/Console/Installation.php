@@ -29,7 +29,7 @@ class Installation extends Command implements HandleInterface
      *
      * @var string
      */
-    protected $name = 'install {--no-optimize}';
+    protected $signature = 'install {--no-optimize}';
 
     /**
      * the description of command
