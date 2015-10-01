@@ -73,7 +73,9 @@ class Cookie implements CookieInterface
      */
     public function get($name = '')
     {
-        $name = $this->getEncoder()->encode($name);
+        if ($this->isEncode()) {
+            $name = $this->getEncoder()->encode($name);
+        }
 
         if (!is_string($name)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
@@ -96,7 +98,9 @@ class Cookie implements CookieInterface
      */
     public function has($name = '')
     {
-        $name = $this->getEncoder()->encode($name);
+        if ($this->isEncode()) {
+            $name = $this->getEncoder()->encode($name);
+        }
 
         if (!is_string($name)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
@@ -133,14 +137,17 @@ class Cookie implements CookieInterface
         $domain = null,
         $secure = false,
         $httpOnly = false
-    ) {
+    )
+    {
 
 
         if (!is_string($name)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
         }
 
-        $name = $this->getEncoder()->encode($name);
+        if ($this->isEncode()) {
+            $name = $this->getEncoder()->encode($name);
+        }
 
         if (!is_string($value)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
@@ -164,7 +171,9 @@ class Cookie implements CookieInterface
      */
     public function delete($name)
     {
-        $name = $this->getEncoder()->encode($name);
+        if ($this->isEncode()) {
+            $name = $this->getEncoder()->encode($name);
+        }
 
         return $this->set($name, '');
     }
@@ -175,9 +184,9 @@ class Cookie implements CookieInterface
      * @param string $name
      * @param string $value
      * @param string $path
-     * @param null   $domain
-     * @param bool   $secure
-     * @param bool   $httpOnly
+     * @param null $domain
+     * @param bool $secure
+     * @param bool $httpOnly
      * @return $this
      */
     public function forever(
@@ -187,7 +196,8 @@ class Cookie implements CookieInterface
         $domain = null,
         $secure = false,
         $httpOnly = false
-    ) {
+    )
+    {
         $this->set($name, $value, 2628000, $path, $domain, $secure, $httpOnly);
         return $this;
     }
