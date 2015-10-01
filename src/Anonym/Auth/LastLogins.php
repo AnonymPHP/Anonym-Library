@@ -18,7 +18,7 @@ use Anonym\Security\Authentication\Login;
  * Class LastLogins
  * @package Anonym\Auth
  */
-trait LastLogins
+class LastLogins
 {
 
     /**
