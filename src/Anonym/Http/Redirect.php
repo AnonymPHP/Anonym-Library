@@ -12,7 +12,6 @@
 namespace Anonym\Http;
 
 use Anonym\Facades\Session;
-use Anonym\Facades\Request;
 use Anonym\Support\ErrorBag;
 use Anonym\Route\AsCollector;
 use Anonym\Cookie\HeadersAlreadySendedException;
