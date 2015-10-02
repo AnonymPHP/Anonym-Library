@@ -29,7 +29,7 @@ class ExpressionFactory
      * @param string $expression
      */
     public function __construct($expression){
-        $this->expression = $expression
+        $this->expression = $expression;
     }
 
     /**
@@ -42,7 +42,7 @@ class ExpressionFactory
 
     /**
      * @param string $expression
-     * @return ExpressionFactory
+     * @return $this
      */
     public function setExpression($expression)
     {
@@ -60,7 +60,7 @@ class ExpressionFactory
 
     /**
      * @param array $values
-     * @return ExpressionFactory
+     * @return $this
      */
     public function setValues($values)
     {
