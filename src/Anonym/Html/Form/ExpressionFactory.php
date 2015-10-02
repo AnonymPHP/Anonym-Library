@@ -1,4 +1,5 @@
 <?php
+namespace Anonym\Html\Form;
 
 /**
  * This file belongs to the AnoynmFramework
