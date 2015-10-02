@@ -65,7 +65,7 @@ class Form
      * @param string $name
      * @return mixed
      */
-    public function expression($name)
+    protected function expression($name)
     {
         return Arr::get($this->expressions, $name, '');
     }
