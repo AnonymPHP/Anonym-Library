@@ -10,7 +10,10 @@
 
 namespace Anonym\Html\Form;
 
-
+/**
+ * Class Input
+ * @package Anonym\Html\Form
+ */
 class Input extends ExpressionFactory
 {
 
