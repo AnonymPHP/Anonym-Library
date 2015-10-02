@@ -10,11 +10,9 @@
 
 include 'vendor/autoload.php';
 
-use Illuminate\Container\Container;
-$container = new Container();
+use Anonym\Html\Form;
 
-$container->alias(PHPMailer::class, 'mailer');
-$mailer = $container->make('mailer');
+$form = new Form();
+$form->open();
 
-
-var_dump($mailer);
+var_dump($form);
