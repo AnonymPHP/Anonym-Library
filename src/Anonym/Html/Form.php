@@ -32,4 +32,13 @@ class Form
 
     ];
 
+    /**
+     * create a new form
+     *
+     * @param array $options
+     */
+    public function open(array $options = []){
+
+    }
+
 }
