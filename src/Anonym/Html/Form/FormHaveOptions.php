@@ -10,7 +10,10 @@
 
 namespace Anonym\Html\Form;
 
-
+/**
+ * Class FormHaveOptions
+ * @package Anonym\Html\Form
+ */
 trait FormHaveOptions
 {
 
