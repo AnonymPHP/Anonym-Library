@@ -16,5 +16,29 @@ namespace Anonym\Html\Form;
  */
 trait FormHaveOptions
 {
+    /**
+     * the type of array for options values
+     *
+     * @var array
+     */
+    protected $options;
 
+    /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param array $options
+     * @return FormHaveOptions
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+        return $this;
+    }
 }
+
