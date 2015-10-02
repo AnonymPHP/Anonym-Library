@@ -10,18 +10,8 @@
 
 namespace Anonym\Html\Form;
 
-/**
- * Class Open
- * @package Anonym\Html\Form
- */
-class Open extends ExpressionFactory
+
+trait FormHaveOptions
 {
 
-    use FormHaveOptions;
-
-    public function __construct(){
-
-    }
-
 }
-

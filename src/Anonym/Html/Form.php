@@ -10,6 +10,7 @@
 
 namespace Anonym\Html;
 use Anonym\Html\Form\Open;
+use Anonym\Support\Arr;
 
 /**
  * Class Form
@@ -41,12 +42,21 @@ class Form
     protected $values;
 
     /**
+     * return the expression value
+     *
+     * @param string $name
+     * @return mixed
+     */
+    protected function expression($name){
+        return Arr::get($this->expressions, $name, '');
+    }
+    /**
      * create a new form
      *
      * @param array $options
      */
     public function open(array $options = []){
-        $this->values[] = new Open($options);
+        $this->values[] = new Open($this->expression('open'), $options);
 
         return $this;
     }
