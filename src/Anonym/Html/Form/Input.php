@@ -18,6 +18,19 @@ class Input extends ExpressionFactory
 {
     use FormHaveOptions;
 
+
+    /**
+     * create a new instance and register expression and options
+     *
+     * @param string $expression
+     * @param array $options
+     */
+    public function __construct($expression, array $options = []){
+        parent::__construct($expression);
+
+        $this->setOptions($options);
+    }
+
     /**
      * create the form content
      *
