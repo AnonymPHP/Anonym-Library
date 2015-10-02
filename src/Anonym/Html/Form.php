@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Html;
+
 use Anonym\Facades\Config;
 use Anonym\Html\Form\Open;
 use Anonym\Support\Arr;
@@ -51,9 +52,11 @@ class Form
 
     /**
      *  create a new instance and register csrf status
+     *  @param bool $csrf
      */
-    public function __construct(){
-        $this->csrf = Config::get('security.csrf.status');
+    public function __construct($csrf = true)
+    {
+        $this->csrf = $csrf;
     }
 
     /**
@@ -62,16 +65,19 @@ class Form
      * @param string $name
      * @return mixed
      */
-    protected function expression($name){
+    protected function expression($name)
+    {
         return Arr::get($this->expressions, $name, '');
     }
+
     /**
      * create a new form
      *
      * @param array $options
      */
-    public function open(array $options = []){
-        $this->values[] = new Open($this->expression('open'), $options);
+    public function open(array $options = [])
+    {
+        $this->values[] = new Open($this->expression('open'), $options, $this->csrf);
 
         return $this;
     }
