@@ -11,7 +11,7 @@
 namespace Anonym\Html\Form;
 
 
-class Input
+class Input extends ExpressionFactory
 {
 
 }
