@@ -17,6 +17,11 @@ namespace Anonym\Html;
 class Form
 {
 
+    /**
+     * the type of array for expressions
+     *
+     * @var array
+     */
     public $expressions = [
 
         'open' => '<form :options>:token_input',
