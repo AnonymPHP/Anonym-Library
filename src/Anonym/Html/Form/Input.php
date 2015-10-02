@@ -16,7 +16,7 @@ namespace Anonym\Html\Form;
  */
 class Input extends ExpressionFactory
 {
-
+    use FormHaveOptions;
     /**
      * create the form content
      *
