@@ -31,7 +31,7 @@ abstract class ExpressionFactory
      *
      * @return mixed
      */
-    abstract function execute();
+    abstract public function execute();
     /**
      * @param string $expression
      */
