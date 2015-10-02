@@ -25,6 +25,6 @@ class Form
         'option' => '<option value=":value">:content</option>',
         'close' => '</form>'
 
-];
+    ];
 
 }
