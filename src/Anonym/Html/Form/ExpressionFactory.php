@@ -11,4 +11,60 @@
 class ExpressionFactory
 {
 
+    /**
+     * the string of expression
+     *
+     * @var string
+     */
+    protected $expression;
+
+    /**
+     * the type of array for values
+     *
+     * @var array
+     */
+    protected $values;
+
+    /**
+     * @param string $expression
+     */
+    public function __construct($expression){
+        $this->expression = $expression
+    }
+
+    /**
+     * @return string
+     */
+    public function getExpression()
+    {
+        return $this->expression;
+    }
+
+    /**
+     * @param string $expression
+     * @return ExpressionFactory
+     */
+    public function setExpression($expression)
+    {
+        $this->expression = $expression;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValues()
+    {
+        return $this->values;
+    }
+
+    /**
+     * @param array $values
+     * @return ExpressionFactory
+     */
+    public function setValues($values)
+    {
+        $this->values = $values;
+        return $this;
+    }
 }
