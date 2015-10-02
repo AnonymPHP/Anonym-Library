@@ -9,7 +9,7 @@ namespace Anonym\Html\Form;
  *
  * Thanks for using
  */
-class ExpressionFactory
+abstract class ExpressionFactory
 {
 
     /**
@@ -26,6 +26,12 @@ class ExpressionFactory
      */
     protected $values;
 
+    /**
+     * create the form content
+     *
+     * @return mixed
+     */
+    abstract function execute();
     /**
      * @param string $expression
      */
@@ -68,4 +74,5 @@ class ExpressionFactory
         $this->values = $values;
         return $this;
     }
+
 }
