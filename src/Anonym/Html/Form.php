@@ -10,8 +10,21 @@
 
 namespace Anonym\Html;
 
-
+/**
+ * Class Form
+ * @package Anonym\Html
+ */
 class Form
 {
+
+    public $expressions = [
+
+        'open' => '<form :options>:token_input',
+        'input' => '<input :options />',
+        'select' => '<select :options>:values</select>',
+        'option' => '<option value=":value">:content</option>',
+        'close' => '</form>'
+
+];
 
 }
