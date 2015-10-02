@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Html;
+use Anonym\Html\Form\Open;
 
 /**
  * Class Form
@@ -22,7 +23,7 @@ class Form
      *
      * @var array
      */
-    public $expressions = [
+    protected $expressions = [
 
         'open' => '<form :options>:token_input',
         'input' => '<input :options />',
@@ -33,12 +34,21 @@ class Form
     ];
 
     /**
+     * the values of expressions
+     *
+     * @var array
+     */
+    protected $values;
+
+    /**
      * create a new form
      *
      * @param array $options
      */
     public function open(array $options = []){
+        $this->values[] = new Open($options);
 
+        return $this;
     }
 
 }
