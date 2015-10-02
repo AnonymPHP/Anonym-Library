@@ -25,13 +25,14 @@ trait BuildCsrfField
      *
      * @return mixed
      */
-    public function createToken(){
+    public function createToken()
+    {
         return Csrf::getToken();
     }
 
-    public function createCsrfField(){
+    public function createCsrfField()
+    {
         $fieldName = Config::get('security.csrf.field_name');
-
 
     }
 }
