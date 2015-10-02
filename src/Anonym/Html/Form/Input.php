@@ -14,4 +14,13 @@ namespace Anonym\Html\Form;
 class Input extends ExpressionFactory
 {
 
+    /**
+     * create the form content
+     *
+     * @return mixed
+     */
+    function execute()
+    {
+
+    }
 }
