@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Html;
+use Anonym\Facades\Config;
 use Anonym\Html\Form\Open;
 use Anonym\Support\Arr;
 
@@ -40,6 +41,20 @@ class Form
      * @var array
      */
     protected $values;
+
+    /**
+     * the value of csrf security
+     *
+     * @var bool
+     */
+    protected $csrf;
+
+    /**
+     *  create a new instance and register csrf status
+     */
+    public function __construct(){
+        $this->csrf = Config::get('security.csrf.status');
+    }
 
     /**
      * return the expression value
