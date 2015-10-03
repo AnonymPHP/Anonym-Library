@@ -18,3 +18,4 @@ $form = new Form(false);
 
 echo $form->open();
 echo $form->input('form-control input-sm');
+echo $form->close();

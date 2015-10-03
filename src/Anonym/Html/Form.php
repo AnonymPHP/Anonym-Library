@@ -105,7 +105,7 @@ class Form
      * add a new submit button
      *
      * @param array $options
-     * @param Input
+     * @return Input
      */
     public function submit($options = [])
     {
@@ -126,7 +126,7 @@ class Form
      * create a new checkbox input
      *
      * @param array|string $options
-     * @return Form
+     * @return Input
      */
     public function checkbox($options)
     {
@@ -142,7 +142,11 @@ class Form
         return $this->input($options);
     }
 
-
+    /**
+     * create a new instance
+     *
+     * @return Close
+     */
     public function close(){
         return new Close($this->expression('close'));
     }
