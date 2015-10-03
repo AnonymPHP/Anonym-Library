@@ -13,6 +13,7 @@ namespace Anonym\Html;
 use Anonym\Facades\Config;
 use Anonym\Html\Form\Close;
 use Anonym\Html\Form\Open;
+use Anonym\Html\Form\Select;
 use Anonym\Html\Form\Input;
 use Anonym\Support\Arr;
 
@@ -101,7 +102,11 @@ class Form
     }
 
     public function select($options){
+        if (is_string($options)) {
+            $options = ['class' => $options];
+        }
 
+        return new Select($this->expression('select'), $options, $this);
     }
 
     /**
