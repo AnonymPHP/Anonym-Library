@@ -53,7 +53,7 @@ class Form
 
     /**
      *  create a new instance and register csrf status
-     *  @param bool $csrf
+     *  @param bool|true $csrf
      */
     public function __construct($csrf = true)
     {

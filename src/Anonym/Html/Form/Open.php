@@ -45,6 +45,8 @@ class Open extends ExpressionFactory
         $this->form = $form;
         $this->csrf = $csrf;
         $this->setOptions($this->prepareOptions($options));
+
+        var_dump($this->execute());
     }
 
     /**
