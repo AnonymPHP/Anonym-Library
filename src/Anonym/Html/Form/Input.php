@@ -43,6 +43,8 @@ class Input extends ExpressionFactory
     {
         $options = $this->buildOptions();
 
-
+        return $this->replaceTokens([
+            ':options' => $options
+        ]);
     }
 }
