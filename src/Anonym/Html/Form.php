@@ -83,7 +83,8 @@ class Form
             $options = ['class' => $options];
         }
 
-        $this->values[] = new Open($this->expression('open'), $options, $this->csrf, $this);
+        $open = new Open($this->expression('open'), $options, $this->csrf, $this);
+        $this->values[] = $open;
 
         return $this;
     }
