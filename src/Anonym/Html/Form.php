@@ -87,7 +87,7 @@ class Form
      *
      *
      * @param array|string $options
-     * @return $this
+     * @return Input
      */
     public function input($options = [])
     {
@@ -149,5 +149,27 @@ class Form
      */
     public function close(){
         return new Close($this->expression('close'));
+    }
+
+    /**
+     * create a new radio input
+     *
+     * @param array $options
+     * @return Input
+     */
+    public function radio($options = []){
+        if (is_string($options)) {
+            $options = ['class' => $options];
+        }elseif(is_bool($options)){
+            $options = [
+                'checked' => 'checked'
+            ];
+        }
+
+        if (!Arr::has($options, 'type')) {
+            Arr::set($options, 'type', 'radio');
+        }
+
+        return $this->input($options);
     }
 }
