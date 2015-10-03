@@ -17,5 +17,14 @@ namespace Anonym\Html\Form;
 class Close extends ExpressionFactory
 {
 
+    /**
+     * create the form content
+     *
+     * @return mixed
+     */
+    public function execute()
+    {
+        return $this->getExpression();
+    }
 }
 
