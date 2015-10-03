@@ -10,8 +10,12 @@
 
 namespace Anonym\Html\Form;
 
-
-class Close
+/**
+ * Class Close
+ * @package Anonym\Html\Form
+ */
+class Close extends ExpressionFactory
 {
 
 }
+
