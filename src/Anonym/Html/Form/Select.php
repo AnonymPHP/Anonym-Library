@@ -33,6 +33,7 @@ class Select extends ExpressionFactory
      * @var Form
      */
     protected $form;
+
     /**
      * create a new instance and register expression and options
      *
@@ -40,7 +41,8 @@ class Select extends ExpressionFactory
      * @param array $options
      * @param Form $form
      */
-    public function __construct($expression, $options = [], Form $form){
+    public function __construct($expression, $options = [], Form $form)
+    {
         parent::__construct($expression);
 
         $this->form = $form;
@@ -55,7 +57,8 @@ class Select extends ExpressionFactory
      * @param string $content
      * @return $this
      */
-    public function option($options = [], $content = ''){
+    public function option($options = [], $content = '')
+    {
         return $this->value($options);
     }
 
@@ -66,7 +69,8 @@ class Select extends ExpressionFactory
      * @param string $content
      * @return $this
      */
-    public function value($options = [], $content = ''){
+    public function value($options = [], $content = '')
+    {
         if (is_string($options)) {
             $options = ['value' => $options];
         }
@@ -82,10 +86,10 @@ class Select extends ExpressionFactory
      */
     public function execute()
     {
-         $values = '';
+        $values = '';
 
-        foreach($this->values as $value){
-
+        foreach ($this->values as $value) {
+            $values .= $value;
         }
 
     }
