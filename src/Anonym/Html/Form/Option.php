@@ -47,7 +47,10 @@ class Option extends ExpressionFactory
      */
     public function execute()
     {
-
+        return $this->replaceTokens([
+            ':options' => $this->buildOptions(),
+            ':content' => $this->content
+        ]);
     }
 }
 
