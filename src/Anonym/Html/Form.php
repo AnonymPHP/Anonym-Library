@@ -31,10 +31,10 @@ class Form
      */
     protected $expressions = [
 
-        'open' => '<form :options>:token_input',
-        'input' => '<input :options />',
-        'select' => '<select :options>:values</select>',
-        'option' => '<option :options>:content</option>',
+        'open' => "<form :options>:token_input \n",
+        'input' => "<input :options /> \n",
+        'select' => "<select :options>:values</select> \n",
+        'option' =>"<option :options>:content</option> \n",
         'close' => '</form>'
 
     ];
