@@ -94,7 +94,7 @@ class Form
             $options = ['class' => $options];
         }
 
-        $this->values[] = new Input($this->expression('input', $options));
+        $this->values[] = new Input($this->expression('input'), $options);
 
         return $this;
     }
