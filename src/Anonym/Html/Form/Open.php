@@ -73,7 +73,10 @@ class Open extends ExpressionFactory
     public function execute(){
         $formOptions = $this->buildOptions();
 
-
+        return $this->replaceTokens([
+            ':options' => $formOptions,
+            ':token_field' => true === $this->csrf ? $this->createCsrfField() : ''
+        ]);
     }
 }
 
