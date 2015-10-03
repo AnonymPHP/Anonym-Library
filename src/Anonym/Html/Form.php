@@ -120,4 +120,24 @@ class Form
 
         return $input;
     }
+
+    /**
+     * create a new checkbox input
+     *
+     * @param array|string $options
+     * @return Form
+     */
+    public function checkbox($options)
+    {
+
+        if (is_string($options)) {
+            $options = ['class' => $options];
+        }
+
+        if (!Arr::has($options, 'type')) {
+            Arr::set($options, 'type', 'checkbox');
+        }
+
+        return $this->input($options);
+    }
 }
