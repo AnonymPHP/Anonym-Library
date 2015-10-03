@@ -132,7 +132,7 @@ class SecurityProvider extends ServiceProvider
             App::singleton(
                 'security.csrf',
                 function () use ($field) {
-                    return (new CsrfToken())->setFormFieldName($field);
+                    return  (new CsrfToken())->setFormFieldName($field);
                 }
             );
 
