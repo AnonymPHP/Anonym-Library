@@ -92,6 +92,10 @@ class Select extends ExpressionFactory
             $values .= $value;
         }
 
+        return $this->replaceTokens([
+            ':options' => $this->buildOptions(),
+            ':values' => $values
+        ]);
     }
 }
 
