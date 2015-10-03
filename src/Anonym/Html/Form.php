@@ -100,6 +100,9 @@ class Form
         return $input;
     }
 
+    public function select($options){
+
+    }
 
     /**
      * add a new submit button
