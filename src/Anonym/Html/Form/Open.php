@@ -18,7 +18,7 @@ use Anonym\Html\Form;
 class Open extends ExpressionFactory
 {
 
-    use FormHaveOptions;
+    use FormHaveOptions, BuildCsrfField;
 
     /**
      * the instance of form
@@ -53,7 +53,7 @@ class Open extends ExpressionFactory
      * @return mixed
      */
     public function execute(){
-        
+
     }
 }
 
