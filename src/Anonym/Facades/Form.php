@@ -20,6 +20,9 @@ use Anonym\Patterns\Facade;
 class Form extends Facade
 {
 
+    /**
+     * @return Form
+     */
     protected static function getFacadeClass(){
         return new Form(Config::get('security.csrf.status'));
     }
