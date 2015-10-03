@@ -71,7 +71,7 @@ class Select extends ExpressionFactory
      */
     public function value($options = [], $content = '')
     {
-        if (is_string($options)) {
+        if (!is_array($options)) {
             $options = ['value' => $options];
         }
 
