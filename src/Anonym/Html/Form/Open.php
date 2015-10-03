@@ -43,7 +43,10 @@ class Open extends ExpressionFactory
         parent::__construct($expression);
         $this->form = $form;
         $this->csrf = $csrf;
-        $this->setOptions($options);
+        $this->setOptions($this->prepareOptions($options));
+    }
+
+    private function prepareOptions(array $options){
 
     }
 
@@ -53,6 +56,7 @@ class Open extends ExpressionFactory
      * @return mixed
      */
     public function execute(){
+        $formOptions = $this->buildOptions();
 
     }
 }
