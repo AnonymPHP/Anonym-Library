@@ -96,4 +96,13 @@ class Form
 
         return $input->execute();
     }
+
+
+    public function submit($options = []){
+        if (is_string($options)) {
+            $options = ['value' => $options];
+        }
+
+
+    }
 }
