@@ -14,11 +14,9 @@ ini_set('display_errors', 'On');
 use Anonym\Html\Form;
 
 $form = new Form(false);
-$form->open('test')
-    ->input([
-        'class' => 'input-sm',
-        'placeholder' => 'Test'
-    ]);
 
 
-var_dump($form);
+var_dump($form->input([
+    'class' => ['form-control', 'input-sm'],
+    'placeholder' => 'test'
+]));
