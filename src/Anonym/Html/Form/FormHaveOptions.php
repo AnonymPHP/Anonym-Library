@@ -69,7 +69,7 @@ trait FormHaveOptions
                 $value = $this->buildClassString($value);
             }
 
-            $created .= "$key = '$value' ";
+            $created .= "$key='$value' ";
         }
 
         return rtrim($created, ' ');
