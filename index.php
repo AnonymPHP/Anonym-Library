@@ -17,5 +17,5 @@ $form = new Form(false);
 
 
 echo $form->open();
-echo $form->input('form-control input-sm');
+echo $form->select()->value('1', 'aa')->value('2', 'bbb');
 echo $form->close();

@@ -107,7 +107,7 @@ class Form
      * @param  array|string $options
      * @return Select
      */
-    public function select($options){
+    public function select($options = []){
         if (is_string($options)) {
             $options = ['class' => $options];
         }
