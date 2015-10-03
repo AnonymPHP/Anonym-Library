@@ -51,6 +51,11 @@ trait FormHaveOptions
         $created = '';
 
         foreach($this->getOptions() as $key => $value){
+
+            if ($key === 'class') {
+                $value = $this->buildClassString($value);
+            }
+
             $created .= "$key = '$value' ";
         }
 
