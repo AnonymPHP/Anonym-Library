@@ -83,11 +83,19 @@ class Form
         return $this;
     }
 
+    /**
+     * add a new input
+     *
+     * @param array $options
+     * @return $this
+     */
     public function input($options = []){
         if (is_string($options)) {
             $options = ['class' => $options];
         }
 
         $this->values[] = new Input($this->expression('input', $options));
+
+        return $this;
     }
 }
