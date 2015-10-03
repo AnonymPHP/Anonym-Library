@@ -34,5 +34,6 @@ trait BuildCsrfField
     {
         $fieldName = Config::get('security.csrf.field_name');
 
+
     }
 }

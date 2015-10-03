@@ -45,7 +45,6 @@ class Open extends ExpressionFactory
         $this->csrf = $csrf;
         $this->setOptions($options);
 
-        var_dump($this->buildOptions());
     }
 
     /**
@@ -54,7 +53,7 @@ class Open extends ExpressionFactory
      * @return mixed
      */
     public function execute(){
-
+        
     }
 }
 
