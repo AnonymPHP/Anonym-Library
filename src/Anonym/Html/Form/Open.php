@@ -26,16 +26,23 @@ class Open extends ExpressionFactory
      * @var Form
      */
     protected $form;
+
+    /**
+     * @var bool
+     */
+    protected $csrf;
     /**
      * create a new instance and register expression and options
      *
      * @param string $expression
      * @param array $options
+     * @param bool|true $csrf
      * @param Form $form
      */
-    public function __construct($expression, array $options = [], Form $form = null){
+    public function __construct($expression, array $options = [], $csrf = true, Form $form = null){
         parent::__construct($expression);
         $this->form = $form;
+        $this->csrf = $csrf;
         $this->setOptions($options);
     }
 
