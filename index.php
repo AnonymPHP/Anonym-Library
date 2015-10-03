@@ -17,5 +17,12 @@ $form = new Form(false);
 
 
 echo $form->open();
-echo $form->select()->value('1', 'aa')->value('2', 'bbb');
+$select = $form->select();
+
+for($i = 0; $i<= 100; $i++){
+    $select->value($i, $i. 'content');
+}
+
+var_dump($select->execute());
+
 echo $form->close();
