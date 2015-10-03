@@ -78,7 +78,7 @@ class Form
      */
     public function open(array $options = [])
     {
-        $this->values[] = new Open($this->expression('open'), $options, $this->csrf);
+        $this->values[] = new Open($this->expression('open'), $options, $this->csrf, $this);
 
         return $this;
     }

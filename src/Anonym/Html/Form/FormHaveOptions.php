@@ -40,5 +40,10 @@ trait FormHaveOptions
         $this->options = $options;
         return $this;
     }
+
+    protected function buildOptions()
+    {
+
+    }
 }
 
