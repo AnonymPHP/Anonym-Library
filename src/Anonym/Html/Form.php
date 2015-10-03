@@ -165,6 +165,24 @@ class Form
         return new Close($this->expression('close'));
     }
 
+
+    /**
+     * create a date input
+     *
+     * @param array $options
+     * @return Input
+     */
+    public function date($options = []){
+        if (is_string($options)) {
+            $options = ['class' => $options];
+        }
+
+        if (!Arr::has($options, 'type')) {
+            Arr::set($options, 'type', 'date');
+        }
+
+        return $this->input($options);
+    }
     /**
      * create a new radio input
      *
