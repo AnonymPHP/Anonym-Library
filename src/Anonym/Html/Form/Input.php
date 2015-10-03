@@ -28,6 +28,9 @@ class Input extends ExpressionFactory
     public function __construct($expression, array $options = []){
         parent::__construct($expression);
 
+        if (!isset($options['type'])) {
+            $options['type'] = 'text';
+        }
         $this->setOptions($options);
     }
 
