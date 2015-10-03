@@ -101,6 +101,12 @@ class Form
         return $input;
     }
 
+    /**
+     * add a new select option
+     *
+     * @param  array|string $options
+     * @return Select
+     */
     public function select($options){
         if (is_string($options)) {
             $options = ['class' => $options];
