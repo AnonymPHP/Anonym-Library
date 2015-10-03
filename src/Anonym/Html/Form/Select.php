@@ -17,6 +17,7 @@ namespace Anonym\Html\Form;
 class Select extends ExpressionFactory
 {
 
+    use FormHaveOptions;
     /**
      * create the form content
      *
