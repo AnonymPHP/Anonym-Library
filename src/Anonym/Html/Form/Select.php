@@ -20,6 +20,12 @@ class Select extends ExpressionFactory
     use FormHaveOptions;
 
     /**
+     * the type of array for option values
+     *
+     * @var array
+     */
+    protected $values;
+    /**
      * create a new instance and register expression and options
      *
      * @param string $expression
@@ -30,6 +36,7 @@ class Select extends ExpressionFactory
 
         $this->setOptions($options);
     }
+
 
     /**
      * create the form content
