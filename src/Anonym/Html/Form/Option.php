@@ -17,6 +17,13 @@ namespace Anonym\Html\Form;
 class Option extends ExpressionFactory
 {
 
+    /**
+     *
+     *
+     * @var string
+     */
+    protected $content;
+
     use FormHaveOptions;
     /**
      * create a new instance and register expression and options
