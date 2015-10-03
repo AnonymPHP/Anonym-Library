@@ -82,6 +82,11 @@ class Select extends ExpressionFactory
      */
     public function execute()
     {
+         $values = '';
+
+        foreach($this->values as $value){
+
+        }
 
     }
 }
