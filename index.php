@@ -10,8 +10,6 @@
 
 include 'vendor/autoload.php';
 
-ini_set('display_errors', 'On');
 use Anonym\Html\Form;
-
 $form = new Form(false);
 
