@@ -8,11 +8,11 @@
      */
 
     namespace Anonym\Security;
+    use Anonym\Facades\Session;
     use Anonym\Security\Exception\VariableNotFoundException;
-    use Anonym\Session\SessionManager as Session;
-    use Anonym\Http\Input;
     use Anonym\Security\Exception\CsrfTokenMatchException;
     use Anonym\Security\CsrfTokenInterface;
+    use Anonym\Http\Input;
     /**
      * Class CsrfToken
      * @package Anonym\Security
@@ -31,22 +31,14 @@
          */
         private $securityKeyGenerate;
 
-        /**
-         * Session objesini saklar
-         *
-         * @var SessionInterface
-         */
-        private $session;
-
 
         /**
          * sınıfı başlatır
          */
-        public function __construct(Session $sessionManager = null)
+        public function __construct()
         {
             $this->useDefaultValues();
-            $this->setSession($sessionManager);
-            $this->getSession()->set('tokenName', $this->getFormFieldName());
+            Session::set('tokenName', $this->getFormFieldName());
         }
 
         /**
@@ -57,7 +49,7 @@
          */
         public function run()
         {
-            if ($this->getSession()->has('tokenName')) {
+            if (Session::has('tokenName')) {
                 $this->check();
             } else {
                 return false;
@@ -124,25 +116,6 @@
         public function setFormFieldName($formFieldName)
         {
             $this->formFieldName = $formFieldName;
-
-            return $this;
-        }
-
-        /**
-         * @return SessionInterface
-         */
-        public function getSession()
-        {
-            return $this->session;
-        }
-
-        /**
-         * @param Session $session
-         * @return CsrfToken
-         */
-        public function setSession(Session $session)
-        {
-            $this->session = $session;
 
             return $this;
         }
