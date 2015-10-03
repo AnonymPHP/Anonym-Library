@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Html\Form;
+use Anonym\Html\Form;
 
 /**
  * Class Open
@@ -20,14 +21,20 @@ class Open extends ExpressionFactory
     use FormHaveOptions;
 
     /**
+     * the instance of form
+     *
+     * @var Form
+     */
+    protected $form;
+    /**
      * create a new instance and register expression and options
      *
      * @param string $expression
      * @param array $options
      */
-    public function __construct($expression, array $options = []){
+    public function __construct($expression, array $options = [], Form $form = null){
         parent::__construct($expression);
-
+        $this->form = $form;
         $this->setOptions($options);
     }
 
