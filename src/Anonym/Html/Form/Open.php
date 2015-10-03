@@ -48,6 +48,8 @@ class Open extends ExpressionFactory
     }
 
     /**
+     * prepare options for build
+     *
      * @param array $options
      * @return array
      */
