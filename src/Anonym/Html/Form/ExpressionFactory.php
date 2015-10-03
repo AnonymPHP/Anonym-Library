@@ -88,4 +88,12 @@ abstract class ExpressionFactory
         return str_replace($keys, $values, $this->getExpression());
     }
 
+    /**
+     * create string value
+     *
+     * @return mixed
+     */
+    public function __toString(){
+        return $this->execute();
+    }
 }
