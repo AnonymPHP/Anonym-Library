@@ -20,7 +20,7 @@ class Select extends ExpressionFactory
     use FormHaveOptions;
 
     /**
-     * the type of array for option values
+     * the type of array to option values
      *
      * @var array
      */
