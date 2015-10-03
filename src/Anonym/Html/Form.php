@@ -86,7 +86,7 @@ class Form
         $open = new Open($this->expression('open'), $options, $this->csrf, $this);
         $this->values[] = $open;
 
-        return $this;
+        return $open->execute();
     }
 
     /**
