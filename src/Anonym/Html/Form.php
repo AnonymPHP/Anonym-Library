@@ -33,7 +33,7 @@ class Form
         'open' => '<form :options>:token_input',
         'input' => '<input :options />',
         'select' => '<select :options>:values</select>',
-        'option' => '<option value=":value">:content</option>',
+        'option' => '<option :options>:content</option>',
         'close' => '</form>'
 
     ];
