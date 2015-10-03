@@ -41,10 +41,18 @@ trait FormHaveOptions
         return $this;
     }
 
+    /**
+     * create class option
+     *
+     * @param $class
+     * @return string
+     */
     private function buildClassString($class){
         if (is_string($class)) {
             $class = (array) $class;
         }
+
+        return join(' ', $class);
     }
     /**
      * build options string
