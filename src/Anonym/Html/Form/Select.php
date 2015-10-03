@@ -48,7 +48,7 @@ class Select extends ExpressionFactory
         return $this->value($options);
     }
 
-    public function value(){
+    public function value($options = []){
 
     }
 
