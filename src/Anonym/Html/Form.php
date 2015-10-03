@@ -78,7 +78,7 @@ class Form
         }
 
         $open = new Open($this->expression('open'), $options, $this->csrf, $this);
-        return $open->execute();
+        return $open;
     }
 
     /**
@@ -96,10 +96,16 @@ class Form
 
         $input = new Input($this->expression('input'), $options);
 
-        return $input->execute();
+        return $input;
     }
 
 
+    /**
+     * add a new submit button
+     *
+     * @param array $options
+     * @param Input
+     */
     public function submit($options = [])
     {
         if (is_string($options)) {
@@ -112,6 +118,6 @@ class Form
 
         $input = new Input($this->expression('input'), $options);
 
-
+        return $input;
     }
 }
