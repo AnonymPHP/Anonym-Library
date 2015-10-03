@@ -48,6 +48,12 @@ class Select extends ExpressionFactory
         return $this->value($options);
     }
 
+    /**
+     * add a new option value
+     *
+     * @param array $options
+     * @return $this
+     */
     public function value($options = []){
 
     }
