@@ -79,12 +79,14 @@ abstract class ExpressionFactory
      * replace tokens and return new string
      *
      * @param array $tokens
-     * @param array $values
      * @param string $expression
      * @return mixed
      */
-    public function replaceTokens($tokens, $values, $expression){
-        return str_replace($tokens, $values, $expression);
+    public function replaceTokens($tokens, $expression){
+        $keys = array_keys($tokens);
+        $values = array_values($tokens);
+
+        return str_replace($keys, $values, $expression);
     }
 
 }

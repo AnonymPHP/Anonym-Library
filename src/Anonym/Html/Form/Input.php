@@ -41,6 +41,8 @@ class Input extends ExpressionFactory
      */
     public function execute()
     {
+        $options = $this->buildOptions();
+
 
     }
 }
