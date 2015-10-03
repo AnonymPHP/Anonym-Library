@@ -16,7 +16,5 @@ use Anonym\Html\Form;
 $form = new Form(false);
 
 
-var_dump($form->input([
-    'class' => ['form-control', 'input-sm'],
-    'placeholder' => 'test'
-]));
+echo $form->open();
+echo $form->input('form-control input-sm');
