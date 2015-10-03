@@ -14,6 +14,6 @@ ini_set('display_errors', 'On');
 use Anonym\Html\Form;
 
 $form = new Form();
-$form->open();
+$form->open('test');
 
 var_dump($form);

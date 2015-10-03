@@ -74,9 +74,10 @@ class Form
     /**
      * create a new form
      *
-     * @param array $options
+     * @param array|string $options
+     * @return $this
      */
-    public function open(array $options = [])
+    public function open($options = [])
     {
         if (is_string($options)) {
             $options = ['class' => $options];
@@ -90,7 +91,7 @@ class Form
     /**
      * add a new input
      *
-     * @param array $options
+     * @param array|string $options
      * @return $this
      */
     public function input($options = []){
