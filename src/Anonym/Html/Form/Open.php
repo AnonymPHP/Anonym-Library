@@ -10,6 +10,7 @@
 
 namespace Anonym\Html\Form;
 use Anonym\Html\Form;
+use Anonym\Support\Arr;
 
 /**
  * Class Open
@@ -51,7 +52,15 @@ class Open extends ExpressionFactory
      * @return array
      */
     private function prepareOptions(array $options){
+        if (!Arr::has($options, 'method')) {
+            Arr::set($options, 'method', 'post');
+        }
 
+        if (!Arr::has($options, 'action')) {
+            Arr::set($options, 'action', '');
+        }
+
+        return $options;
     }
 
     /**
