@@ -41,9 +41,20 @@ trait FormHaveOptions
         return $this;
     }
 
+    /**
+     * build options string
+     *
+     * @return string
+     */
     protected function buildOptions()
     {
+        $created = '';
 
+        foreach($this->getOptions() as $key => $value){
+            $created .= "$key = '$value' ";
+        }
+
+        return rtrim($created, ' ');
     }
 }
 
