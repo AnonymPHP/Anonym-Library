@@ -46,6 +46,10 @@ class Open extends ExpressionFactory
         $this->setOptions($this->prepareOptions($options));
     }
 
+    /**
+     * @param array $options
+     * @return array
+     */
     private function prepareOptions(array $options){
 
     }
