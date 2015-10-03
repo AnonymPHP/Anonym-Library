@@ -42,10 +42,14 @@ class Select extends ExpressionFactory
      * add a option
      *
      * @param array $options
-     * @return mixed
+     * @return $this
      */
     public function option($options = []){
         return $this->value($options);
+    }
+
+    public function value(){
+
     }
 
 
