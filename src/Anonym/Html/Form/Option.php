@@ -18,7 +18,7 @@ class Option extends ExpressionFactory
 {
 
     /**
-     *
+     * the content of option element
      *
      * @var string
      */
