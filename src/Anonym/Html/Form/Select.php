@@ -59,7 +59,7 @@ class Select extends ExpressionFactory
             $options = ['value' => $options];
         }
 
-
+        $this->values[] = new Option();
     }
 
 
