@@ -10,7 +10,10 @@
 
 namespace Anonym\Html\Form;
 
-
+/**
+ * Class Select
+ * @package Anonym\Html\Form
+ */
 class Select
 {
 
