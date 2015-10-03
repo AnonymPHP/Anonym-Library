@@ -34,6 +34,6 @@ trait BuildCsrfField
     {
         $fieldName = Config::get('security.csrf.field_name');
 
-
+        $input = new Input($this->form->expression('input'));
     }
 }
