@@ -13,7 +13,15 @@ namespace Anonym\Facades;
 
 use Anonym\Patterns\Facade;
 
+/**
+ * Class Form
+ * @package Anonym\Facades
+ */
 class Form extends Facade
 {
+
+    protected static function getFacadeClass(){
+        return new Form(Config::get('security.csrf.status'));
+    }
 
 }
