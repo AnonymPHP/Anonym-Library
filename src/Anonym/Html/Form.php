@@ -78,6 +78,10 @@ class Form
      */
     public function open(array $options = [])
     {
+        if (is_string($options)) {
+            $options = ['class' => $options];
+        }
+
         $this->values[] = new Open($this->expression('open'), $options, $this->csrf, $this);
 
         return $this;
