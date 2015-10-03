@@ -11,6 +11,7 @@
 namespace Anonym\Html;
 
 use Anonym\Facades\Config;
+use Anonym\Html\Form\Close;
 use Anonym\Html\Form\Open;
 use Anonym\Html\Form\Input;
 use Anonym\Support\Arr;
@@ -139,5 +140,10 @@ class Form
         }
 
         return $this->input($options);
+    }
+
+
+    public function close(){
+        return new Close($this->expression('close'));
     }
 }
