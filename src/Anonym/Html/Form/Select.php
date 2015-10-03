@@ -62,14 +62,17 @@ class Select extends ExpressionFactory
      * add a new option value
      *
      * @param array $options
+     * @param string $content
      * @return $this
      */
-    public function value($options = []){
+    public function value($options = [], $content = ''){
         if (is_string($options)) {
             $options = ['value' => $options];
         }
 
-        $this->values[] = new Option($this->form->expression('option'), $options);
+
+
+        $this->values[] = new Option($this->form->expression('option'), $options, $content);
     }
 
 
