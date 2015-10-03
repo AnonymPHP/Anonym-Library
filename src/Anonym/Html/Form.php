@@ -37,12 +37,6 @@ class Form
 
     ];
 
-    /**
-     * the values of expressions
-     *
-     * @var array
-     */
-    protected $values;
 
     /**
      * the value of csrf security
@@ -75,7 +69,7 @@ class Form
      * create a new form
      *
      * @param array|string $options
-     * @return $this
+     * @return string
      */
     public function open($options = [])
     {
@@ -84,8 +78,6 @@ class Form
         }
 
         $open = new Open($this->expression('open'), $options, $this->csrf, $this);
-        $this->values[] = $open;
-
         return $open->execute();
     }
 
