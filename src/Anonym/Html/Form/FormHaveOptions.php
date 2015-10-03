@@ -42,7 +42,7 @@ trait FormHaveOptions
     }
 
     /**
-     * create class option
+     * build class option
      *
      * @param $class
      * @return string
