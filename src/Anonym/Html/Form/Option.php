@@ -31,7 +31,7 @@ class Option extends ExpressionFactory
      * @param string $expression
      * @param array $options
      */
-    public function __construct($expression, $options = []){
+    public function __construct($expression, $options = [], $content = ''){
         parent::__construct($expression);
 
         $this->setOptions($options);
