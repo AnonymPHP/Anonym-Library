@@ -41,6 +41,11 @@ trait FormHaveOptions
         return $this;
     }
 
+    private function buildClassString($class){
+        if (is_string($class)) {
+            $class = (array) $class;
+        }
+    }
     /**
      * build options string
      *
