@@ -55,6 +55,10 @@ class Select extends ExpressionFactory
      * @return $this
      */
     public function value($options = []){
+        if (is_string($options)) {
+            $options = ['value' => $options];
+        }
+
 
     }
 
