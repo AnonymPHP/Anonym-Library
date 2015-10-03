@@ -30,6 +30,11 @@ trait BuildCsrfField
         return Csrf::getToken();
     }
 
+    /**
+     * create csrf token field
+     *
+     * @return mixed
+     */
     public function createCsrfField()
     {
         $fieldName = Config::get('security.csrf.field_name');
@@ -39,5 +44,7 @@ trait BuildCsrfField
             'value' => $this->createToken(),
             'type' => 'hidden'
         ]);
+
+        return $input->execute();
     }
 }
