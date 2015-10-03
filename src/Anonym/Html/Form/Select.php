@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Html\Form;
+use Anonym\Html\Form;
 
 /**
  * Class Select
@@ -25,15 +26,23 @@ class Select extends ExpressionFactory
      * @var array
      */
     protected $values;
+
+    /**
+     * the instance of Form
+     *
+     * @var Form
+     */
+    protected $form;
     /**
      * create a new instance and register expression and options
      *
      * @param string $expression
      * @param array $options
      */
-    public function __construct($expression, $options = []){
+    public function __construct($expression, $options = [], Form $form){
         parent::__construct($expression);
 
+        $this->form = $form;
         $this->setOptions($options);
     }
 
