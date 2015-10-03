@@ -76,6 +76,7 @@ class Select extends ExpressionFactory
         }
 
         $this->values[] = new Option($this->form->expression('option'), $options, $content);
+        return $this;
     }
 
 
