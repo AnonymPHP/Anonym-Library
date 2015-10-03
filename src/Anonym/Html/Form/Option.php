@@ -10,8 +10,12 @@
 
 namespace Anonym\Html\Form;
 
-
-class Option
+/**
+ * Class Option
+ * @package Anonym\Html\Form
+ */
+class Option extends ExpressionFactory
 {
 
 }
+
