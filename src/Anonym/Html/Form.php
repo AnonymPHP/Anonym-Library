@@ -12,6 +12,7 @@ namespace Anonym\Html;
 
 use Anonym\Facades\Config;
 use Anonym\Html\Form\Open;
+use Anonym\Html\Form\Input;
 use Anonym\Support\Arr;
 
 /**
@@ -82,4 +83,11 @@ class Form
         return $this;
     }
 
+    public function input($options = []){
+        if (is_string($options)) {
+            $options = ['class' => $options];
+        }
+
+        $this->values[] = new Input($this->expression('input', $options));
+    }
 }
