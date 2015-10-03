@@ -47,7 +47,7 @@ class Form
 
     /**
      *  create a new instance and register csrf status
-     *  @param bool|true $csrf
+     * @param bool|true $csrf
      */
     public function __construct($csrf = true)
     {
@@ -84,24 +84,33 @@ class Form
     /**
      * add a new input
      *
+     *
      * @param array|string $options
      * @return $this
      */
-    public function input($options = []){
+    public function input($options = [])
+    {
         if (is_string($options)) {
             $options = ['class' => $options];
         }
 
-        $input =  new Input($this->expression('input'), $options);
+        $input = new Input($this->expression('input'), $options);
 
         return $input->execute();
     }
 
 
-    public function submit($options = []){
+    public function submit($options = [])
+    {
         if (is_string($options)) {
             $options = ['value' => $options];
         }
+
+        if (!Arr::has($options, 'type')) {
+            Arr::set($options, 'type', 'submit');
+        }
+
+        $input = new Input($this->expression('input'), $options);
 
 
     }
