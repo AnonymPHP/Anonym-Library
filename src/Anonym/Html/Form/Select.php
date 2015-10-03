@@ -38,6 +38,16 @@ class Select extends ExpressionFactory
     }
 
 
+    /**
+     * add a option
+     *
+     * @param array $options
+     * @return mixed
+     */
+    public function option($options = []){
+        return $this->value($options);
+    }
+
 
     /**
      * create the form content
