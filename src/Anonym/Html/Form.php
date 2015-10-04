@@ -116,6 +116,23 @@ class Form
     }
 
     /**
+     * add a new select option
+     *
+     * @param  array|string $options
+     * @return Select
+     */
+    public function  multipileSelect($options = []){
+        if (is_string($options)) {
+            $options = ['class' => $options];
+        }
+
+        if (!Arr::has($options, 'multipile')) {
+            Arr::set($options, 'multipile', 'multipile');
+        }
+
+        return new Select($this->expression('select'), $options, $this);
+    }
+    /**
      * add a new submit button
      *
      * @param array $options
