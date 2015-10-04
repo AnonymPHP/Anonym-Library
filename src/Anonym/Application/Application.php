@@ -146,7 +146,6 @@ class Application extends Container
         // register this container to facades
         Facade::setApplication($this);
 
-
         $aliases = [
 
             'app' => ['Anonym\Application\Application', 'Illımunate\Container\Container'],
