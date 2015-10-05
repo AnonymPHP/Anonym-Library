@@ -78,7 +78,7 @@ class SessionServiceProvider extends ServiceProvider
 
         $app = $this;
 
-        $this->bind(Stroge::class, function () use ($app) {
+        $this->singleton(Stroge::class, function () use ($app) {
             $driver = Config::get('stroge.session.driver');
 
             return $app->make('session')->driver($driver);
