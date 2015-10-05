@@ -16,6 +16,10 @@ use Anonym\Application\ServiceProvider;
 use Anonym\Http\Request;
 use Anonym\Security\Validation;
 
+/**
+ * Class RequestConstructor
+ * @package Anonym\Constructors
+ */
 class RequestConstructor extends ServiceProvider
 {
 
