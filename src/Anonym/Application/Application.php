@@ -338,4 +338,13 @@ class Application extends Container
         }
     }
 
+    /**
+     * get the providers list
+     *
+     * @return array
+     */
+    public function getProviders(){
+        return array_merge(Arr::get($this->getGeneral(), 'providers', []), $this->constructors);
+    }
+
 }
