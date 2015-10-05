@@ -41,7 +41,6 @@ class LastLogins
      */
     public function __construct(Base $base)
     {
-
         $this->base = $base;
         $this->loginTable = Login::LOGIN_LOGS_TABLE;
     }
