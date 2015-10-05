@@ -33,9 +33,9 @@ class RegisterErrorHandlers extends ServiceProvider
      *
      * @param Application $app
      */
-    public function __construct(Application $app){
-        $this->handler = $app->make(Handler::class);
-        $this->handler->setDebug($app->getGeneral()['debug'])->setLog($app->getGeneral()['log'])->fire();
+    public function register(){
+        $this->handler = $this->make(Handler::class);
+        $this->handler->setDebug($this->app()->getGeneral()['debug'])->setLog($app->getGeneral()['log'])->fire();
         $this->registerErrorHandler();
         $this->registerExceptionHandler();
 
