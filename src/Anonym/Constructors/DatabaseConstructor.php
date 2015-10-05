@@ -12,6 +12,7 @@ namespace Anonym\Constructors;
 
 
 use Anonym\Application\Application;
+use Anonym\Application\ServiceProvider;
 use Anonym\Database\Base;
 use Anonym\Facades\App;
 use Anonym\Facades\Config;
@@ -22,14 +23,14 @@ use Anonym\Support\Arr;
  * Class DatabaseConstructor
  * @package Anonym\Constructors
  */
-class DatabaseConstructor
+class DatabaseConstructor extends ServiceProvider
 {
 
     /**
      *  register the database base
      *
      */
-    public function __construct()
+    public function register()
     {
 
 
