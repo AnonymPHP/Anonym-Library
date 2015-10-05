@@ -11,6 +11,7 @@
 namespace Anonym\Constructors;
 
 use Anonym\Application\Application;
+use Anonym\Application\ServiceProvider;
 use Anonym\Cache\MemcacheDriver;
 use Anonym\Cache\RedisCacheDriver;
 use Anonym\Config\ApcReposity;
@@ -27,23 +28,21 @@ use Anonym\Support\Arr;
  * Class ConfigConstructor
  * @package Anonym\Constructors
  */
-class ConfigConstructor
+class ConfigConstructor extends ServiceProvider
 {
 
-
     /**
-     * create a new instance and set the configs
-     *
+     * run the application
      */
-    public function __construct(Application $application)
+    public function register()
     {
 
-        $cachedPath = $application->getSystemPath() . 'cached_configs.php';
+        $cachedPath = $this->getSystemPath() . 'cached_configs.php';
 
-        $application->singleton('config', function () use ($application, $cachedPath) {
+        $this->singleton('config', function () use ($this, $cachedPath) {
 
             $return = null;
-            $loaded = (new ConfigLoader($application->getConfigPath(), $cachedPath))->loadConfigs();
+            $loaded = (new ConfigLoader($this->getConfigPath(), $cachedPath))->loadConfigs();
 
             $driver = Arr::get($loaded, 'general.config');
             switch ($driver) {
