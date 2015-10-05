@@ -28,9 +28,8 @@ class RegisterProviders
     public function __construct(Application $app)
     {
 
-        $providers = Config::get('general.providers');
 
-        foreach ($providers as $provider) {
+        foreach ($app->getProviders() as $provider) {
             $provider = $app->make($provider, ['app' => $app]);
             $app = $provider->app();
 
