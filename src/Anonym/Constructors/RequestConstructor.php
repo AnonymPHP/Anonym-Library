@@ -12,18 +12,18 @@ namespace Anonym\Constructors;
 
 
 use Anonym\Application\Application;
+use Anonym\Application\ServiceProvider;
 use Anonym\Http\Request;
 use Anonym\Security\Validation;
 
-class RequestConstructor
+class RequestConstructor extends ServiceProvider
 {
 
     /**
      * add the request  and response to container
      *
-     * @param Application $app
      */
-    public function __construct(Application $app)
+    public function register()
     {
 
         $app->singleton('validation', function(){
