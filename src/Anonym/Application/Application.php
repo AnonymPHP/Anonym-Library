@@ -10,98 +10,332 @@
 
 namespace Anonym\Application;
 
+use Anonym\Constructors\RegisterErrorHandlers;
+use Anonym\Constructors\DatabaseConstructor;
+use Anonym\Constructors\RequestConstructor;
+use Anonym\Constructors\ConfigConstructor;
+use Illuminate\Container\Container;
+use Anonym\Patterns\Facade;
+use Anonym\Support\Arr;
 use Closure;
-use Anonym\Facades\Event;
 
 /**
- * Class ServiceProvider
+ * the starter class of framework
+ *
+ * Class Application
  * @package Anonym\Application
  */
-abstract class ServiceProvider
+class Application extends Container
 {
 
     /**
-     * the instance of application
+     * Applications class repository
      *
-     * @var Application
+     * @var array
      */
-    protected $app;
+    private $constructors = [
+        RegisterErrorHandlers::class,
+        ConfigConstructor::class,
+        DatabaseConstructor::class,
+        RequestConstructor::class,
+        RegisterProviders::class
+    ];
 
     /**
-     * register the provider
+     * the name of application
      *
-     * @return mixed
+     * @var string
      */
-    abstract public function register();
+    private $name;
 
     /**
-     * create a new instance and register application
+     * the version of application
      *
-     * @param Application $application
+     * @var int
      */
-    public function __construct(Application $application)
+    private $version;
+
+    /**
+     * the general configs
+     *
+     * @var array
+     */
+    private $general;
+
+    /**
+     * the alias loader
+     *
+     * @var AliasLoader
+     */
+    private $aliasLoader;
+
+    /**
+     * this callback will execute before application start
+     *
+     * @var Closure
+     */
+    protected static $before;
+
+    /**
+     * this callback will execute after application start
+     *
+     * @var Closure
+     */
+    protected static $after;
+
+    /**
+     *
+     * @param string name the name of framework application
+     * @param int version the version of framework application
+     *
+     */
+    public function __construct($name = '', $version = 1)
     {
-        $this->app = $application;
+        $this->name = $name;
+        $this->version = $version;
+
+        $this->runApplicationWithEvents();
+    }
+
+
+    /**
+     * run application with before and after events
+     *
+     *
+     */
+    protected function runApplicationWithEvents()
+    {
+        if (static::$before) {
+            $this->runBeforeCallbacks();
+        }
+
+        // read configs/general.php for register aliases
+        $this->readGeneralConfigs();
+
+        // register all aliases
+        $this->registerAliases();
+
+        // register helpers;
+        $this->resolveHelpers();
+
+        // resolve bootstrap classes
+        $this->resolveApplications();
+
+        if (static::$after) {
+            $this->runAfterCallbacks();
+        }
     }
 
     /**
-     * listen a event
-     *
-     * @param string $listen
-     * @param mixed $callback
-     * @return $this
+     * read configs/general.php for use aliases
      */
-    public function listenEvent($listen, $callback)
+    private function readGeneralConfigs()
     {
-        Event::listen($listen, $callback);
 
-        return $this;
+        if (file_exists($path = $this->getConfigPath() . 'general.php')) {
+            $this->setGeneral(include $path);
+        }
     }
 
     /**
-     * regiter an application after event
-     *
-     * @param Closure $after
-     * @return $this
+     *  register all aliases and alias loader
      */
-    public function after(Closure $after)
+    private function registerAliases()
     {
-        Application::after($after);
-        return $this;
+
+        // register this container to facades
+        Facade::setApplication($this);
+
+        $aliases = [
+
+            'app' => ['Anonym\Application\Application', 'Illımunate\Container\Container'],
+            'redirect' => ['Anonym\Http\Redirect'],
+            'validation' => ['Anonym\Support\Validation'],
+            'route' => ['Anonym\Route\RouteCollector'],
+            'event' => ['Anonym\Event\EventDispatcher'],
+            'cookie' => ['Anonym\Cookie\CookieInterface'],
+            'session' => ['Anonym\Session\StrogeInterface'],
+            'config' => ['Anonym\Config\Reposity'],
+            'crypt' => ['Anonym\Crypt\Crypter'],
+            'view' =>  ['Anonym\View\View']
+        ];
+
+
+        // register aliases
+        foreach ($aliases as $key => $alias) {
+
+            foreach ((array) $alias as $abstract) {
+                $this->alias($abstract, $key);
+            }
+        }
+
+        // register the alias loader
+        $this->setAliasLoader(new AliasLoader(Arr::get($this->getGeneral(), 'alias')));
+        $this->getAliasLoader()->register();
     }
 
+    /**
+     *  run defined before callbacks
+     *
+     */
+    private function runBeforeCallbacks()
+    {
+        foreach (static::$before as $before) {
+            if (is_callable($before)) {
+                $before($this);
+            }
+        }
+    }
 
     /**
-     * register an application before event
+     *  run defined after callbacks
+     *
+     */
+    private function runAfterCallbacks()
+    {
+        foreach (static::$after as $after) {
+            if (is_callable($after)) {
+                $after($this);
+            }
+        }
+    }
+
+    /**
+     * register before callback
      *
      * @param Closure $before
-     * @return $this
      */
-    public function  before(Closure $before)
+    public static function before(Closure $before)
     {
-        Application::before($before);
+        static::$before[] = $before;
+    }
+
+    /**
+     * register after callback
+     *
+     * @param Closure $after
+     */
+    public static function after(Closure $after)
+    {
+        static::$after[] = $after;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompiledPath()
+    {
+        return RESOURCE . 'Application/_compiled.php.cache';
+    }
+
+    /**
+     * return the config files path
+     *
+     * @return mixed
+     */
+    public function getConfigPath()
+    {
+        return CONFIG;
+    }
+
+    /**
+     * return the application path
+     *
+     * @return mixed
+     */
+    public function getApplicationPath(){
+        return APP;
+    }
+
+    /**
+     * throw an http exception with given datas
+     *
+     * @param int $code
+     * @param string $message
+     * @param array $headers
+     * @throws HttpException
+     */
+    public function abort($code = 503, $message = '', array $headers = [])
+    {
+        throw new HttpException($code, $message, $headers);
+    }
+
+
+    /**
+     * @return AliasLoader
+     */
+    public function getAliasLoader()
+    {
+        return $this->aliasLoader;
+    }
+
+    /**
+     * @param AliasLoader $aliasLoader
+     */
+    public function setAliasLoader($aliasLoader)
+    {
+        $this->aliasLoader = $aliasLoader;
+    }
+
+
+    /**
+     * resolve the helpers
+     */
+    private function resolveHelpers()
+    {
+
+        if(count($helpers = Arr::get($this->getGeneral(), 'helpers', []))){
+
+            foreach($helpers as $helper){
+                if (file_exists($helper)) {
+                    include $helper;
+                }
+            }
+
+        }
+
+    }
+
+
+    /**
+     * return system path
+     *
+     * @return mixed
+     */
+    public function getSystemPath()
+    {
+        return SYSTEM;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGeneral()
+    {
+        return $this->general;
+    }
+
+    /**
+     * @param array $general
+     * @return Application
+     */
+    public function setGeneral($general)
+    {
+        $this->general = $general;
         return $this;
     }
 
     /**
-     * return the application instance
-     *
-     * @return Application
+     *  resolve the constructor classes
      */
-    public function app()
+    private function resolveApplications()
     {
-        return $this->app;
+        $Applications = $this->constructors;
+        foreach ($Applications as $boot) {
+            if (is_string($boot)) {
+                $this->singleton($boot, new $boot($this));
+            }
+        }
     }
 
-    /**
-     * call the method from application
-     *
-     * @param string $method
-     * @param array $args
-     * @return mixed
-     */
-    public function __call($method, $args)
-    {
-        return call_user_func_array([$this->app(), $method], $args);
-    }
 }
