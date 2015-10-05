@@ -27,7 +27,7 @@ class CookieServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $app = $this;
+        $app = $this->app();
 
         $this->singleton(CookieInterface::class, function () use(&$app){
             $configs = Config::get('stroge.cookie.crypting');
