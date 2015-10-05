@@ -10,6 +10,7 @@
 
 namespace Anonym\Constructors;
 
+use Anonym\Application\ServiceProvider;
 use Anonym\Support\Handler;
 use Anonym\Application\Application;
 
@@ -17,7 +18,7 @@ use Anonym\Application\Application;
  * Class RegisterErrorHandlers
  * @package Anonym\Constructors
  */
-class RegisterErrorHandlers
+class RegisterErrorHandlers extends ServiceProvider
 {
 
     /**
