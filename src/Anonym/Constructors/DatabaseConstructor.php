@@ -34,7 +34,7 @@ class DatabaseConstructor extends ServiceProvider
     {
 
 
-        if (true === Config::get('database.autostart')) {
+        if (true === $this->app['config']->get('database.autostart')) {
             $this->singleton(
                 'database.base',
                 function () {
