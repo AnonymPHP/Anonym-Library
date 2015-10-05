@@ -30,15 +30,16 @@ class RequestConstructor extends ServiceProvider
     public function register()
     {
 
-        $app->singleton('validation', function(){
+        $this->singleton('validation', function(){
 
             return new Validation();
         });
 
+        $app = &$this->app;
         // register the request
-        $app->bind(
+        $this->singleton(
             'http.request',
-            function () use ($app) {
+            function () use (&$app) {
 
                 return new Request($app->make('validation'));
             },
@@ -46,9 +47,9 @@ class RequestConstructor extends ServiceProvider
         );
 
         // register the response
-        $app->bind(
+        $this->bind(
             'http.response',
-            function () use ($app) {
+            function () use (&$app) {
                 return $app->make('http.request')->getResponse();
             },
             true
