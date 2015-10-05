@@ -118,9 +118,6 @@ class Application extends Container
         // register helpers;
         $this->resolveHelpers();
 
-        // resolve bootstrap classes
-        $this->resolveApplications();
-
         if (static::$after) {
             $this->runAfterCallbacks();
         }
@@ -323,19 +320,6 @@ class Application extends Container
     {
         $this->general = $general;
         return $this;
-    }
-
-    /**
-     *  resolve the constructor classes
-     */
-    private function resolveApplications()
-    {
-        $Applications = $this->constructors;
-        foreach ($Applications as $boot) {
-            if (is_string($boot)) {
-                $this->singleton($boot, new $boot($this));
-            }
-        }
     }
 
     /**
