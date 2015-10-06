@@ -128,6 +128,10 @@ class Application extends Container
 
         if ($filesystem instanceof Filesystem) {
 
+            if ($filesystem->exists($path = $this->getEnvironmentPath())) {
+                $env = $filesystem->get($path);
+            }
+
         }
 
     }
