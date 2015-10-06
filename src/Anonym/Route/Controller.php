@@ -75,7 +75,11 @@ abstract class Controller
      */
     protected function protectFromForgery()
     {
-        if(property_exists($this, 'protect_from_forgery')){
+        if(property_exists($this, 'protect_from_forgery') && $this->protect_from_forgery === true){
+
+            $find = $this->app['configs']['csrf.field_name'];
+
+            $field = is_string($find) ? $find : '_token';
 
         }
     }
