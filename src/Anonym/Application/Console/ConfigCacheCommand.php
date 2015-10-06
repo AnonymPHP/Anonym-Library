@@ -16,7 +16,10 @@ use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
 use Anonym\Filesystem\Filesystem;
 
-
+/**
+ * Class ConfigCacheCommand
+ * @package Anonym\Application\Console
+ */
 class ConfigCacheCommand extends Command implements HandleInterface
 {
     /**
