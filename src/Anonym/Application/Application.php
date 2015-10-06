@@ -411,7 +411,7 @@ class Application extends Container
      */
     public function getProviders()
     {
-        return array_merge(Arr::get($this->getGeneral(), 'providers', []), $this->constructors);
+        return array_merge($this->constructors, Arr::get($this->getGeneral(), 'providers', []));
     }
 
     /**
