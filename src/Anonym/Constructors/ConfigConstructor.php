@@ -37,12 +37,13 @@ class ConfigConstructor extends ServiceProvider
     public function register()
     {
 
-        $cachedPath = $this->getSystemPath() . 'cached_configs.php';
+        $cachedPath = $this->app()->getSystemPath() . 'cached_configs.php';
 
-        $this->singleton('config', function () use ($this, $cachedPath) {
+        $app = &$this;
+        $this->singleton('config', function () use (&$app, $cachedPath) {
 
             $return = null;
-            $loaded = (new ConfigLoader($this->getConfigPath(), $cachedPath))->loadConfigs();
+            $loaded = (new ConfigLoader($app->getConfigPath(), $cachedPath))->loadConfigs();
 
             $driver = Arr::get($loaded, 'general.config');
             switch ($driver) {
