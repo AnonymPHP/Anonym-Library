@@ -13,8 +13,11 @@ use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Support\TemplateGenerator;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
+
+/**
+ * Class MakeSeedCommand
+ * @package Anonym\Application\Console
+ */
 class MakeSeedCommand extends Command implements HandleInterface
 {
 
