@@ -129,7 +129,7 @@ class Application extends Container
     }
 
     /**
-     * prepare Environment variables for
+     * find and register Environment variables for application
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
