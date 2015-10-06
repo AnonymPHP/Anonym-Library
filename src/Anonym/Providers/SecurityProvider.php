@@ -57,13 +57,14 @@ class SecurityProvider extends ServiceProvider
     /**
      *  clean all query string
      */
-    private function filterGetParameters(){
+    private function filterGetParameters()
+    {
 
-        if(!is_array($_GET)){
+        if (!is_array($_GET)) {
             $_GET = [];
         }
 
-        $_GET =  GUMP::xss_clean($_GET);
+        $_GET = GUMP::xss_clean($_GET);
     }
 
     /**
@@ -124,17 +125,15 @@ class SecurityProvider extends ServiceProvider
      */
     private function prepareCsrfInstance(array $configs = [])
     {
+        $configs = Config::get('security.csrf');
 
-        if ($configs['status'] === true) {
-            $field = $configs['field_name'];
-            $this->singleton(
-                'security.csrf',
-                function () use ($field) {
-                    return  (new CsrfToken())->setFormFieldName($field);
-                }
-            );
-
-        }
+        $field = $configs['field_name'];
+        $this->singleton(
+            'security.csrf',
+            function () use ($field) {
+                return (new CsrfToken())->setFormFieldName($field);
+            }
+        );
 
     }
 }
