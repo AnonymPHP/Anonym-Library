@@ -90,6 +90,7 @@ class Application extends Container
      * @var array
      */
     protected $environments;
+
     /**
      *
      * @param string name the name of framework application
@@ -137,13 +138,23 @@ class Application extends Container
     {
         $filesystem = $this->make(Filesystem::class);
 
+
         if ($filesystem instanceof Filesystem) {
             if ($filesystem->exists($path = $this->getEnvironmentPath())) {
                 $env = $filesystem->get($path);
 
-                putenv($env);
 
-                $this->environments = $_ENV;
+                array_map(
+                    function ($env) {
+
+                        if ($env !== '' && $env !== null) {
+                            putenv($env);
+                        }
+                    },
+                    explode("\n", $env)
+                );
+
+                $this->environments = count($_ENV) ? $_ENV : isset($_SERVER['ENV']) ? $_SERVER['ENV'] : [];
             }
         }
 
