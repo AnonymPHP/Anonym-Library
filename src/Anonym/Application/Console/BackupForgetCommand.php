@@ -37,8 +37,6 @@ class BackupForgetCommand extends Command implements HandleInterface
     /**
      * fire the command
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle(){
