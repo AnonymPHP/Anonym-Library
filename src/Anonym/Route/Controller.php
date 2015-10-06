@@ -13,7 +13,6 @@ namespace Anonym\Route;
 
 use Anonym\Application\Application;
 use Anonym\Http\Request;
-use Anonym\Security\Validation;
 
 /**
  * the parent class of controllers
