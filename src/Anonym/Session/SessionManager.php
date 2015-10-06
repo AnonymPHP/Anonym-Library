@@ -11,7 +11,6 @@
 
 namespace Anonym\Session;
 
-use Anonym\Cookie\Cookie;
 use Anonym\Crypt\Crypter;
 
 use Anonym\Support\Arr;
