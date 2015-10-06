@@ -7,6 +7,7 @@
 namespace Anonym\Console;
 
 
+use Anonym\Application\Application;
 use Symfony\Component\Console\Application as SymfonyConsole;
 use Anonym\Application\Console\MigrationForgetCommand;
 use Anonym\Application\Console\LoginLogsClearCommand;
@@ -116,9 +117,10 @@ class Kernel extends SymfonyConsole
 
     /**
      * Sınıfı başlatır ve bazı atamaları gerçekleştirir
+     * @param Application $application
      * @param int $version
      */
-    public function __construct(Container $container, $version = 1)
+    public function __construct(Application $container, $version = 1)
     {
 
         $this->setContainer($container);
