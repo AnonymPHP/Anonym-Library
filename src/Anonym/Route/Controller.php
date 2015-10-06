@@ -43,9 +43,10 @@ abstract class Controller
      * create a instance and register callbacks
      *
      */
-    public function __construct(){
+    public function __construct()
+    {
         $this->callbacks = [
-          []
+            [$this, 'protectFromForgery'],
         ];
     }
 
@@ -57,6 +58,10 @@ abstract class Controller
         return $this->parameters;
     }
 
+    private function protectFromForgery()
+    {
+        
+    }
     /**
      * register the parameters
      *
@@ -103,7 +108,8 @@ abstract class Controller
      * @param $parameters
      * @return array|\ArrayIterator
      */
-    private function toArray($parameters){
-        return is_array($parameters) ? $parameters : (array) $parameters;
+    private function toArray($parameters)
+    {
+        return is_array($parameters) ? $parameters : (array)$parameters;
     }
 }
