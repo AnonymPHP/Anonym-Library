@@ -11,6 +11,7 @@
 
 namespace Anonym\Route;
 
+use Anonym\Application\Application;
 use Anonym\Http\Request;
 use Anonym\Security\Validation;
 
@@ -40,10 +41,11 @@ abstract class Controller
 
 
     /**
-     * create a instance and register callbacks
+     * create a instance and register your callbacks and application
      *
+     * @param Application $application
      */
-    public function __construct()
+    public function __construct(Application $application = null)
     {
         $this->callbacks = [
             [$this, 'protectFromForgery'],
