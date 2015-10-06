@@ -13,8 +13,6 @@ use Anonym\Facades\BackupLoader;
 use Anonym\Console\Command;
 use Anonym\Facades\Backup as BackupFacade;
 use Anonym\Console\HandleInterface;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MakeBackupCommand
@@ -40,8 +38,6 @@ class MakeBackupCommand extends Command implements HandleInterface
     /**
      * fire the command
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle(){
