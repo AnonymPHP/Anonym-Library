@@ -59,13 +59,15 @@ abstract class Controller
     }
 
     /**
-     *  prepare csrf token protection if $this->protectFormForgery is true
+     *  prepare csrf token protection if $this->protect_form_forgery is true
      *
      *  @return void
      */
     protected function protectFromForgery()
     {
+        if(property_exists($this, 'protect_from_forgery')){
 
+        }
     }
     /**
      * register the parameters
