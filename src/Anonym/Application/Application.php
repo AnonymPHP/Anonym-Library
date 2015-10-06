@@ -39,7 +39,6 @@ class Application extends Container
         ConfigConstructor::class,
         DatabaseConstructor::class,
         RequestConstructor::class,
-        RegisterProviders::class
     ];
 
     /**
