@@ -48,8 +48,6 @@ class MakeSeedCommand extends Command implements HandleInterface
 
     /**
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle()
