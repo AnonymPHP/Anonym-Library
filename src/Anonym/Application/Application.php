@@ -128,7 +128,11 @@ class Application extends Container
         }
     }
 
-
+    /**
+     * prepare Environment variables for
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
     private function prepareEnvironment()
     {
         $filesystem = $this->make(Filesystem::class);
@@ -138,6 +142,8 @@ class Application extends Container
                 $env = $filesystem->get($path);
 
                 putenv($env);
+
+                $this->environments = $_ENV;
             }
         }
 
