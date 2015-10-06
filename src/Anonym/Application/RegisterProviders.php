@@ -46,6 +46,7 @@ class RegisterProviders
         $app = $this->app;
 
         foreach ($app->getProviders() as $provider) {
+
             $provider = $app->make($provider, ['app' => $app]);
 
             if (!$provider instanceof ServiceProvider) {
