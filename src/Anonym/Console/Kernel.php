@@ -263,7 +263,7 @@ class Kernel extends SymfonyConsole
     }
 
     /**
-     * @return Container
+     * @return Application
      */
     public function getContainer()
     {
@@ -271,7 +271,7 @@ class Kernel extends SymfonyConsole
     }
 
     /**
-     * @param Container $container
+     * @param Application $container
      * @return Kernel
      */
     public function setContainer($container)
