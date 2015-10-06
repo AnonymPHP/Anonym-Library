@@ -133,6 +133,10 @@ class Application extends Container
         }
     }
 
+    /**
+     *  execute service providers
+     *
+     */
     private function prepareServiceProviders()
     {
 
