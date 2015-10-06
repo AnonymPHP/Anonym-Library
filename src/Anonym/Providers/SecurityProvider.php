@@ -127,18 +127,13 @@ class SecurityProvider extends ServiceProvider
 
         if ($configs['status'] === true) {
             $field = $configs['field_name'];
-            App::singleton(
+            $this->singleton(
                 'security.csrf',
                 function () use ($field) {
                     return  (new CsrfToken())->setFormFieldName($field);
                 }
             );
 
-            $request = App::make('http.request');
-
-            if ($request->isPost() || $request->isPut()) {
-                App::make('security.csrf')->run();
-            }
         }
 
     }
