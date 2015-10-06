@@ -131,6 +131,9 @@ abstract class Controller
         $this->setParameters($this->toArray($parameters));
 
 
+        foreach($this->callbacks as $callback){
+            $this->app->call($callback);
+        }
     }
 
     /**
@@ -143,4 +146,5 @@ abstract class Controller
     {
         return is_array($parameters) ? $parameters : (array)$parameters;
     }
+
 }
