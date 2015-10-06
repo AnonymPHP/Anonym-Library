@@ -69,9 +69,9 @@ abstract class Controller
 
     public function runControllerWithParameters($parameters = [])
     {
-        $parameters = $this->toArray($parameters);
+        $this->setParameters($this->toArray($parameters));
 
-        $this->setParameters($parameters);
+
     }
 
     /**
