@@ -65,4 +65,10 @@ abstract class Controller
 
         return $request->getValidation()->make($all, $rules, $filters);
     }
+
+
+    public function runControllerWithParameters($parameters = []){
+
+
+    }
 }
