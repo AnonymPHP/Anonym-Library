@@ -18,6 +18,11 @@ namespace Anonym\Application;
 class RegisterProviders
 {
 
+    /**
+     * the instance of application
+     *
+     * @var Application
+     */
     private $app;
 
 
