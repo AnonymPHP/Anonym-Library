@@ -14,8 +14,6 @@ namespace Anonym\Application\Console;
 use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
 use Anonym\Tools\Seeder;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -39,8 +37,6 @@ class DeploySeedAllCommand extends Command implements HandleInterface
 
     /**
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle()
