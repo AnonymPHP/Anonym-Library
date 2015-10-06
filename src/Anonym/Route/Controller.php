@@ -76,7 +76,6 @@ abstract class Controller
     {
         $this->setParameters($this->toArray($parameters));
 
-        $this->executeController();
     }
 
     /**
