@@ -24,6 +24,12 @@ abstract class Controller
 {
     use Middleware, ModelDispatcher;
 
+    /**
+     * an array of callable functions for prepare somethings
+     *
+     * @var array
+     */
+    protected $callbacks;
 
     /**
      * repository of parameters
@@ -31,6 +37,17 @@ abstract class Controller
      * @var array
      */
     private $parameters;
+
+
+    /**
+     * create a instance and register callbacks
+     *
+     */
+    public function __construct(){
+        $this->callbacks = [
+          []
+        ];
+    }
 
     /**
      * @return array
@@ -76,6 +93,7 @@ abstract class Controller
     public function runControllerWithParameters($parameters = [])
     {
         $this->setParameters($this->toArray($parameters));
+
 
     }
 
