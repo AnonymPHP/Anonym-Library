@@ -41,6 +41,12 @@ abstract class Controller
 
 
     /**
+     * the instance of application
+     *
+     * @var Application
+     */
+    protected $app;
+    /**
      * create a instance and register your callbacks and application
      *
      * @param Application $application
@@ -50,6 +56,8 @@ abstract class Controller
         $this->callbacks = [
             [$this, 'protectFromForgery'],
         ];
+
+        $this->app = $application;
     }
 
     /**
