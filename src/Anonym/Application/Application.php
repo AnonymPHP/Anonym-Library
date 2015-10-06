@@ -108,16 +108,12 @@ class Application extends Container
         if (static::$before) {
             $this->runBeforeCallbacks();
         }
-
         // read configs/general.php for register aliases
         $this->readGeneralConfigs();
-
         // register all aliases
         $this->registerAliases();
-
         // register helpers;
         $this->resolveHelpers();
-
         if (static::$after) {
             $this->runAfterCallbacks();
         }
