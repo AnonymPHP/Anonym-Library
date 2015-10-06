@@ -56,7 +56,7 @@ class MakeView extends Command implements HandleInterface
     public function handle(InputInterface $input, OutputInterface $output)
     {
         $name = $this->argument('name');
-        $path = VIEW.$name.'.php';
+        $path = $this->getContainer()->getViewPath().$name.'.php';
 
         if (!$this->filesystem->exists($path)) {
             $this->filesystem->create($path);
