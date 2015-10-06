@@ -58,9 +58,14 @@ abstract class Controller
         return $this->parameters;
     }
 
-    private function protectFromForgery()
+    /**
+     *  prepare csrf token protection if $this->protectFormForgery is true
+     *
+     *  @return void
+     */
+    protected function protectFromForgery()
     {
-        
+
     }
     /**
      * register the parameters
