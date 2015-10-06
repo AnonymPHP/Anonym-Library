@@ -16,9 +16,6 @@ use Anonym\Console\HandleInterface;
 use Anonym\Facades\Anonym;
 use Anonym\Facades\Migration;
 use Anonym\Filesystem\Filesystem;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
-
 /**
  * Class CacheTableCommand
  * @package Anonym\Application\Console
@@ -60,8 +57,6 @@ class CacheTableCommand extends Command implements HandleInterface
 
     /**
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle()
