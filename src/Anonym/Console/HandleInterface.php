@@ -17,10 +17,9 @@
     {
 
         /**
+         * handle and execute the command
          *
-         * @param InputInterface $input
-         * @param OutputInterface $output
          * @return mixed
          */
-        public function handle(InputInterface $input, OutputInterface $output);
+        public function handle();
     }
