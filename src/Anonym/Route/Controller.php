@@ -67,11 +67,16 @@ abstract class Controller
     }
 
 
+    /**
+     * register parameters and run constructors
+     *
+     * @param array $parameters
+     */
     public function runControllerWithParameters($parameters = [])
     {
         $this->setParameters($this->toArray($parameters));
 
-
+        $this->executeController();
     }
 
     /**
