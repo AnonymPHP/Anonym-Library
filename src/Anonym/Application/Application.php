@@ -124,11 +124,18 @@ class Application extends Container
         $this->registerAliases();
         // register helpers;
         $this->resolveHelpers();
+
+        //execute the service providers
+        $this->prepareServiceProviders();
+
         if (static::$after) {
             $this->runAfterCallbacks();
         }
     }
 
+    private function prepareServiceProviders(){
+
+    }
     /**
      * find and register Environment variables for application
      *
