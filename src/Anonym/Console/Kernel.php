@@ -72,9 +72,9 @@ class Kernel extends SymfonyConsole
 
 
     /**
-     * the instance of laravel container
+     * the instance of anonmy application
      *
-     * @var Container
+     * @var \Anonym\Application\Application
      */
     protected $container;
 
