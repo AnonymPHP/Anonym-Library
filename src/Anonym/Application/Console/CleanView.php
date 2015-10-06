@@ -14,8 +14,7 @@ namespace Anonym\Application\Console;
 use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
 use Anonym\Filesystem\Filesystem;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
+
 
 class CleanView extends Command implements HandleInterface
 {
@@ -48,8 +47,6 @@ class CleanView extends Command implements HandleInterface
         parent::__construct();
     }
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle()
