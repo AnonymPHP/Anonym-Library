@@ -30,7 +30,6 @@ class RegisterProviders
 
         foreach ($app->getProviders() as $provider) {
             $provider = $app->make($provider, ['app' => $app]);
-            $app = $provider->app();
 
             if (!$provider instanceof ServiceProvider) {
                 throw new ProviderException(sprintf('Your %s proiver must be a instance of ServiceProvider', get_class($provider)));
@@ -38,6 +37,8 @@ class RegisterProviders
 
 
             $provider->register();
+
+            $app = $provider->app();
         }
     }
 
