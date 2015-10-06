@@ -278,7 +278,7 @@
         }
 
         /**
-         * @return Container
+         * @return Application
          */
         public function getContainer()
         {
