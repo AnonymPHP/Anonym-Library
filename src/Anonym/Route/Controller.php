@@ -157,8 +157,9 @@ abstract class Controller
 
         if($name === 'load'){
             return $this;
+        }else{
+            return $this->app[$name];
         }
 
-        return $this->app[$name];
     }
 }
