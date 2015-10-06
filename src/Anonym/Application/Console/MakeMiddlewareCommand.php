@@ -14,8 +14,6 @@ use Anonym\Support\TemplateGenerator;
 use Anonym\Console\Command;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Console\HandleInterface;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MakeMiddlewareCommand
