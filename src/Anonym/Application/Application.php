@@ -400,5 +400,4 @@ class Application extends Container
     {
         return array_merge(Arr::get($this->getGeneral(), 'providers', []), $this->constructors);
     }
-
 }
