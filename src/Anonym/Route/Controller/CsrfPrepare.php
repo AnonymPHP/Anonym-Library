@@ -10,8 +10,15 @@
 
 namespace Anonym\Route\Controller;
 
-
+/**
+ * Class CsrfPrepare
+ * @package Anonym\Route\Controller
+ */
 class CsrfPrepare
 {
+
+    public function __construct(){
+
+    }
 
 }
