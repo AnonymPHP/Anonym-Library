@@ -85,6 +85,12 @@ class Application extends Container
     protected static $after;
 
     /**
+     * reposity of environments variables
+     *
+     * @var array
+     */
+    protected $environments;
+    /**
      *
      * @param string name the name of framework application
      * @param int version the version of framework application
@@ -128,13 +134,11 @@ class Application extends Container
         $filesystem = $this->make(Filesystem::class);
 
         if ($filesystem instanceof Filesystem) {
-
             if ($filesystem->exists($path = $this->getEnvironmentPath())) {
                 $env = $filesystem->get($path);
 
                 putenv($env);
             }
-
         }
 
     }
