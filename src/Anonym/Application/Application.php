@@ -133,9 +133,11 @@ class Application extends Container
         }
     }
 
-    private function prepareServiceProviders(){
+    private function prepareServiceProviders()
+    {
 
     }
+
     /**
      * find and register Environment variables for application
      *
