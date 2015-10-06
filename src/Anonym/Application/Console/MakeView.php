@@ -49,8 +49,7 @@ class MakeView extends Command implements HandleInterface
         parent::__construct();
     }
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
+     *
      * @return mixed
      */
     public function handle()
