@@ -77,8 +77,10 @@ abstract class Controller
     {
         if(property_exists($this, 'protect_from_forgery') && $this->protect_from_forgery === true){
 
-            $security = $this->app->make('security.csrf');
-
+            $request = $this->app->make('http.request');
+            if ($request->isPost() || $request->isPut()) {
+                $this->app->make('security.csrf')->run();
+            }
 
         }
     }
