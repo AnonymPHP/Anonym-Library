@@ -15,8 +15,7 @@ use Anonym\Config\ConfigLoader;
 use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
 use Anonym\Filesystem\Filesystem;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
+
 
 class ConfigCacheCommand extends Command implements HandleInterface
 {
