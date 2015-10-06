@@ -123,7 +123,8 @@ class Application extends Container
     }
 
 
-    private function prepareEnvironment(){
+    private function prepareEnvironment()
+    {
         $filesystem = $this->make(Filesystem::class);
 
         if ($filesystem instanceof Filesystem) {
@@ -135,6 +136,7 @@ class Application extends Container
         }
 
     }
+
     /**
      * read configs/general.php for use aliases
      */
@@ -152,9 +154,11 @@ class Application extends Container
      *
      * @return mixed
      */
-    public function getViewPath(){
+    public function getViewPath()
+    {
         return VIEW;
     }
+
     /**
      *  register all aliases and alias loader
      */
@@ -166,23 +170,23 @@ class Application extends Container
 
         $aliases = [
 
-            'app' => ['Anonym\Application\Application', 'Illımunate\Container\Container'],
-            'redirect' => ['Anonym\Http\Redirect'],
+            'app'        => ['Anonym\Application\Application', 'Illımunate\Container\Container'],
+            'redirect'   => ['Anonym\Http\Redirect'],
             'validation' => ['Anonym\Support\Validation'],
-            'route' => ['Anonym\Route\RouteCollector'],
-            'event' => ['Anonym\Event\EventDispatcher'],
-            'cookie' => ['Anonym\Cookie\CookieInterface'],
-            'session' => ['Anonym\Session\StrogeInterface'],
-            'config' => ['Anonym\Config\Reposity'],
-            'crypt' => ['Anonym\Crypt\Crypter'],
-            'view' =>  ['Anonym\View\View']
+            'route'      => ['Anonym\Route\RouteCollector'],
+            'event'      => ['Anonym\Event\EventDispatcher'],
+            'cookie'     => ['Anonym\Cookie\CookieInterface'],
+            'session'    => ['Anonym\Session\StrogeInterface'],
+            'config'     => ['Anonym\Config\Reposity'],
+            'crypt'      => ['Anonym\Crypt\Crypter'],
+            'view'       => ['Anonym\View\View']
         ];
 
 
         // register aliases
         foreach ($aliases as $key => $alias) {
 
-            foreach ((array) $alias as $abstract) {
+            foreach ((array)$alias as $abstract) {
                 $this->alias($abstract, $key);
             }
         }
@@ -261,7 +265,8 @@ class Application extends Container
      *
      * @return mixed
      */
-    public function getApplicationPath(){
+    public function getApplicationPath()
+    {
         return APP;
     }
 
@@ -270,7 +275,8 @@ class Application extends Container
      *
      * @return mixed
      */
-    public function getBasePath(){
+    public function getBasePath()
+    {
         return BASE;
     }
 
@@ -279,9 +285,11 @@ class Application extends Container
      *
      * @return string
      */
-    public function getEnvironmentPath(){
-        return $this->getBasePath().'.env';
+    public function getEnvironmentPath()
+    {
+        return $this->getBasePath() . '.env';
     }
+
     /**
      * throw an http exception with given datas
      *
@@ -319,9 +327,9 @@ class Application extends Container
     private function resolveHelpers()
     {
 
-        if(count($helpers = Arr::get($this->getGeneral(), 'helpers', []))){
+        if (count($helpers = Arr::get($this->getGeneral(), 'helpers', []))) {
 
-            foreach($helpers as $helper){
+            foreach ($helpers as $helper) {
                 if (file_exists($helper)) {
                     include $helper;
                 }
@@ -365,7 +373,8 @@ class Application extends Container
      *
      * @return array
      */
-    public function getProviders(){
+    public function getProviders()
+    {
         return array_merge(Arr::get($this->getGeneral(), 'providers', []), $this->constructors);
     }
 
