@@ -245,6 +245,15 @@ class Application extends Container
     }
 
     /**
+     * return the base path
+     *
+     * @return mixed
+     */
+    public function getBasePath(){
+        return BASE;
+    }
+
+    /**
      * throw an http exception with given datas
      *
      * @param int $code
