@@ -62,7 +62,7 @@
         private function check(){
             if (Input::has($this->getFormFieldName())) {
                 $key = Input::get($this->getFormFieldName());
-                if ($key === $this->getSession()->get($this->getFormFieldName())) {
+                if ($key === Session::get($this->getFormFieldName())) {
                     return true;
                 } else {
                     throw new CsrfTokenMatchException(sprintf('Girdiğiniz %s token olması gereken tokenle eşleşmiyor',
