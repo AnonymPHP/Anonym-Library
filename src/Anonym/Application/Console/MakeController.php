@@ -14,11 +14,8 @@ namespace Anonym\Application\Console;
 
 use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
-use Anonym\Facades\Stroge;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Support\TemplateGenerator;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class MakeController
