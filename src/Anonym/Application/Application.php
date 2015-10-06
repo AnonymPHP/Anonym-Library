@@ -15,6 +15,7 @@ use Anonym\Constructors\DatabaseConstructor;
 use Anonym\Constructors\RequestConstructor;
 use Anonym\Constructors\ConfigConstructor;
 use Illuminate\Container\Container;
+use Anonym\Filesystem\Filesystem;
 use Anonym\Patterns\Facade;
 use Anonym\Support\Arr;
 use Closure;
@@ -105,6 +106,8 @@ class Application extends Container
      */
     protected function runApplicationWithEvents()
     {
+        $this->prepareEnvironment();
+
         if (static::$before) {
             $this->runBeforeCallbacks();
         }
@@ -119,6 +122,15 @@ class Application extends Container
         }
     }
 
+
+    private function prepareEnvironment(){
+        $filesystem = $this->make(Filesystem::class);
+
+        if ($filesystem instanceof Filesystem) {
+
+        }
+
+    }
     /**
      * read configs/general.php for use aliases
      */
