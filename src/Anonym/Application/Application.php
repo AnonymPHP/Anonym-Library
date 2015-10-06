@@ -131,6 +131,8 @@ class Application extends Container
 
             if ($filesystem->exists($path = $this->getEnvironmentPath())) {
                 $env = $filesystem->get($path);
+
+                putenv($env);
             }
 
         }
