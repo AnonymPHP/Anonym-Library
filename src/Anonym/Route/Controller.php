@@ -147,4 +147,13 @@ abstract class Controller
         return is_array($parameters) ? $parameters : (array)$parameters;
     }
 
+    /**
+     * load class with application container
+     *
+     * @param stirng $name
+     * @return mixed
+     */
+    public function __get($name){
+        return $this->app[$name];
+    }
 }
