@@ -20,17 +20,22 @@ class RegisterProviders
 
     private $app;
 
+
+    /**
+     * create a new instance and register application instance
+     *
+     * @param Application $app
+     */
     public function __construct(Application $app){
         $this->app = $app;
     }
 
     /**
-     * create a new instance
+     * register the providers
      *
-     * @param Application $app
      * @throws ProviderException
      */
-    public function register(Application $app)
+    public function register()
     {
 
         foreach ($app->getProviders() as $provider) {
