@@ -47,8 +47,6 @@ class Backup extends Command implements HandleInterface
     /**
      * Komutun yakalndığı zaman tetikleneceği fonksiyon
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle()
