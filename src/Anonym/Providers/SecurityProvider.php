@@ -36,10 +36,6 @@ class SecurityProvider extends ServiceProvider
     {
         $all = Config::get('security');
 
-        if (isset($all['csrf'])) {
-            $this->registerCsrfSecurity($all['csrf']);
-        }
-
         if (isset($all['firewall'])) {
             $this->registerFirewallSecurity($all['firewall']);
         }
