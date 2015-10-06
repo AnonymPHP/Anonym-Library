@@ -58,7 +58,7 @@ class ControllerDispatcher implements ControllerDispatcherInterface
 
         if ($controller instanceof Controller) {
             // register the parameters
-            $controller->setParameters(ParameterBag::getParameters());
+            $controller->runControllerWithParameters(ParameterBag::getParameters());
 
 
             // return the instance
