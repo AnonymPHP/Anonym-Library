@@ -43,6 +43,8 @@ class RegisterProviders
     public function register()
     {
 
+        $app = $this->app;
+
         foreach ($app->getProviders() as $provider) {
             $provider = $app->make($provider, ['app' => $app]);
 
