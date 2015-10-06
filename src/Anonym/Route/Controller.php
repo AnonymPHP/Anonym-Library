@@ -13,6 +13,7 @@ namespace Anonym\Route;
 
 use Anonym\Application\Application;
 use Anonym\Http\Request;
+use Anonym\Security\Exception\CsrfTokenMatchException;
 
 /**
  * the parent class of controllers
@@ -78,7 +79,16 @@ abstract class Controller
 
             $request = $this->app->make('http.request');
             if ($request->isPost() || $request->isPut()) {
-                $this->app->make('security.csrf')->run();
+
+                if(property_exists($this, 'forgery_throw_exception') && $this->protect_throw_exception === false){
+                    try{
+                        $this->app->make('security.csrf')->run();
+                    }catch (CsrfTokenMatchException $csrf){
+                        //
+                    }
+                }else{
+                    $this->app->make('security.csrf')->run();
+                }
             }
 
         }
