@@ -5,6 +5,7 @@
      */
 
     namespace Anonym\Console;
+    use Anonym\Application\Application;
     use Anonym\Cron\Cron;
     use Symfony\Component\Console\Command\Command as SymfonyCommand;
     use Symfony\Component\Console\Input\InputInterface;
@@ -70,7 +71,7 @@
         protected $schedule;
 
         /**
-         * @var Container
+         * @var Application
          */
         protected $container;
 
@@ -285,10 +286,10 @@
         }
 
         /**
-         * @param Container $container
+         * @param Application $container
          * @return Command
          */
-        public function setContainer(Container $container)
+        public function setContainer(Application $container)
         {
             $this->container = $container;
             return $this;
