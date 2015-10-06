@@ -67,8 +67,19 @@ abstract class Controller
     }
 
 
-    public function runControllerWithParameters($parameters = []){
+    public function runControllerWithParameters($parameters = [])
+    {
+        $parameters = $this->toArray($parameters);
 
+    }
 
+    /**
+     * if $parameters is not an array, we gonna replace $parameter to array
+     *
+     * @param $parameters
+     * @return array|\ArrayIterator
+     */
+    private function toArray($parameters){
+        return is_array($parameters) || $parameters instanceof \ArrayIterator ? $parameters: [];
     }
 }
