@@ -14,8 +14,6 @@ namespace Anonym\Application\Console;
 use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
 use Anonym\Facades\LastLogins;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class LoginLogsClearCommand
@@ -41,8 +39,6 @@ class LoginLogsClearCommand extends  Command implements HandleInterface
     /**
      * execute this function when this command called
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle(){
