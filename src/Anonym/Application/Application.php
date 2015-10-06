@@ -254,6 +254,14 @@ class Application extends Container
     }
 
     /**
+     * return the environment path
+     *
+     * @return string
+     */
+    public function getEnvironmentPath(){
+        return $this->getBasePath().'.env';
+    }
+    /**
      * throw an http exception with given datas
      *
      * @param int $code
