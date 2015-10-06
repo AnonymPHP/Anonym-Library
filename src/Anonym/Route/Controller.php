@@ -154,6 +154,11 @@ abstract class Controller
      * @return mixed
      */
     public function __get($name){
+
+        if($name === 'load'){
+            return $this;
+        }
+
         return $this->app[$name];
     }
 }
