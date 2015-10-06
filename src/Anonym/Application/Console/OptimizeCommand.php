@@ -50,7 +50,7 @@ class OptimizeCommand extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output){
+    public function handle(){
 
         $this->info('Optimizing Composer autoloader');
         $process = new Process('composer dump-autoload --optimize');

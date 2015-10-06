@@ -44,7 +44,7 @@ class MakeBackupCommand extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output){
+    public function handle(){
         $name = $this->argument('name');
         $tables = $this->argument('tables') ? $this->argument('tables') : '*';
         $return = BackupFacade::backup($tables, $name);

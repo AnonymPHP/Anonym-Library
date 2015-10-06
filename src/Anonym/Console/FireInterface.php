@@ -22,5 +22,5 @@
          * @param OutputInterface $output
          * @return mixed
          */
-        public function fire(InputInterface $input, OutputInterface $output);
+        public function fire();
     }

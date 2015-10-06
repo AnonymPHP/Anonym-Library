@@ -65,7 +65,7 @@ class MakeModelCommand extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output)
+    public function handle()
     {
 
         // now we will read model stub file

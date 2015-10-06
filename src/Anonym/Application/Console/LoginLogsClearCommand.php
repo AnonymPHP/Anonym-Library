@@ -45,7 +45,7 @@ class LoginLogsClearCommand extends  Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output){
+    public function handle(){
         if ($this->confirm('We will clean your logins table, Do you want do this? [yes/no]')) {
             LastLogins::cleanLogs();
 

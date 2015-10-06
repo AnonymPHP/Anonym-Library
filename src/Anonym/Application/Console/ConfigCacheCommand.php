@@ -67,7 +67,7 @@ class ConfigCacheCommand extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output){
+    public function handle(){
         $cachedPath  = SYSTEM.'cached_configs.php';
         $configs = $this->loadAllConfigs();
 

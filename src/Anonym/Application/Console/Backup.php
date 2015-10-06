@@ -53,7 +53,7 @@ class Backup extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output)
+    public function handle()
     {
 
         $command = $this->argument('function') ? $this->argument('function') : 'create';

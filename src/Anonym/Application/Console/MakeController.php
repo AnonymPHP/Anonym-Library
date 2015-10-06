@@ -67,7 +67,7 @@ class MakeController extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output)
+    public function handle()
     {
         $content = file_get_contents(RESOURCE.'migrations/controller.php.dist');
 

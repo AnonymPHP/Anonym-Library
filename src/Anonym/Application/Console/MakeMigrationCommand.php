@@ -41,7 +41,7 @@ class MakeMigrationCommand extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output)
+    public function handle()
     {
         $name = $this->argument('name');
 

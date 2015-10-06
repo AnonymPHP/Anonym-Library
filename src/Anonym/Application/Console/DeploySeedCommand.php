@@ -43,7 +43,7 @@ class DeploySeedCommand extends Command implements HandleInterface
      * @param OutputInterface $output
      * @return mixed
      */
-    public function handle(InputInterface $input, OutputInterface $output)
+    public function handle()
     {
         $argument = $this->argument('name') ? $this->argument('name') : '';
         $seeder = new Seeder($this->getContainer());
