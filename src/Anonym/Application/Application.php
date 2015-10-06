@@ -140,6 +140,9 @@ class Application extends Container
     private function prepareServiceProviders()
     {
 
+        $this->make(RegisterProviders::class, ['app' => $this]);
+
+
     }
 
     /**

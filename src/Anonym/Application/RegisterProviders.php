@@ -11,7 +11,6 @@
 
 namespace Anonym\Application;
 
-use Anonym\Facades\Config;
 /**
  * Class RegisterProviders
  * @package Anonym\Application
@@ -19,13 +18,19 @@ use Anonym\Facades\Config;
 class RegisterProviders
 {
 
+    private $app;
+
+    public function __construct(Application $app){
+        $this->app = $app;
+    }
+
     /**
      * create a new instance
      *
      * @param Application $app
      * @throws ProviderException
      */
-    public function __construct(Application $app)
+    public function register(Application $app)
     {
 
         foreach ($app->getProviders() as $provider) {
