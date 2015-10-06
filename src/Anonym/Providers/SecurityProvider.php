@@ -122,7 +122,7 @@ class SecurityProvider extends ServiceProvider
      *
      * @param array $configs
      */
-    private function registerCsrfSecurity(array $configs = [])
+    private function prepareCsrfInstance(array $configs = [])
     {
 
         if ($configs['status'] === true) {
