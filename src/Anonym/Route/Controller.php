@@ -71,6 +71,7 @@ abstract class Controller
     {
         $parameters = $this->toArray($parameters);
 
+        $this->setParameters($parameters);
     }
 
     /**
@@ -80,6 +81,6 @@ abstract class Controller
      * @return array|\ArrayIterator
      */
     private function toArray($parameters){
-        return is_array($parameters) || $parameters instanceof \ArrayIterator ? $parameters: [];
+        return is_array($parameters) ? $parameters : (array) $parameters;
     }
 }
