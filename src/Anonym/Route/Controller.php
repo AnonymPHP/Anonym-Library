@@ -23,7 +23,10 @@ use Anonym\Security\Validation;
 abstract class Controller
 {
     use Middleware, ModelDispatcher;
+    ´´
+    private $constructors = [
 
+    ];
     /**
      * repository of parameters
      *
