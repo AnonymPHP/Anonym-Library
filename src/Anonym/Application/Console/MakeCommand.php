@@ -15,8 +15,7 @@ use Anonym\Console\Command;
 use Anonym\Console\HandleInterface;
 use Anonym\Filesystem\Filesystem;
 use Anonym\Support\TemplateGenerator;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
+
 
 /**
  * Class MakeCommand
@@ -61,8 +60,6 @@ class MakeCommand extends Command implements HandleInterface
 
     /**
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return mixed
      */
     public function handle()
