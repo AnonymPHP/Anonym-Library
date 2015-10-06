@@ -12,7 +12,6 @@
 namespace Anonym\Session;
 
 use Anonym\Crypt\Crypter;
-
 use Anonym\Support\Arr;
 use Closure;
 
