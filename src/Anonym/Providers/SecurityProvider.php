@@ -40,6 +40,8 @@ class SecurityProvider extends ServiceProvider
             $this->registerFirewallSecurity($all['firewall']);
         }
 
+        $this->prepareCsrfInstance();
+
         // register the type hint
         if (isset($all['type_hint'])) {
             if (true === $all['type_hint']) {
