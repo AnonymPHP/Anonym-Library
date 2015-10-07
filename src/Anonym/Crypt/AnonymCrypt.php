@@ -10,13 +10,11 @@
     namespace Anonym\Crypt;
     use Exception;
     use InvalidArgumentException;
-    use Anonym\Crypt\CrypterEncodeableInterface;
-    use Anonym\Crypt\CrypterDecodeableInterface;
     /**
      * Class AnonymCrypt
      * @package Anonym\Crypt
      */
-    class AnonymCrypt implements CrypterDecodeableInterface,CrypterEncodeableInterface
+    class AnonymCrypt implements CryptInterface
     {
 
         /**
