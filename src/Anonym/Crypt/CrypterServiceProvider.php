@@ -33,10 +33,7 @@ class CrypterServiceProvider extends ServiceProvider
 
         $this->singleton(Crypter::class, function() use($app){
 
-            $crypter = Arr::get($app['config']->get('crypt'), 'crypter', AnonymCrypt::class);
 
-
-            return (new Crypter())->setCrypter($app->make($crypter));
         });
 
     }
