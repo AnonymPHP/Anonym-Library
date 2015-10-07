@@ -91,14 +91,14 @@ class CookieJar
         if (preg_match("/[=,; \t\r\n\013\014]/", $name)) {
             throw new InvalidArgumentException(
                 sprintf(
-                    'Girdiğiniz %s ismi geçersiz karekterler içermektedir.',
+                    'The cookie name %s contains invalid charters.',
                     $name
                 )
             );
         }
 
         if (empty($name)) {
-            throw new InvalidArgumentException('İsim değeriniz boş olamaz');
+            throw new InvalidArgumentException('the cookie name cant be empty');
         }
 
         if ($expires instanceof DateTime) {
@@ -106,7 +106,7 @@ class CookieJar
         } elseif (is_string($expires)) {
             $expires = strtotime($expires);
             if (false === $expires || -1 === $expires) {
-                throw new InvalidArgumentException('Cookie e girmiş olduğunuz geçerlilik süresi yanlış.');
+                throw new InvalidArgumentException('The Cookie expiration date is invalid');
             }
         }
 
