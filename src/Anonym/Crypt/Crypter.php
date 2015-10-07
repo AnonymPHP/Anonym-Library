@@ -47,7 +47,7 @@
         public function encode($encode = ''){
             $crypter = $this->getCrypter();
 
-            if($crypter instanceof CrypterEncodeableInterface){
+            if($crypter instanceof CryptInterface){
                 return $crypter->encode($encode);
             }else{
                 return false;
