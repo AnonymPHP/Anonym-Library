@@ -17,6 +17,22 @@ namespace Anonym\Crypt;
 interface CryptInterface
 {
 
+    /**
+     * encrypt the data
+     *
+     * @param string $value
+     * @return string
+     */
+    public function encode($value = '');
 
+
+
+    /**
+     * Şifrelenmiş metni çözer
+     *
+     * @param string $value
+     * @return string
+     */
+    public function decode($value = '');
 
 }
