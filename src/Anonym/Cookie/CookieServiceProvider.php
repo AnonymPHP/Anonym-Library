@@ -4,8 +4,8 @@ namespace Anonym\Cookie;
 
 use Anonym\Application\ServiceProvider;
 use Anonym\Cookie\CookieInterface;
-use Anonym\Cookie\Base64Encoder;
 use Anonym\Facades\Config;
+use Anonym\Crypt\Crypter;
 use Anonym\Support\Arr;
 
 /**
@@ -33,7 +33,8 @@ class CookieServiceProvider extends ServiceProvider
             $configs = Config::get('stroge.cookie.crypting');
 
             $cookie =  new Cookie($configs);
-            return $cookie;
+
+            return $cookie->setEncoder($app->make(Crypter::class));
         });
     }
 
