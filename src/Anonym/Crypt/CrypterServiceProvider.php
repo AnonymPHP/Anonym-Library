@@ -29,30 +29,11 @@ class CrypterServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $configs = Config::get('crypt');
+        $app = $this->app;
 
-        $this->bind(AnonymCrypt::class, function () use($configs){
-            $crypter = new AnonymCrypt();
+        $this->singleton(Crypter::class, function() use($app){
 
-            if(false !== $mode = Arr::get($configs, 'mode', false)){
-                $crypter->setMode($mode);
-            }
-
-            if(false !== $rand = Arr::get($configs, 'rand', false)){
-                $crypter->setRand($rand);
-            }
-
-            if(false !== $alogirtym = Arr::get($configs, 'alogirtym', false)){
-                $crypter->setAlogirtym($alogirtym);
-            }
-
-            return $crypter;
-        });
-
-        $app = $this;
-        $this->singleton(Crypter::class, function() use($configs, $app){
-
-            $crypter = Arr::get($configs, 'crypter', AnonymCrypt::class);
+            $crypter = Arr::get($app['config']->get('crypt'), 'crypter', AnonymCrypt::class);
 
 
             return (new Crypter())->setCrypter($app->make($crypter));
