@@ -31,13 +31,7 @@
             $this->useDefaultCrypter();
         }
 
-        /**
-         * Default olarak AnonymCrypt sınıfı eklenir
-         */
-        private function useDefaultCrypter()
-        {
-            $this->setCrypter( new AnonymCrypt());
-        }
+
         /**
          * Veriyi şifreler
          *
