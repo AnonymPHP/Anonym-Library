@@ -34,7 +34,7 @@ class CookieServiceProvider extends ServiceProvider
 
             $cookie =  new Cookie($configs);
 
-            return $cookie->setEncoder($app->make(Crypter::class));
+            return $cookie->setEncoder($app->app->make(Crypter::class));
         });
     }
 
