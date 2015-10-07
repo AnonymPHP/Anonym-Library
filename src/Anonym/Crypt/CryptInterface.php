@@ -10,7 +10,10 @@
 
 namespace Anonym\Crypt;
 
-
+/**
+ * Interface CryptInterface
+ * @package Anonym\Crypt
+ */
 interface CryptInterface
 {
 
