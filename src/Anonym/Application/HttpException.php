@@ -28,6 +28,12 @@ class HttpException extends Exception
      */
     protected $headers;
 
+
+    /**
+     * @param string $statusCode the status code
+     * @param int $message       the response message
+     * @param array $headers     the response headers
+     */
     public function __construct($statusCode, $message, array $headers){
         $this->code = $statusCode;
         $this->statusCode = $statusCode;
