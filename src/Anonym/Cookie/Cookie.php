@@ -98,9 +98,7 @@ class Cookie implements CookieInterface
      */
     public function has($name = '')
     {
-        if ($this->isEncode()) {
-            $name = $this->getEncoder()->encode($name);
-        }
+        $name = $this->encodeForName($name);
 
         if (!is_string($name)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
@@ -109,6 +107,15 @@ class Cookie implements CookieInterface
         return isset($this->reposity[$name]);
     }
 
+    /**
+     * encrypt the name parameter for valid cookie name
+     *
+     * @param string $name
+     * @return string
+     */
+    private function encodeForName($name){
+        return sha1(md5($name));
+    }
 
     /**
      * Cookie Atamasını yapar
