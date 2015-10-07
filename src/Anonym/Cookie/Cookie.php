@@ -176,9 +176,8 @@ class Cookie implements CookieInterface
      */
     public function delete($name)
     {
-        if ($this->isEncode()) {
-            $name = $this->getEncoder()->encode($name);
-        }
+
+        $name = $this->encodeForName($name);
 
         return $this->set($name, '');
     }
