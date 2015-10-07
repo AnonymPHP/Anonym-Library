@@ -152,9 +152,7 @@ class Cookie implements CookieInterface
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
         }
 
-        if ($this->isEncode()) {
-            $name = $this->getEncoder()->encode($name);
-        }
+        $name = $this->encodeForName($name);
 
         if (!is_string($value)) {
             throw new InvalidArgumentException('Cookiler sadece string olarak depolanabilir');
