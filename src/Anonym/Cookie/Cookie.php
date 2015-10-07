@@ -13,7 +13,6 @@ use Anonym\Cookie\Http\CookieBag as Reposity;
 use Anonym\Cookie\Http\CookieJar as Generator;
 use InvalidArgumentException;
 use Anonym\Cookie\CookieInterface;
-
 /**
  * Class Cookie
  * @package Anonym\Cookie
