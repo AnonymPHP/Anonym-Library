@@ -22,7 +22,7 @@ class McryptCipher extends Cipher
      */
     public function encode($value)
     {
-        // TODO: Implement encode() method.
+
     }
 
     /**
@@ -33,6 +33,6 @@ class McryptCipher extends Cipher
      */
     public function decode($value)
     {
-        // TODO: Implement decode() method.
+
     }
 }
