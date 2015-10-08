@@ -149,7 +149,7 @@ class Stroge implements StrogeInterface
         }
 
         if (true === $crypt) {
-            $value = $this->getCrypt()->encode($crypt);
+            $value = 'serialized:'.$this->getCrypt()->encode($crypt);
         }
 
         $this->getHandler()->write($name, $value);
