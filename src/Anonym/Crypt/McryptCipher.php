@@ -39,7 +39,15 @@ class McryptCipher extends Cipher
      *
      * @var mixed
      */
-    protected $algorithm;
+    protected $algorithm = MCRYPT_RIJNDAEL_128;
+
+
+    /**
+     * the mode of mcrypter
+     *
+     * @var string
+     */
+    protected $mode = MCRYPT_MODE_CBC;
 
     /**
      * the private application keys
