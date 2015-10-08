@@ -30,10 +30,13 @@ class RequestConstructor extends ServiceProvider
     public function register()
     {
 
-        $this->singleton('validation', function(){
+        $this->singleton(
+            'validation',
+            function () {
 
-            return new Validation();
-        });
+                return new Validation();
+            }
+        );
 
         $app = &$this->app;
         // register the request
