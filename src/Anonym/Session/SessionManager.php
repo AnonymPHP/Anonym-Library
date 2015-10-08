@@ -58,7 +58,7 @@ class SessionManager
      *
      * @param array $configs
      */
-    public function __construct(array $configs = [], CryptInterface $crypt = null)
+    public function __construct(CryptInterface $crypt, array $configs = [])
     {
         $this->setConfigs($configs);
         $this->crypt = $crypt;
