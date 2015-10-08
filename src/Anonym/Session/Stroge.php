@@ -95,7 +95,7 @@ class Stroge implements StrogeInterface
     }
 
     /**
-     * @return Crypter
+     * @return CryptInterface
      */
     public function getCrypt()
     {
@@ -103,10 +103,10 @@ class Stroge implements StrogeInterface
     }
 
     /**
-     * @param Crypter $crypt
+     * @param CryptInterface $crypt
      * @return Stroge
      */
-    public function setCrypt(Crypter $crypt)
+    public function setCrypt(CryptInterface $crypt)
     {
         $this->crypt = $crypt;
 
