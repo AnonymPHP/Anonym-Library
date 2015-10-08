@@ -24,6 +24,10 @@ class Crypter implements CryptInterface
      */
     protected $cipher;
 
-
-
+    /**
+     * the private application key
+     *
+     * @var string
+     */
+    protected $application;
 }
