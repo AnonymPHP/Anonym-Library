@@ -253,25 +253,4 @@
         }
 
 
-        /**
-         * use configurations for anonym driver
-         *
-         * @param array $configs
-         * @return $this
-         */
-        public function useConfigs($configs = []){
-            if (isset($configs['mode'])) {
-                $this->mode = $configs['mode'];
-            }
-
-
-            if (isset($configs['rand'])) {
-                $this->rand = $configs['rand'];
-            }
-
-
-            if (isset($configs['alogirtym'])) {
-                $this->alogirtym = $configs['alogirtym'];
-            }
-        }
     }
