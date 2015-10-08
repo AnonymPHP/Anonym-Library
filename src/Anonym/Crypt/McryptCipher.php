@@ -47,7 +47,7 @@ class McryptCipher extends Cipher
     protected $key;
 
     /**
-     * create a instance and check Mcrypt driver is installed?
+     * create an instance and check Mcrypt driver is installed?
      *
      * @param $key
      */
