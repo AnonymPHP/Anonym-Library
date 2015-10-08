@@ -195,6 +195,16 @@ class Application extends Container
     }
 
     /**
+     * return the view files path
+     *
+     *
+     * @return mixed
+     */
+    public function getResourcePath()
+    {
+        return RESOURCE;
+    }
+    /**
      *  register all aliases and alias loader
      */
     private function registerAliases()
