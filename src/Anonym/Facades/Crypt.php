@@ -10,7 +10,7 @@
 
 namespace Anonym\Facades;
 
-use Anonym\Crypt\Crypter;
+use Anonym\Crypt\CryptInterface;
 use Anonym\Patterns\Facade;
 /**
  * Class Crypt
@@ -25,6 +25,6 @@ class Crypt extends Facade
      */
     protected static function getFacadeClass()
     {
-        return 'crypting';
+        return CryptInterface::class;
     }
 }
