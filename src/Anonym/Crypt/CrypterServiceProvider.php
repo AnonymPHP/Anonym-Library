@@ -37,6 +37,5 @@ class CrypterServiceProvider extends ServiceProvider
                 return (new Crypter())->setCrypter((new AnonymCrypt())->useConfigs($app['config']->get('crypt')));
             }
         );
-
     }
 }

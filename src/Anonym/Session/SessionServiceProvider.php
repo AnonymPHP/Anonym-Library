@@ -31,10 +31,11 @@ class SessionServiceProvider extends ServiceProvider
 
         $app = $this->app;
 
+        $crypt = $app->make(CryptInterface::class);
         $session = $app->make(
             SessionManager::class,
             [
-                $app->make(CryptInterface::class),
+                $crypt,
                 $app['config']->get('stroge.session')
             ]
         );
