@@ -91,11 +91,13 @@ class AnonymCrypt implements CryptInterface
 
 
         if ($action === 'encrypt') {
-            $output = openssl_encrypt($value, $encryptMethod, $key, 0, $iv);
+            $output = openssl_encrypt(urlencode($value), $encryptMethod, $key, false, $iv);
             $output = base64_encode($output);
         } else {
             if ($action === 'decrypt') {
-                $output = openssl_decrypt(base64_decode($value), $encryptMethod, $key, 0, $iv);
+
+                $value = urldecode(base64_decode($value));
+                $output = openssl_decrypt($value, $encryptMethod, $key, false, $iv);
             }
         }
 
