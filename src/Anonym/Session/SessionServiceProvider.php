@@ -32,7 +32,13 @@ class SessionServiceProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $session = $app->make(SessionManager::class, ['configs' => $this->app['config']->get('stroge.session')]);
+        $session = $app->make(
+            SessionManager::class,
+            [
+                $app->make(CryptInterface::class),
+                $app['config']->get('stroge.session')
+            ]
+        );
 
         $session->extend(
             'cookie',
