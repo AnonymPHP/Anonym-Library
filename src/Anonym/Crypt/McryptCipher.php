@@ -10,6 +10,8 @@
 
 namespace Anonym\Crypt;
 
+use Anonym\Components\Crypt\Exception\CipherNotInstalledException;
+
 /**
  * Class McryptCipher
  * @package Anonym\Crypt
@@ -55,7 +57,7 @@ class McryptCipher extends Cipher
         $this->key = $key;
 
         if(!function_exists('mcrypt_encode')){
-
+            throw new CipherNotInstalledException(sprintf('Mcrypt cipher is not installed on your server'));
         }
     }
 
