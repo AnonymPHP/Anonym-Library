@@ -24,7 +24,7 @@ class McryptCipher extends Cipher
      *
      * @var mixed
      */
-    protected $rand;
+    protected $rand = MCRYPT_RAND;
 
 
     /**
@@ -68,6 +68,18 @@ class McryptCipher extends Cipher
         if(!function_exists('mcrypt_encode')){
             throw new CipherNotInstalledException(sprintf('Mcrypt cipher is not installed on your server'));
         }
+    }
+
+
+    /**
+     * create your special iv value
+     *
+     * @return string
+     */
+    private function createIvSizeAndIvString(){
+        $ivSize = mcrypt_get_iv_size($this->algorithm, $this->mode);
+
+        return mcrypt_create_iv($ivSize, $this->rand);
     }
 
     /**
