@@ -18,7 +18,6 @@ use Anonym\Patterns\Facade;
  */
 class Crypt extends Facade
 {
-
     /**
      * get the crypt facade
      *
