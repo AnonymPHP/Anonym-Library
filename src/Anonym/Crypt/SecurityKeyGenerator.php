@@ -14,7 +14,7 @@
      * Class SecurityKeyGenerator
      * @package Anonym\Crypt
      */
-    class SecurityKeyGenerator implements SecurityKeyGeneratorInterface
+    class SecurityKeyGenerator
     {
 
         /**
