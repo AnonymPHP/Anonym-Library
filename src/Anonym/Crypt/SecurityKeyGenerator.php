@@ -22,10 +22,10 @@
          *
          * @return string
          */
-        public function create()
+        public function create($key = null)
         {
 
-            if(!is_string($get = Config::get('general.app_key'))){
+            if(!is_string($get = $key)){
                 $get = 'AnonymFrameworkRandom.'.$_SERVER['SERVER_ADDR'];
             }
 
