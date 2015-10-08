@@ -9,6 +9,7 @@
 
 namespace Anonym\Crypt;
 
+
 /**
  * Class Crypter
  * @package Anonym\Crypt

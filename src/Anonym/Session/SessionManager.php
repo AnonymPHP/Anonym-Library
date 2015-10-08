@@ -11,7 +11,7 @@
 
 namespace Anonym\Session;
 
-use Anonym\Crypt\Crypter;
+use Anonym\Crypt\CryptInterface;
 use Anonym\Support\Arr;
 use Closure;
 
@@ -58,7 +58,7 @@ class SessionManager
      *
      * @param array $configs
      */
-    public function __construct(array $configs = [], Crypter $crypt = null)
+    public function __construct(array $configs = [], CryptInterface $crypt = null)
     {
         $this->setConfigs($configs);
         $this->crypt = $crypt;
