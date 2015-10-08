@@ -38,6 +38,7 @@ class AnonymCrypt implements CryptInterface
      * @var string
      */
     protected $iv = "";
+
     /**
      * Sınıfı başlatır
      *
@@ -64,20 +65,19 @@ class AnonymCrypt implements CryptInterface
     {
         $output = false;
 
-        $encrypt_method = "AES-256-CBC";
-        $secretKey = $this->applicationKey;
-        $secret_iv = 'This is my secret iv';
+        $encryptMethod = $this->getMethod();
+        $secretKey = $this->getApplicationKey();
+        $secretIv = $this->getIv();
 
         // hash
-        $key = hash('sha256', $secret_key);
+        $key = hash('sha256', $secretKey);
 
         // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
-        $iv = substr(hash('sha256', $secret_iv), 0, 16);
+        $iv = substr(hash('sha256', $secretIv), 0, 16);
 
-        if( $action == 'encrypt' ) {
-            $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
-            $output = base64_encode($output);
-        }
+        $output = openssl_encrypt($value, $encryptMethod, $key, 0, $iv);
+        $output = base64_encode($output);
+
     }
 
     /**
@@ -123,7 +123,7 @@ class AnonymCrypt implements CryptInterface
     /**
      * @return string
      */
-    public function getİv()
+    public function getIv()
     {
         return $this->iv;
     }
