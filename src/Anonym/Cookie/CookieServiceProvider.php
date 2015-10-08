@@ -30,13 +30,16 @@ class CookieServiceProvider extends ServiceProvider
 
         $app = $this->app();
 
-        $this->singleton(CookieInterface::class, function () use(&$app){
-            $configs = Config::get('stroge.cookie.crypting');
+        $this->singleton(
+            CookieInterface::class,
+            function () use (&$app) {
+                $configs = Config::get('stroge.cookie.crypting');
 
-            $cookie =  new Cookie($configs);
+                $cookie = new Cookie($configs);
 
-            return $cookie->setEncoder($app->app->make(CryptInterface::class));
-        });
+                return $cookie->setEncoder($app->make(CryptInterface::class));
+            }
+        );
     }
 
 }
