@@ -252,4 +252,14 @@
             return $this;
         }
 
+
+        /**
+         * use configurations for anonym driver
+         *
+         * @param array $configs
+         * @return $this
+         */
+        public function useConfigs($configs = []){
+
+        }
     }
