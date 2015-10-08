@@ -224,7 +224,7 @@ class Application extends Container
 
         $aliases = [
 
-            'app'        => ['Anonym\Application\Application', 'Illımunate\Container\Container'],
+            'app'        => ['Anonym\Application\Application', Container::class],
             'redirect'   => ['Anonym\Http\Redirect'],
             'validation' => ['Anonym\Support\Validation'],
             'route'      => ['Anonym\Route\RouteCollector'],
