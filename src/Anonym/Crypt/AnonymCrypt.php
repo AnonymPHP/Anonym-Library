@@ -111,6 +111,26 @@ class AnonymCrypt implements CryptInterface
         return $this->doProccess($value, 'decrypt');
     }
 
+
+    /**
+     * decrypt the value
+     *
+     * @param string $value
+     * @return string
+     */
+    public function decrypt($value){
+        return $this->decode($value);
+    }
+
+    /**
+     * encrypt the value
+     *
+     * @param string $value
+     * @return string
+     */
+    public function encrypt($value){
+        return $this->encode($value);
+    }
     /**
      * @return string
      */
