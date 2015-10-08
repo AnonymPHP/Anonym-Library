@@ -17,21 +17,12 @@
     {
 
         /**
-         * the instance of crypter
+         * the instance of crypting driver
          *
          * @var CryptInterface
          */
         private $crypter;
 
-        /**
-         *  Sınııf başlatır ve şifreleyici olarak ön tanımlı olarak atananı kullanır
-         *
-         *
-         */
-        public function __construct()
-        {
-            $this->useDefaultCrypter();
-        }
 
 
         /**
