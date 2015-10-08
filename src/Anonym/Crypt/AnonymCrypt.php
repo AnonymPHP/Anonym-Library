@@ -79,6 +79,7 @@ class AnonymCrypt implements CryptInterface
         $output = openssl_encrypt($value, $encryptMethod, $key, 0, $iv);
         $output = base64_encode($output);
 
+        return $output;
     }
 
     /**
