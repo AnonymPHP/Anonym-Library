@@ -9,9 +9,11 @@
  */
 
 namespace Anonym\Components\Crypt\Exception;
+use Exception;
 
-
-class CipherNotInstalledException
+class CipherNotInstalledException extends Exception
 {
+
+
 
 }
