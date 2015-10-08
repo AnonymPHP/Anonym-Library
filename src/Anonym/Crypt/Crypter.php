@@ -1,78 +1,79 @@
 <?php
-    /**
-     * Bu Dosya AnonymFramework'e ait bir dosyadır.
-     *
-     * @author vahitserifsaglam <vahit.serif119@gmail.com>
-     * @see http://gemframework.com
-     *
-     */
+/**
+ * Bu Dosya AnonymFramework'e ait bir dosyadır.
+ *
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @see http://gemframework.com
+ *
+ */
 
-    namespace Anonym\Crypt;
+namespace Anonym\Crypt;
+
+/**
+ * Class Crypter
+ * @package Anonym\Crypt
+ */
+class Crypter
+{
 
     /**
-     * Class Crypter
-     * @package Anonym\Crypt
+     * the instance of crypting driver
+     *
+     * @var CryptInterface
      */
-    class Crypter
+    private $crypter;
+
+
+    /**
+     * Veriyi şifreler
+     *
+     * @param string $encode
+     * @return string
+     */
+    public function encode($encode = '')
     {
+        $crypter = $this->getCrypter();
 
-        /**
-         * the instance of crypting driver
-         *
-         * @var CryptInterface
-         */
-        private $crypter;
-
-
-
-        /**
-         * Veriyi şifreler
-         *
-         * @param string $encode
-         * @return string
-         */
-        public function encode($encode = ''){
-            $crypter = $this->getCrypter();
-
-            if($crypter instanceof CryptInterface){
-                return $crypter->encode($encode);
-            }else{
-                return false;
-            }
-        }
-
-        /**
-         * Şifrelenmiş veriyi çözer
-         *
-         * @param string $decode
-         * @return string
-         */
-        public function decode($decode = ''){
-            $crypter = $this->getCrypter();
-
-            if($crypter instanceof CryptInterface){
-                return $crypter->decode($decode);
-            }else{
-                return false;
-            }
-        }
-
-        /**
-         * @return CryptInterface
-         */
-        public function getCrypter()
-        {
-            return $this->crypter;
-        }
-
-        /**
-         * @param CryptInterface $crypter
-         * @return Crypter
-         */
-        public function setCrypter($crypter)
-        {
-            $this->crypter = $crypter;
-
-            return $this;
+        if ($crypter instanceof CryptInterface) {
+            return $crypter->encode($encode);
+        } else {
+            return false;
         }
     }
+
+    /**
+     * Şifrelenmiş veriyi çözer
+     *
+     * @param string $decode
+     * @return string
+     */
+    public function decode($decode = '')
+    {
+        $crypter = $this->getCrypter();
+
+        if ($crypter instanceof CryptInterface) {
+            return $crypter->decode($decode);
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @return CryptInterface
+     */
+    public function getCrypter()
+    {
+        return $this->crypter;
+    }
+
+    /**
+     * @param CryptInterface $crypter
+     * @return Crypter
+     */
+    public function setCrypter($crypter)
+    {
+        $this->crypter = $crypter;
+
+        return $this;
+    }
+}
