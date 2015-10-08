@@ -25,7 +25,7 @@
         public function create()
         {
 
-            if(null === $get = Config::get('general.app_key')){
+            if(!is_string($get = Config::get('general.app_key'))){
                 $get = 'AnonymFrameworkRandom.'.$_SERVER['SERVER_ADDR'];
             }
 
