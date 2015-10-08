@@ -20,6 +20,7 @@
         /**
          * Özel güvenlik anahtarını oluşturur
          *
+         * @param string $key
          * @return string
          */
         public function create($key = null)
