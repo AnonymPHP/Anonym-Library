@@ -11,6 +11,10 @@
 namespace Anonym\Components\Crypt\Exception;
 use Exception;
 
+/**
+ * Class CipherNotInstalledException
+ * @package Anonym\Components\Crypt\Exception
+ */
 class CipherNotInstalledException extends Exception
 {
 
