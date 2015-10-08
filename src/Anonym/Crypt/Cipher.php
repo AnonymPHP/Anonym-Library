@@ -17,7 +17,19 @@ namespace Anonym\Crypt;
 abstract class Cipher
 {
 
+    /**
+     * encrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
     abstract public function encode($value);
 
+    /**
+     * decrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
     abstract public function decode($value);
 }
