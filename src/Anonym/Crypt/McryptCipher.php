@@ -18,6 +18,28 @@ class McryptCipher extends Cipher
 {
 
     /**
+     * the randomizer algorithm for mcrypter
+     *
+     * @var mixed
+     */
+    protected $rand;
+
+
+    /**
+     * the iv value for mcrypter
+     *
+     * @var mixed
+     */
+    protected $iv;
+
+    /**
+     * the algorithm for mcrypter
+     *
+     * @var mixed
+     */
+    protected $algorithm;
+
+    /**
      * encrypt the value
      *
      * @param string $value
