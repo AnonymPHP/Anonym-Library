@@ -29,5 +29,11 @@ class Crypter implements CryptInterface
      *
      * @var string
      */
-    protected $application;
+    protected $appKey;
+
+
+    public function __construct($appKey, Cipher $cipher){
+     $this->appKey = $appKey;
+        $this->cipher = $cipher;
+    }
 }
