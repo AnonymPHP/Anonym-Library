@@ -30,34 +30,36 @@ class SessionServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $session = $this->app()->make(SessionManager::class, ['configs' => $this->app['config']->get('stroge.session')]);
+        $app = $this->app;
+
+        $session = $app->make(SessionManager::class, ['configs' => $this->app['config']->get('stroge.session')]);
 
         $session->extend(
             'cookie',
-            function (array $configs = []) {
+            function (array $configs = []) use($app) {
                 $lifetime = Arr::get($configs, 'cookie.lifetime', 1800);
 
-                $cookie = App::make('cookie');
+                $cookie =$app->make('cookie');
                 return new CookieSessionHandler($cookie, $lifetime);
             }
         );
 
         $session->extend(
             'database',
-            function (array $configs = []) {
+            function (array $configs = []) use($app) {
                 $table = Arr::get($configs, 'database.table');
 
-                $base = App::make('database.base');
+                $base = $app->make('database.base');
                 return new DatabaseSessionHandler($base, $table);
             }
         );
 
         $session->extend(
             'file',
-            function (array $configs = []) {
+            function (array $configs = []) use($app) {
                 $filesystem = Stroge::disk('local');
 
-                $path = Arr::get($configs, 'file.path', RESOURCE . 'sessions/');
+                $path = Arr::get($configs, 'file.path', $app->getResourcePath() . 'sessions/');
                 return new FileSessionHandler($filesystem, $path);
             }
         );
