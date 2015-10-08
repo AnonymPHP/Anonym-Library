@@ -82,7 +82,13 @@ class AnonymCrypt implements CryptInterface
         return $output;
     }
 
-
+    /**
+     * encrypt or decrypt value and return it
+     *
+     * @param $value
+     * @param string $action
+     * @return bool|string
+     */
     private function doProccess($value, $action = 'encrypt'){
 
         $output = false;
