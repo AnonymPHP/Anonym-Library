@@ -64,22 +64,7 @@ class AnonymCrypt implements CryptInterface
      */
     public function encode($value = '')
     {
-        $output = false;
 
-        $encryptMethod = $this->getMethod();
-        $secretKey = $this->getApplicationKey();
-        $secretIv = $this->getIv();
-
-        // hash
-        $key = hash('sha256', $secretKey);
-
-        // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
-        $iv = substr(hash('sha256', $secretIv), 0, 16);
-
-        $output = openssl_encrypt($value, $encryptMethod, $key, 0, $iv);
-        $output = base64_encode($output);
-
-        return $output;
     }
 
     /**
