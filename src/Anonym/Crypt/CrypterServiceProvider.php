@@ -34,7 +34,7 @@ class CrypterServiceProvider extends ServiceProvider
         $this->singleton(
             CryptInterface::class,
             function () use ($app) {
-                return (new Crypter())->setCrypter(new AnonymCrypt());
+                return (new Crypter())->setCrypter(new AnonymCrypt($app['config']->get('general.application_key')));
             }
         );
     }
