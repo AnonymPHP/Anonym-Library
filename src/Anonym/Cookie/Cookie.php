@@ -50,19 +50,8 @@ class Cookie implements CookieInterface
     {
         $this->setReposity(new Reposity());
         $this->setEncode($encode);
-
-        if (true === $encode) {
-            $this->setDefaultEncoder();
-        }
     }
 
-    /**
-     *  Default olarak base64 şifrelemesi kullanılır
-     */
-    private function setDefaultEncoder()
-    {
-        $this->setEncoder(new Base64Encoder());
-    }
 
     /**
      * Cookie olayını tutar
