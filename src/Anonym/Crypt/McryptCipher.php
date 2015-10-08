@@ -52,7 +52,7 @@ class McryptCipher extends Cipher
      * create an instance and check Mcrypt driver is installed?
      *
      * @param string $key
-     * @throws CipherNotInstalledException
+     * @throws CipherNotInstalledException if mcrypt driver is not installed before, this gonna be throw
      */
     public function __construct($key){
         $this->key = $key;
