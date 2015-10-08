@@ -137,7 +137,6 @@ class Stroge implements StrogeInterface
             $value = $this->getCrypt()->decode($value);
         }
 
-
         if (true === $serialized) {
             if (false !==  $data= @unserialize(base64_decode($value))) {
                 return $data;
