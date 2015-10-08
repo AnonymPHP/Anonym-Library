@@ -42,4 +42,6 @@ class Crypter implements CryptInterface
         $this->appKey = $appKey;
         $this->cipher = $cipher;
     }
+
+
 }
