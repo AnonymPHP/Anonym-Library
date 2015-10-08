@@ -11,6 +11,7 @@ namespace Anonym\Cookie;
 
 use Anonym\Cookie\Http\CookieBag as Reposity;
 use Anonym\Cookie\Http\CookieJar as Generator;
+use Anonym\Crypt\CryptInterface;
 use InvalidArgumentException;
 use Anonym\Cookie\CookieInterface;
 /**
@@ -193,7 +194,7 @@ class Cookie implements CookieInterface
     }
 
     /**
-     * @return CookieEncoderInterface
+     * @return CryptInterface
      */
     public function getEncoder()
     {
@@ -201,10 +202,10 @@ class Cookie implements CookieInterface
     }
 
     /**
-     * @param CookieEncoderInterface $encoder
+     * @param CryptInterface $encoder
      * @return Cookie
      */
-    public function setEncoder(CookieEncoderInterface $encoder)
+    public function setEncoder(CryptInterface $encoder)
     {
         $this->encoder = $encoder;
 
