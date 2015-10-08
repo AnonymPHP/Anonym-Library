@@ -141,7 +141,7 @@ class Cookie implements CookieInterface
         $name = $this->encodeForName($name);
 
         if (!is_string($value)) {
-            throw new InvalidArgumentException('The value must be a string');
+            throw new InvalidArgumentException('The Cookie value must be a string');
         }
 
 
