@@ -11,10 +11,9 @@
 namespace Anonym\Session;
 
 use Anonym\Application\ServiceProvider;
-use Anonym\Session\StrogeInterface;
+use Anonym\Crypt\CryptInterface;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
-use Anonym\Facades\App;
 
 
 /**
