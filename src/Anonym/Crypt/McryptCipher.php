@@ -40,6 +40,26 @@ class McryptCipher extends Cipher
     protected $algorithm;
 
     /**
+     * the private application keys
+     *
+     * @var string
+     */
+    protected $key;
+
+    /**
+     * create a instance and check Mcrypt driver is installed?
+     *
+     * @param $key
+     */
+    public function __construct($key){
+        $this->key = $key;
+
+        if(!function_exists('mcrypt_encode')){
+
+        }
+    }
+
+    /**
      * encrypt the value
      *
      * @param string $value
