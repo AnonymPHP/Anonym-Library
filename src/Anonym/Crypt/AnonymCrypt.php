@@ -82,6 +82,7 @@ class AnonymCrypt implements CryptInterface
         return $output;
     }
 
+
     /**
      * Şifrelenmiş metni çözer
      *
@@ -90,7 +91,9 @@ class AnonymCrypt implements CryptInterface
      */
     public function decode($value = '')
     {
-        // TODO: Implement decode() method.
+        $output = openssl_decrypt(base64_decode($value), $this->getMethod(), $this->getApplicationKey(), 0, $this->getIv());
+
+        return $output;
     }
 
     /**
