@@ -86,9 +86,9 @@ class McryptCipher extends Cipher
      *  create your special key
      */
     private function createSpecialKey($iv){
-
         $combinedString = $this->key. $iv;
 
+        return password_hash($combinedString, PASSWORD_BCRYPT);
     }
 
     /**
