@@ -17,4 +17,13 @@ namespace Anonym\Crypt;
 class Crypter implements CryptInterface
 {
 
+    /**
+     * the instance of cipher
+     *
+     * @var Cipher
+     */
+    protected $cipher;
+
+
+
 }
