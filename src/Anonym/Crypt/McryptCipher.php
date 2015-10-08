@@ -100,6 +100,20 @@ class McryptCipher extends Cipher
     public function encode($value)
     {
 
+        $createdIv = $this->createIvSizeAndIvString();
+        $createdKey = $this->createSpecialKey($createdIv);
+
+        if(false !== $encrypted = mcrypt_encrypt($this->algorithm, $createdKey,$value, $this->mode)){
+            return base64_encode(
+                json_encode(
+                    [
+                        'iv' => $createdIv,
+                        'key' => $createdKey,
+                        'value' => $value
+                    ]
+                )
+            );
+        }
     }
 
     /**
