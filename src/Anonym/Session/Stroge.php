@@ -12,8 +12,7 @@
 namespace Anonym\Session;
 
 use SessionHandlerInterface;
-use Anonym\Crypt\Crypter;
-
+use Anonym\Crypt\CryptInterface;
 /**
  * Class Stroge
  * @package Anonym\Session
@@ -39,7 +38,7 @@ class Stroge implements StrogeInterface
     /**
      * the instance of anonym crypt
      *
-     * @var AnonymCrypt
+     * @var CryptInterface
      */
     protected $crypt;
 
@@ -50,7 +49,7 @@ class Stroge implements StrogeInterface
      * @param SessionHandlerInterface|null $handlerInterface the instance of  the handler
      * @param Crypter $crypt
      */
-    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null,Crypter $crypt = null)
+    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null,CryptInterface $crypt = null)
     {
         $this->setConfigs($configs);
         $this->setHandler($handlerInterface);
