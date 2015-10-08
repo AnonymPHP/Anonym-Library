@@ -10,7 +10,10 @@
 
 namespace Anonym\Crypt;
 
-
+/**
+ * Class McryptCipher
+ * @package Anonym\Crypt
+ */
 class McryptCipher extends Cipher
 {
 
