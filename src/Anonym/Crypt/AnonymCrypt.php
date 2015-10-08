@@ -64,7 +64,7 @@ class AnonymCrypt implements CryptInterface
      */
     public function encode($value = '')
     {
-
+        return $this->doProccess($value);
     }
 
     /**
@@ -89,11 +89,11 @@ class AnonymCrypt implements CryptInterface
         $iv = substr(hash('sha256', $secretIv), 0, 16);
 
 
-        if( $action == 'encrypt' ) {
+        if( $action === 'encrypt' ) {
             $output = openssl_encrypt($value, $encryptMethod, $key, 0, $iv);
             $output = base64_encode($output);
         }
-        else if( $action == 'decrypt' ){
+        else if( $action === 'decrypt' ){
             $output = openssl_decrypt(base64_decode($value), $encryptMethod, $key, 0, $iv);
         }
 
@@ -108,9 +108,7 @@ class AnonymCrypt implements CryptInterface
      */
     public function decode($value = '')
     {
-        $output = openssl_decrypt(base64_decode($value), $this->getMethod(), $this->getApplicationKey(), 0, $this->getIv());
-
-        return $output;
+        return $this->doProccess($value, 'decrypt');
     }
 
     /**
