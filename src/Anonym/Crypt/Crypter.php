@@ -17,7 +17,9 @@
     {
 
         /**
-         * @var CrypterEncodeableInterface
+         * the instance of crypter
+         *
+         * @var CryptInterface
          */
         private $crypter;
 
@@ -57,7 +59,7 @@
         public function decode($decode = ''){
             $crypter = $this->getCrypter();
 
-            if($crypter instanceof CrypterDecodeableInterface){
+            if($crypter instanceof CryptInterface){
                 return $crypter->decode($decode);
             }else{
                 return false;
@@ -65,7 +67,7 @@
         }
 
         /**
-         * @return CrypterEncodeableInterface
+         * @return CryptInterface
          */
         public function getCrypter()
         {
@@ -73,7 +75,7 @@
         }
 
         /**
-         * @param CrypterEncodeableInterface $crypter
+         * @param CryptInterface $crypter
          * @return Crypter
          */
         public function setCrypter($crypter)
