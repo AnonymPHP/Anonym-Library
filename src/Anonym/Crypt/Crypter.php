@@ -14,7 +14,7 @@ namespace Anonym\Crypt;
  * Class Crypter
  * @package Anonym\Crypt
  */
-class Crypter
+class Crypter implements CryptInterface
 {
 
     /**
