@@ -51,6 +51,7 @@ class AnonymCrypt implements CryptInterface
         }
 
 
+        $this->iv = (new SecurityKeyGenerator())->create($applicationKey);
         $this->applicationKey = $applicationKey;
     }
 
