@@ -11,7 +11,7 @@
 namespace Anonym\Crypt;
 
 
-class McryptCipher
+class McryptCipher extends Cipher
 {
 
 }
