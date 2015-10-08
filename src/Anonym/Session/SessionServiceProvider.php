@@ -66,8 +66,8 @@ class SessionServiceProvider extends ServiceProvider
 
         $session->extend(
             'cache',
-            function () {
-                return App::make('cache');
+            function () use ($app){
+                return $app->make('cache');
             }
         );
 
@@ -77,8 +77,6 @@ class SessionServiceProvider extends ServiceProvider
             $session
         );
 
-
-        $app = $this;
 
         $this->singleton(Stroge::class, function () use ($app) {
             $driver = Config::get('stroge.session.driver');
