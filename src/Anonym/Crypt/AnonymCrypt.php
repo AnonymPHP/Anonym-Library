@@ -89,16 +89,12 @@ class AnonymCrypt implements CryptInterface
         // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
         $iv = substr(hash('sha256', $secretIv), 0, 16);
 
-
-        if ($action === 'encrypt') {
-            $output = openssl_encrypt(urlencode($value), $encryptMethod, $key, false, $iv);
+        if( $action == 'encrypt' ) {
+            $output = openssl_encrypt($value, $encryptMethod, $key, 0, $iv);
             $output = base64_encode($output);
-        } else {
-            if ($action === 'decrypt') {
-
-                $value = urldecode(base64_decode($value));
-                $output = openssl_decrypt($value, $encryptMethod, $key, false, $iv);
-            }
+        }
+        else if( $action == 'decrypt' ){
+            $output = openssl_decrypt(base64_decode($value), $encryptMethod, $key, 0, $iv);
         }
 
         return $output;
