@@ -13,6 +13,7 @@ namespace Anonym\Session;
 
 use SessionHandlerInterface;
 use Anonym\Crypt\CryptInterface;
+
 /**
  * Class Stroge
  * @package Anonym\Session
@@ -49,7 +50,7 @@ class Stroge implements StrogeInterface
      * @param SessionHandlerInterface|null $handlerInterface the instance of  the handler
      * @param Crypter $crypt
      */
-    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null,CryptInterface $crypt = null)
+    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null, CryptInterface $crypt = null)
     {
         $this->setConfigs($configs);
         $this->setHandler($handlerInterface);
@@ -122,15 +123,27 @@ class Stroge implements StrogeInterface
      */
     protected function readFromHandler($name, $crypt = false)
     {
+        $serialized = false;
+
         $value = $this->getHandler()->read($name);
+
+        if (strstr($value, 'serialized-')) {
+            $serialized = true;
+
+            $value = str_replace('serialized-', '', $value);
+        }
 
         if (true === $crypt) {
             $value = $this->getCrypt()->decode($value);
         }
 
-        if (false !== $data = @unserialize(base64_decode($value))) {
-            return $data;
+
+        if (true === $serialized) {
+            if (false !==  $data= @unserialize(base64_decode($value))) {
+                return $data;
+            }
         }
+
         return $value;
     }
 
@@ -149,7 +162,7 @@ class Stroge implements StrogeInterface
         }
 
         if (true === $crypt) {
-            $value = 'serialized:'.$this->getCrypt()->encode($crypt);
+            $value = 'serialized-'.$this->getCrypt()->encode($crypt);
         }
 
         $this->getHandler()->write($name, $value);
@@ -212,6 +225,6 @@ class Stroge implements StrogeInterface
      */
     public function flush()
     {
-         // do nothing
+        // do nothing
     }
 }
