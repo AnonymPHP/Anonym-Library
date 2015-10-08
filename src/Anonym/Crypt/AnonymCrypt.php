@@ -25,7 +25,19 @@ class AnonymCrypt implements CryptInterface
      */
     protected $applicationKey;
 
+    /**
+     * the crypting method
+     *
+     * @var string
+     */
+    protected $method = "AES-256-CBC";
 
+    /**
+     * the crypting secret iv key
+     *
+     * @var string
+     */
+    protected $iv = "";
     /**
      * Sınıfı başlatır
      *
@@ -41,5 +53,79 @@ class AnonymCrypt implements CryptInterface
         $this->applicationKey = $applicationKey;
     }
 
+
+    /**
+     * encrypt the data
+     *
+     * @param string $value
+     * @return string
+     */
+    public function encode($value = '')
+    {
+        $output = false;
+
+        $encrypt_method = "AES-256-CBC";
+        $secretKey = $this->applicationKey;
+        $secret_iv = 'This is my secret iv';
+
+        // hash
+        $key = hash('sha256', $secret_key);
+
+        // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
+        $iv = substr(hash('sha256', $secret_iv), 0, 16);
+
+        if( $action == 'encrypt' ) {
+            $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+            $output = base64_encode($output);
+        }
+    }
+
+    /**
+     * Şifrelenmiş metni çözer
+     *
+     * @param string $value
+     * @return string
+     */
+    public function decode($value = '')
+    {
+        // TODO: Implement decode() method.
+    }
+
+    /**
+     * @return string
+     */
+    public function getApplicationKey()
+    {
+        return $this->applicationKey;
+    }
+
+    /**
+     * regiter the application key
+     *
+     * @param string $applicationKey
+     * @return AnonymCrypt
+     */
+    public function setApplicationKey($applicationKey)
+    {
+        $this->applicationKey = $applicationKey;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getİv()
+    {
+        return $this->iv;
+    }
 
 }
