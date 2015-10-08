@@ -26,11 +26,11 @@
         public function create($key = null)
         {
 
-            if(!is_string($get = $key)){
-                $get = 'AnonymFrameworkRandom.'.$_SERVER['SERVER_ADDR'];
+            if(!is_string($key)){
+                $key = 'AnonymFrameworkRandom.'.$_SERVER['SERVER_ADDR'];
             }
 
-            return md5($get);
+            return md5($key);
         }
 
         /**
