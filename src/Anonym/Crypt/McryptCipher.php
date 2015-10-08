@@ -51,7 +51,8 @@ class McryptCipher extends Cipher
     /**
      * create an instance and check Mcrypt driver is installed?
      *
-     * @param $key
+     * @param string $key
+     * @throws CipherNotInstalledException
      */
     public function __construct($key){
         $this->key = $key;
