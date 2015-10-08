@@ -41,7 +41,12 @@ class RequestConstructor extends ServiceProvider
             'http.request',
             function () use (&$app) {
 
-                return (new Request($app->make('validation')))->header('X-FRAMEWORK-NAME', $app->getName())->header('X-FRAMEWORK-VERSION', $app->getVersion());
+
+                $request = new Request($app['validation']);
+                $request->header('X-FRAMEWORK-NAME', $app->getName());
+                $request->header('X-FRAMEWORK-VERSION', $app->getVersion());
+
+                return $request;
             },
             true
         );
