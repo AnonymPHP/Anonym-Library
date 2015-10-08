@@ -14,6 +14,13 @@ use Exception;
 class CipherNotInstalledException extends Exception
 {
 
-
+    /**
+     * create an instance and throw the exception
+     *
+     * @param string $message
+     */
+    public function __construct($message){
+        $this->message = $message;
+    }
 
 }
