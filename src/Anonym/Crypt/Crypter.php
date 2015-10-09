@@ -14,7 +14,7 @@ namespace Anonym\Crypt;
  * Class Crypter
  * @package Anonym\Crypt
  */
-class Crypter implements CryptInterface
+class Crypter extends  Cipher
 {
 
     /**
@@ -36,4 +36,25 @@ class Crypter implements CryptInterface
     }
 
 
+    /**
+     * encrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
+    public function encode($value)
+    {
+        return $this->cipher->encode($value);
+    }
+
+    /**
+     * decrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
+    public function decode($value)
+    {
+        return $this->cipher->decode($value);
+    }
 }
