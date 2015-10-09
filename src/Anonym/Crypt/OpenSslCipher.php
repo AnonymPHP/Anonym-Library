@@ -46,8 +46,10 @@ class OpenSslCipher extends Cipher
 
         $securityKey = hash('sha256', $key);
 
-        return [
+        $iv = substr($securityKey, 0, 16);
 
+        return [
+            $iv,
         ];
     }
 
