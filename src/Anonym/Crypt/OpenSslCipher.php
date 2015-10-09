@@ -38,6 +38,15 @@ class OpenSslCipher extends Cipher
     }
 
     /**
+     * create the random application key
+     *
+     * @return string
+     */
+    protected function createEncryptionKey(){
+        return substr(md5(openssl_random_pseudo_bytes(32).$this->appKey), 0, 32);
+    }
+
+    /**
      * encrypt the value
      *
      * @param string $value
