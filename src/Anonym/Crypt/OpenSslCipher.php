@@ -76,7 +76,8 @@ class OpenSslCipher extends Cipher
                     [
                         'iv' => $iv,
                         'key' => $securityKey,
-                        'value' => $encrypted
+                        'value' => $encrypted,
+                        'mode'  => $this->mode
                     ]
                 )
             );
@@ -99,10 +100,17 @@ class OpenSslCipher extends Cipher
             if(false !== $jsonDecoded = json_decode($value)){
                 $iv = isset($jsonDecoded['iv']) ? $jsonDecoded['iv'] : '';
                 $key = isset($jsonDecoded['key']) ? $jsonDecoded['key']: '';
+                $value = $jsonDecoded['value'];
+                $mode = isset($jsonDecoded['mode']) ? $jsonDecoded['mode'] : $this->mode;
 
-
+                if(false !== $decrypted =  openssl_decrypt($value, $mode, $key, false, $iv)){
+                    return $decrypted;
+                }
             }
         }
+
+
+        return false;
 
     }
 }
