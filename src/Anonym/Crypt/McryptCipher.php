@@ -134,6 +134,10 @@ class McryptCipher extends Cipher
 
         $value = $prepareForDecrypt['value'];
 
-        if(false !== $e)
+        if(false !== $decypted = mcrypt_decrypt($this->algorithm, $preparedKey, $value, $this->mode, $preparedIv)){
+            return $decypted;
+        }
+
+        return false;
     }
 }
