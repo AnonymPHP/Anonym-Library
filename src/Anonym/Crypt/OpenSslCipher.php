@@ -70,6 +70,19 @@ class OpenSslCipher extends Cipher
 
         list($iv, $securityKey) = $this->createSecurityKeyAndIv();
 
+        if(false !== $encrypted = openssl_encrypt($value, $this->mode, $securityKey, false, $iv)){
+            return base64_encode(
+                json_encode(
+                    [
+                        'iv' => $iv,
+                        'key' => $securityKey,
+                        'value' => $encrypted
+                    ]
+                )
+            );
+        }
+
+        return false;
     }
 
     /**
