@@ -10,6 +10,6 @@
 
 include 'vendor/autoload.php';
 
-use Anonym\Html\Form;
-$form = new Form(false);
+$mcrypt = new \Anonym\Crypt\McryptCipher('anonymphp');
 
+var_dump($mcrypt);

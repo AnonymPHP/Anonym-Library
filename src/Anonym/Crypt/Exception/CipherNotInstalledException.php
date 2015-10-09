@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Components\Crypt\Exception;
+namespace Anonym\Crypt\Exception;
 use Exception;
 
 /**
