@@ -103,7 +103,7 @@ class McryptCipher extends Cipher
         $createdIv = $this->createIvSizeAndIvString();
         $createdKey = $this->createSpecialKey($createdIv);
 
-        if(false !== $encrypted = mcrypt_encrypt($this->algorithm, $createdKey,$value, $this->mode)){
+        if(false !== $encrypted = @mcrypt_encrypt($this->algorithm, $createdKey,$value, $this->mode)){
             return base64_encode(
                 json_encode(
                     [
@@ -114,6 +114,8 @@ class McryptCipher extends Cipher
                 )
             );
         }
+
+        return false;
     }
 
     /**
@@ -132,7 +134,6 @@ class McryptCipher extends Cipher
 
         $value = $prepareForDecrypt['value'];
 
-
-
+        if(false !== $e)
     }
 }
