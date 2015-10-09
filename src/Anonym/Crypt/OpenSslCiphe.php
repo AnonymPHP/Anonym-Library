@@ -15,6 +15,28 @@ class OpenSslCipher extends Cipher
 {
 
     /**
+     * the encrypting method for open ssl driver
+     *
+     * @var string
+     */
+    protected $mode = 'AES-256-CBC';
+
+    /**
+     * the secret key created for encrypting
+     *
+     * @var string
+     */
+    protected $key;
+
+
+    /**
+     * @param $key
+     */
+    public function __construct($key){
+        $this->key = $key;
+    }
+
+    /**
      * encrypt the value
      *
      * @param string $value
