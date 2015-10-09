@@ -94,5 +94,15 @@ class OpenSslCipher extends Cipher
     public function decode($value)
     {
 
+        if(false !== $baseDecoded = base64_decode($value)){
+
+            if(false !== $jsonDecoded = json_decode($value)){
+                $iv = isset($jsonDecoded['iv']) ? $jsonDecoded['iv'] : '';
+                $key = isset($jsonDecoded['key']) ? $jsonDecoded['key']: '';
+
+
+            }
+        }
+
     }
 }
