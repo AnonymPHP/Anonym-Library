@@ -65,6 +65,10 @@ class OpenSslCipher extends Cipher
     public function encode($value)
     {
 
+        if(false !== $encrypted = openssl_encrypt(serialize($value), $this->mode, $key = $this->createEncryptionKey(), 0, $iv = $this->createRandomIv())){
+
+        }
+
     }
 
     /**
