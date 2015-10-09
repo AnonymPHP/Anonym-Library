@@ -88,5 +88,13 @@ class OpenSslCipher extends Cipher
     public function decode($value)
     {
 
+        $prepared = serialize(base64_decode($value));
+        list($value, $iv, $key) = array_values($prepared);
+
+        if(false !== $decrypted = openssl_decrypt($value, $this->mode, $key, false, $iv)){
+            return $decrypted;
+        }
+
+        return false;
     }
 }
