@@ -11,7 +11,28 @@
 namespace Anonym\Crypt;
 
 
-class OpenSslCipher
+class OpenSslCipher extends Cipher
 {
 
+    /**
+     * encrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
+    public function encode($value)
+    {
+
+    }
+
+    /**
+     * decrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
+    public function decode($value)
+    {
+
+    }
 }
