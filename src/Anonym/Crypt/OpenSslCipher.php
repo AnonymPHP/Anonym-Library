@@ -26,7 +26,7 @@ class OpenSslCipher extends Cipher
      *
      * @var string
      */
-    protected $mode = 'AES_256_CBC';
+    protected $mode = 'aes-256-cbc';
 
     /**
      * create a new instance and register the application key
@@ -88,11 +88,11 @@ class OpenSslCipher extends Cipher
     public function decode($value)
     {
 
-        $prepared = serialize(base64_decode($value));
+        $prepared = unserialize(base64_decode($value));
         list($value, $iv, $key) = array_values($prepared);
 
         if(false !== $decrypted = openssl_decrypt($value, $this->mode, $key, false, $iv)){
-            return $decrypted;
+            return unserialize($decrypted);
         }
 
         return false;
