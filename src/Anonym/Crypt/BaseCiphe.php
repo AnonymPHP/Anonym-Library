@@ -14,4 +14,25 @@ namespace Anonym\Crypt;
 class BaseCipher extends Cipher
 {
 
+    /**
+     * encrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
+    public function encode($value)
+    {
+        return base64_encode($value);
+    }
+
+    /**
+     * decrypt the value
+     *
+     * @param string $value
+     * @return mixed
+     */
+    public function decode($value)
+    {
+        return base64_decode($value);
+    }
 }
