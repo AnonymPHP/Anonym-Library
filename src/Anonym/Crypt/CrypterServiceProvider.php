@@ -31,5 +31,15 @@ class CrypterServiceProvider extends ServiceProvider
 
         $app = $this->app;
 
+        $this->singleton(Crypter::class, function() use($app){
+
+            $cipher = $app['config']->get('crypt.cipher');
+            $appKey = $app['config']->get('general.app_key');
+
+            $cipher = $app->make($cipher, [$appKey]);
+
+            return new Crypter($cipher);
+        });
+
     }
 }
