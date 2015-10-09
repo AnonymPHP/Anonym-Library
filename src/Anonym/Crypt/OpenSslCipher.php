@@ -40,6 +40,11 @@ class OpenSslCipher extends Cipher
     }
 
 
+    /**
+     * create security key and iv value
+     *
+     * @return array
+     */
     protected function createSecurityKeyAndIv()
     {
         $key = $this->key;
