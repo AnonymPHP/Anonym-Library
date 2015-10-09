@@ -50,6 +50,7 @@ class OpenSslCipher extends Cipher
 
         return [
             $iv,
+            hash('sha256', $securityKey.':iv'.$iv)
         ];
     }
 
