@@ -59,13 +59,14 @@ class McryptCipher extends Cipher
     /**
      * create an instance and check Mcrypt driver is installed?
      *
-     * @param string $key                  the special application key
+     * @param string $key the special application key
      * @throws CipherNotInstalledException if mcrypt driver is not installed before, this exception will throw
      */
-    public function __construct($key){
+    public function __construct($key)
+    {
         $this->key = $key;
 
-        if(!function_exists('mcrypt_create_iv')){
+        if (!function_exists('mcrypt_create_iv')) {
             throw new CipherNotInstalledException(sprintf('Mcrypt cipher is not installed on your server'));
         }
     }
@@ -76,7 +77,8 @@ class McryptCipher extends Cipher
      *
      * @return string
      */
-    private function createIvSizeAndIvString(){
+    private function createIvSizeAndIvString()
+    {
         $ivSize = mcrypt_get_iv_size($this->algorithm, $this->mode);
 
         return mcrypt_create_iv($ivSize, $this->rand);
@@ -85,8 +87,9 @@ class McryptCipher extends Cipher
     /**
      *  create your special key
      */
-    private function createSpecialKey($iv){
-        $combinedString = $this->key. $iv;
+    private function createSpecialKey($iv)
+    {
+        $combinedString = $this->key.$iv;
 
         return substr(base64_encode($combinedString), 0, 16);
     }
@@ -103,16 +106,24 @@ class McryptCipher extends Cipher
         $createdIv = $this->createIvSizeAndIvString();
         $createdKey = $this->createSpecialKey($createdIv);
 
-        if(false !== $encrypted = @mcrypt_encrypt($this->algorithm, $createdKey, $value, $this->mode, $createdIv)){
+        if (false !== $encrypted = @mcrypt_encrypt($this->algorithm, $createdKey, $value, $this->mode, $createdIv)) {
 
-
+            var_dump(
+                serialize(
+                    [
+                        'iv'    => $createdIv,
+                        'key'   => $createdKey,
+                        'value' => $encrypted,
+                    ]
+                )
+            );
 
             return base64_encode(
                 serialize(
                     [
-                        'iv' => $createdIv,
-                        'key' => $createdKey,
-                        'value' => $value
+                        'iv'    => $createdIv,
+                        'key'   => $createdKey,
+                        'value' => trim(base64_encode($encrypted)),
                     ]
                 )
             );
@@ -130,15 +141,14 @@ class McryptCipher extends Cipher
     public function decode($value)
     {
 
-        $prepareForDecrypt = unserialize(json_decode($value));
-
+        $prepareForDecrypt = unserialize(base64_decode($value));
         $preparedIv = $prepareForDecrypt['iv'];
         $preparedKey = $prepareForDecrypt['key'];
 
-        $value = $prepareForDecrypt['value'];
+        $value = base64_decode($prepareForDecrypt['value']);
 
-        if(false !== $decypted = mcrypt_decrypt($this->algorithm, $preparedKey, $value, $this->mode, $preparedIv)){
-            return $decypted;
+        if (false !== $decypted = @mcrypt_decrypt($this->algorithm, $preparedKey, $value, $this->mode, $preparedIv)) {
+            return trim($decypted, "\0\4");
         }
 
         return false;
