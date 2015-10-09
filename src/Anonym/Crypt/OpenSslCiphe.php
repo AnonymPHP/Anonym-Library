@@ -34,8 +34,21 @@ class OpenSslCipher extends Cipher
      *
      * @param string $key
      */
-    public function __construct($key){
+    public function __construct($key)
+    {
         $this->key = $key;
+    }
+
+
+    protected function createSecurityKeyAndIv()
+    {
+        $key = $this->key;
+
+        $securityKey = hash('sha256', $key);
+
+        return [
+
+        ];
     }
 
     /**
