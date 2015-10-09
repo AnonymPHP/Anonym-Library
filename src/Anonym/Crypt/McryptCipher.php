@@ -125,5 +125,14 @@ class McryptCipher extends Cipher
     public function decode($value)
     {
 
+        $prepareForDecrypt = base64_decode(json_decode($value));
+
+        $preparedIv = $prepareForDecrypt['iv'];
+        $preparedKey = $prepareForDecrypt['key'];
+
+        $value = $prepareForDecrypt['value'];
+
+
+
     }
 }
