@@ -26,7 +26,7 @@ class OpenSslCipher extends Cipher
      *
      * @var string
      */
-    protected $mode;
+    protected $mode = 'AES_256_CBC';
 
     /**
      * create a new instance and register the application key
@@ -44,6 +44,16 @@ class OpenSslCipher extends Cipher
      */
     protected function createEncryptionKey(){
         return substr(md5(openssl_random_pseudo_bytes(32).$this->appKey), 0, 32);
+    }
+
+
+    /**
+     * create and return random iv string
+     *
+     * @return string
+     */
+    protected function createRandomIv(){
+        return openssl_random_pseudo_bytes(openssl_cipher_iv_length($this->mode));
     }
 
     /**
