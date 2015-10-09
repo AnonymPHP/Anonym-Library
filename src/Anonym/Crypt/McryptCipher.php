@@ -88,7 +88,7 @@ class McryptCipher extends Cipher
     private function createSpecialKey($iv){
         $combinedString = $this->key. $iv;
 
-        return password_hash($combinedString, PASSWORD_BCRYPT);
+        return substr(password_hash($combinedString, PASSWORD_BCRYPT), 0, 16);
     }
 
     /**
@@ -103,7 +103,7 @@ class McryptCipher extends Cipher
         $createdIv = $this->createIvSizeAndIvString();
         $createdKey = $this->createSpecialKey($createdIv);
 
-        if(false !== $encrypted = @mcrypt_encrypt($this->algorithm, $createdKey,$value, $this->mode)){
+        if(false !== $encrypted = @mcrypt_encrypt($this->algorithm, $createdKey, $value, $this->mode, $createdIv)){
             return base64_encode(
                 json_encode(
                     [

@@ -12,4 +12,6 @@ include 'vendor/autoload.php';
 
 $mcrypt = new \Anonym\Crypt\McryptCipher('anonymphp');
 
-var_dump($mcrypt);
+$encoded = $mcrypt->encode('aa');
+
+var_dump($encoded);
