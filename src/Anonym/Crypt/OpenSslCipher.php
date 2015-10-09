@@ -68,6 +68,8 @@ class OpenSslCipher extends Cipher
     public function encode($value)
     {
 
+        list($iv, $securityKey) = $this->createSecurityKeyAndIv();
+
     }
 
     /**
