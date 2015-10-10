@@ -14,7 +14,7 @@ use Anonym\Cookie\Http\CookieJar as Generator;
 use Anonym\Crypt\Cipher;
 use Anonym\Crypt\CryptInterface;
 use InvalidArgumentException;
-use Anonym\Cookie\CookieInterface;
+
 /**
  * Class Cookie
  * @package Anonym\Cookie
@@ -101,7 +101,8 @@ class Cookie implements CookieInterface
      * @param string $name
      * @return string
      */
-    private function encodeForName($name){
+    private function encodeForName($name)
+    {
         return sha1(md5($name));
     }
 
@@ -132,8 +133,7 @@ class Cookie implements CookieInterface
         $domain = null,
         $secure = false,
         $httpOnly = false
-    )
-    {
+    ) {
 
 
         if (!is_string($name)) {
@@ -153,6 +153,7 @@ class Cookie implements CookieInterface
 
         $cookie = Generator::make($name, $value, $expires, $path, $domain, $secure, $httpOnly);
         CookieContainer::addCookie($cookie);
+
         return $this;
     }
 
@@ -188,9 +189,9 @@ class Cookie implements CookieInterface
         $domain = null,
         $secure = false,
         $httpOnly = false
-    )
-    {
+    ) {
         $this->set($name, $value, 2628000, $path, $domain, $secure, $httpOnly);
+
         return $this;
     }
 
@@ -250,6 +251,7 @@ class Cookie implements CookieInterface
         if ($reposity instanceof ReposityInterface) {
             $this->reposity = $reposity->getCookies();
         }
+
         return $this;
     }
 }
