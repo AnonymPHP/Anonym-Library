@@ -11,6 +11,7 @@
 namespace Anonym\Session;
 
 use Anonym\Application\ServiceProvider;
+use Anonym\Crypt\Crypter;
 use Anonym\Crypt\CryptInterface;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
@@ -31,7 +32,8 @@ class SessionServiceProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $crypt = $app->make(CryptInterface::class);
+        $crypt = $app->make(Crypter::class);
+
         $session = $app->make(
             SessionManager::class,
             [
