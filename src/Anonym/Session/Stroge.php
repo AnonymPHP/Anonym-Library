@@ -11,6 +11,7 @@
 
 namespace Anonym\Session;
 
+use Anonym\Crypt\Cipher;
 use SessionHandlerInterface;
 use Anonym\Crypt\CryptInterface;
 
@@ -48,9 +49,9 @@ class Stroge implements StrogeInterface
      *
      * @param array $configs all settings of the handler
      * @param SessionHandlerInterface|null $handlerInterface the instance of  the handler
-     * @param Crypter $crypt
+     * @param Cipher $crypt
      */
-    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null, CryptInterface $crypt = null)
+    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null, Cipher $crypt = null)
     {
         $this->setConfigs($configs);
         $this->setHandler($handlerInterface);
@@ -96,7 +97,7 @@ class Stroge implements StrogeInterface
     }
 
     /**
-     * @return CryptInterface
+     * @return Cipher
      */
     public function getCrypt()
     {
@@ -104,10 +105,10 @@ class Stroge implements StrogeInterface
     }
 
     /**
-     * @param CryptInterface $crypt
+     * @param Cipher $crypt
      * @return Stroge
      */
-    public function setCrypt(CryptInterface $crypt)
+    public function setCrypt(Cipher $crypt)
     {
         $this->crypt = $crypt;
 
