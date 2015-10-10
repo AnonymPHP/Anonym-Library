@@ -12,7 +12,7 @@ namespace Anonym\Session;
 
 use Anonym\Application\ServiceProvider;
 use Anonym\Crypt\Crypter;
-use Anonym\Crypt\CryptInterface;
+use Anonym\Facades\Stroge;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 
