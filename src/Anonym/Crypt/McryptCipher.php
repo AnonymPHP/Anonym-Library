@@ -108,21 +108,11 @@ class McryptCipher extends Cipher
 
         if (false !== $encrypted = @mcrypt_encrypt($this->algorithm, $createdKey, $value, $this->mode, $createdIv)) {
 
-            var_dump(
-                serialize(
-                    [
-                        'iv'    => $createdIv,
-                        'key'   => $createdKey,
-                        'value' => $encrypted,
-                    ]
-                )
-            );
-
             return base64_encode(
                 serialize(
                     [
-                        'iv'    => $createdIv,
-                        'key'   => $createdKey,
+                        'iv'    => base64_encode($createdIv),
+                        'key'   => base64_encode($createdKey),
                         'value' => trim(base64_encode($encrypted)),
                     ]
                 )
@@ -141,9 +131,10 @@ class McryptCipher extends Cipher
     public function decode($value)
     {
 
-        $prepareForDecrypt = unserialize(base64_decode($value));
-        $preparedIv = $prepareForDecrypt['iv'];
-        $preparedKey = $prepareForDecrypt['key'];
+
+        $prepareForDecrypt = @unserialize(base64_decode($value));
+        $preparedIv = base64_decode($prepareForDecrypt['iv']);
+        $preparedKey = base64_decode($prepareForDecrypt['key']);
 
         $value = base64_decode($prepareForDecrypt['value']);
 
