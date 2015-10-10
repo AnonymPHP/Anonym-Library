@@ -111,7 +111,7 @@ class CookieJar
         }
 
         $this->setName($name);
-        $this->setValue($value);
+        $this->setValue(urlencode($value));
         $this->setExpires($expires);
         $this->setDomain($domain);
         $this->setPath($path);
