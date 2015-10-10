@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Session;
+use Anonym\Filesystem\Adapter;
 use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
 use Symfony\Component\Finder\Finder;
@@ -38,10 +39,10 @@ class FileSessionHandler implements SessionHandlerInterface
     /**
      * create a new instance
      *
-     * @param FilesystemInterface $filesystemInterface
+     * @param Adapter $filesystemInterface
      * @param string $path
      */
-    public function __construct(FilesystemInterface $filesystemInterface, $path){
+    public function __construct(Adapter $filesystemInterface, $path){
         $this->driver = $filesystemInterface;
         $this->path = $path;
 
