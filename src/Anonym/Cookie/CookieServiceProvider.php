@@ -3,11 +3,8 @@
 namespace Anonym\Cookie;
 
 use Anonym\Application\ServiceProvider;
-use Anonym\Cookie\CookieInterface;
-use Anonym\Crypt\CryptInterface;
 use Anonym\Facades\Config;
 use Anonym\Crypt\Crypter;
-use Anonym\Support\Arr;
 
 /**
  * This file belongs to the AnoynmFramework
@@ -33,11 +30,11 @@ class CookieServiceProvider extends ServiceProvider
         $this->singleton(
             CookieInterface::class,
             function () use (&$app) {
-                $configs = Config::get('stroge.cookie.crypting');
+                $configs = $app['config']->get('stroge.cookie.crypting');
 
                 $cookie = new Cookie($configs);
 
-                return $cookie->setEncoder($app->make(CryptInterface::class));
+                return $cookie->setEncoder($app->make(Crypter::class));
             }
         );
     }
