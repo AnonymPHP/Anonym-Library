@@ -232,7 +232,7 @@ class Application extends Container
             'cookie'     => ['Anonym\Cookie\CookieInterface'],
             'session'    => ['Anonym\Session\StrogeInterface'],
             'config'     => ['Anonym\Config\Reposity'],
-            'crypt'      => ['Anonym\Crypt\CryptInterface'],
+            'crypt'      => ['Anonym\Crypt\Crypter'],
             'view'       => ['Anonym\View\View']
         ];
 
