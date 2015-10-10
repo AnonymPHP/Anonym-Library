@@ -33,7 +33,8 @@ class OpenSslCipher extends Cipher
      *
      * @param string $key
      */
-    public function __construct($key){
+    public function __construct($key)
+    {
         $this->appKey = $key;
     }
 
@@ -42,7 +43,8 @@ class OpenSslCipher extends Cipher
      *
      * @return string
      */
-    protected function createEncryptionKey(){
+    protected function createEncryptionKey()
+    {
         return substr(md5(openssl_random_pseudo_bytes(32).$this->appKey), 0, 32);
     }
 
@@ -52,7 +54,8 @@ class OpenSslCipher extends Cipher
      *
      * @return string
      */
-    protected function createRandomIv(){
+    protected function createRandomIv()
+    {
         return openssl_random_pseudo_bytes(openssl_cipher_iv_length($this->mode));
     }
 
@@ -65,14 +68,16 @@ class OpenSslCipher extends Cipher
     public function encode($value)
     {
 
-        if(false !== $encrypted = openssl_encrypt(serialize($value), $this->mode, $key = $this->createEncryptionKey(), 0, $iv = $this->createRandomIv())){
+        if (false !== $encrypted = openssl_encrypt(serialize($value), $this->mode, $key = $this->createEncryptionKey(), 0, $iv = $this->createRandomIv())) {
 
             return base64_encode(
-                serialize([
-                   'value' => $encrypted,
-                    'iv' => $iv,
-                    'key' => $key
-                ])
+                serialize(
+                    [
+                        'value' => base64_encode($encrypted),
+                        'iv'    => base64_encode($iv),
+                        'key'   => base64_encode($key),
+                    ]
+                )
             );
         }
 
@@ -89,9 +94,12 @@ class OpenSslCipher extends Cipher
     {
 
         $prepared = unserialize(base64_decode($value));
-        list($value, $iv, $key) = array_values($prepared);
+        $value = base64_decode($prepared['value']);
+        $key   = base64_decode($prepared['key']);
+        $iv    = base64_decode($prepared['iv']);
 
-        if(false !== $decrypted = openssl_decrypt($value, $this->mode, $key, false, $iv)){
+
+        if (false !== $decrypted = openssl_decrypt($value, $this->mode, $key, false, $iv)) {
             return unserialize($decrypted);
         }
 
