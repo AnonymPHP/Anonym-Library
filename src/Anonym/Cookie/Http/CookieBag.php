@@ -56,7 +56,7 @@ class CookieBag extends RequestHeaders implements ReposityInterface
             foreach ($explode as $ex) {
 
                 $ex = explode('=', $ex, 2);
-                $cookies[trim($ex[0])] = ($ex[1]);
+                $cookies[trim($ex[0])] = urldecode($ex[1]);
             }
 
             return $cookies;
