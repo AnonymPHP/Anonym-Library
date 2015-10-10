@@ -25,7 +25,7 @@ class FileSessionHandler implements SessionHandlerInterface
     /**
      * the instance of filesystem driver
      *
-     * @var Filesystem
+     * @var FilesystemInterface
      */
     protected $driver;
 
@@ -39,7 +39,7 @@ class FileSessionHandler implements SessionHandlerInterface
     /**
      * create a new instance
      *
-     * @param Filesystem $filesystemInterface
+     * @param FilesystemInterface $filesystemInterface
      * @param string $path
      */
     public function __construct(FilesystemInterface $filesystemInterface, $path){
