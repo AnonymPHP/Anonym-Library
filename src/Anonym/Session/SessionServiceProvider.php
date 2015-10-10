@@ -14,6 +14,7 @@ use Anonym\Application\ServiceProvider;
 use Anonym\Crypt\Crypter;
 use Anonym\Facades\Stroge as FileStroge;
 use Anonym\Facades\Config;
+use Anonym\Filesystem\Filesystem;
 use Anonym\Support\Arr;
 
 
@@ -65,10 +66,9 @@ class SessionServiceProvider extends ServiceProvider
         $session->extend(
             'file',
             function (array $configs = []) use($app) {
-                $filesystem = FileStroge::disk('local');
 
                 $path = Arr::get($configs, 'file.path', $app->getResourcePath() . 'sessions/');
-                return new FileSessionHandler($filesystem, $path);
+                return new FileSessionHandler(new Filesystem(), $path);
             }
         );
 
