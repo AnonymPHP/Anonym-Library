@@ -11,6 +11,7 @@
 
 namespace Anonym\Session;
 use Anonym\Filesystem\Filesystem;
+use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
 use Symfony\Component\Finder\Finder;
 
@@ -41,7 +42,7 @@ class FileSessionHandler implements SessionHandlerInterface
      * @param Filesystem $filesystemInterface
      * @param string $path
      */
-    public function __construct(Filesystem $filesystemInterface, $path){
+    public function __construct(FilesystemInterface $filesystemInterface, $path){
         $this->driver = $filesystemInterface;
         $this->path = $path;
 
@@ -130,8 +131,8 @@ class FileSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        if ($this->driver->exists($path = $this->path.$session_id)) {
-            return $this->driver->get($path);
+        if ($this->driver->has($path = $this->path.$session_id)) {
+            return $this->driver->read($path);
         }
 
         return '';
@@ -156,7 +157,7 @@ class FileSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        if(!$this->driver->exists($path = $this->path.$session_id)){
+        if(!$this->driver->has($path = $this->path.$session_id)){
             $this->driver->create($path);
         }
 
