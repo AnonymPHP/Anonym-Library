@@ -98,4 +98,18 @@ abstract class ServiceProvider
     public function __call($method, $args){
         return call_user_func_array([$this->app(), $method], $args);
     }
+
+    /**
+     * You can register your providers with string or array data.
+     *
+     * @param array|string $provider
+     * @return $this
+     */
+    public function registerProvider($provider){
+        $providers = (array) $provider;
+
+        foreach($providers as $provider){
+            $this->app()['config']->add('general.providers', $provider);
+        }
+    }
 }
