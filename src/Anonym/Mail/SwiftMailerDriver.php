@@ -13,6 +13,7 @@ namespace Anonym\Mail;
 use Swift_Message;
 use Swift_Mailer;
 use Swift_SmtpTransport;
+use Anonym\Support\Arr;
 
 /**
  * the driver of swift mailer
@@ -44,11 +45,12 @@ class SwiftMailerDriver implements DriverInterface
      */
     public function __construct(array $configs = [])
     {
+        $host = Arr::get($configs, 'host', '');
+        $username = Arr::get($configs, 'username', '');
+        $password = Arr::get($configs, 'password', '');
+        $port = Arr::get($configs, 'port', 25);
 
-        $host = isset($configs['host']) ? $configs['host'] : '';
-        $port = isset($configs['port']) ? $configs['port'] : 25;
-        $username = isset($configs['username']) ? $configs['username'] : '';
-        $password = isset($configs['password']) ? $configs['password'] : '';
+
 
         $transport = Swift_SmtpTransport::newInstance($host, $port)
             ->setUsername($username)
@@ -56,6 +58,10 @@ class SwiftMailerDriver implements DriverInterface
 
         $this->mailer = Swift_Mailer::newInstance($transport);
         $this->message = Swift_Message::newInstance();
+
+        if(Arr::has($configs, 'from.mail')){
+            $this->message->addFrom(Arr::get($configs, 'from.mail'), Arr::get($configs, 'from.name', null));
+        }
     }
 
     /**

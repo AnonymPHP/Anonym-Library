@@ -18,24 +18,23 @@ use Anonym\Filesystem\Filesystem;
  */
 class Logger
 {
-
     /**
      * the instance of filesystem
      *
      * @var Filesystem
      */
     private $filesystem;
-
     /**
      * the default path to log file
      *
      * @var string
      */
     private $path;
+
     /**
-     * create a new instance and register filesystem
-     *
+     * the constructor of Logger .
      * @param Filesystem $filesystem
+     * @param string $path
      */
     public function __construct(Filesystem $filesystem, $path = APP.'logs/error.log'){
         $this->filesystem = $filesystem;

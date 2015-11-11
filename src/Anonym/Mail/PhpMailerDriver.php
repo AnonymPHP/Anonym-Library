@@ -10,6 +10,7 @@
 
 namespace Anonym\Mail;
 
+use Anonym\Support\Arr;
 use PHPMailer;
 
 /**
@@ -35,11 +36,12 @@ class PhpMailerDriver implements DriverInterface
      */
     public function __construct(array $configs = [])
     {
-        $host = isset($configs['host']) ? $configs['host'] : '';
-        $username = isset($configs['username']) ? $configs['username'] : '';
-        $password = isset($configs['password']) ? $configs['password'] : '';
-        $port = isset($configs['port']) ? $configs['port'] : 25;
-        $secure = isset($configs['secure']) ? $configs['secure'] : 'tsl';
+        $host = Arr::get($configs, 'host', '');
+        $username = Arr::get($configs, 'username', '');
+        $password = Arr::get($configs, 'password', '');
+        $port = Arr::get($configs, 'port', 25);
+        $secure = Arr::get($configs, 'secure', 'tsl');
+
         $phpmailer = new PHPMailer(false);
         $phpmailer->isSMTP();
         $phpmailer->Host = $host;
@@ -48,6 +50,10 @@ class PhpMailerDriver implements DriverInterface
         $phpmailer->Password = $password;
         $phpmailer->SMTPSecure = $secure;
         $phpmailer->isHTML(true);
+
+        if(Arr::has($configs, 'from.mail')){
+            $phpmailer->setFrom(Arr::get($configs, 'from.mail'), Arr::get($configs, 'from.name', null));
+        }
 
         $this->mailer = $phpmailer;
     }
