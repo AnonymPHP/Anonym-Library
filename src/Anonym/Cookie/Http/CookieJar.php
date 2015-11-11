@@ -117,7 +117,6 @@ class CookieJar
         $this->setPath($path);
         $this->setSecure((bool)$secure);
         $this->setHttpOnly((bool)$httpOnly);
-
     }
 
     /**
@@ -133,14 +132,12 @@ class CookieJar
         if ('' === $this->getValue()) {
             $cookie .= 'deleted; expires=' . date('D, d-M-Y H:i:s T', 0);
         } else {
-
             $cookie .= urlencode($this->getValue());
             if (0 !== $this->getExpires()) {
 
                 $cookie .= '; expires=' . gmdate('D, d-M-Y H:i:s T', time() + $this->getExpires());
             }
         }
-
         if ($this->getPath()) {
             $cookie .= '; path=' . $this->getPath();
         }
@@ -148,19 +145,15 @@ class CookieJar
         if ($this->domain) {
             $cookie .= '; domain=' . $this->getDomain();
         }
-
         if (true === $this->isSecure()) {
             $cookie .= '; secure';
         }
-
         if (true === $this->isHttpOnly()) {
 
             $cookie .= '; httponly';
         }
-
         return $cookie;
     }
-
     /**
      * Static olarak instance oluşturmak
      *

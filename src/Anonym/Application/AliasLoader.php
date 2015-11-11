@@ -65,6 +65,4 @@ class AliasLoader
     {
         static::$aliases[$class] = $alias;
     }
-
-
 }
