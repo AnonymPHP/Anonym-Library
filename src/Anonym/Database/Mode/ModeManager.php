@@ -139,15 +139,11 @@ class ModeManager
         switch ($type) {
 
             case 'and':
-
                 $this->datas['where'] = $where;
-
                 break;
 
             case 'or':
-
                $this->datas['or_where'] = $where;
-
                 break;
         }
     }
