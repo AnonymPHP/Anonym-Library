@@ -73,7 +73,7 @@ class Starter
      *
      * @return mysqli|PDO
      */
-    public function getDb()
+    public function getConnection()
     {
         return $this->db;
     }
