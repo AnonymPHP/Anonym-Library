@@ -116,6 +116,16 @@ abstract class Tongue
     protected function compilingFrom($from){
         return $from;
     }
+
+    /**
+     * preparing and return group by statement
+     *
+     * @param string $group
+     * @return string
+     */
+    protected function compilingGroup($group){
+        return "GROUP BY $group";
+    }
     /**
      *  compile the read paremeters with the pattern
      *
