@@ -64,7 +64,7 @@ class Read extends ModeManager
     public function order($order, $type = 'DESC')
     {
 
-        $this->datas['order'] .= [$order, $type];
+        $this->datas['order'] =  [$order, $type];
         return $this;
     }
 
@@ -134,7 +134,7 @@ class Read extends ModeManager
     public function limit($limit)
     {
 
-        $this->datas['limit'] .= $limit;
+        $this->datas['limit'] = $limit;
 
         return $this;
     }
