@@ -82,7 +82,6 @@ abstract class Tongue
         $return = [];
         foreach ($compilers as $compiler) {
             $methodName = 'compiling' . ucfirst($compiler);
-
             if (Arr::has($this->datas, $compiler) && !empty($this->datas[$compiler])) {
                 $return[] = $this->$methodName(Arr::get($this->datas, $compiler));
             }
@@ -126,8 +125,22 @@ abstract class Tongue
         return "GROUP BY $group";
     }
 
+    /**
+     * compile and return prepared order by string.
+     *
+     * @param string $order
+     * @return string
+     */
     protected function compilingOrder($order){
+        return "ORDER BY $order";
+    }
 
+    protected function compilingLimit($limit){
+        if (is_array($limit)) {
+            $limit = join(",", $limit);
+        }
+
+        return "LIMIT $limit";
     }
     /**
      *  compile the read paremeters with the pattern
