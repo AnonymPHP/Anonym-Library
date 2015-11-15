@@ -20,6 +20,12 @@ abstract class Bridge
 {
 
     /**
+     * the instance of pdo connection
+     *
+     * @var PDO
+     */
+    protected $db;
+    /**
      * an array type for connectione configuration values
      *
      *
@@ -63,8 +69,10 @@ abstract class Bridge
             throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it '));
         }
         try {
-            $db = new \PDO("$bridge:host=$host;dbname=$db", $username, $password);
-            $db->exec("SET NAMES '$charset'; SET CHARSET '$charset'");
+            $this->db = new \PDO("$bridge:host=$host;dbname=$db", $username, $password);
+            $this->db->exec("SET NAMES '$charset'; SET CHARSET '$charset'");
+
+            return $this->db;
         } catch (\PDOException $e) {
             throw new ConnectionException(sprintf('PDO threw that exception message : %s', $e->getMessage()));
         }
