@@ -23,6 +23,9 @@ use mysqli;
 class Starter
 {
 
+    /**
+     * @var string
+     */
     protected $type;
     /**
      * the instance of database driver

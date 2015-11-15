@@ -25,6 +25,8 @@ use mysqli;
 class Base extends Starter
 {
 
+    const TYPE_MYSQL = 'mysql';
+
     use ConnectionManager, ModeManager;
 
     /**

@@ -13,9 +13,10 @@ trait Builder
      *
      * @param array $pattern
      * @param array $args
+     * @param string type
      * @return mixed
      */
-    private function buildQuery($pattern, $args)
+    private function buildQuery($pattern, $args, $type)
     {
 
         if (count($args['parameters']) > 0) {
