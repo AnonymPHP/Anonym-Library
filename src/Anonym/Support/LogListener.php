@@ -9,10 +9,12 @@
  */
 
 namespace Anonym\Support;
-
-
 use Anonym\Facades\Stroge;
 
+/**
+ * Class LogListener
+ * @package Anonym\Support
+ */
 class LogListener
 {
 
@@ -39,6 +41,12 @@ class LogListener
         self::$registered = $registered;
     }
 
+    /**
+     * create log content to writing
+     *
+     * @param array $parameters
+     * @return string
+     */
     private static function createContent(array $parameters)
     {
         $time = date('d.m.Y H:i');

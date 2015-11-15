@@ -18,7 +18,6 @@ use Anonym\Application\Container;
  */
 class Csrf extends Container
 {
-
     /**
      * get the csrf token
      *
