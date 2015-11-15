@@ -32,8 +32,7 @@ abstract class Tongue
     private $statements = [
 
         'read' => [
-            'SELECT :select FROM :from :join :group WHERE:where :order :limit',
-            'SELECT :select FROM :from :join :group :order :limit'
+            'SELECT :select FROM :from :join :group :where :order :limit',
         ],
         'update' => [
 
@@ -70,19 +69,31 @@ abstract class Tongue
         return $this->$compilerMethodName();
     }
 
+
+    /**
+     * run the compilers
+     *
+     * @param array $compilers
+     * @return array
+     */
+    protected function runTheCompilers($compilers){
+
+        $return = [];
+        foreach($compilers as $compiler){
+            $methodName = 'compiling'.ucfirst($compiler);
+
+            $return[] = $this->$methodName($this->datas[$compiler]);
+        }
+
+        return $return;
+    }
     /**
      *  compile the read paremeters with the pattern
      *
      *  this function working with the other methods and preparing the select statement
      */
     protected function compileRead(){
-
-        if (Arr::has($this->datas, 'where')) {
-            $pattern = $this->statements['read'][0];
-        }else{
-            $pattern = $this->statements['read'][1];
-        }
-
+        $pattern = $this->statements['read'][0];
 
 
     }
