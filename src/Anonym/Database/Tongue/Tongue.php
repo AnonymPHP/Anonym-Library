@@ -102,6 +102,7 @@ abstract class Tongue
             'sprintf',
             array_merge($pattern, $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit']))
         );
+
     }
 }
 
