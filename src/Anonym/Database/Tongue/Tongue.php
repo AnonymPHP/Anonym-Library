@@ -95,9 +95,10 @@ abstract class Tongue
         }
 
         if (is_string($select)) {
-            $select = explode('*', $select);
+            return $select;
         }
 
+        return join(',', $select);
     }
 
     /**
