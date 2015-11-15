@@ -108,6 +108,15 @@ abstract class Tongue
     }
 
     /**
+     * this method returns itself.
+     *
+     * @param string $from
+     * @return mixed
+     */
+    protected function compilingFrom($from){
+        return $from;
+    }
+    /**
      *  compile the read paremeters with the pattern
      *
      *  this function working with the other methods and preparing the select statement
