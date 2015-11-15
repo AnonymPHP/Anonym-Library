@@ -118,7 +118,7 @@ class Base
     {
 
         $this->connect($table);
-        $read = new Read($this);
+        $read = new Read($this,'read');
 
         return $callable($read);
     }
@@ -134,7 +134,7 @@ class Base
     {
 
         $this->connect($table);
-        $update = new Update($this);
+        $update = new Update($this, 'update');
 
         return $callable($update);
     }
@@ -150,7 +150,7 @@ class Base
     {
 
         $this->connect($table);
-        $insert = new Insert($this);
+        $insert = new Insert($this, 'insert');
 
         return $callable($insert);
     }
@@ -165,7 +165,7 @@ class Base
     public function delete($table, callable $callable = null)
     {
         $this->connect($table);
-        $delete = new Delete($this);
+        $delete = new Delete($this, 'delete');
 
         return $callable($delete);
     }
