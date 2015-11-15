@@ -83,7 +83,9 @@ abstract class Tongue
         foreach ($compilers as $compiler) {
             $methodName = 'compiling' . ucfirst($compiler);
 
-            $return[] = $this->$methodName(Arr::get($this->datas, $compiler));
+            if (Arr::has($this->datas, $compiler) && !empty($this->datas[$compiler])) {
+                $return[] = $this->$methodName(Arr::get($this->datas, $compiler));
+            }
         }
 
         return $return;
