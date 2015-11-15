@@ -83,10 +83,21 @@ abstract class Tongue
         foreach ($compilers as $compiler) {
             $methodName = 'compiling' . ucfirst($compiler);
 
-            $return[] = $this->$methodName($this->datas[$compiler]);
+            $return[] = $this->$methodName(Arr::get($this->datas, $compiler));
         }
 
         return $return;
+    }
+
+    protected function compilingSelect($select){
+        if (null === $select) {
+            $select = ['*'];
+        }
+
+        if (is_string($select)) {
+            $select = explode('*', $select);
+        }
+
     }
 
     /**
