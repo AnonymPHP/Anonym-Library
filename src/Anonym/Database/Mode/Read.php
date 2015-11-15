@@ -38,8 +38,7 @@ class Read extends ModeManager
     public function select($select = null)
     {
 
-        $this->string['select'] = $this->useBuilder('select')
-            ->select($select, $this->cleanThis());
+        $this->datas['select'] = $select;
 
         return $this;
     }
@@ -65,9 +64,7 @@ class Read extends ModeManager
     public function order($order, $type = 'DESC')
     {
 
-        $this->string['order'] .= $this->useBuilder('order')
-            ->order($order, $type);
-
+        $this->string['order'] .= [$order, $type]
         return $this;
     }
 
