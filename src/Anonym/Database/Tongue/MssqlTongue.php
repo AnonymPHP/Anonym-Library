@@ -12,7 +12,7 @@ namespace Anonym\Database\Tongue;
  * Class MssqlTongue
  * @package Anonym\Database\Tongue
  */
-class MssqlTongue
+class MssqlTongue extends Tongue
 {
 
 }

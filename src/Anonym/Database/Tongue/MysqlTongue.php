@@ -12,7 +12,7 @@ namespace Anonym\Database\Tongue;
  * Class MysqlTongue
  * @package Anonym\Database\Maenagers\Tongue
  */
-class MysqlTongue
+class MysqlTongue extends Tongue
 {
 
 }

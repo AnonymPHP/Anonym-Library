@@ -12,7 +12,7 @@ namespace Anonym\Database\Tongue;
  * Class PgsqlTongue
  * @package Anonym\Database\Tongue
  */
-class PgsqlTongue
+class PgsqlTongue extends Tongue
 {
     /**
      * the function for open bridge
