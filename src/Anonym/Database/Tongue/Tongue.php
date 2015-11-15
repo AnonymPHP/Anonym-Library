@@ -65,7 +65,7 @@ abstract class Tongue
     public function build($datas, $type)
     {
         $this->datas = $datas;
-        $compilerMethodName = 'compile'.ucfirst($type);
+        $compilerMethodName = 'compile' . ucfirst($type);
         return $this->$compilerMethodName();
     }
 
@@ -76,26 +76,32 @@ abstract class Tongue
      * @param array $compilers
      * @return array
      */
-    protected function runTheCompilers($compilers){
+    protected function runTheCompilers($compilers)
+    {
 
         $return = [];
-        foreach($compilers as $compiler){
-            $methodName = 'compiling'.ucfirst($compiler);
+        foreach ($compilers as $compiler) {
+            $methodName = 'compiling' . ucfirst($compiler);
 
             $return[] = $this->$methodName($this->datas[$compiler]);
         }
 
         return $return;
     }
+
     /**
      *  compile the read paremeters with the pattern
      *
      *  this function working with the other methods and preparing the select statement
      */
-    protected function compileRead(){
+    protected function compileRead()
+    {
         $pattern = $this->statements['read'][0];
 
-
+        return call_user_func_array(
+            'sprintf',
+            array_merge($pattern, $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit']))
+        );
     }
 }
 
