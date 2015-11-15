@@ -14,15 +14,7 @@ namespace Anonym\Database\Tongue;
  */
 class PgsqlTongue extends Tongue
 {
-    /**
-     * the function for open bridge
-     *
-     * @return mixed
-     */
-    public function open()
-    {
 
-    }
 
     /**
      * starting the build query
