@@ -29,7 +29,14 @@ class Base extends Starter
     const TYPE_PGSQL = 'pgsql';
     const TYPE_MYSQL = 'mysql';
     const TYPE_MSSQL = 'mssql';
+
+    /**
+     * the instance of Laravel Container
+     *
+     * @var Container
+     */
     public $container;
+
 
     /**
      * create a new instance and use the configs
