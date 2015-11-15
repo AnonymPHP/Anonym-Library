@@ -82,4 +82,20 @@ abstract class Bridge
 
         return Arr::has($drivers, $driver);
     }
+
+    /**
+     * find and return the parameters are we needed them
+     *
+     * @param array $configs
+     * @return array
+     */
+    protected function getParametersNeeded(array $configs){
+        $host = Arr::get($configs, 'host', 'localhost');
+        $username = Arr::get($configs, 'username', '');
+        $password  = Arr::get($configs, 'password', '');
+        $dbname = Arr::get($configs, 'db', '');
+        $charset = Arr::get($configs, 'charset', 'utf8');
+
+        return [$host, $username, $password, $dbname, $charset];
+    }
 }

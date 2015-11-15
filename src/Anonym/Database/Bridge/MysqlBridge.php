@@ -26,10 +26,6 @@ class MysqlBridge extends Bridge
     {
         $configs = $this->configurations;
 
-        $host = Arr::get($configs, 'host', 'localhost');
-        $username = Arr::get($configs, 'username', '');
-        $password  = Arr::get($configs, 'password', '');
-        $dbname = Arr::get($configs, 'db', '');
 
 
     }
