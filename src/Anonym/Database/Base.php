@@ -223,6 +223,16 @@ class Base
         return $message;
     }
 
+
+    /**
+     * return the instance of pdo connection
+     *
+     * @return PDO
+     */
+    public function getConnection(){
+        return $this->db;
+    }
+
     /**
      * Dinamik method çağrımı
      *
