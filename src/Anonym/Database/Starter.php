@@ -27,6 +27,7 @@ class Starter
      * @var string
      */
     protected $type;
+
     /**
      * the instance of database driver
      *
@@ -42,6 +43,7 @@ class Starter
      */
     public function __construct($options = [])
     {
+
 
         $host = isset($options['host']) ? $options['host'] : '';
         $database = isset($options['db']) ? $options['db'] : '';
