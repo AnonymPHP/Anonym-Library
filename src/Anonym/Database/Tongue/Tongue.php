@@ -96,9 +96,6 @@ abstract class Tongue
      * @return array|string
      */
     protected function compilingSelect($select){
-        if (null === $select) {
-            $select = ['*'];
-        }
 
         if (is_string($select)) {
             return $select;
@@ -125,6 +122,10 @@ abstract class Tongue
      */
     protected function compilingGroup($group){
         return "GROUP BY $group";
+    }
+
+    protected function compilingOrder($order){
+
     }
     /**
      *  compile the read paremeters with the pattern
