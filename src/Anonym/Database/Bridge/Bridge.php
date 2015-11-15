@@ -8,6 +8,7 @@
 
 namespace Anonym\Database\Bridge;
 use Anonym\Database\Exceptions\BridgeException;
+use Anonym\Database\Exceptions\ConnectionException;
 use Anonym\Support\Arr;
 
 /**
@@ -49,6 +50,7 @@ abstract class Bridge
      * @param string $password
      * @param string $bridge
      * @throws BridgeException
+     * @throws ConnectionException
      * @return mixed
      */
     protected function connect($host, $username, $password, $bridge){
@@ -56,7 +58,11 @@ abstract class Bridge
         if (!$this->driverIsExists($bridge)) {
             throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it '));
         }
+        try{
 
+        }catch (\PDOException $e){
+            throw new ConnectionException(sprintf('PDO threw that exception message : %s', $e->getMessage()));
+        }
     }
 
     /**
