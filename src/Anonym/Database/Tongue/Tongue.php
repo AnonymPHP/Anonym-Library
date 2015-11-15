@@ -50,7 +50,9 @@ abstract class Tongue
 
         foreach ($this->compares as $compare) {
             if (isset($datas[$compare]) && !empty($datas[$compare])) {
+                $method = 'compare'.ucfirst($compare);
 
+                $this->$method();
             }
         }
     }
