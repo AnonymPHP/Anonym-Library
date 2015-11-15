@@ -5,6 +5,7 @@ use Anonym\Database\Tongue\MysqlTongue;
 use Anonym\Database\Tongue\MssqlTongue;
 use Anonym\Database\Tongue\PgsqlTongue;
 use Anonym\Database\Base;
+use Anonym\Support\Arr;
 
 /**
  * Trait Builder
@@ -29,6 +30,10 @@ trait Builder
      */
     private function buildQuery($pattern, $args, $type)
     {
+
+        if (null !== $matched =  Arr::get($this->tongueBuilders, $type, null)) {
+
+        }
 
 
         if (count($args['parameters']) > 0) {

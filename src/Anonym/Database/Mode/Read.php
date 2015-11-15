@@ -45,7 +45,6 @@ class Read extends ModeManager
 
         $this->setBase($base);
         $this->useBuilders([
-
             'where' => new Where(),
             'select' => new Select(),
             'order' => new Order(),
@@ -55,7 +54,6 @@ class Read extends ModeManager
         ]);
 
         $this->string = [
-
             'select' => '*',
             'from' => $this->getBase()->getTable(),
             'join' => null,
