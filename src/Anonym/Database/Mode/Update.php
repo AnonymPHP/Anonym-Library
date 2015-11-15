@@ -3,7 +3,6 @@
 namespace Anonym\Database\Mode;
 
 use Anonym\Database\Base;
-use Anonym\Database\Builders\Where;
 use Anonym\Database\Traits\Where as TraitWhere;
 
 /**
@@ -22,7 +21,6 @@ class Update extends ModeManager
      */
     public function __construct(Base $base)
     {
-
         $this->setBase($base);
     }
 
