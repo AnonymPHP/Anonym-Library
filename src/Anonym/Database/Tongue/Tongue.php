@@ -39,6 +39,32 @@ abstract class Tongue
         "limit"
     ];
 
+    /**
+     * an array tyep for statements
+     *
+     * @var array
+     */
+    private $statements = [
+
+        'read' => [
+
+            'SELECT :select FROM :from :join :group WHERE:where :order :limit',
+            'SELECT :select FROM :from :join :group :order :limit'
+        ],
+        'update' => [
+
+            'UPDATE :from SET :update WHERE:where'
+        ],
+        'delete' => [
+
+            'DELETE FROM :from WHERE:where'
+        ],
+        'insert' => [
+            'INSERT INTO :from SET :insert'
+        ]
+    ];
+
+
 
     /**
      * an array type for prepared strings
