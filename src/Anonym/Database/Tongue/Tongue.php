@@ -24,6 +24,11 @@ abstract class Tongue
     protected $datas;
 
 
+    /**
+     * an array type for compareNames
+     *
+     * @var array
+     */
     protected $compares = [
         "select",
         "where",
