@@ -10,6 +10,7 @@
 
 namespace Anonym\Database;
 
+use Illuminate\Container\Container;
 use Anonym\Database\Mode\Delete;
 use Anonym\Database\Mode\Read;
 use Anonym\Database\Mode\Update;
@@ -24,25 +25,22 @@ use mysqli;
  */
 class Base extends Starter
 {
-
-    const TYPE_MYSQL = 'mysql';
-
-    const TYPE_MSSQL = 'mssql';
-
     use ConnectionManager, ModeManager;
 
+    const TYPE_MYSQL = 'mysql';
+    const TYPE_MSSQL = 'mssql';
+    protected $container;
     /**
      * create a new instance and use the configs
      *
      * @param array $configs
      * @throws \Anonym\Database\Exceptions\ConnectionException
      */
-    public function __construct(array $configs = [])
+    public function __construct(array $configs = [],Container $container = null )
     {
-
         parent::__construct($configs);
+        $this->container = $container;
         $this->connection = $this->getDb();
-
     }
 
     /**
