@@ -71,30 +71,7 @@ class ModeManager
         ]
     ];
 
-    /**
-     * @return \Anonym\Database\Base
-     */
-    public function getBase()
-    {
 
-        return $this->base;
-    }
-
-
-
-    /**
-     * creating and getting the query
-     *
-     * @return \Anonym\Database\Builders\BuildManager
-     */
-    public function getQuery()
-    {
-
-        $strings = $this->string;
-        $query = $this->buildQuery($this->getPattern($this->getChieldPattern()), $strings, $this->getBase()->getType());
-
-        return $query;
-    }
 
     /**
      * create a new BuildManager instance with created query
@@ -143,30 +120,6 @@ class ModeManager
         return $this;
     }
 
-    /**
-     * @param string $pattern
-     * @return multitype:multitype:string
-     */
-    protected function getPattern($pattern)
-    {
-
-        if (isset($this->patterns[$pattern])) {
-
-            return $this->patterns[$pattern];
-        }
-    }
-
-    /**
-     * Pattern atamas� yapar
-     *
-     * @param string $name
-     * @param array $patterns
-     */
-    protected function setPattern($name, array $patterns)
-    {
-
-        $this->patterns[$name] = $patterns;
-    }
 
     /**
      * Where tetiklenir
@@ -276,6 +229,57 @@ class ModeManager
     {
 
         $this->doWhere($where, 'or');
+    }
+
+
+    /**
+     * @return \Anonym\Database\Base
+     */
+    public function getBase()
+    {
+
+        return $this->base;
+    }
+
+
+    /**
+     * creating and getting the query
+     *
+     * @return \Anonym\Database\Builders\BuildManager
+     */
+    public function getQuery()
+    {
+
+        $strings = $this->string;
+        $query = $this->buildQuery($this->getPattern($this->getChieldPattern()), $strings, $this->getBase()->getType());
+
+        return $query;
+    }
+
+
+    /**
+     * @param string $pattern
+     * @return multitype:multitype:string
+     */
+    protected function getPattern($pattern)
+    {
+
+        if (isset($this->patterns[$pattern])) {
+
+            return $this->patterns[$pattern];
+        }
+    }
+
+    /**
+     * Pattern atamas� yapar
+     *
+     * @param string $name
+     * @param array $patterns
+     */
+    protected function setPattern($name, array $patterns)
+    {
+
+        $this->patterns[$name] = $patterns;
     }
 
 }
