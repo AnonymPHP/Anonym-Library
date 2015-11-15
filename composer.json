@@ -19,7 +19,7 @@
     "php": ">=5.5.9",
     "danielstjules/stringy": "~1.8",
     "symfony/debug": "2.7.*",
-    "illuminate/container": "5.2.*",
+    "illuminate/container": "5.0.*",
     "classpreloader/classpreloader": "~2.0",
     "aws/aws-sdk-php": "3.2.5",
     "league/flysystem-aws-s3-v3": "~1.0",
@@ -35,7 +35,7 @@
     "m6web/firewall": "dev-master",
     "wixel/gump": "dev-master",
     "illuminate/view": "~5",
-    "illuminate/events": "~5"
+    "illuminate/events": "5.0.*"
   },
   "autoload": {
     "psr-4": {

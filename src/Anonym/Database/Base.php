@@ -11,6 +11,8 @@
 namespace Anonym\Database;
 
 use Illuminate\Container\Container;
+use Anonym\Support\Arr;
+use Anonym\Database\Exceptions\BridgeException;
 use Anonym\Database\Mode\Delete;
 use Anonym\Database\Mode\Read;
 use Anonym\Database\Mode\Update;
@@ -95,7 +97,8 @@ class Base
     private function openConnection(array $options){
         $bridge = Arr::get($options, 'bridge', Base::TYPE_MYSQL);
 
-        if (Arr::has($options, $bridge)) {
+        if (Arr::has($this->bridges, $bridge)) {
+            $bridge = Arr::get($this->bridges, $bridge);
             $this->bridge = $instance= $this->container->make($bridge, [$options]);
 
             if ($instance instanceof Bridge) {
