@@ -47,6 +47,12 @@ abstract class Tongue
     public function build($datas)
     {
         $this->datas = $datas;
+
+        foreach ($this->compares as $compare) {
+            if (isset($datas[$compare]) && !empty($datas[$compare])) {
+
+            }
+        }
     }
 
 
