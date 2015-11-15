@@ -89,6 +89,12 @@ abstract class Tongue
         return $return;
     }
 
+    /**
+     * preparing the select statement
+     *
+     * @param mixed $select
+     * @return array|string
+     */
     protected function compilingSelect($select){
         if (null === $select) {
             $select = ['*'];
