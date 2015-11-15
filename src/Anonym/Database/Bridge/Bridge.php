@@ -35,6 +35,13 @@ abstract class Bridge
     protected $configurations;
 
     /**
+     * the instance of tongue class
+     *
+     * @var Tongue
+     */
+    protected $tongue;
+
+    /**
      * the constructor of Bridge .
      * @param array $configurations
      */
