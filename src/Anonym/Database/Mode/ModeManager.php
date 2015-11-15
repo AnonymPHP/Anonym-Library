@@ -136,7 +136,7 @@ class ModeManager
     {
 
         $strings = $this->string;
-        $query = $this->buildQuery($this->getPattern($this->getChieldPattern()), $strings);
+        $query = $this->buildQuery($this->getPattern($this->getChieldPattern()), $strings, $this->getBase()->getType());
 
         return $query;
     }
