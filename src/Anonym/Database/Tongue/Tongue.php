@@ -165,9 +165,15 @@ abstract class Tongue
 
         if (Arr::has($this->datas, 'like') && !empty($this->datas['like'])) {
             foreach($this->datas['like'] as $like){
-                $statement .=
+
+                list($column, $state, $ending) = $like;
+                $statement .= "LIKE $column $state $ending";
             }
+
+            $statement = rtrim($statement, $ending);
         }
+
+
     }
 
     protected function compilingJoin($join){
