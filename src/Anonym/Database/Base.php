@@ -96,7 +96,7 @@ class Base
         $bridge = Arr::get($options, 'bridge', Base::TYPE_MYSQL);
 
         if (Arr::has($options, $bridge)) {
-            $instance= $this->container->make($bridge, [$options]);
+            $this->bridge = $instance= $this->container->make($bridge, [$options]);
 
             if ($instance instanceof Bridge) {
                 $this->db = $instance->open();
