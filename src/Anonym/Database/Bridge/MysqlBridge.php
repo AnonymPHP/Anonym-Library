@@ -8,7 +8,6 @@
 
 namespace Anonym\Database\Bridge;
 
-
 class MysqlBridge
 {
 
