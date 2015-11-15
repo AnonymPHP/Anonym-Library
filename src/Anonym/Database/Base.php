@@ -25,7 +25,7 @@ use mysqli;
  */
 class Base extends Starter
 {
-    use ConnectionManager, ModeManager;
+    use ModeManager;
     const TYPE_PGSQL = 'pgsql';
     const TYPE_MYSQL = 'mysql';
     const TYPE_MSSQL = 'mssql';
@@ -41,7 +41,6 @@ class Base extends Starter
     {
         parent::__construct($configs);
         $this->container = $container;
-        $this->connection = $this->getDb();
     }
 
     /**
