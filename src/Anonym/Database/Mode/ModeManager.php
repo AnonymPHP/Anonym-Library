@@ -113,7 +113,7 @@ class ModeManager
      *
      * @var string
      */
-    protected $string;
+    protected $datas;
 
     /**
      * @param $base
