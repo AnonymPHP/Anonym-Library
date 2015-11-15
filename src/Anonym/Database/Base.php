@@ -178,7 +178,7 @@ class Base extends Starter
      */
     public function errorInfo()
     {
-        $message = isset($this->connection->errorInfo()['message']) ? $this->getConnection()->errorInfo()['message'] : 'Something Went Wrong!';
+        $message = isset($this->bridge->db->errorInfo()['message']) ? $this->getConnection()->errorInfo()['message'] : 'Something Went Wrong!';
         return $message;
     }
 
@@ -191,9 +191,7 @@ class Base extends Starter
      */
     public function __call($method, array $args = [])
     {
-
         if ($this->isMode($method)) {
-
             $return = $this->callMode($method, $args);
         } else {
 
