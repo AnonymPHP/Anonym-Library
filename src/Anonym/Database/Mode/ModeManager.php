@@ -48,6 +48,13 @@ class ModeManager
     protected $page;
 
     /**
+     * the type of pattern
+     *
+     * @var string
+     */
+    protected $type;
+
+    /**
      * Değiştirilecek desenleri tutar
      *
      * @var array
@@ -104,7 +111,7 @@ class ModeManager
      * @return string
      */
     protected function buildQuery(){
-        return $this->getBase()->bridge->tongue->build($this->datas);
+        return $this->getBase()->bridge->tongue->build($this->datas, $this->type);
     }
 
     /**
