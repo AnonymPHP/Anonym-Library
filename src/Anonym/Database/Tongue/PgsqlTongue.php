@@ -14,5 +14,13 @@ namespace Anonym\Database\Tongue;
  */
 class PgsqlTongue
 {
+    /**
+     * the function for open bridge
+     *
+     * @return mixed
+     */
+    public function open()
+    {
 
+    }
 }
