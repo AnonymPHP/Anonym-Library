@@ -8,7 +8,10 @@
 
 namespace Anonym\Database\Tongue;
 
-
+/**
+ * Class PgsqlTongue
+ * @package Anonym\Database\Tongue
+ */
 class PgsqlTongue
 {
 
