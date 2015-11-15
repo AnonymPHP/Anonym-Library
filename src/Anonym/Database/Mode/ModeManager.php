@@ -13,6 +13,7 @@ use Anonym\Database\Tongue\MysqlTongue;
 use Anonym\Database\Tongue\MssqlTongue;
 use Anonym\Database\Tongue\PgsqlTongue;
 use Anonym\Database\Base;
+use Anonym\Support\Arr;
 
 /**
  * Class ModeManager
@@ -71,9 +72,8 @@ class ModeManager
     {
         $query = $this->buildQuery();
         $manager = new BuildManager($this->getBase()->getConnection());
-        $manager->setPage($this->page);
         $manager->setQuery($query);
-        $manager->setParams($this->string['parameters']);
+        $manager->setParams(Arr::get($this->datas, 'parameters', []));
 
         return $manager;
     }

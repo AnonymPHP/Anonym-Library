@@ -70,7 +70,8 @@ abstract class Tongue
         $this->$compilerMethodName();
     }
 
-
-
+    protected function compileRead(){
+        print_r($this->datas);
+    }
 }
 

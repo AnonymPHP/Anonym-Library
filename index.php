@@ -17,4 +17,9 @@ $db = new \Anonym\Database\Base([
     'db'  => 'deneme'
 ], new \Illuminate\Container\Container());
 
-var_dump($db);
+
+$read = $db->read('test', function(\Anonym\Database\Mode\Read $read){
+   return $read->where('test', 'ok')->orWhere('dest', 'adasd')->order('id');
+});
+
+$read->build();
