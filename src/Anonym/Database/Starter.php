@@ -13,6 +13,7 @@
 namespace Anonym\Database;
 use Anonym\Database\Exceptions\ConnectionException;
 use Anonym\Database\Bridge\MysqlBridge;
+use Anonym\Support\Arr;
 use PDO;
 use PDOException;
 use mysqli;
@@ -53,6 +54,7 @@ class Starter
      */
     public function __construct($options = [])
     {
+        $bridge = Arr::get($options, 'bridge', Base::TYPE_MYSQL);
 
 
         $host = isset($options['host']) ? $options['host'] : '';
