@@ -128,7 +128,7 @@ class ModeManager
     }
 
     /**
-     * Yeni bir query Sorgusu olu�turur
+     * creating and getting the query
      *
      * @return \Anonym\Database\Builders\BuildManager
      */
@@ -142,7 +142,7 @@ class ModeManager
     }
 
     /**
-     * Sorguyu buildManager ��ine atar
+     * create a new BuildManager instance with created query
      *
      * @return \Anonym\Database\Builders\BuildManager
      */
