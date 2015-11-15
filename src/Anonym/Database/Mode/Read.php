@@ -10,12 +10,6 @@
 namespace Anonym\Database\Mode;
 
 use Anonym\Database\Base;
-use Anonym\Database\Builders\Group;
-use Anonym\Database\Builders\Join;
-use Anonym\Database\Builders\Limit;
-use Anonym\Database\Builders\Order;
-use Anonym\Database\Builders\Select;
-use Anonym\Database\Builders\Where;
 use Anonym\Database\Traits\Builder;
 use Anonym\Facades\Config;
 
