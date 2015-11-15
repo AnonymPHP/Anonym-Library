@@ -38,8 +38,8 @@ class Insert extends ModeManager
     {
 
         $insert = $this->databaseSetBuilder($set);
-        $this->string['insert'] .= $insert['content'];
-        $this->string['parameters'] = array_merge($this->string['parameters'], $insert['array']);
+        $this->datas['insert'] .= $insert['content'];
+        $this->datas['parameters'] = array_merge($this->string['parameters'], $insert['array']);
 
         return $this;
     }
