@@ -12,7 +12,16 @@ namespace Anonym\Database\Bridge;
  * Class MysqlBridge
  * @package Anonym\Database\Bridge
  */
-class MysqlBridge
+class MysqlBridge extends Bridge
 {
 
+    /**
+     * the function for open bridge
+     *
+     * @return mixed
+     */
+    public function open()
+    {
+
+    }
 }
