@@ -135,6 +135,12 @@ abstract class Tongue
         return "ORDER BY $order";
     }
 
+    /**
+     * compile and return the prepared limit statement
+     *
+     * @param array|string $limit
+     * @return string
+     */
     protected function compilingLimit($limit){
         if (is_array($limit)) {
             $limit = join(",", $limit);
