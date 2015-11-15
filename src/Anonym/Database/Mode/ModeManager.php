@@ -103,8 +103,11 @@ class ModeManager
      * @return string
      */
     protected function buildQuery(){
+        $datas = $this->datas;
+
 
     }
+
     /**
      * Query oluşturur
      *
