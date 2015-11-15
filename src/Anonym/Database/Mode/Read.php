@@ -10,7 +10,6 @@
 namespace Anonym\Database\Mode;
 
 use Anonym\Database\Base;
-use Anonym\Database\Traits\Builder;
 use Anonym\Facades\Config;
 
 /**
@@ -19,8 +18,6 @@ use Anonym\Facades\Config;
  */
 class Read extends ModeManager
 {
-
-    use Builder;
 
     /**
      * As değerini tutar

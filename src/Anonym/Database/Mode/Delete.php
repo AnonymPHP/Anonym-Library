@@ -10,8 +10,6 @@
 
 namespace Anonym\Database\Mode;
 
-use Anonym\Database\Base;
-use Anonym\Database\Builders\Where;
 
 /**
  * Class Delete

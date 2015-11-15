@@ -12,7 +12,6 @@ use Anonym\Database\Pagination\Paginator;
 use Anonym\Database\Tongue\MysqlTongue;
 use Anonym\Database\Tongue\MssqlTongue;
 use Anonym\Database\Tongue\PgsqlTongue;
-use Anonym\Database\Traits\Builder;
 use Anonym\Database\Base;
 
 /**
@@ -21,9 +20,6 @@ use Anonym\Database\Base;
  */
 class ModeManager
 {
-
-    use Builder;
-
     /**
      * a type of array for create query
      *
