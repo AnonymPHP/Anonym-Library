@@ -23,4 +23,15 @@ class PgsqlTongue extends Tongue
     {
 
     }
+
+    /**
+     * starting the build query
+     *
+     * @param array $datas
+     * @return mixed
+     */
+    public function build($datas)
+    {
+
+    }
 }
