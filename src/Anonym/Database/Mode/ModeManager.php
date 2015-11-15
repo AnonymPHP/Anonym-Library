@@ -141,21 +141,16 @@ class ModeManager
 
             case 'and':
 
-                $where = $this->useBuilder('where')
-                    ->where($where, $this->getCield());
+                $this->datas['where'] = $where;
 
                 break;
 
             case 'or':
 
-                $where = $this->useBuilder('where')
-                    ->orWhere($where, $this->getCield());
+               $this->datas['or_where'] = $where;
 
                 break;
         }
-
-        $this->string['where'] = $where['content'];
-        $this->string['parameters'] = array_merge($this->string['parameters'], $where['array']);
     }
 
     /**
