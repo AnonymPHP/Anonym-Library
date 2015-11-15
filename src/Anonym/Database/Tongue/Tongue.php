@@ -47,7 +47,12 @@ abstract class Tongue
         ]
     ];
 
-
+    /**
+     * story the where parameters
+     *
+     * @var array
+     */
+    protected $parameters;
     /**
      * an array type for prepared strings
      *
