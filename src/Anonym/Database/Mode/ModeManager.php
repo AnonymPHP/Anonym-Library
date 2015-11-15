@@ -88,7 +88,7 @@ class ModeManager
      */
     public function build()
     {
-        $query = $this->getQuery();
+        $query = $this->buildQuery();
         $manager = new BuildManager($this->getBase()->getConnection());
         $manager->setPage($this->page);
         $manager->setQuery($query);
@@ -97,6 +97,14 @@ class ModeManager
         return $manager;
     }
 
+    /**
+     * building your query string
+     *
+     * @return string
+     */
+    protected function buildQuery(){
+
+    }
     /**
      * Query oluşturur
      *
@@ -239,22 +247,6 @@ class ModeManager
 
         return $this->base;
     }
-
-
-    /**
-     * creating and getting the query
-     *
-     * @return \Anonym\Database\Builders\BuildManager
-     */
-    public function getQuery()
-    {
-
-        $strings = $this->string;
-        $query = $this->buildQuery($this->getPattern($this->getChieldPattern()), $strings, $this->getBase()->getType());
-
-        return $query;
-    }
-
 
     /**
      * @param string $pattern
