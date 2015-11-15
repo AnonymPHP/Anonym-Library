@@ -30,6 +30,6 @@ abstract class Tongue
      * @return mixed
      */
      public function build($datas){
-
+         $this->datas = $datas;
      }
 }
