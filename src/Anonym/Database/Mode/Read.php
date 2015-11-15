@@ -64,7 +64,7 @@ class Read extends ModeManager
     public function order($order, $type = 'DESC')
     {
 
-        $this->string['order'] .= [$order, $type]
+        $this->string['order'] .= [$order, $type];
         return $this;
     }
 
@@ -76,7 +76,7 @@ class Read extends ModeManager
      */
     public function join($join = [])
     {
-        $this->string['join'] = $this->useBuilder('join')->join($join, $this->getBase()->getTable());
+        $this->string['join'] = $join;
         return $this;
     }
 
@@ -87,7 +87,6 @@ class Read extends ModeManager
     public function page($page)
     {
         $this->page = $page;
-
         $limit = Config::get('database.pagination');
         $limit = $limit['limit'];
         $baslangic = ($page - 1) * ($limit);
@@ -106,8 +105,7 @@ class Read extends ModeManager
     public function group($group)
     {
 
-        $this->string['group'] = $this->useBuilder('group')
-            ->group($group);
+        $this->string['group'] = $group;
 
         return $this;
     }
@@ -136,8 +134,7 @@ class Read extends ModeManager
     public function limit($limit)
     {
 
-        $this->string['limit'] .= $this->useBuilder('limit')
-            ->limit($limit);
+        $this->string['limit'] .= $limit;
 
         return $this;
     }
@@ -148,9 +145,7 @@ class Read extends ModeManager
      */
     public function setAs($as)
     {
-
         $this->as = $as;
-
         return $this;
     }
 
@@ -173,7 +168,6 @@ class Read extends ModeManager
 
     public function rowCount()
     {
-
         return $this->build()->rowCount();
     }
 
