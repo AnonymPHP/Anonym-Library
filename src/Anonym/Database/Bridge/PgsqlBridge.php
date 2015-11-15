@@ -9,7 +9,16 @@
 namespace Anonym\Database\Bridge;
 
 
-class PgsqlBridge
+class PgsqlBridge extends Bridge
 {
 
+    /**
+     * the function for open bridge
+     *
+     * @return mixed
+     */
+    public function open()
+    {
+
+    }
 }
