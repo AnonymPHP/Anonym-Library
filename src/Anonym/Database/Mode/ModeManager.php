@@ -61,6 +61,7 @@ class ModeManager
     {
         $this->setBase($base);
         $this->datas['from'] = $base->getConnectedTable();
+        $this->datas['select'] = '*';
         $this->type = $type;
     }
 
