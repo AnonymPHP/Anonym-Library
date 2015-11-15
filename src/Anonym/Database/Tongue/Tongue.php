@@ -137,7 +137,8 @@ abstract class Tongue
      * @return string
      */
     protected function compilingOrder($order){
-        return "ORDER BY $order";
+        list($column, $type) = array_values($order);
+        return "ORDER BY $column $type";
     }
 
     /**
@@ -160,6 +161,16 @@ abstract class Tongue
      * @param array $where
      */
     protected function compilingWhere($where){
+        $statement = "WHERE ";
+
+        if (Arr::has($this->datas, 'like') && !empty($this->datas['like'])) {
+            foreach($this->datas['like'] as $like){
+                $statement .=
+            }
+        }
+    }
+
+    protected function compilingJoin($join){
 
     }
     /**
@@ -173,7 +184,7 @@ abstract class Tongue
 
         return call_user_func_array(
             'sprintf',
-            array_merge($pattern, $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit']))
+            array_merge([$pattern], $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit']))
         );
 
     }

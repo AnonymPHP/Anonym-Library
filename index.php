@@ -19,7 +19,7 @@ $db = new \Anonym\Database\Base([
 
 
 $read = $db->read('test', function(\Anonym\Database\Mode\Read $read){
-   return $read->where('test', 'ok')->orWhere('dest', 'adasd')->order('id');
+   return $read->where('test', 'ok')->orWhere('dest', 'adasd')->order('id')->like('deneme', "%aaa%");
 });
 
 $read->build();

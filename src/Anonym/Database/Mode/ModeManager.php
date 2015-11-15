@@ -179,10 +179,24 @@ class ModeManager
      * @return $this
      */
     public function like($column, $statement){
-        $this->datas['like'][] = [$column, $statement];
+        $this->datas['like'][] = [$column, $statement, 'AND'];
 
         return $this;
     }
+
+    /**
+     * add a new orLike statement
+     *
+     * @param string $column
+     * @param string $statement
+     * @return $this
+     */
+    public function orLike($column, $statement){
+        $this->datas['like'][] = [$column, $statement, 'OR'];
+
+        return $this;
+    }
+
 
     /**
      * create a instance for standart pagination
