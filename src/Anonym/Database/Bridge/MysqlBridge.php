@@ -8,6 +8,7 @@
 
 namespace Anonym\Database\Bridge;
 use Anonym\Database\Base;
+use Anonym\Database\Tongue\MysqlTongue;
 
 /**
  * Class MysqlBridge
@@ -35,6 +36,8 @@ class MysqlBridge extends Bridge
      */
     protected function prepareTongueInstance()
     {
+        $tongue = new MysqlTongue();
 
+        $this->tongue = $tongue;
     }
 }
