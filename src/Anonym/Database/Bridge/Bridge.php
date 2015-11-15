@@ -39,8 +39,15 @@ abstract class Bridge
      */
     abstract public function open();
 
-
-    protected function connectToPdo($host, $username, $password, $bridge){
+    /**
+     * connecting to the database with given host, username, password, bridge variables
+     *
+     * @param string  $host
+     * @param string $username
+     * @param string $password
+     * @param string $bridge
+     */
+    protected function connect($host, $username, $password, $bridge){
 
     }
 }
