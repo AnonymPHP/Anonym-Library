@@ -38,4 +38,9 @@ abstract class Bridge
      * @return mixed
      */
     abstract public function open();
+
+
+    protected function connectToPdo($host, $username, $password, $bridge){
+
+    }
 }
