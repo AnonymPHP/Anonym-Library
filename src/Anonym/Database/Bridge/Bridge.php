@@ -41,7 +41,17 @@ abstract class Bridge
     public function __construct(array $configurations)
     {
         $this->configurations = $configurations;
+
+        $this->prepareTongueInstance();
     }
+
+
+    /**
+     * prepare the instance of tongue class
+     *
+     * @return mixed
+     */
+    abstract protected function prepareTongueInstance();
 
     /**
      * the abstract function for open bridge
