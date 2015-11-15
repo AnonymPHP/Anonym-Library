@@ -12,6 +12,7 @@
 
 namespace Anonym\Database;
 use Anonym\Database\Exceptions\ConnectionException;
+use Anonym\Database\Bridge\MysqlBridge;
 use PDO;
 use PDOException;
 use mysqli;
@@ -27,6 +28,15 @@ class Starter
      * @var string
      */
     protected $type;
+
+    /**
+     * store bridge names and their class names
+     *
+     * @var array
+     */
+    protected $bridges = [
+      Base::TYPE_MYSQL =>  MysqlBridge::class
+    ];
 
     /**
      * the instance of database driver
