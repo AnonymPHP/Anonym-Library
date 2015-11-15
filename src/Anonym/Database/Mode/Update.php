@@ -24,22 +24,6 @@ class Update extends ModeManager
     {
 
         $this->setBase($base);
-
-        $this->useBuilders([
-            'where' => new Where()
-        ]);
-
-        $this->string = [
-
-            'from' => $this->getBase()->getTable(),
-            'update' => null,
-            'where' => null,
-            'parameters' => [],
-        ];
-
-        $this->setChield($this);
-
-        $this->setChieldPattern('update');
     }
 
     /**

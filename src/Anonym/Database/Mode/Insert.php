@@ -25,15 +25,11 @@ class Insert extends ModeManager
         $this->setBase($base);
 
         $this->string = [
-
             'from' => $this->getBase()->getTable(),
             'insert' => null,
             'parameters' => [],
         ];
 
-        $this->setChield($this);
-
-        $this->setChieldPattern('insert');
     }
 
     /**
