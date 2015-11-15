@@ -15,14 +15,5 @@ namespace Anonym\Database\Tongue;
 class MysqlTongue extends Tongue
 {
 
-    /**
-     * starting the build query
-     *
-     * @param array $datas
-     * @return mixed
-     */
-    public function build($datas)
-    {
 
-    }
 }

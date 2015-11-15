@@ -29,5 +29,7 @@ abstract class Tongue
      * @param array $datas
      * @return mixed
      */
-    abstract public function build($datas);
+     public function build($datas){
+
+     }
 }
