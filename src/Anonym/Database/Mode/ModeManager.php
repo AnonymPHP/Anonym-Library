@@ -83,10 +83,12 @@ class ModeManager
      * the constructor of ModeManager .
      *
      * @param Base $base
+     * @param string $type
      */
-    public function __construct(Base $base = null)
+    public function __construct(Base $base = null, $type = 'read')
     {
         $this->setBase($base);
+        $this->type = $type;
     }
 
     /**
