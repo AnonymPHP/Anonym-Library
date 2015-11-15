@@ -9,7 +9,6 @@
  * Thanks for using
  */
 
-
 namespace Anonym\Database;
 use Anonym\Database\Exceptions\ConnectionException;
 use Anonym\Database\Bridge\MysqlBridge;
