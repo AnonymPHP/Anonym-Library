@@ -148,6 +148,10 @@ abstract class Tongue
 
         return "LIMIT $limit";
     }
+
+    protected function compilingWhere($where){
+
+    }
     /**
      *  compile the read paremeters with the pattern
      *
