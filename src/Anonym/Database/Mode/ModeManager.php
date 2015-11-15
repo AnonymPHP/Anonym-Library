@@ -136,7 +136,6 @@ class ModeManager
      */
     private function doWhere($where, $type)
     {
-
         switch ($type) {
 
             case 'and':
