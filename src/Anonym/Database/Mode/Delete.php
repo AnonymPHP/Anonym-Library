@@ -20,29 +20,4 @@ use Anonym\Database\Builders\Where;
 class Delete extends ModeManager
 {
 
-    /**
-     * Sınıfı başlatır
-     *
-     * @param Base $base
-     */
-    public function __construct(Base $base)
-    {
-
-        $this->setBase($base);
-        $this->useBuilders([
-
-            'where' => new Where(),
-        ]);
-
-        $this->string = [
-
-            'from' => $this->getBase()->getTable(),
-            'where' => null,
-            'parameters' => [],
-        ];
-
-        $this->setChield($this);
-
-        $this->setChieldPattern('delete');
-    }
 }

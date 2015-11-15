@@ -13,19 +13,7 @@ class Insert extends ModeManager
 {
 
     use TraitWhere;
-
-    /**
-     * Sınıfı başlatır
-     *
-     * @param Base $base
-     */
-    public function __construct(Base $base)
-    {
-
-        $this->setBase($base);
-
-    }
-
+    
     /**
      * Veritabanındaki role kısmının atamasını hazırlar
      *

@@ -30,32 +30,6 @@ class Read extends ModeManager
     private $as;
 
     /**
-     * Sınıfı başlatır
-     *
-     * @param Base $base
-     */
-    public function __construct(Base $base)
-    {
-
-        $this->setBase($base);
-
-        $this->string = [
-            'select' => '*',
-            'from' => $this->getBase()->getTable(),
-            'join' => null,
-            'group' => null,
-            'where' => null,
-            'order' => null,
-            'limit' => null,
-            'parameters' => [],
-        ];
-
-        $this->setChield($this);
-
-        $this->setChieldPattern('read');
-    }
-
-    /**
      * Select sorgusu olu�turur
      *
      * @param string $select
