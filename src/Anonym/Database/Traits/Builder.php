@@ -1,9 +1,9 @@
 <?php
 
 namespace Anonym\Database\Traits;
-
 use Anonym\Database\Tongue\MysqlTongue;
 use Anonym\Database\Tongue\MssqlTongue;
+use Anonym\Database\Tongue\PgsqlTongue;
 use Anonym\Database\Base;
 
 /**
@@ -15,7 +15,8 @@ trait Builder
 
     private $tongueBuilders = [
         Base::TYPE_MYSQL => MysqlTongue::class,
-        Base::TYPE_MSSQL => MssqlTongue::class
+        Base::TYPE_MSSQL => MssqlTongue::class,
+        Base::TYPE_PGSQL => PgsqlTongue::class
     ];
 
     /**
