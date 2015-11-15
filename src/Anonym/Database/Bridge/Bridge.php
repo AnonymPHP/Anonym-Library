@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Database\Bridge;
+use Anonym\Support\Arr;
 
 /**
  * Class Bridge
@@ -49,5 +50,17 @@ abstract class Bridge
      */
     protected function connect($host, $username, $password, $bridge){
 
+    }
+
+    /**
+     * determine pdo driver is already installed or not.
+     *
+     * @param string $driver
+     * @return bool if driver is already installed returns true, is not returns false
+     */
+    protected function driverIsExists($driver){
+        $drivers = \PDO::getAvailableDrivers();
+
+        return Arr::has($drivers, $driver);
     }
 }
