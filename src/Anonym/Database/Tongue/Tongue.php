@@ -51,9 +51,10 @@ abstract class Tongue
      * starting the build query
      *
      * @param array $datas
+     * @param string $type
      * @return mixed
      */
-    public function build($datas)
+    public function build($datas, $type)
     {
         $this->datas = $datas;
 
