@@ -17,6 +17,7 @@ use Anonym\Database\Mode\Update;
 use Anonym\Database\Mode\Insert;
 use Anonym\Database\Traits\ConnectionManager;
 use Anonym\Database\Traits\ModeManager;
+use Anonym\Database\Bridge\Bridge;
 use PDO;
 use mysqli;
 
@@ -32,6 +33,13 @@ class Base
     const TYPE_MYSQL = 'mysql';
     const TYPE_MSSQL = 'mssql';
 
+
+    /**
+     * the instance of bridge
+     *
+     * @var Bridge
+     */
+    protected $bridge;
 
     /**
      * store bridge names and their class names
@@ -54,7 +62,6 @@ class Base
      * @var PDO
      */
     protected $db;
-
 
 
     /**
