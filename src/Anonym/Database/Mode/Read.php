@@ -64,7 +64,7 @@ class Read extends ModeManager
     public function order($order, $type = 'DESC')
     {
 
-        $this->string['order'] .= [$order, $type];
+        $this->datas['order'] .= [$order, $type];
         return $this;
     }
 
@@ -76,7 +76,7 @@ class Read extends ModeManager
      */
     public function join($join = [])
     {
-        $this->string['join'] = $join;
+        $this->datas['join'] = $join;
         return $this;
     }
 
@@ -105,7 +105,7 @@ class Read extends ModeManager
     public function group($group)
     {
 
-        $this->string['group'] = $group;
+        $this->datas['group'] = $group;
 
         return $this;
     }
@@ -134,7 +134,7 @@ class Read extends ModeManager
     public function limit($limit)
     {
 
-        $this->string['limit'] .= $limit;
+        $this->datas['limit'] .= $limit;
 
         return $this;
     }

@@ -36,10 +36,9 @@ class Update extends ModeManager
      */
     public function set($set = [])
     {
-
         $update = $this->databaseSetBuilder($set);
-        $this->string['update'] .= $update['content'];
-        $this->string['parameters'] = array_merge($this->string['parameters'], $update['array']);
+        $this->datas['update'] .= $update['content'];
+        $this->datas['parameters'] = array_merge($this->string['parameters'], $update['array']);
 
         return $this;
     }
