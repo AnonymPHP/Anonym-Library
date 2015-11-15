@@ -23,22 +23,6 @@ abstract class Tongue
      */
     protected $datas;
 
-
-    /**
-     * an array type for compareNames
-     *
-     * @var array
-     */
-    protected $compares = [
-        "select",
-        "join",
-        "where",
-        "update",
-        "insert",
-        "order",
-        "limit"
-    ];
-
     /**
      * an array type for statements
      *
@@ -64,12 +48,6 @@ abstract class Tongue
         ]
     ];
 
-    /**
-     * an array type to selected pattern
-     *
-     * @var array
-     */
-    protected $selectedPatterns;
 
     /**
      * an array type for prepared strings
@@ -88,24 +66,11 @@ abstract class Tongue
     public function build($datas, $type)
     {
         $this->datas = $datas;
-
-        $this->selectedPatterns = $this->statements[$type];
-
-        foreach ($this->compares as $compare) {
-            if (isset($datas[$compare]) && !empty($datas[$compare])) {
-                $method = 'compare'.ucfirst($compare);
-
-                $this->$method($datas[$compare]);
-            }
-        }
+        $compilerMethodName = 'compile'.ucfirst($type);
+        $this->$compilerMethodName();
     }
 
-    /**
-     * @param array $where
-     */
-    protected function compareWhere($where){
-
-    }
 
 
 }
+
