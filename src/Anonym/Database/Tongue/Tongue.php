@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Database\Tongue;
+use Anonym\Support\Arr;
 
 
 /**
@@ -31,7 +32,6 @@ abstract class Tongue
     private $statements = [
 
         'read' => [
-
             'SELECT :select FROM :from :join :group WHERE:where :order :limit',
             'SELECT :select FROM :from :join :group :order :limit'
         ],
@@ -67,11 +67,24 @@ abstract class Tongue
     {
         $this->datas = $datas;
         $compilerMethodName = 'compile'.ucfirst($type);
-        $this->$compilerMethodName();
+        return $this->$compilerMethodName();
     }
 
+    /**
+     *  compile the read paremeters with the pattern
+     *
+     *  this function working with the other methods and preparing the select statement
+     */
     protected function compileRead(){
-        print_r($this->datas);
+
+        if (Arr::has($this->datas, 'where')) {
+            $pattern = $this->statements['read'][0];
+        }else{
+            $pattern = $this->statements['read'][1];
+        }
+
+
+
     }
 }
 
