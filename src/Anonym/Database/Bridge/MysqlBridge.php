@@ -8,6 +8,8 @@
 
 namespace Anonym\Database\Bridge;
 
+use Anonym\Support\Arr;
+
 /**
  * Class MysqlBridge
  * @package Anonym\Database\Bridge
@@ -22,6 +24,11 @@ class MysqlBridge extends Bridge
      */
     public function open()
     {
+        $configs = $this->configurations;
+
+        $host = Arr::get($configs, 'host', 'localhost');
+        $username = Arr::get($configs, 'username', '');
+        $password  = Arr::get($configs, 'password', '');
 
     }
 }
