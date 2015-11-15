@@ -8,9 +8,10 @@
 
 namespace Anonym\Database\Bridge;
 
+use Anonym\Support\Arr;
+use Anonym\Database\Tongue\Tongue;
 use Anonym\Database\Exceptions\BridgeException;
 use Anonym\Database\Exceptions\ConnectionException;
-use Anonym\Support\Arr;
 
 /**
  * Class Bridge
