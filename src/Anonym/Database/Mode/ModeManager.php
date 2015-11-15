@@ -104,7 +104,7 @@ class ModeManager
      * @return string
      */
     protected function buildQuery(){
-        return $this->getBase()->
+        return $this->getBase()->bridge->tongue->build($this->datas);
     }
 
     /**
