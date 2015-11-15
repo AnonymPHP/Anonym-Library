@@ -23,13 +23,26 @@ abstract class Tongue
      */
     protected $datas;
 
+
+    protected $compares = [
+        "select",
+        "where",
+        "update",
+        "insert",
+        "order",
+        "limit"
+    ];
+
     /**
      * starting the build query
      *
      * @param array $datas
      * @return mixed
      */
-     public function build($datas){
-         $this->datas = $datas;
-     }
+    public function build($datas)
+    {
+        $this->datas = $datas;
+    }
+
+
 }
