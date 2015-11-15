@@ -16,4 +16,18 @@ namespace Anonym\Database\Tongue;
 abstract class Tongue
 {
 
+    /**
+     * an array type for build query
+     *
+     * @var array
+     */
+    protected $datas;
+
+    /**
+     * starting the build query
+     *
+     * @param array $datas
+     * @return mixed
+     */
+    abstract public function build($datas);
 }
