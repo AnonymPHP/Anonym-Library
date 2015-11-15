@@ -40,7 +40,7 @@ abstract class Bridge
      *
      * @var Tongue
      */
-    protected $tongue;
+    public $tongue;
 
     /**
      * the constructor of Bridge .

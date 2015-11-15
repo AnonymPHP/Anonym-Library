@@ -6,6 +6,7 @@ namespace Anonym\Database\Mode;
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  */
 
+use Anonym\Database\Bridge\Bridge;
 use Anonym\Database\Managers\BuildManager;
 use Anonym\Database\Pagination\Paginator;
 use Anonym\Database\Tongue\MysqlTongue;
@@ -103,9 +104,7 @@ class ModeManager
      * @return string
      */
     protected function buildQuery(){
-        $datas = $this->datas;
-
-
+        return $this->getBase()->
     }
 
     /**
