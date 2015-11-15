@@ -27,6 +27,7 @@ use mysqli;
 class Base extends Starter
 {
     use ModeManager;
+
     const TYPE_PGSQL = 'pgsql';
     const TYPE_MYSQL = 'mysql';
     const TYPE_MSSQL = 'mssql';
