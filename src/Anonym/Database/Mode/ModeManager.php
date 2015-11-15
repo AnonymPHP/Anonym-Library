@@ -14,6 +14,10 @@ use Anonym\Database\Tongue\PgsqlTongue;
 use Anonym\Database\Traits\Builder;
 use Anonym\Database\Base;
 
+/**
+ * Class ModeManager
+ * @package Anonym\Database\Mode
+ */
 class ModeManager
 {
 
@@ -76,49 +80,7 @@ class ModeManager
         return $this->base;
     }
 
-    /**
-     * Patterin i atar
-     *
-     * @param string $pattern
-     */
-    protected function setChieldPattern($pattern)
-    {
 
-        $this->chieldPattern = $pattern;
-    }
-
-    /**
-     * Uygulanan pattern i g�sterir
-     *
-     * @return string
-     */
-    protected function getChieldPattern()
-    {
-
-        return $this->chieldPattern;
-    }
-
-    /**
-     * veleti gönderir
-     *
-     * @return mixed
-     */
-    protected function getChield()
-    {
-
-        return $this->chield;
-    }
-
-    /**
-     * register the chield value
-     *
-     * @param $chield
-     */
-    protected function setChield($chield)
-    {
-
-        $this->chield = $chield;
-    }
 
     /**
      * creating and getting the query
@@ -162,18 +124,8 @@ class ModeManager
         return $this->build()->run();
     }
 
-
     /**
-     * Çocuk sınıfını döndürü
-     */
-    protected function getCield()
-    {
-
-        return $this->chield;
-    }
-
-    /**
-     * İçeriği tutar
+     * store the content
      *
      * @var string
      */
@@ -189,28 +141,6 @@ class ModeManager
         $this->base = $base;
 
         return $this;
-    }
-
-    /**
-     * @param array $builders
-     */
-    protected function useBuilders($builders = [])
-    {
-
-        $this->builders = $builders;
-    }
-
-    /**
-     * @param string $builderName
-     * @return multitype:mixed
-     */
-    protected function useBuilder($builderName)
-    {
-
-        if (isset($this->builders[$builderName])) {
-
-            return $this->builders[$builderName];
-        }
     }
 
     /**
