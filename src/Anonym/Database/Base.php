@@ -39,7 +39,7 @@ class Base
      *
      * @var Bridge
      */
-    protected $bridge;
+    public $bridge;
 
     /**
      * store bridge names and their class names
