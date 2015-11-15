@@ -4,7 +4,6 @@ namespace Anonym\Database\Managers;
 
 use Anonym\Database\Exceptions\FetchException;
 use Anonym\Database\Exceptions\QueryException;
-use Anonym\Database\Helpers\Pagination;
 use mysqli_stmt;
 use PDO;
 use PDOStatement;
