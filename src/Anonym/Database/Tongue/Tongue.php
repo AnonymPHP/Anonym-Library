@@ -154,6 +154,11 @@ abstract class Tongue
         return "LIMIT $limit";
     }
 
+    /**
+     *
+     *
+     * @param array $where
+     */
     protected function compilingWhere($where){
 
     }

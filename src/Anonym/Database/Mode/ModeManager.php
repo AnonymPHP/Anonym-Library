@@ -172,6 +172,19 @@ class ModeManager
     }
 
     /**
+     * add a new like statement
+     *
+     * @param string $column
+     * @param string $statement
+     * @return $this
+     */
+    public function like($column, $statement){
+        $this->datas['like'][] = [$column, $statement];
+
+        return $this;
+    }
+
+    /**
      * create a instance for standart pagination
      *
      * @param int $perPage
