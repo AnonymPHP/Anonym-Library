@@ -7,8 +7,7 @@
  */
 
 namespace Anonym\Database\Bridge;
-
-use Anonym\Support\Arr;
+use Anonym\Database\Base;
 
 /**
  * Class MysqlBridge
@@ -25,8 +24,7 @@ class MysqlBridge extends Bridge
     public function open()
     {
         $configs = $this->configurations;
-
-
-
+        list($host, $username, $password, $dbname, $charset) = $this->getParametersNeeded($configs);
+        return $this->connect($host, $username, $password, $dbname, $charset, Base::TYPE_MYSQL);
     }
 }
