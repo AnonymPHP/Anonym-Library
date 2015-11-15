@@ -52,7 +52,7 @@ abstract class Tongue
      *
      * @var array
      */
-    protected $parameters;
+    protected $parameters = [];
     /**
      * an array type for prepared strings
      *

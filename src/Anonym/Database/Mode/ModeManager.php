@@ -72,10 +72,10 @@ class ModeManager
      */
     public function build()
     {
-        $query = $this->buildQuery();
+        list($query, $parameters) =  array_values($this->buildQuery());
         $manager = new BuildManager($this->getBase()->getConnection());
         $manager->setQuery($query);
-        $manager->setParams(Arr::get($this->datas, 'parameters', []));
+        $manager->setParams($parameters);
 
         return $manager;
     }
