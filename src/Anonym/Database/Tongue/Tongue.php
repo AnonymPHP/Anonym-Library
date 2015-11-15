@@ -40,7 +40,7 @@ abstract class Tongue
     ];
 
     /**
-     * an array tyep for statements
+     * an array type for statements
      *
      * @var array
      */
