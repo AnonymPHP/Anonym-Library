@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Database\Bridge;
+use Anonym\Database\Base;
 
 /**
  * Class PgsqlBridge
@@ -22,6 +23,8 @@ class PgsqlBridge extends Bridge
      */
     public function open()
     {
-
+        $configs = $this->configurations;
+        list($host, $username, $password, $dbname, $charset) = $this->getParametersNeeded($configs);
+        return $this->connect($host, $username, $password, $dbname, $charset, Base::TYPE_PGSQL);
     }
 }
