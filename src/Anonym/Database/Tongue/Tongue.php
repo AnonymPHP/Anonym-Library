@@ -88,7 +88,9 @@ abstract class Tongue
         foreach ($compilers as $compiler) {
             $methodName = 'compiling' . ucfirst($compiler);
             if (Arr::has($this->datas, $compiler) && !empty($this->datas[$compiler])) {
-                $return[] = $this->$methodName(Arr::get($this->datas, $compiler));
+                $return[$compiler] = $this->$methodName(Arr::get($this->datas, $compiler));
+            }else{
+                $return[$compiler] = '';
             }
         }
 
@@ -167,7 +169,7 @@ abstract class Tongue
             foreach($this->datas['like'] as $like){
 
                 list($column, $state, $ending) = $like;
-                $statement .= "$column LIKE $state $ending";
+                $statement .= "$column LIKE $state $ending ";
             }
 
             $statement = rtrim($statement, $ending);
@@ -175,10 +177,10 @@ abstract class Tongue
 
         foreach($wheres as $where){
 
-            list($column, $glue, $value, $ending)  = $where;
+            list($column, $glue, $value, $ending)  = $where[0];
 
             $this->parameters[] = $value;
-            $statement .= "$column $glue ? $ending";
+            $statement .= "$column $glue ? $ending ";
         }
 
         $statement = rtrim($statement, $ending);
@@ -198,11 +200,21 @@ abstract class Tongue
     {
         $pattern = $this->statements['read'][0];
 
-        return call_user_func_array(
-            'sprintf',
-            array_merge([$pattern], $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit']))
+        $return = call_user_func_array(
+            [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit'])]
         );
 
+        return ['statement' =>$return, 'parameters' => $this->parameters];
+    }
+
+    protected function replaceParameters($pattern, $parameters){
+        foreach($parameters as $parameter => $value){
+            $parameter = ':'.$parameter;
+
+            $pattern = str_replace($parameter, $value, $pattern);
+        }
+
+        var_dump($pattern);
     }
 }
 

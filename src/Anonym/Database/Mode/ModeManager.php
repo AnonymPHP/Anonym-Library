@@ -129,7 +129,7 @@ class ModeManager
      */
     private function doWhere($where, $type)
     {
-        $where[] = $type;
+        $where[0][] = $type;
         $this->datas['where'][] = $where;
     }
 
@@ -232,14 +232,32 @@ class ModeManager
     }
 
     /**
-     * OrWhere sorgusu
+     * Where  sorgusu
      *
      * @param mixed $where
+     * @param null controll
+     * @return $this
      */
-    public function orWhere($where)
+    public function orWhere($where, $controll = null)
     {
 
-        $this->doWhere($where, 'or');
+        if (!is_array($where) && !is_null($controll)) {
+
+            $where = [
+                [$where, '=', $controll]
+            ];
+        } elseif (is_array($where) && isset($where[0]) && isset($where[1])) {
+
+            if (is_string($where[1])) {
+
+                $where = [
+                    [$where[0], $where[1], $where[2]]
+                ];
+            }
+        }
+
+        $this->doWhere($where, 'OR');
+
         return $this;
     }
 
