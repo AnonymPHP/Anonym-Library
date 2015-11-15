@@ -55,6 +55,11 @@ class Starter
     {
         $bridge = Arr::get($options, 'bridge', Base::TYPE_MYSQL);
 
+        if (Arr::has($options, $bridge)) {
+
+        }else{
+            throw new BridgeException(sprintf('%s bridge is not exists', $bridge));
+        }
 
         $host = isset($options['host']) ? $options['host'] : '';
         $database = isset($options['db']) ? $options['db'] : '';
