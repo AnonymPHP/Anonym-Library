@@ -27,4 +27,14 @@ class MysqlBridge extends Bridge
         list($host, $username, $password, $dbname, $charset) = $this->getParametersNeeded($configs);
         return $this->connect($host, $username, $password, $dbname, $charset, Base::TYPE_MYSQL);
     }
+
+    /**
+     * prepare the instance of tongue class
+     *
+     * @return mixed
+     */
+    protected function prepareTongueInstance()
+    {
+
+    }
 }
