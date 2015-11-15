@@ -24,7 +24,7 @@ abstract class Bridge
      *
      * @var PDO
      */
-    protected $db;
+    public $db;
 
     /**
      * an array type for connectione configuration values
