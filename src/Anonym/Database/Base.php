@@ -37,7 +37,12 @@ class Base extends Starter
      */
     public $container;
 
-
+    /**
+     * the name of connecting table
+     *
+     * @var string
+     */
+    protected $connectedTable;
     /**
      * create a new instance and use the configs
      *
