@@ -8,7 +8,10 @@
 
 namespace Anonym\Database\Bridge;
 
-
+/**
+ * Class PgsqlBridge
+ * @package Anonym\Database\Bridge
+ */
 class PgsqlBridge extends Bridge
 {
 
