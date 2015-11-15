@@ -25,8 +25,7 @@ use mysqli;
 class Base extends Starter
 {
 
-    use ConnectionManager,
-        ModeManager;
+    use ConnectionManager, ModeManager;
 
     /**
      * create a new instance and use the configs

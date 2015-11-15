@@ -27,7 +27,11 @@ class ModeManager
      * @var array
      */
     private $builders;
-
+    /**
+     * the pattern of child
+     *
+     * @var unknown
+     */
     private $chieldPattern;
 
     /**
@@ -112,6 +116,11 @@ class ModeManager
         return $this->chield;
     }
 
+    /**
+     * register the chield value
+     *
+     * @param $chield
+     */
     protected function setChield($chield)
     {
 

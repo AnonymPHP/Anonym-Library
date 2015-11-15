@@ -23,6 +23,7 @@ use mysqli;
 class Starter
 {
 
+    protected $type;
     /**
      * the instance of database driver
      *
@@ -57,9 +58,10 @@ class Starter
             $type = $options['type'];
         }
 
+        $this->type = $type;
+
         switch ($driver) {
             case 'pdo':
-
                 try {
 
                     $db = new PDO("$type:host=$host;dbname=$database", $username, $password);

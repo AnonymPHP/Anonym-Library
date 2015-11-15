@@ -1,7 +1,6 @@
 <?php
 
 namespace Anonym\Database\Traits;
-
 /**
  * Trait Builder
  * @package Anonym\Database\Traits
