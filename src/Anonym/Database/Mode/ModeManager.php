@@ -71,7 +71,15 @@ class ModeManager
         ]
     ];
 
-
+    /**
+     * the constructor of ModeManager .
+     *
+     * @param Base $base
+     */
+    public function __construct(Base $base = null)
+    {
+        $this->setBase($base);
+    }
 
     /**
      * create a new BuildManager instance with created query
@@ -214,12 +222,14 @@ class ModeManager
      * @param int $perPage
      * @return Paginator
      */
-    public function simplePagination($perPage = 15){
+    public function simplePagination($perPage = 15)
+    {
         $pegination = $this->pagination($perPage);
 
         $pegination->setMode(Paginator::MODE_SIMPLE);
         return $pegination;
     }
+
     /**
      * OrWhere sorgusu
      *
