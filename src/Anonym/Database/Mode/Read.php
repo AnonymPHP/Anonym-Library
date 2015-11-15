@@ -44,14 +44,6 @@ class Read extends ModeManager
     {
 
         $this->setBase($base);
-        $this->useBuilders([
-            'where' => new Where(),
-            'select' => new Select(),
-            'order' => new Order(),
-            'limit' => new Limit(),
-            'group' => new Group(),
-            'join' => new Join(),
-        ]);
 
         $this->string = [
             'select' => '*',
