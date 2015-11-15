@@ -100,5 +100,12 @@ abstract class Tongue
         }
     }
 
+    /**
+     * @param array $where
+     */
+    protected function compareWhere($where){
+
+    }
+
 
 }
