@@ -55,31 +55,6 @@ class ModeManager
     protected $type;
 
     /**
-     * Değiştirilecek desenleri tutar
-     *
-     * @var array
-     */
-    private $patterns = [
-
-        'read' => [
-
-            'SELECT :select FROM :from :join :group WHERE:where :order :limit',
-            'SELECT :select FROM :from :join :group :order :limit'
-        ],
-        'update' => [
-
-            'UPDATE :from SET :update WHERE:where'
-        ],
-        'delete' => [
-
-            'DELETE FROM :from WHERE:where'
-        ],
-        'insert' => [
-            'INSERT INTO :from SET :insert'
-        ]
-    ];
-
-    /**
      * the constructor of ModeManager .
      *
      * @param Base $base
