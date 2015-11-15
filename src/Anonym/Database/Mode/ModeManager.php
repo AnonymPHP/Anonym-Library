@@ -91,6 +91,7 @@ class ModeManager
         return $this->getBase()->bridge->tongue->build($this->datas, $this->type);
     }
 
+
     /**
      * Query oluşturur
      *
@@ -222,6 +223,7 @@ class ModeManager
     {
 
         $this->doWhere($where, 'or');
+        return $this;
     }
 
 

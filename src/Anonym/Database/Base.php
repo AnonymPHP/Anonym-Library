@@ -245,6 +245,14 @@ class Base
     }
 
     /**
+     * register the connection table with given table name
+     *
+     * @param string $table
+     */
+    protected function connect($table){
+        $this->connectedTable = $table;
+    }
+    /**
      * Dinamik method çağrımı
      *
      * @param string $method
