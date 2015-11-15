@@ -10,13 +10,14 @@
  */
 
 namespace Anonym\Database;
-use Anonym\Database\Bridge\Bridge;
-use Anonym\Database\Exceptions\ConnectionException;
+
+use Anonym\Database\Exceptions\BridgeException;
 use Anonym\Database\Bridge\MysqlBridge;
+use Anonym\Database\Bridge\Bridge;
 use Anonym\Support\Arr;
-use PDO;
 use PDOException;
 use mysqli;
+use PDO;
 
 /**
  * Class Starter
