@@ -85,7 +85,7 @@ abstract class Bridge
     {
 
         if (!$this->driverIsExists($bridge)) {
-            throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it '));
+            throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it ', $bridge));
         }
         try {
             $this->db = new \PDO("$bridge:host=$host;dbname=$db", $username, $password);
@@ -107,7 +107,7 @@ abstract class Bridge
     {
         $drivers = \PDO::getAvailableDrivers();
 
-        return Arr::has($drivers, $driver);
+        return Arr::search($drivers, $driver);
     }
 
     /**

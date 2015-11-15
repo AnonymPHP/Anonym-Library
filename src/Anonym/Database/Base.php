@@ -13,6 +13,7 @@ namespace Anonym\Database;
 use Illuminate\Container\Container;
 use Anonym\Support\Arr;
 use Anonym\Database\Exceptions\BridgeException;
+use Anonym\Database\Bridge\MysqlBridge;
 use Anonym\Database\Mode\Delete;
 use Anonym\Database\Mode\Read;
 use Anonym\Database\Mode\Update;

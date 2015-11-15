@@ -71,6 +71,16 @@ class Arr
     }
 
     /**
+     * determine $key is exists on values
+     *
+     * @param array $array
+     * @param string|integer $key
+     * @return mixed
+     */
+    public static function search($array, $key){
+        return array_search($key, $array);
+    }
+    /**
      * Divide an array into two arrays. One with keys and the other with values.
      *
      * @param  array $array
