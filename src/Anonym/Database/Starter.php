@@ -50,7 +50,7 @@ class Starter
      * create a new instance and install the driver
      *
      * @param array $options the options to db
-     * @throws ConnectionException
+     * @throws BridgeException
      */
     public function __construct($options = [])
     {
@@ -62,55 +62,9 @@ class Starter
             if ($instance instanceof Bridge) {
                 $this->db = $instance->open();
             }
-        }else{
+        } else {
             throw new BridgeException(sprintf('%s bridge is not exists', $bridge));
         }
-
-        $host = isset($options['host']) ? $options['host'] : '';
-        $database = isset($options['db']) ? $options['db'] : '';
-        $username = isset($options['username']) ? $options['username'] : '';
-        $password = isset($options['password']) ? $options['password'] : '';
-        $charset = isset($options['charset']) ? $options['charset'] : 'utf8';
-
-        if (!isset($options['driver'])) {
-            $driver = 'pdo';
-        } else {
-            $driver = $options['driver'];
-        }
-
-        if (!isset($options['type'])) {
-            $type = 'mysql';
-        } else {
-            $type = $options['type'];
-        }
-
-        $this->type = $type;
-
-        switch ($driver) {
-            case 'pdo':
-                try {
-
-                    $db = new PDO("$type:host=$host;dbname=$database", $username, $password);
-                    $this->db = $db;
-                } catch (PDOException $e) {
-
-                    throw new ConnectionException($e->getMessage());
-                }
-
-                break;
-            case 'mysqli':
-
-                $db = new mysqli($host, $username, $password, $database);
-
-                if ($db->connect_errno > 0) {
-                    throw new ConnectionException('Bağlantı işlemi başarısız [' . $db->connect_error . ']');
-                }
-
-                $this->db = $db;
-                break;
-        }
-
-        $this->db->query(sprintf("SET CHARACTER SET %s", $charset));
     }
 
     /**
