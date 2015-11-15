@@ -31,12 +31,20 @@ abstract class Tongue
      */
     protected $compares = [
         "select",
+        "join",
         "where",
         "update",
         "insert",
         "order",
         "limit"
     ];
+
+    /**
+     * an array type for prepared strings
+     *
+     * @var array
+     */
+    protected $strings;
 
     /**
      * starting the build query
