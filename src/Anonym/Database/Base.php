@@ -29,7 +29,8 @@ class Base extends Starter
     const TYPE_PGSQL = 'pgsql';
     const TYPE_MYSQL = 'mysql';
     const TYPE_MSSQL = 'mssql';
-    protected $container;
+    public $container;
+
     /**
      * create a new instance and use the configs
      *

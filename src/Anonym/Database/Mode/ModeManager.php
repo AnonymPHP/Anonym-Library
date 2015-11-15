@@ -8,6 +8,9 @@ namespace Anonym\Database\Mode;
 
 use Anonym\Database\Managers\BuildManager;
 use Anonym\Database\Pagination\Paginator;
+use Anonym\Database\Tongue\MysqlTongue;
+use Anonym\Database\Tongue\MssqlTongue;
+use Anonym\Database\Tongue\PgsqlTongue;
 use Anonym\Database\Traits\Builder;
 use Anonym\Database\Base;
 
@@ -16,7 +19,11 @@ class ModeManager
 
     use Builder;
 
-    ## Anonym\Database\Base
+    private $tongueBuilders = [
+        Base::TYPE_MYSQL => MysqlTongue::class,
+        Base::TYPE_MSSQL => MssqlTongue::class,
+        Base::TYPE_PGSQL => PgsqlTongue::class
+    ];
 
     /**
      * @var Base
