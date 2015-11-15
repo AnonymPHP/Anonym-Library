@@ -40,6 +40,15 @@ class Base extends Starter
     public $container;
 
     /**
+     * the instance of PDO
+     *
+     * @var PDO
+     */
+    protected $db;
+
+
+
+    /**
      * the name of connecting table
      *
      * @var string
