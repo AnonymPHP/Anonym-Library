@@ -2,7 +2,6 @@
 
 namespace Anonym\Database\Mode;
 
-use Anonym\Database\Base;
 use Anonym\Database\Traits\Where as TraitWhere;
 
 /**
@@ -37,8 +36,8 @@ class Update extends ModeManager
     public function set($set = [])
     {
         $update = $this->databaseSetBuilder($set);
-        $this->datas['update'] .= $update['content'];
-        $this->datas['parameters'] = array_merge($this->string['parameters'], $update['array']);
+        $this->datas['update'][] = $update['content'];
+        $this->datas['parameters'] = array_merge($this->datas['parameters'], $update['array']);
 
         return $this;
     }
