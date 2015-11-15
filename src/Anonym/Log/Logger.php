@@ -36,7 +36,7 @@ class Logger
      * @param Filesystem $filesystem
      * @param string $path
      */
-    public function __construct(Filesystem $filesystem, $path = APP.'logs/error.log'){
+    public function __construct(Filesystem $filesystem, $path = 'logs/error.log'){
         $this->filesystem = $filesystem;
         $this->path = $path;
     }
