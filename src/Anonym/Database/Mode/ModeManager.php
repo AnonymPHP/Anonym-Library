@@ -129,16 +129,8 @@ class ModeManager
      */
     private function doWhere($where, $type)
     {
-        switch ($type) {
-
-            case 'and':
-                $this->datas['where'] = $where;
-                break;
-
-            case 'or':
-               $this->datas['or_where'] = $where;
-                break;
-        }
+        $where[] = $type;
+        $this->datas['where'][] = $where;
     }
 
     /**
@@ -166,7 +158,7 @@ class ModeManager
             }
         }
 
-        $this->doWhere($where, 'and');
+        $this->doWhere($where, 'AND');
 
         return $this;
     }

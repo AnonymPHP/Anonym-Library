@@ -156,24 +156,34 @@ abstract class Tongue
     }
 
     /**
+     * compile and return prered string value
      *
-     *
-     * @param array $where
+     * @param array $wheres
      */
-    protected function compilingWhere($where){
+    protected function compilingWhere($wheres){
         $statement = "WHERE ";
 
         if (Arr::has($this->datas, 'like') && !empty($this->datas['like'])) {
             foreach($this->datas['like'] as $like){
 
                 list($column, $state, $ending) = $like;
-                $statement .= "LIKE $column $state $ending";
+                $statement .= "$column LIKE $state $ending";
             }
 
             $statement = rtrim($statement, $ending);
         }
 
+        foreach($wheres as $where){
 
+            list($column, $glue, $value, $ending)  = $where;
+
+            $this->parameters[] = $value;
+            $statement .= "$column $glue ? $ending";
+        }
+
+        $statement = rtrim($statement, $ending);
+
+        return $statement;
     }
 
     protected function compilingJoin($join){
