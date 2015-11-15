@@ -88,7 +88,6 @@ class ModeManager
      */
     public function build()
     {
-
         $query = $this->getQuery();
         $manager = new BuildManager($this->getBase()->getConnection());
         $manager->setPage($this->page);
