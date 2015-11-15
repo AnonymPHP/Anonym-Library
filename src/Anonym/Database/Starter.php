@@ -10,6 +10,7 @@
  */
 
 namespace Anonym\Database;
+use Anonym\Database\Bridge\Bridge;
 use Anonym\Database\Exceptions\ConnectionException;
 use Anonym\Database\Bridge\MysqlBridge;
 use Anonym\Support\Arr;
@@ -56,7 +57,11 @@ class Starter
         $bridge = Arr::get($options, 'bridge', Base::TYPE_MYSQL);
 
         if (Arr::has($options, $bridge)) {
+            $instance= $this->container->make($bridge, [$options]);
 
+            if ($instance instanceof Bridge) {
+                $this->db = $instance->open();
+            }
         }else{
             throw new BridgeException(sprintf('%s bridge is not exists', $bridge));
         }
