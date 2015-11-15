@@ -19,6 +19,7 @@ use Anonym\Database\Traits\ConnectionManager;
 use Anonym\Database\Traits\ModeManager;
 use PDO;
 use mysqli;
+
 /**
  * Class Base
  * @package Anonym\Database
@@ -43,56 +44,19 @@ class Base extends Starter
      * @var string
      */
     protected $connectedTable;
+
     /**
      * create a new instance and use the configs
      *
      * @param array $configs
      * @throws \Anonym\Database\Exceptions\ConnectionException
      */
-    public function __construct(array $configs = [],Container $container = null )
+    public function __construct(array $configs = [], Container $container = null)
     {
         parent::__construct($configs);
         $this->container = $container;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getConnectedTable()
-    {
-        return $this->connectedTable;
-    }
-
-    /**
-     * @param mixed $connectedTable
-     * @return ConnectionManager
-     */
-    public function setConnectedTable($connectedTable)
-    {
-        $this->connectedTable = $connectedTable;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getModes()
-    {
-        return $this->modes;
-    }
-
-    /**
-     * @param mixed $modes
-     *
-     * @return ModeManager
-     */
-    public function setModes($modes)
-    {
-        $this->modes = $modes;
-
-        return $this;
-    }
 
     /**
      * Select işlemlerinde kullanılır
@@ -159,6 +123,66 @@ class Base extends Starter
     }
 
     /**
+     * @return mixed
+     */
+    public function getConnectedTable()
+    {
+        return $this->connectedTable;
+    }
+
+    /**
+     * @param mixed $connectedTable
+     * @return ConnectionManager
+     */
+    public function setConnectedTable($connectedTable)
+    {
+        $this->connectedTable = $connectedTable;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModes()
+    {
+        return $this->modes;
+    }
+
+    /**
+     * @param mixed $modes
+     *
+     * @return ModeManager
+     */
+    public function setModes($modes)
+    {
+        $this->modes = $modes;
+
+        return $this;
+    }
+
+    /**
+     * Veritabanının içeriğini döndürür.
+     *
+     * @return $this
+     */
+    public function getInstance()
+    {
+        return $this;
+    }
+
+    /**
+     * return the last query error
+     *
+     * @return string
+     */
+    public function errorInfo()
+    {
+        $message = isset($this->connection->errorInfo()['message']) ? $this->getConnection()->errorInfo()['message'] : 'Something Went Wrong!';
+        return $message;
+    }
+
+    /**
      * Dinamik method çağrımı
      *
      * @param string $method
@@ -179,27 +203,5 @@ class Base extends Starter
         return $return;
     }
 
-    /**
-     * return the last query error
-     *
-     * @return string
-     */
-    public function errorInfo(){
-        if ($this->getConnection() instanceof PDO) {
-            $message = isset($this->connection->errorInfo()['message']) ? $this->getConnection()->errorInfo()['message'] : 'Something Went Wrong!';
-        } elseif ($this->getConnection() instanceof mysqli) {
-            $message = $this->getConnection()->error;
-        }
 
-        return $message;
-    }
-    /**
-     * Veritabanının içeriğini döndürür.
-     *
-     * @return $this
-     */
-    public function getInstance()
-    {
-        return $this;
-    }
 }
