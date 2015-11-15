@@ -52,7 +52,7 @@ abstract class Tongue
             if (isset($datas[$compare]) && !empty($datas[$compare])) {
                 $method = 'compare'.ucfirst($compare);
 
-                $this->$method();
+                $this->$method($datas[$compare]);
             }
         }
     }
