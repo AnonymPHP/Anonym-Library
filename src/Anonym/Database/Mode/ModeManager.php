@@ -60,6 +60,7 @@ class ModeManager
     public function __construct(Base $base = null, $type = 'read')
     {
         $this->setBase($base);
+        $this->datas['from'] = $base->getConnectedTable();
         $this->type = $type;
     }
 
