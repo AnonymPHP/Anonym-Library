@@ -29,8 +29,6 @@ class Base extends Starter
 
     const TYPE_MSSQL = 'mssql';
 
-
-
     use ConnectionManager, ModeManager;
 
     /**

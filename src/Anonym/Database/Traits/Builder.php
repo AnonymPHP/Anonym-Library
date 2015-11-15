@@ -8,6 +8,10 @@ namespace Anonym\Database\Traits;
 trait Builder
 {
 
+    private $tongueBuilders = [
+
+    ];
+
     /**
      * create the a sql query
      *
@@ -18,6 +22,7 @@ trait Builder
      */
     private function buildQuery($pattern, $args, $type)
     {
+
 
         if (count($args['parameters']) > 0) {
 
