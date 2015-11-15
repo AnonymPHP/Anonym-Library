@@ -24,7 +24,7 @@ use mysqli;
  * Class Base
  * @package Anonym\Database
  */
-class Base extends Starter
+class Base
 {
     use ModeManager;
 
@@ -32,6 +32,15 @@ class Base extends Starter
     const TYPE_MYSQL = 'mysql';
     const TYPE_MSSQL = 'mssql';
 
+
+    /**
+     * store bridge names and their class names
+     *
+     * @var array
+     */
+    protected $bridges = [
+        self::TYPE_MYSQL =>  MysqlBridge::class
+    ];
     /**
      * the instance of Laravel Container
      *
@@ -59,14 +68,36 @@ class Base extends Starter
      * create a new instance and use the configs
      *
      * @param array $configs
+     * @param Container $container
      * @throws \Anonym\Database\Exceptions\ConnectionException
      */
     public function __construct(array $configs = [], Container $container = null)
     {
-        parent::__construct($configs);
         $this->container = $container;
+
+
+        $this->openConnection($configs);
     }
 
+    /**
+     * open the connection  between bridge to sql driver
+     *
+     * @param array $options
+     * @throws BridgeException
+     */
+    private function openConnection(array $options){
+        $bridge = Arr::get($options, 'bridge', Base::TYPE_MYSQL);
+
+        if (Arr::has($options, $bridge)) {
+            $instance= $this->container->make($bridge, [$options]);
+
+            if ($instance instanceof Bridge) {
+                $this->db = $instance->open();
+            }
+        } else {
+            throw new BridgeException(sprintf('%s bridge is not exists', $bridge));
+        }
+    }
 
     /**
      * Select işlemlerinde kullanılır
