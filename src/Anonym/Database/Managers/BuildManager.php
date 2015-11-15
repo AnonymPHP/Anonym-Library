@@ -64,7 +64,6 @@ class BuildManager
      */
     public function setQuery($query)
     {
-
         $this->query = $query;
     }
 
