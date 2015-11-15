@@ -19,6 +19,11 @@ class ModeManager
 
     use Builder;
 
+    /**
+     * a type of array for create query
+     *
+     * @var array
+     */
     private $tongueBuilders = [
         Base::TYPE_MYSQL => MysqlTongue::class,
         Base::TYPE_MSSQL => MssqlTongue::class,
@@ -29,24 +34,6 @@ class ModeManager
      * @var Base
      */
     private $base;
-
-    /**
-     * @var array
-     */
-    private $builders;
-    /**
-     * the pattern of child
-     *
-     * @var unknown
-     */
-    private $chieldPattern;
-
-    /**
-     * the instance of chield
-     *
-     * @var
-     */
-    private $chield;
 
     /**
      * Sayfa numarasını tutar
@@ -76,7 +63,6 @@ class ModeManager
             'DELETE FROM :from WHERE:where'
         ],
         'insert' => [
-
             'INSERT INTO :from SET :insert'
         ]
     ];
