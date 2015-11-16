@@ -188,8 +188,22 @@ abstract class Tongue
         return $statement;
     }
 
-    protected function compilingJoin($join){
+    /**
+     * compile and return the statement
+     *
+     * @param array $joins
+     * @return string
+     */
+    protected function compilingJoin($joins){
+        $statement = '';
+        $from = $this->datas['from'];
+        foreach($joins as $type => $value){
+            list($column, $tablealt, $colunalt) = $value;
 
+            $statement .= "$type $column ON $from.$tablealt = $column.$colunalt ";
+        }
+
+       return rtrim($statement, ' ');
     }
     /**
      *  compile the read paremeters with the pattern
