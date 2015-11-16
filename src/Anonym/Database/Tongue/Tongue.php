@@ -221,6 +221,13 @@ abstract class Tongue
         return ['statement' =>$return, 'parameters' => $this->parameters];
     }
 
+
+    /**
+     * find and replace each parameters in pattern
+     *
+     * @param string $pattern
+     * @param array $parameters
+     */
     protected function replaceParameters($pattern, $parameters){
         foreach($parameters as $parameter => $value){
             $parameter = ':'.$parameter;
