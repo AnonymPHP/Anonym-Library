@@ -18,12 +18,11 @@ $db = new \Anonym\Database\Base([
 ], new \Illuminate\Container\Container());
 
 
-$read = $db->read('test', function(\Anonym\Database\Mode\Read $read){
-   return $read->where('test', 'ok')->orWhere('dest', 'adasd')->order('id')->like('deneme', "%aaa%")->join([
-      'INNER JOIN' => [
-         'ogrenci', 'tablealt', 'ogrencialt',
-      ]
+$update = $db->update('deneme', function(\Anonym\Database\Mode\Update $update){
+   return $update->set([
+      'test' => 'value',
+      'test1' => 'value2'
    ]);
 });
 
-$read->build();
+$update->build();

@@ -36,11 +36,11 @@ abstract class Tongue
         ],
         'update' => [
 
-            'UPDATE :from SET :update WHERE:where'
+            'UPDATE :from SET :update :where'
         ],
         'delete' => [
 
-            'DELETE FROM :from WHERE:where'
+            'DELETE FROM :from :where'
         ],
         'insert' => [
             'INSERT INTO :from SET :insert'
@@ -189,6 +189,22 @@ abstract class Tongue
     }
 
     /**
+     * compile and return statement
+     *
+     * @param array $update
+     * @return string
+     */
+    protected function compilingUpdate($update){
+        $statement = '';
+
+        foreach($update as $item){
+            $statement .= ','.$item;
+        }
+
+        return ltrim($statement, ',');
+    }
+
+    /**
      * compile and return the statement
      *
      * @param array $joins
@@ -223,6 +239,21 @@ abstract class Tongue
 
 
     /**
+     * compile the update statemenet
+     *
+     * @return array
+     */
+    protected function compileUpdate(){
+        $pattern = $this->statements['update'][0];
+
+        $return = call_user_func_array(
+            [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'update', 'where'])]
+        );
+
+        return ['statement' =>$return, 'parameters' => $this->parameters];
+    }
+
+    /**
      * find and replace each parameters in pattern
      *
      * @param string $pattern
@@ -237,5 +268,8 @@ abstract class Tongue
 
         var_dump($pattern);
     }
+
+
+
 }
 
