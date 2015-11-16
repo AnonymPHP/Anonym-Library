@@ -188,6 +188,17 @@ abstract class Tongue
         return $statement;
     }
 
+
+    /**
+     * compile and return statement
+     *
+     * @param array $insert
+     * @return string
+     */
+    protected function compilingInsert($insert){
+        return $this->compilingUpdate($insert);
+    }
+
     /**
      * compile and return statement
      *
@@ -239,15 +250,45 @@ abstract class Tongue
 
 
     /**
-     * compile the update statemenet
-     *
-     * @return array
-     */
+ * compile the update statemenet
+ *
+ * @return array
+ */
     protected function compileUpdate(){
         $pattern = $this->statements['update'][0];
 
         $return = call_user_func_array(
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'update', 'where'])]
+        );
+
+        return ['statement' =>$return, 'parameters' => $this->parameters];
+    }
+
+    /**
+     * compile the update statemenet
+     *
+     * @return array
+     */
+    protected function compileInsert(){
+        $pattern = $this->statements['insert'][0];
+
+        $return = call_user_func_array(
+            [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'insert',])]
+        );
+
+        return ['statement' =>$return, 'parameters' => $this->parameters];
+    }
+
+    /**
+     * compile the update statemenet
+     *
+     * @return array
+     */
+    protected function compileDelete(){
+        $pattern = $this->statements['delete'][0];
+
+        $return = call_user_func_array(
+            [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'where',])]
         );
 
         return ['statement' =>$return, 'parameters' => $this->parameters];
