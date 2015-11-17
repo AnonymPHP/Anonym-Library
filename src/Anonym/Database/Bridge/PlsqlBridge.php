@@ -43,22 +43,12 @@ class PlsqlBridge extends Bridge
         $charset = Arr::get($configs, 'charset', 'utf8');
         $port = Arr::get($configs, 'port', 1521);
 
-        $database = "
-    (DESCRIPTION =
-      (ADDRESS_LIST =
-        (ADDRESS = (PROTOCOL = TCP)(HOST = $host)(PORT = $port))
-      )
-    (CONNECT_DATA =
-      (SERVICE_NAME = orcl)
-    )
-   )";
-
         if (!$this->driverIsExists('oci')) {
             throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it ', 'oci'));
         }
 
         try {
-            $this->db = new PDO('oci:dbname=' . $database, $username, $password);
+            $this->db = new PDO("oci:dbname=//$host:$port/$dbname", $username, $password);
             $this->db->exec("SET NAMES '$charset'; SET CHARSET '$charset'");
         } catch (\PDOException $e) {
             throw new ConnectionException(sprintf('PDO threw that exception message : %s', $e->getMessage()));
