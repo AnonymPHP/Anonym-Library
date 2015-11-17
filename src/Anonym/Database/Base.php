@@ -13,6 +13,8 @@ namespace Anonym\Database;
 use Illuminate\Container\Container;
 use Anonym\Support\Arr;
 use Anonym\Database\Exceptions\BridgeException;
+use Anonym\Database\Bridge\PlsqlBridge;
+use Anonym\Database\Bridge\PgsqlBridge;
 use Anonym\Database\Bridge\MysqlBridge;
 use Anonym\Database\Mode\Delete;
 use Anonym\Database\Mode\Read;
@@ -35,6 +37,7 @@ class Base
     const TYPE_PGSQL = 'pgsql';
     const TYPE_MYSQL = 'mysql';
     const TYPE_MSSQL = 'mssql';
+    const TYPE_PLSQL = 'plsql';
 
 
     /**
@@ -50,7 +53,9 @@ class Base
      * @var array
      */
     protected $bridges = [
-        self::TYPE_MYSQL =>  MysqlBridge::class
+        self::TYPE_MYSQL => MysqlBridge::class,
+        self::TYPE_PGSQL => PgsqlBridge::class,
+        self::TYPE_PLSQL => PlsqlBridge::class
     ];
     /**
      * the instance of Laravel Container
@@ -95,12 +100,13 @@ class Base
      * @param array $options
      * @throws BridgeException
      */
-    private function openConnection(array $options){
+    private function openConnection(array $options)
+    {
         $bridge = Arr::get($options, 'bridge', Base::TYPE_MYSQL);
 
         if (Arr::has($this->bridges, $bridge)) {
             $bridge = Arr::get($this->bridges, $bridge);
-            $this->bridge = $instance= $this->container->make($bridge, [$options]);
+            $this->bridge = $instance = $this->container->make($bridge, [$options]);
 
             if ($instance instanceof Bridge) {
                 $this->db = $instance->open();
@@ -122,7 +128,7 @@ class Base
     {
 
         $this->connect($table);
-        $read = new Read($this,'read');
+        $read = new Read($this, 'read');
 
         return $callable($read);
     }
@@ -240,7 +246,8 @@ class Base
      *
      * @return PDO
      */
-    public function getConnection(){
+    public function getConnection()
+    {
         return $this->db;
     }
 
@@ -249,9 +256,11 @@ class Base
      *
      * @param string $table
      */
-    protected function connect($table){
+    protected function connect($table)
+    {
         $this->connectedTable = $table;
     }
+
     /**
      * Dinamik method çağrımı
      *
