@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Database\Tongue;
+
 use Anonym\Support\Arr;
 
 
@@ -89,7 +90,7 @@ abstract class Tongue
             $methodName = 'compiling' . ucfirst($compiler);
             if (Arr::has($this->datas, $compiler) && !empty($this->datas[$compiler])) {
                 $return[$compiler] = $this->$methodName(Arr::get($this->datas, $compiler));
-            }else{
+            } else {
                 $return[$compiler] = '';
             }
         }
@@ -103,7 +104,8 @@ abstract class Tongue
      * @param mixed $select
      * @return array|string
      */
-    protected function compilingSelect($select){
+    protected function compilingSelect($select)
+    {
 
         if (is_string($select)) {
             return $select;
@@ -118,7 +120,8 @@ abstract class Tongue
      * @param string $from
      * @return mixed
      */
-    protected function compilingFrom($from){
+    protected function compilingFrom($from)
+    {
         return $from;
     }
 
@@ -128,7 +131,8 @@ abstract class Tongue
      * @param string $group
      * @return string
      */
-    protected function compilingGroup($group){
+    protected function compilingGroup($group)
+    {
         return "GROUP BY $group";
     }
 
@@ -138,7 +142,8 @@ abstract class Tongue
      * @param string $order
      * @return string
      */
-    protected function compilingOrder($order){
+    protected function compilingOrder($order)
+    {
         list($column, $type) = array_values($order);
         return "ORDER BY $column $type";
     }
@@ -149,7 +154,8 @@ abstract class Tongue
      * @param array|string $limit
      * @return string
      */
-    protected function compilingLimit($limit){
+    protected function compilingLimit($limit)
+    {
         if (is_array($limit)) {
             $limit = join(",", $limit);
         }
@@ -162,11 +168,12 @@ abstract class Tongue
      *
      * @param array $wheres
      */
-    protected function compilingWhere($wheres){
+    protected function compilingWhere($wheres)
+    {
         $statement = "WHERE ";
 
         if (Arr::has($this->datas, 'like') && !empty($this->datas['like'])) {
-            foreach($this->datas['like'] as $like){
+            foreach ($this->datas['like'] as $like) {
 
                 list($column, $state, $ending) = $like;
                 $statement .= "$column LIKE $state $ending ";
@@ -175,9 +182,9 @@ abstract class Tongue
             $statement = rtrim($statement, $ending);
         }
 
-        foreach($wheres as $where){
+        foreach ($wheres as $where) {
 
-            list($column, $glue, $value, $ending)  = $where[0];
+            list($column, $glue, $value, $ending) = $where[0];
 
             $this->parameters[] = $value;
             $statement .= "$column $glue ? $ending ";
@@ -195,7 +202,8 @@ abstract class Tongue
      * @param array $insert
      * @return string
      */
-    protected function compilingInsert($insert){
+    protected function compilingInsert($insert)
+    {
         return $this->compilingUpdate($insert);
     }
 
@@ -205,11 +213,12 @@ abstract class Tongue
      * @param array $update
      * @return string
      */
-    protected function compilingUpdate($update){
+    protected function compilingUpdate($update)
+    {
         $statement = '';
 
-        foreach($update as $item){
-            $statement .= ','.$item;
+        foreach ($update as $item) {
+            $statement .= ',' . $item;
         }
 
         return ltrim($statement, ',');
@@ -221,17 +230,19 @@ abstract class Tongue
      * @param array $joins
      * @return string
      */
-    protected function compilingJoin($joins){
+    protected function compilingJoin($joins)
+    {
         $statement = '';
         $from = $this->datas['from'];
-        foreach($joins as $type => $value){
+        foreach ($joins as $type => $value) {
             list($column, $tablealt, $colunalt) = $value;
 
             $statement .= "$type $column ON $from.$tablealt = $column.$colunalt ";
         }
 
-       return rtrim($statement, ' ');
+        return rtrim($statement, ' ');
     }
+
     /**
      *  compile the read paremeters with the pattern
      *
@@ -245,23 +256,24 @@ abstract class Tongue
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit'])]
         );
 
-        return ['statement' =>$return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => $this->parameters];
     }
 
 
     /**
- * compile the update statemenet
- *
- * @return array
- */
-    protected function compileUpdate(){
+     * compile the update statemenet
+     *
+     * @return array
+     */
+    protected function compileUpdate()
+    {
         $pattern = $this->statements['update'][0];
 
         $return = call_user_func_array(
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'update', 'where'])]
         );
 
-        return ['statement' =>$return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => $this->parameters];
     }
 
     /**
@@ -269,14 +281,15 @@ abstract class Tongue
      *
      * @return array
      */
-    protected function compileInsert(){
+    protected function compileInsert()
+    {
         $pattern = $this->statements['insert'][0];
 
         $return = call_user_func_array(
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'insert',])]
         );
 
-        return ['statement' =>$return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => $this->parameters];
     }
 
     /**
@@ -284,14 +297,15 @@ abstract class Tongue
      *
      * @return array
      */
-    protected function compileDelete(){
+    protected function compileDelete()
+    {
         $pattern = $this->statements['delete'][0];
 
         $return = call_user_func_array(
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'where',])]
         );
 
-        return ['statement' =>$return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => $this->parameters];
     }
 
     /**
@@ -299,18 +313,17 @@ abstract class Tongue
      *
      * @param string $pattern
      * @param array $parameters
+     * @return string
      */
-    protected function replaceParameters($pattern, $parameters){
-        foreach($parameters as $parameter => $value){
-            $parameter = ':'.$parameter;
+    protected function replaceParameters($pattern, $parameters)
+    {
+        foreach ($parameters as $parameter => $value) {
+            $parameter = ':' . $parameter;
 
             $pattern = str_replace($parameter, $value, $pattern);
         }
 
-        var_dump($pattern);
+        return $parameter;
     }
-
-
-
 }
 
