@@ -52,7 +52,12 @@ class PlsqlBridge extends Bridge
     )
    )";
 
+        if (!$this->driverIsExists('oci')) {
+            throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it ', 'oci'));
+        }
 
-        $db = new PDO('oci:dbname='.$database, $username, $password);
+        $this->db = new PDO('oci:dbname='.$database, $username, $password);
+        $this->db->exec("SET NAMES '$charset'; SET CHARSET '$charset'");
+
     }
 }
