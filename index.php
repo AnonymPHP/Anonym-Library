@@ -22,7 +22,9 @@ $update = $db->update('deneme', function(\Anonym\Database\Mode\Update $update){
    return $update->set([
       'test' => 'value',
       'test1' => 'value2'
-   ]);
+   ])->where('test','aaa');
 });
 
-$update->build();
+$builded = $update->build();
+
+var_dump($builded);

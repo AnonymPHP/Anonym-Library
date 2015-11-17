@@ -164,9 +164,10 @@ abstract class Tongue
     }
 
     /**
-     * compile and return prered string value
+     * compile and return prepared string value
      *
      * @param array $wheres
+     * @return string
      */
     protected function compilingWhere($wheres)
     {
@@ -189,8 +190,7 @@ abstract class Tongue
             $this->parameters[] = $value;
             $statement .= "$column $glue ? $ending ";
         }
-
-        $statement = rtrim($statement, $ending);
+        $statement = rtrim($statement, " $ending ");
 
         return $statement;
     }
@@ -256,7 +256,7 @@ abstract class Tongue
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['select', 'from', 'join', 'group', 'where', 'order', 'limit'])]
         );
 
-        return ['statement' => $return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => Arr::get($this->datas, 'parameters', [])];
     }
 
 
@@ -273,7 +273,7 @@ abstract class Tongue
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'update', 'where'])]
         );
 
-        return ['statement' => $return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => Arr::get($this->datas, 'parameters', [])];
     }
 
     /**
@@ -289,7 +289,7 @@ abstract class Tongue
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'insert',])]
         );
 
-        return ['statement' => $return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => Arr::get($this->datas, 'parameters', [])];
     }
 
     /**
@@ -305,7 +305,7 @@ abstract class Tongue
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'where',])]
         );
 
-        return ['statement' => $return, 'parameters' => $this->parameters];
+        return ['statement' => $return, 'parameters' => Arr::get($this->datas, 'parameters', [])];
     }
 
     /**
@@ -323,7 +323,7 @@ abstract class Tongue
             $pattern = str_replace($parameter, $value, $pattern);
         }
 
-        return $parameter;
+        return $pattern;
     }
 }
 
