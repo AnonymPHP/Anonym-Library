@@ -8,6 +8,7 @@
 
 namespace Anonym\Database\Bridge;
 
+use Anonym\Database\Tongue\PlsqlTongue;
 use Illuminate\Support\Arr;
 
 /**
@@ -24,12 +25,16 @@ class PlsqlBridge extends Bridge
      */
     protected function prepareTongueInstance()
     {
+        $tongue = new PlsqlTongue();
 
+        $this->tongue = $tongue;
     }
 
     /**
      * the function for open bridge
      *
+     * @throws BridgeException
+     * @throws ConnectionException
      * @return mixed
      */
     public function open()
@@ -53,5 +58,7 @@ class PlsqlBridge extends Bridge
         } catch (\PDOException $e) {
             throw new ConnectionException(sprintf('PDO threw that exception message : %s', $e->getMessage()));
         }
+
+        return $this->db;
     }
 }
