@@ -22,7 +22,7 @@ class PlsqlBridge extends Bridge
      */
     protected function prepareTongueInstance()
     {
-        // TODO: Implement prepareTongueInstance() method.
+
     }
 
     /**
@@ -32,6 +32,6 @@ class PlsqlBridge extends Bridge
      */
     public function open()
     {
-        // TODO: Implement open() method.
+
     }
 }
