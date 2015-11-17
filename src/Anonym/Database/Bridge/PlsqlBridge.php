@@ -9,7 +9,7 @@
 namespace Anonym\Database\Bridge;
 
 use Anonym\Database\Tongue\PlsqlTongue;
-use Illuminate\Support\Arr;
+use Anonym\Support\Arr;
 
 /**
  * Class PlsqlBridge
