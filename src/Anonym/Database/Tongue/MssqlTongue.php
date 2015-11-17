@@ -15,5 +15,4 @@ namespace Anonym\Database\Tongue;
 class MssqlTongue extends Tongue
 {
 
-
 }
