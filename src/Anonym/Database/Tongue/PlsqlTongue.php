@@ -9,10 +9,10 @@
 namespace Anonym\Database\Tongue;
 
 /**
- * Class SqliteTongue
+ * Class PlsqlTongue
  * @package Anonym\Database\Tongue
  */
-class SqliteTongue extends Tongue
+class PlsqlTongue extends Tongue
 {
 
 }
