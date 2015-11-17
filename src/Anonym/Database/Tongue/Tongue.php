@@ -36,7 +36,6 @@ abstract class Tongue
             'SELECT :select FROM :from :join :group :where :order :limit',
         ],
         'update' => [
-
             'UPDATE :from SET :update :where'
         ],
         'delete' => [
@@ -44,7 +43,7 @@ abstract class Tongue
             'DELETE FROM :from :where'
         ],
         'insert' => [
-            'INSERT INTO :from SET :insert'
+            'INSERT INTO :from :insert'
         ]
     ];
 
@@ -205,7 +204,23 @@ abstract class Tongue
      */
     protected function compilingInsert($insert)
     {
-        return $this->compilingUpdate($insert);
+        $first = $insert[0];
+        $tables = array_keys($first);
+        $tables = join(",", $tables);
+
+        $statement = "($tables) VALUES ";
+
+        foreach ($insert as $items) {
+            $statement .= "(";
+            foreach ($items as $value) {
+                $this->datas['parameters'][] = $value;
+                $statement .= "?,";
+            }
+
+            $statement = rtrim($statement, ",") . "),";
+        }
+
+        return rtrim($statement, ',');
     }
 
     /**

@@ -4,6 +4,7 @@ namespace Anonym\Database\Mode;
 
 use Anonym\Database\Base;
 use Anonym\Database\Traits\Where as TraitWhere;
+use Anonym\Support\Arr;
 
 /**
  * Class Insert
@@ -36,11 +37,7 @@ class Insert extends ModeManager
      */
     public function set($set = [])
     {
-
-        $insert = $this->databaseSetBuilder($set);
-        $this->datas['insert'][] = $insert['content'];
-        $this->datas['parameters'] = array_merge($this->datas['parameters'], $insert['array']);
-
+        $this->datas['insert'][] = $set;
         return $this;
     }
 }

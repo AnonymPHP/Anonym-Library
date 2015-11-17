@@ -18,13 +18,15 @@ $db = new \Anonym\Database\Base([
 ], new \Illuminate\Container\Container());
 
 
-$update = $db->update('deneme', function(\Anonym\Database\Mode\Update $update){
-   return $update->set([
-      'test' => 'value',
-      'test1' => 'value2'
-   ])->where('test','aaa');
+$insert = $db->insert('deneme', function(\Anonym\Database\Mode\Insert $insert){
+   return $insert->set([
+      'aaa' => 'bbb',
+      'ddd' => 'ccc'
+   ])->set([
+      'aaa' => 'ccc',
+      'ddd' => 'eee'
+   ]);
 });
 
-$builded = $update->build();
 
-var_dump($builded);
+var_dump($insert->build());
