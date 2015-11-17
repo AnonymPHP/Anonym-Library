@@ -8,7 +8,10 @@
 
 namespace Anonym\Database\Tongue;
 
-
+/**
+ * Class SqliteTongue
+ * @package Anonym\Database\Tongue
+ */
 class SqliteTongue extends Tongue
 {
 
