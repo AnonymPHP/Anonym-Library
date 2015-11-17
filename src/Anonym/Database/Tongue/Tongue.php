@@ -189,6 +189,7 @@ abstract class Tongue
 
             $this->parameters[] = $value;
             $statement .= "$column $glue ? $ending ";
+            $this->datas['parameters'][] = $value;
         }
         $statement = rtrim($statement, " $ending ");
 
