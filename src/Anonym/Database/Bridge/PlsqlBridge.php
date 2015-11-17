@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Database\Bridge;
+
 use Illuminate\Support\Arr;
 
 /**
@@ -37,7 +38,7 @@ class PlsqlBridge extends Bridge
         $configs = $this->configurations;
         $host = Arr::get($configs, 'host', 'localhost');
         $username = Arr::get($configs, 'username', '');
-        $password  = Arr::get($configs, 'password', '');
+        $password = Arr::get($configs, 'password', '');
         $dbname = Arr::get($configs, 'db', '');
         $charset = Arr::get($configs, 'charset', 'utf8');
         $port = Arr::get($configs, 'port', 1521);
@@ -56,8 +57,11 @@ class PlsqlBridge extends Bridge
             throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it ', 'oci'));
         }
 
-        $this->db = new PDO('oci:dbname='.$database, $username, $password);
-        $this->db->exec("SET NAMES '$charset'; SET CHARSET '$charset'");
-
+        try {
+            $this->db = new PDO('oci:dbname=' . $database, $username, $password);
+            $this->db->exec("SET NAMES '$charset'; SET CHARSET '$charset'");
+        } catch (\PDOException $e) {
+            throw new ConnectionException(sprintf('PDO threw that exception message : %s', $e->getMessage()));
+        }
     }
 }
