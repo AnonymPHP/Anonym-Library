@@ -67,8 +67,26 @@ class Validation
     }
 
     public function run(){
-
+        if (!is_array($rules = $this->getRules())) {
+            $rules = $this->convertToArray($rules);
+        }
     }
+
+    /**
+     * tries convert given variable type to array
+     *
+     * @param mixed $notArray
+     * @throws Exception
+     * @return array
+     */
+    private function convertToArray($notArray){
+        if(is_object($notArray) || is_string($notArray) || is_numeric($notArray)){
+            return (array) $notArray;
+        }else{
+            throw new Exception(sprintf('your data could not convert to array'));
+        }
+    }
+
     /**
      * return the failed datas
      *
