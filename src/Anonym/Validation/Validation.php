@@ -81,6 +81,9 @@ class Validation
         if (!is_array($datas = $this->getDatas())) {
             $datas = $this->convertToArray($datas);
         }
+
+        $runner = new ValidationRulesRunner($rules, $datas);
+
     }
 
     /**
