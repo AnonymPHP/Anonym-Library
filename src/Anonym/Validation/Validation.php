@@ -66,6 +66,9 @@ class Validation
             ->getMessageReposity()->setErrors($messages);
     }
 
+    public function run(){
+
+    }
     /**
      * return the failed datas
      *

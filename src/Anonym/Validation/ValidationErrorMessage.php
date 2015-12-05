@@ -23,7 +23,7 @@ class ValidationErrorMessage
      * @var array
      */
     protected $errors = [
-        'required' => ''
+        'required' => '%s field is required, please fill it.'
     ];
 
     /**
