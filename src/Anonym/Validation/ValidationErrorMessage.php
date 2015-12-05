@@ -10,7 +10,10 @@
 
 namespace Anonym\Validation;
 
-
+/**
+ * Class ValidationErrorMessage
+ * @package Anonym\Validation
+ */
 class ValidationErrorMessage
 {
 
