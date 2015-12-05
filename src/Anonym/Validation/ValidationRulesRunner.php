@@ -8,8 +8,15 @@
 
 namespace Anonym\Validation;
 
-
+/**
+ * Class ValidationRulesRunner
+ * @package Anonym\Validation
+ */
 class ValidationRulesRunner
 {
+
+    public function execute(array $rules, array $datas){
+
+    }
 
 }
