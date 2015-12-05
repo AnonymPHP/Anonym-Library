@@ -31,13 +31,19 @@ class Validation
      */
     protected $datas;
 
-
     /**
      *
      *
      * @var array
      */
     protected $fails;
+
+    /**
+     * failed data messages
+     *
+     * @var array
+     */
+    protected $failedMessages;
 
     /**
      * ValidationErrorMessage Reposity, store the given messages
