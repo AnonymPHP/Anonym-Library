@@ -17,4 +17,11 @@ namespace Anonym\Validation;
 class Validation
 {
 
+    /**
+     * an array type to rules
+     *
+     * @var array
+     */
+    protected $rules;
+
 }
