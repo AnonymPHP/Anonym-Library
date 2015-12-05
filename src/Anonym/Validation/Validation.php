@@ -66,9 +66,20 @@ class Validation
             ->getMessageReposity()->setErrors($messages);
     }
 
-    public function run(){
+
+    /**
+     * determine datas is correct or not
+     *
+     * @throws Exception
+     */
+    public function run()
+    {
         if (!is_array($rules = $this->getRules())) {
             $rules = $this->convertToArray($rules);
+        }
+
+        if (!is_array($datas = $this->getDatas())) {
+            $datas = $this->convertToArray($datas);
         }
     }
 
@@ -79,10 +90,11 @@ class Validation
      * @throws Exception
      * @return array
      */
-    private function convertToArray($notArray){
-        if(is_object($notArray) || is_string($notArray) || is_numeric($notArray)){
-            return (array) $notArray;
-        }else{
+    private function convertToArray($notArray)
+    {
+        if (is_object($notArray) || is_string($notArray) || is_numeric($notArray)) {
+            return (array)$notArray;
+        } else {
             throw new Exception(sprintf('your data could not convert to array'));
         }
     }
