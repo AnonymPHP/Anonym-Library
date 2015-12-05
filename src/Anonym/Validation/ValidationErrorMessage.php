@@ -19,4 +19,21 @@ class ValidationErrorMessage
 
     protected $errors = [];
 
+    /**
+     * @return array
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param array $errors
+     * @return ValidationErrorMessage
+     */
+    public function setErrors($errors)
+    {
+        $this->errors = $errors;
+        return $this;
+    }
 }
