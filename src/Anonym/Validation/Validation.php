@@ -82,10 +82,12 @@ class Validation
             $datas = $this->convertToArray($datas);
         }
 
-        $runner = (new ValidationRulesRunner())->execute($rules, $datas);
 
     }
 
+    private function runRequired($key){
+
+    }
     /**
      * tries convert given variable type to array
      *
