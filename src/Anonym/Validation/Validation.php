@@ -24,4 +24,19 @@ class Validation
      */
     protected $rules;
 
+    /**
+     * an array type to datas
+     *
+     * @var array
+     */
+    protected $datas;
+
+
+    /**
+     * ValidationErrorMessage Reposity, store the given messages
+     *
+     * @var ValidationErrorMessage
+     */
+    protected $messageReposity;
+
 }
