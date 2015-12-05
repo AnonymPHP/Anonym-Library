@@ -82,7 +82,7 @@ class Validation
             $datas = $this->convertToArray($datas);
         }
 
-        $runner = new ValidationRulesRunner($rules, $datas);
+        $runner = (new ValidationRulesRunner($rules, $datas))->execute();
 
     }
 
