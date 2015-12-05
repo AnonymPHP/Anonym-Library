@@ -33,6 +33,13 @@ class Validation
 
 
     /**
+     *
+     *
+     * @var array
+     */
+    protected $fails;
+
+    /**
      * ValidationErrorMessage Reposity, store the given messages
      *
      * @var ValidationErrorMessage
@@ -52,6 +59,35 @@ class Validation
             ->setMessageReposity(new ValidationErrorMessage())
             ->getMessageReposity()->setErrors($messages);
     }
+
+    /**
+     * return the failed datas
+     *
+     * @return array
+     */
+    public function fails()
+    {
+        return $this->getFails();
+    }
+
+    /**
+     * @return array
+     */
+    public function getFails()
+    {
+        return $this->fails;
+    }
+
+    /**
+     * @param array $fails
+     * @return Validation
+     */
+    public function setFails($fails)
+    {
+        $this->fails = $fails;
+        return $this;
+    }
+
 
     /**
      * @return array
