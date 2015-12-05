@@ -17,7 +17,14 @@ namespace Anonym\Validation;
 class ValidationErrorMessage
 {
 
-    protected $errors = [];
+    /**
+     * store the given errors
+     *
+     * @var array
+     */
+    protected $errors = [
+        'required' => ''
+    ];
 
     /**
      * @return array
