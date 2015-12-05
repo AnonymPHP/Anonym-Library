@@ -10,11 +10,10 @@
 
 namespace Anonym\Validation;
 
-/**
- * Class Validation
- * @package Anonym\Validation
- */
-class Validation
+
+class ValidationErrorMessage
 {
+
+    protected $errors = [];
 
 }
