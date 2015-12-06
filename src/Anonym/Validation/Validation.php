@@ -202,6 +202,28 @@ class Validation
     }
 
 
+    protected function runDigitsBetween($between, $key, $datas, $rule){
+        $min = $between[0];
+        $max = $between[1];
+
+        $data = $datas[$key];
+
+        if(is_numeric($data)){
+            $data = "$data";
+        }
+
+        $length = strlen($data);
+
+        if($length < $min || $length>$max){
+            $this->fails[] = $messageKey = "$rule.$key";
+
+            $this->addMessage($key, $rule, $messageKey, [
+                'min' => $min,
+                'max' => $max
+            ]);
+        }
+    }
+
     /**
      * @param $max
      * @param $key
