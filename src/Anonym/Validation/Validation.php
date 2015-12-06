@@ -72,7 +72,8 @@ class Validation
         'max'      => ':key value has to be lesser than :max',
         'min'      => ':key value has to be bigger than :min',
         'same'     => ':key value must be same with this(these) :same',
-        'size_between' => 'key value must be between :min and :max'
+        'size_between' => ':key value must be between :min and :max',
+        'boolean' =>  ':key has to be a boolean value'
     ];
 
     /**
@@ -325,6 +326,16 @@ class Validation
         }
     }
 
+
+    /**
+     * determine datas are same or not
+     *
+     * @param $same
+     * @param $key
+     * @param $datas
+     * @param $rule
+     * @throws Exception
+     */
     protected function runSame($same, $key, $datas, $rule)
     {
         if (!is_array($same)) {
