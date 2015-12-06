@@ -57,15 +57,24 @@ class Validation
      *
      * @var
      */
-    protected $defaultErrorMessages;
+    protected $defaultErrorMessages = [
+        'required' => ':key has to be exists in your datas',
+        'email'    => ':key has to be a valid  email address',
+        'url'      => ':key has to be a valid url address',
+        'json'     => ':key has to be a valid json data',
+        'max'      => ':key value has to be lesser than :max',
+        'min'      => ':key value has to be bigger than :min',
+        'same'     => ':key value must be same with this(they) :same'
+    ];
 
     /**
      * Validation constructor.
      *
      * @param array $datas
      * @param array $rules
+     * @param array $messages
      */
-    public function __construct($datas = [], $rules = [], $messages = [])
+    public function __construct(array $datas = [],array  $rules = [],array $messages = [])
     {
         $this->setDatas($datas)
             ->setRules($rules)
