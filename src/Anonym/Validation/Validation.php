@@ -62,8 +62,7 @@ class Validation
     {
         $this->setDatas($datas)
             ->setRules($rules)
-            ->setMessageReposity(new ValidationErrorMessage())
-            ->getMessageReposity()->setErrors($messages);
+            ->setMessageReposity($messages);
     }
 
 
@@ -86,7 +85,7 @@ class Validation
             $parsedRules = explode("|", $rule);
 
             foreach ($parsedRules as $parsedRule) {
-                $this->handleRule($parsedRule, $key,  $datas);
+                $this->handleRule($parsedRule, $key, $datas);
             }
         }
     }
@@ -98,14 +97,17 @@ class Validation
      * @param string $key
      * @param array $allDatas
      */
-    private function handleRule($rule,$key, array $allDatas){
-        if (!strstr($rule,":")) {
+    private function handleRule($rule, $key, array $allDatas)
+    {
+
+
+        if (!strstr($rule, ":")) {
             $this->$rule($key, $allDatas);
-        }else{
+        } else {
             $value = explode(":", $key)[1];
             if (strstr($value, ",")) {
                 $sendDatas = [explode(",", $value), $key, $allDatas];
-            }else{
+            } else {
                 $sendDatas = [$value, $key, $allDatas];
             }
 
@@ -119,9 +121,11 @@ class Validation
      */
     protected function runRequired($key, $datas)
     {
-        if(!isset($datas[$key])){
-            $this->fails[] = "required.$key";
+        if (!isset($datas[$key])) {
+            $this->fails[] = $messageKey = "required.$key";
+
         }
+
     }
 
     /**
