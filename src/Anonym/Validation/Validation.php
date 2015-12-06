@@ -109,7 +109,7 @@ class Validation
 
 
         if (!strstr($rule, ":")) {
-            $this->{"run".ucfirst($rule)}($key, $allDatas, $rule);
+            $this->{"run" . ucfirst($rule)}($key, $allDatas, $rule);
         } else {
             $value = explode(":", $key)[1];
             if (strstr($value, ",")) {
@@ -118,7 +118,7 @@ class Validation
                 $sendDatas = [$value, $key, $allDatas, $rule];
             }
 
-            call_user_func_array([$this, 'run'.ucfirst($rule)], [$sendDatas]);
+            call_user_func_array([$this, 'run' . ucfirst($rule)], [$sendDatas]);
         }
     }
 
@@ -143,7 +143,8 @@ class Validation
      * @param array $datas
      * @param string $rule
      */
-    protected function runNumeric($key, $datas, $rule = ''){
+    protected function runNumeric($key, $datas, $rule = '')
+    {
         if (!is_numeric($datas[$key])) {
             $this->fails[] = $messageKey = "numeric.$key";
 
@@ -151,6 +152,23 @@ class Validation
         }
     }
 
+
+    protected function runMax($max, $key, $datas, $rule)
+    {
+        $data = $datas[$key];
+
+        if (is_string($data)) {
+            $lenght = strlen($data);
+        }elseif(is_numeric($data)){
+            $lenght = $data;
+        }
+
+        if($lenght > $max){
+            $this->fails[] = $messageKey = "max.$key";
+
+            $this->addMessage($key, $rule, $messageKey, [$max]);
+        }
+    }
 
     /**
      * determine given regex is matching with given datas
@@ -160,8 +178,9 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected  function runRegex($regex, $key, $datas, $rule){
-        if(!preg_match($regex, $datas[$key])){
+    protected function runRegex($regex, $key, $datas, $rule)
+    {
+        if (!preg_match($regex, $datas[$key])) {
             $this->fails[] = $messageKey = "regex.$key";
 
             $this->addMessage($key, $rule, $messageKey);
