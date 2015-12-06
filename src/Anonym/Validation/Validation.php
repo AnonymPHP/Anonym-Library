@@ -296,7 +296,7 @@ class Validation
      * @param $datas
      * @param $url
      */
-    protected function runUrl($key, $datas, $url){
+    protected function runUrl($key, $datas, $rule){
         $data = $datas[$key];
 
         if(!filter_var($data, FILTER_SANITIZE_URL)){
