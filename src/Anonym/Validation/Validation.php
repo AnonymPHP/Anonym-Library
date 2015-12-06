@@ -305,12 +305,34 @@ class Validation
             $lenght = strlen("$data");
         }
 
-        if ($lenght > $min) {
-            $this->fails[] = $messageKey = "min.$key";
+        if ($lenght < $min) {
+            $this->fails[] = $messageKey = "$rule.$key";
 
             $this->addMessage($key, $rule, $messageKey, ['min' => $min]);
         }
     }
+
+    /**
+     * @param $min
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runDigitsMax($max, $key, $datas, $rule)
+    {
+        $data = $datas[$key];
+
+        if (is_string($data)) {
+            $lenght = strlen("$data");
+        }
+
+        if ($lenght > $max ) {
+            $this->fails[] = $messageKey = "$rule.$key";
+
+            $this->addMessage($key, $rule, $messageKey, ['max' => $max]);
+        }
+    }
+
 
     /**
      * determine if given data is a valid json data
