@@ -380,6 +380,20 @@ class Validation
         }
     }
 
+    /**
+     * determine the date is a valid value
+     *
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runDate($key, $datas, $rule){
+        if(false === strtotime($datas[$key])){
+            $this->fails[] = $messageKey = "date.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
+    }
 
     /**
      * adds a error message
