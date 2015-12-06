@@ -245,8 +245,25 @@ class Validation
         }
     }
 
+    /**
+     * determine data is correct
+     *
+     * @param $array
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
     protected function runSizeBetween($array, $key, $datas, $rule){
         $data = $datas[$key];
+
+        $min = $array[0];
+        $max = $array[1];
+
+        if($data < $min || $data > $max){
+            $this->fails[] = $messageKey = "$rule.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
     }
     /**
      * determine given regex is matching with given datas
