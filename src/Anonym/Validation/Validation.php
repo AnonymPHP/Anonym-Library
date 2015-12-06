@@ -221,7 +221,7 @@ class Validation
 
 
     /**
-     * determine if given data is a valid data
+     * determine if given data is a valid json data
      *
      * @param $key
      * @param $datas
