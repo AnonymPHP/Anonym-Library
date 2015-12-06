@@ -227,7 +227,7 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function json($key, $datas ,$rule){
+    protected function runJson($key, $datas ,$rule){
         if(json_decode($datas[$key]) === false){
             $this->fails[] = $messageKey = "json.$key";
 
