@@ -283,6 +283,12 @@ class Validation
         }
     }
 
+    protected function runSame($same, $key, $datas, $rule){
+        if(!is_array($same)){
+            $same = $this->convertToArray($same);
+        }
+    }
+
     /**
      * determine url is valid
      *
