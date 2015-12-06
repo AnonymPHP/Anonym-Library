@@ -134,6 +134,16 @@ class Validation
 
             $this->addMessage($key, $rule, $messageKey);
         }
+    }
+
+    /**
+     * adds a error message
+     *
+     * @param string $key
+     * @param string $rule
+     * @param string $specialRule
+     */
+    protected function addMessage($key, $rule, $specialRule, array $datas = []){
 
     }
 
