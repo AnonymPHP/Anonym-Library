@@ -113,7 +113,11 @@ class Validation
         }
     }
 
-    private function runRequired($key, $datas)
+    /**
+     * @param string $key
+     * @param array $datas
+     */
+    protected function runRequired($key, $datas)
     {
 
     }
