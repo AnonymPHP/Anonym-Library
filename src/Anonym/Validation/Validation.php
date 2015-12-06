@@ -119,7 +119,7 @@ class Validation
                 $sendDatas = [$value, $key, $allDatas, $rule];
             }
 
-            $this->callMethod($methodName, [$sendDatas]);
+            $this->callMethod($methodName, $sendDatas);
         }
     }
 
