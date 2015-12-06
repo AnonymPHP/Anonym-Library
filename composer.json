@@ -37,6 +37,9 @@
     "illuminate/view": "~5",
     "illuminate/events": "5.0.*"
   },
+  "require-dev":{
+
+  },
   "autoload": {
     "psr-4": {
       "Anonym\\": "src/Anonym/"

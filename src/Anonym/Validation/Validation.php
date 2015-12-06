@@ -265,6 +265,7 @@ class Validation
             $this->addMessage($key, $rule, $messageKey);
         }
     }
+
     /**
      * determine given regex is matching with given datas
      *
