@@ -107,9 +107,10 @@ class Validation
     private function handleRule($rule, $key, array $allDatas)
     {
 
+        $methodName = "run".ucfirst($rule);
 
         if (!strstr($rule, ":")) {
-            $this->{"run" . ucfirst($rule)}($key, $allDatas, $rule);
+            $this->callMethod($methodName, [$key, $allDatas, $rule]);
         } else {
             $value = explode(":", $key)[1];
             if (strstr($value, ",")) {
@@ -118,7 +119,7 @@ class Validation
                 $sendDatas = [$value, $key, $allDatas, $rule];
             }
 
-            call_user_func_array([$this, 'run' . ucfirst($rule)], [$sendDatas]);
+            $this->callMethod($methodName, [$sendDatas]);
         }
     }
 
@@ -153,6 +154,12 @@ class Validation
     }
 
 
+    /**
+     * @param $max
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
     protected function runMax($max, $key, $datas, $rule)
     {
         $data = $datas[$key];
