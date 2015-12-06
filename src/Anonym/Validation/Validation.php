@@ -86,7 +86,7 @@ class Validation
             $parsedRules = explode("|", $rule);
 
             foreach ($parsedRules as $parsedRule) {
-                $this->handleRule($parsedRule, $datas);
+                $this->handleRule($parsedRule, $key,  $datas);
             }
         }
     }
@@ -95,10 +95,22 @@ class Validation
      * handle the given rule
      *
      * @param string $rule
+     * @param string $key
      * @param array $allDatas
      */
-    private function handleRule($rule,array $allDatas){
+    private function handleRule($rule,$key, array $allDatas){
+        if (!strstr($rule,":")) {
+            $this->$rule($key, $allDatas);
+        }else{
+            $value = explode(":", $key)[1];
+            if (strstr($value, ",")) {
+                $sendDatas = [explode(",", $value), $key, $allDatas];
+            }else{
+                $sendDatas = [$value, $key, $allDatas];
+            }
 
+            call_user_func_array([$this, $rule], [$sendDatas]);
+        }
     }
 
     private function runRequired($key, $datas)
