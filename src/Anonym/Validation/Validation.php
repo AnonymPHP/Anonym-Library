@@ -109,14 +109,14 @@ class Validation
 
         $methodName = "run";
 
-        if(!strstr($rule, "_")){
+        if (!strstr($rule, "_")) {
             $methodName .= ucfirst($rule);
-        }else{
-            $parsedName = array_map(function($value){
+        } else {
+            $parsedName = array_map(function ($value) {
                 return ucfirst($value);
-            },explode("_", $rule));
+            }, explode("_", $rule));
 
-            $methodName = $methodName.join("",$parsedName);
+            $methodName = $methodName . join("", $parsedName);
         }
 
         if (!strstr($rule, ":")) {
@@ -176,14 +176,14 @@ class Validation
 
         if (is_string($data)) {
             $lenght = strlen($data);
-        }elseif(is_numeric($data)){
+        } elseif (is_numeric($data)) {
             $lenght = $data;
         }
 
-        if($lenght > $max){
+        if ($lenght > $max) {
             $this->fails[] = $messageKey = "max.$key";
 
-            $this->addMessage($key, $rule, $messageKey, [$max]);
+            $this->addMessage($key, $rule, $messageKey, ['max' => $max]);
         }
     }
 
@@ -195,7 +195,8 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runEmail($key, $datas, $rule){
+    protected function runEmail($key, $datas, $rule)
+    {
 
         $email = $datas[$key];
         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
@@ -218,14 +219,14 @@ class Validation
 
         if (is_string($data)) {
             $lenght = strlen($data);
-        }elseif(is_numeric($data)){
+        } elseif (is_numeric($data)) {
             $lenght = $data;
         }
 
-        if($lenght > $min){
+        if ($lenght > $min) {
             $this->fails[] = $messageKey = "min.$key";
 
-            $this->addMessage($key, $rule, $messageKey, [$min]);
+            $this->addMessage($key, $rule, $messageKey, ['min' => $min]);
         }
     }
 
@@ -237,8 +238,9 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runJson($key, $datas ,$rule){
-        if(json_decode($datas[$key]) === false){
+    protected function runJson($key, $datas, $rule)
+    {
+        if (json_decode($datas[$key]) === false) {
             $this->fails[] = $messageKey = "json.$key";
 
             $this->addMessage($key, $rule, $messageKey);
@@ -253,16 +255,20 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runSizeBetween($array, $key, $datas, $rule){
+    protected function runSizeBetween($array, $key, $datas, $rule)
+    {
         $data = $datas[$key];
 
         $min = $array[0];
         $max = $array[1];
 
-        if($data < $min || $data > $max){
+        if ($data < $min || $data > $max) {
             $this->fails[] = $messageKey = "$rule.$key";
 
-            $this->addMessage($key, $rule, $messageKey);
+            $this->addMessage($key, $rule, $messageKey, [
+                'min' => $min,
+                'max' => $max
+            ]);
         }
     }
 
@@ -283,12 +289,22 @@ class Validation
         }
     }
 
-    protected function runSame($same, $key, $datas, $rule){
-        if(!is_array($same)){
+    protected function runSame($same, $key, $datas, $rule)
+    {
+        if (!is_array($same)) {
             $sames = $this->convertToArray($same);
         }
 
-        foreach($sames as $same){
+        $data = $datas[$key];
+        $status = true;
+        foreach ($sames as $same) {
+            if ($same != $data) {
+                $status = false;
+                break;
+            }
+        }
+
+        if ($status === false) {
 
         }
     }
@@ -300,10 +316,11 @@ class Validation
      * @param $datas
      * @param $url
      */
-    protected function runUrl($key, $datas, $rule){
+    protected function runUrl($key, $datas, $rule)
+    {
         $data = $datas[$key];
 
-        if(!filter_var($data, FILTER_SANITIZE_URL)){
+        if (!filter_var($data, FILTER_SANITIZE_URL)) {
             $this->fails[] = $messageKey = "url.$key";
 
             $this->addMessage($key, $rule, $messageKey);
