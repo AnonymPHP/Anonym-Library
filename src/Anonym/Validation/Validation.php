@@ -285,7 +285,11 @@ class Validation
 
     protected function runSame($same, $key, $datas, $rule){
         if(!is_array($same)){
-            $same = $this->convertToArray($same);
+            $sames = $this->convertToArray($same);
+        }
+
+        foreach($sames as $same){
+
         }
     }
 
