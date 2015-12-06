@@ -291,6 +291,26 @@ class Validation
         }
     }
 
+    /**
+     * @param $min
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runDigitsMin($min, $key, $datas, $rule)
+    {
+        $data = $datas[$key];
+
+        if (is_string($data)) {
+            $lenght = strlen("$data");
+        }
+
+        if ($lenght > $min) {
+            $this->fails[] = $messageKey = "min.$key";
+
+            $this->addMessage($key, $rule, $messageKey, ['min' => $min]);
+        }
+    }
 
     /**
      * determine if given data is a valid json data
