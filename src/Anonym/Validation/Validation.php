@@ -73,7 +73,8 @@ class Validation
         'min'      => ':key value has to be bigger than :min',
         'same'     => ':key value must be same with this(these) :same',
         'size_between' => ':key value must be between :min and :max',
-        'boolean' =>  ':key has to be a boolean value'
+        'boolean' =>  ':key has to be a boolean value',
+        'regex'   => ':key must be match with given regex value'
     ];
 
     /**
@@ -325,6 +326,7 @@ class Validation
             $this->addMessage($key, $rule, $messageKey);
         }
     }
+
 
 
     /**
