@@ -130,7 +130,7 @@ class Validation
      */
     protected function runRequired($key, $datas, $rule = '')
     {
-        if (!isset($datas[$key])) {
+        if (!isset($datas[$key]) && !empty($datas[$key])) {
             $this->fails[] = $messageKey = "required.$key";
 
             $this->addMessage($key, $rule, $messageKey);
