@@ -113,9 +113,9 @@ class Validation
         } else {
             $value = explode(":", $key)[1];
             if (strstr($value, ",")) {
-                $sendDatas = [explode(",", $value), $key, $allDatas];
+                $sendDatas = [explode(",", $value), $key, $allDatas, $rule];
             } else {
-                $sendDatas = [$value, $key, $allDatas];
+                $sendDatas = [$value, $key, $allDatas, $rule];
             }
 
             call_user_func_array([$this, $rule], [$sendDatas]);
@@ -125,12 +125,14 @@ class Validation
     /**
      * @param string $key
      * @param array $datas
+     * @param string $rule
      */
-    protected function runRequired($key, $datas)
+    protected function runRequired($key, $datas, $rule)
     {
         if (!isset($datas[$key])) {
             $this->fails[] = $messageKey = "required.$key";
 
+            $this->addMessage($key, $rule, $messageKey);
         }
 
     }
