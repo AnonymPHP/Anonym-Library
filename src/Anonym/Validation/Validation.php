@@ -143,6 +143,9 @@ class Validation
         }
     }
 
+    private function callMethod($methodName, $datas){
+
+    }
     /**
      * @param string $key
      * @param array $datas
