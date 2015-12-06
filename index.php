@@ -10,23 +10,12 @@
 
 include 'vendor/autoload.php';
 
-$db = new \Anonym\Database\Base([
-    'host' => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    'db'  => 'deneme'
-], new \Illuminate\Container\Container());
+$validation = new \Anonym\Validation\Validation([
+   'test' => 'aaa'
+], [
+   'aa' => 'required'
+], [
+   'required.aa' => 'aa has to be exists'
+]);
 
-
-$insert = $db->insert('deneme', function(\Anonym\Database\Mode\Insert $insert){
-   return $insert->set([
-      'aaa' => 'bbb',
-      'ddd' => 'ccc'
-   ])->set([
-      'aaa' => 'ccc',
-      'ddd' => 'eee'
-   ]);
-});
-
-
-var_dump($insert->build());
+$validation->run();

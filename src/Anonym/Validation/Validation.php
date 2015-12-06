@@ -118,7 +118,7 @@ class Validation
                 $sendDatas = [$value, $key, $allDatas, $rule];
             }
 
-            call_user_func_array([$this, $rule], [$sendDatas]);
+            call_user_func_array([$this, 'run'.ucfirst($rule)], [$sendDatas]);
         }
     }
 
