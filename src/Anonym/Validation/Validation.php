@@ -107,7 +107,17 @@ class Validation
     private function handleRule($rule, $key, array $allDatas)
     {
 
-        $methodName = "run".ucfirst(str_replace("-","", $rule));
+        $methodName = "run";
+
+        if(!strstr($rule, "_")){
+            $methodName .= ucfirst($rule);
+        }else{
+            $parsedName = array_map(function($value){
+                return ucfirst($value);
+            },explode("_", $rule));
+
+            $methodName = $methodName.join("",$parsedName);
+        }
 
         if (!strstr($rule, ":")) {
             $this->callMethod($methodName, [$key, $allDatas, $rule]);
