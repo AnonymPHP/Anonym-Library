@@ -150,6 +150,14 @@ class Validation
         }
     }
 
+
+    /**
+     * calls method or callable function with given datas
+     *
+     * @param $methodName
+     * @param $datas
+     * @throws MethodNotExists
+     */
     private function callMethod($methodName, $datas){
         if(method_exists($this, $methodName)){
             $call = [$this, $methodName];
