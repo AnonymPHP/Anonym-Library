@@ -142,9 +142,25 @@ class Validation
      * @param string $key
      * @param string $rule
      * @param string $specialRule
+     * @param array $datas
      */
-    protected function addMessage($key, $rule, $specialRule, array $datas = []){
+    protected function addMessage($key, $rule, $specialRule, array $datas = [])
+    {
+        $specialMessages = $this->getMessageReposity();
+        $defaultMessages = $this->defaultErrorMessages;
 
+        if (count($datas) === 0) {
+            $datas = [$key];
+        }
+
+        if (isset($specialMessages[$specialRule])) {
+            $selectedMessage = $specialMessages[$specialRule];
+        } else {
+            $selectedMessage = $defaultMessages[$rule];
+        }
+
+        array_unshift($datas, $selectedMessage);
+        $this->failedMessages[] = call_user_func_array('sprintf', $datas);
     }
 
     /**
@@ -211,7 +227,7 @@ class Validation
     }
 
     /**
-     * @return ValidationErrorMessage
+     * @return array
      */
     public function getMessageReposity()
     {
@@ -219,10 +235,10 @@ class Validation
     }
 
     /**
-     * @param ValidationErrorMessage $messageReposity
+     * @param array $messageReposity
      * @return Validation
      */
-    public function setMessageReposity(ValidationErrorMessage $messageReposity)
+    public function setMessageReposity($messageReposity)
     {
         $this->messageReposity = $messageReposity;
         return $this;
