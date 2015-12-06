@@ -178,6 +178,13 @@ class Validation
     }
 
 
+    /**
+     * determine email is right
+     *
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
     protected function runEmail($key, $datas, $rule){
 
         $email = $datas[$key];
