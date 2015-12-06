@@ -305,7 +305,11 @@ class Validation
         }
 
         if ($status === false) {
+            $this->fails[] = $mKey = "same.$key";
 
+            $this->addMessage($key, $rule, $mKey, [
+               'not' => $same
+            ]);
         }
     }
 
