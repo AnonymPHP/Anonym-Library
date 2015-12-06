@@ -183,7 +183,7 @@ class Validation
         if (!filter_var($email, FILTER_VALIDATE_EMAIL) === true {
 
         }
-        }
+
     }
 
     /**
