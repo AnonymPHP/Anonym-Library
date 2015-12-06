@@ -219,6 +219,10 @@ class Validation
         }
     }
 
+    protected function json($key, $datas ,$rule){
+
+    }
+
     /**
      * determine given regex is matching with given datas
      *
