@@ -53,6 +53,13 @@ class Validation
     protected $messageReposity;
 
     /**
+     * story extended functions(methods)
+     *
+     * @var array
+     */
+    protected $extends;
+
+    /**
      * store the default error messages
      *
      * @var
@@ -144,7 +151,9 @@ class Validation
     }
 
     private function callMethod($methodName, $datas){
+        if(method_exists($this, $methodName)){
 
+        }
     }
     /**
      * @param string $key
