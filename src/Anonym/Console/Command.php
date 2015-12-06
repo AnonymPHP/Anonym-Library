@@ -167,7 +167,6 @@
             return call_user_func_array([$this, $method], $parameters);
         }
 
-
         /**
          * Bilgilendirme çıktısı oluşturur
          *
