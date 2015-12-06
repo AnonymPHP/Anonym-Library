@@ -177,6 +177,11 @@ class Validation
         }
     }
 
+
+    protected function runEmail($key, $datas, $rule){
+
+    }
+
     /**
      * @param $min
      * @param $key
