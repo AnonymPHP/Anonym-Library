@@ -10,12 +10,3 @@
 
 include 'vendor/autoload.php';
 
-$validation = new \Anonym\Validation\Validation([
-   'test' => 'aaa'
-], [
-   'aa' => 'required'
-], [
-   'required.aa' => 'aa has to be exists'
-]);
-
-$validation->run();

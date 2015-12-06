@@ -109,7 +109,7 @@ class Validation
 
 
         if (!strstr($rule, ":")) {
-            $this->$rule($key, $allDatas);
+            $this->{"run".ucfirst($rule)}($key, $allDatas, $rule);
         } else {
             $value = explode(":", $key)[1];
             if (strstr($value, ",")) {
@@ -127,13 +127,32 @@ class Validation
      * @param array $datas
      * @param string $rule
      */
-    protected function runRequired($key, $datas, $rule)
+    protected function runRequired($key, $datas, $rule = '')
     {
         if (!isset($datas[$key])) {
             $this->fails[] = $messageKey = "required.$key";
 
             $this->addMessage($key, $rule, $messageKey);
         }
+    }
+
+    /**
+     * determine data is numeric
+     *
+     * @param string $key
+     * @param array $datas
+     * @param string $rule
+     */
+    protected function runNumeric($key, $datas, $rule = ''){
+        if (!is_numeric($datas[$key])) {
+            $this->fails[] = $messageKey = "numeric.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
+    }
+
+    protected  function runRegex($regex, $key, $datas, $rule){
+
     }
 
 
