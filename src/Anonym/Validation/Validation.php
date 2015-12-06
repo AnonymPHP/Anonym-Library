@@ -48,9 +48,16 @@ class Validation
     /**
      * ValidationErrorMessage Reposity, store the given messages
      *
-     * @var ValidationErrorMessage
+     * @var array
      */
     protected $messageReposity;
+
+    /**
+     * store the default error messages
+     *
+     * @var
+     */
+    protected $defaultErrorMessages;
 
     /**
      * Validation constructor.
