@@ -156,8 +156,10 @@ class Validation
         }elseif(isset($this->extends[$methodName])){
             $call = $this->extends[$methodName];
         }else{
-
+            throw new MethodNotExists(sprintf('%s method is not exists in Validation class', $methodName));
         }
+
+        call_user_func_array($call, $datas);
     }
     /**
      * @param string $key
