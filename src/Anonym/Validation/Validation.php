@@ -82,12 +82,30 @@ class Validation
             $datas = $this->convertToArray($datas);
         }
 
+        foreach ($rules as $key => $rule) {
+            $parsedRules = explode("|", $rule);
+
+            foreach ($parsedRules as $parsedRule) {
+                $this->handleRule($parsedRule, $datas);
+            }
+        }
+    }
+
+    /**
+     * handle the given rule
+     *
+     * @param string $rule
+     * @param array $allDatas
+     */
+    private function handleRule($rule,array $allDatas){
 
     }
 
-    private function runRequired($key){
+    private function runRequired($key, $datas)
+    {
 
     }
+
     /**
      * tries convert given variable type to array
      *
