@@ -71,6 +71,8 @@ class Validation
         'json'     => ':key has to be a valid json data',
         'max'      => ':key value has to be lesser than :max',
         'min'      => ':key value has to be bigger than :min',
+        'digits_max'      => ':key value has to be lesser than :max',
+        'digits_min'      => ':key value has to be bigger than :min',
         'same'     => ':key value must be same with this(these) :same',
         'size_between' => ':key value must be between :min and :max',
         'boolean' =>  ':key has to be a boolean value',
