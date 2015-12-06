@@ -152,6 +152,10 @@ class Validation
 
     private function callMethod($methodName, $datas){
         if(method_exists($this, $methodName)){
+            $call = [$this, $methodName];
+        }elseif(isset($this->extends[$methodName])){
+            $call = $this->extends[$methodName];
+        }else{
 
         }
     }
