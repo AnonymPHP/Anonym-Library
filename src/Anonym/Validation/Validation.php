@@ -246,7 +246,7 @@ class Validation
     }
 
     protected function runSizeBetween($array, $key, $datas, $rule){
-
+        $data = $datas[$key];
     }
     /**
      * determine given regex is matching with given datas
