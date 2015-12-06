@@ -220,7 +220,11 @@ class Validation
     }
 
     protected function json($key, $datas ,$rule){
+        if(json_decode($datas[$key]) === false){
+            $this->fails[] = $messageKey = "json.$key";
 
+            $this->addMessage($key, $rule, $messageKey);
+        }
     }
 
     /**
