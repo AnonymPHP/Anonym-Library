@@ -72,7 +72,7 @@ class Validation
         'max'      => ':key value has to be lesser than :max',
         'min'      => ':key value has to be bigger than :min',
         'same'     => ':key value must be same with this(these) :same',
-
+        'size_between' => 'key value must be between :min and :max'
     ];
 
     /**
