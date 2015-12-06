@@ -151,6 +151,15 @@ class Validation
         }
     }
 
+
+    /**
+     * determine given regex is matching with given datas
+     *
+     * @param $regex
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
     protected  function runRegex($regex, $key, $datas, $rule){
         if(!preg_match($regex, $datas[$key])){
             $this->fails[] = $messageKey = "regex.$key";
