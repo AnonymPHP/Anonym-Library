@@ -178,6 +178,29 @@ class Validation
     }
 
     /**
+     * @param $min
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runMin($min, $key, $datas, $rule)
+    {
+        $data = $datas[$key];
+
+        if (is_string($data)) {
+            $lenght = strlen($data);
+        }elseif(is_numeric($data)){
+            $lenght = $data;
+        }
+
+        if($lenght > $min){
+            $this->fails[] = $messageKey = "min.$key";
+
+            $this->addMessage($key, $rule, $messageKey, [$min]);
+        }
+    }
+
+    /**
      * determine given regex is matching with given datas
      *
      * @param $regex
