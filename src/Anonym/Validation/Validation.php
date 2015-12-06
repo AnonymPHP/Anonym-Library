@@ -283,6 +283,23 @@ class Validation
         }
     }
 
+    /**
+     * determine url is valid
+     *
+     * @param $key
+     * @param $datas
+     * @param $url
+     */
+    protected function runUrl($key, $datas, $url){
+        $data = $datas[$key];
+
+        if(!filter_var($data, FILTER_SANITIZE_URL)){
+            $this->fails[] = $messageKey = "url.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
+    }
+
 
     /**
      * adds a error message
