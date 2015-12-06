@@ -116,7 +116,7 @@
          * @return int
          * @throws \Exception
          */
-        public function run()
+        public function run($input, $output)
         {
             $this->input = $input;
             $this->output = new OutputStyle($input, $output);
@@ -159,7 +159,7 @@
          * @param  \Symfony\Component\Console\Output\OutputInterface $output
          * @return mixed
          */
-        protected function execute()
+        protected function execute(InputInterface $input,OutputInterface $output)
         {
             $method = method_exists($this, 'handle') ? 'handle' : 'fire';
 
