@@ -180,6 +180,7 @@ class Validation
 
     protected function runEmail($key, $datas, $rule){
 
+        $email = $datas[$key];
         if (!filter_var($email, FILTER_VALIDATE_EMAIL) === true {
 
         }
