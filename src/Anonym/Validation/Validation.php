@@ -120,7 +120,7 @@ class Validation
     protected function runRequired($key, $datas)
     {
         if(!isset($datas[$key])){
-
+            $this->fails[] = "required.$key";
         }
     }
 
