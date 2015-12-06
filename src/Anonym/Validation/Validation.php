@@ -152,7 +152,11 @@ class Validation
     }
 
     protected  function runRegex($regex, $key, $datas, $rule){
+        if(!preg_match($regex, $datas[$key])){
+            $this->fails[] = $messageKey = "regex.$key";
 
+            $this->addMessage($key, $rule, $messageKey);
+        }
     }
 
 
