@@ -13,7 +13,7 @@ use Exception;
  * Class MethodNotExists
  * @package Anonym\Validation
  */
-class MethodNotExists extends Exception
+class MethodNotExistsException extends Exception
 {
 
     /**

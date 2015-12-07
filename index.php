@@ -12,13 +12,10 @@ include 'vendor/autoload.php';
 
 $val = new \Anonym\Validation\Validation(
     [
-        'test' => 'asdasdasd'
+        'test' => json_encode(['aaa' => 'bb'])
     ],
     [
-        'test' => 'required|numeric'
-    ],
-    [
-        'numeric.test' => ':key must be a numeric data'
+        'test' => 'required|json'
     ]);
 
 $val->run();
