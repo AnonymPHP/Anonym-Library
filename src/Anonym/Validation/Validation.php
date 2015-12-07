@@ -77,7 +77,8 @@ class Validation
         'size_between' => ':key value must be between :min and :max',
         'boolean' =>  ':key has to be a boolean value',
         'regex'   => ':key must be match with given regex value',
-        'digits_between' => ':key digits size must be between :min and :max'
+        'digits_between' => ':key digits size must be between :min and :max',
+        'alpha'    => ':key must be an alphabetical character'
     ];
 
     /**
