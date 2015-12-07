@@ -115,7 +115,11 @@ class Validation
             $parsedRules = explode("|", $rule);
 
             foreach ($parsedRules as $parsedRule) {
-                $this->handleRule($parsedRule, $key, $datas);
+                $required = $this->handleRule($parsedRule, $key, $datas);
+
+                if($required !== null && $required === false){
+                    break;
+                }
             }
         }
     }
@@ -143,7 +147,7 @@ class Validation
         }
 
         if (!strstr($rule, ":")) {
-           $called =  $this->callMethod($methodName, [$key, $allDatas, $rule]);
+            $called = $this->callMethod($methodName, [$key, $allDatas, $rule]);
         } else {
             $value = explode(":", $key)[1];
             if (strstr($value, ",")) {
@@ -152,7 +156,7 @@ class Validation
                 $sendDatas = [$value, $key, $allDatas, $rule];
             }
 
-           $called =  $this->callMethod($methodName, $sendDatas);
+            $called = $this->callMethod($methodName, $sendDatas);
         }
 
         return $called;
@@ -178,7 +182,7 @@ class Validation
         }
 
         if ($methodName !== 'runRequired') {
-          $return =  call_user_func_array([$this, 'runRequired'], count($datas) === 4 ? array_slice($datas, 1, 4) : $datas);
+            $return = call_user_func_array([$this, 'runRequired'], count($datas) === 4 ? array_slice($datas, 1, 4) : $datas);
         }
 
         call_user_func_array($call, $datas);
