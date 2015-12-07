@@ -235,7 +235,13 @@ class Validation
      * @param $rule
      */
     protected function runAlpha($key, $datas, $rule){
+        $data = $datas[$key];
 
+        if(!preg_match("([A-Z])", $data)){
+            $this->fails[] = $messageKey = "alpha.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
     }
 
     /**
