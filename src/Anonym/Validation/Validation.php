@@ -209,10 +209,13 @@ class Validation
      */
     protected function runNumeric($key, $datas, $rule = '')
     {
-        if (!is_numeric($datas[$key])) {
-            $this->fails[] = $messageKey = "numeric.$key";
 
-            $this->addMessage($key, $rule, $messageKey);
+        if (!isset($datas[$key])) {
+            if (!is_numeric($datas[$key])) {
+                $this->fails[] = $messageKey = "numeric.$key";
+
+                $this->addMessage($key, $rule, $messageKey);
+            }
         }
     }
 
