@@ -228,6 +228,17 @@ class Validation
     }
 
     /**
+     * determine the data is a variable alphabetic charecter
+     *
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runAlpha($key, $datas, $rule){
+
+    }
+
+    /**
      * @param $max
      * @param $key
      * @param $datas
