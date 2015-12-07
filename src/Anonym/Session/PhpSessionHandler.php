@@ -118,7 +118,13 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        return $_SESSION[$session_id];
+        $session = $_SESSION[$session_id];
+
+        if($session['endup'] < time()){
+            return $session['data'];
+        }else{
+            unset($_SESSION[$session_id]);
+        }
     }
 
     /**
@@ -140,7 +146,10 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        $_SESSION[$session_id, $session_data];
+        $_SESSION[$session_id] = [
+            'data' => $session_data,
+            'endup' => time() + $this->lifetime
+        ];
         return true;
     }
 }
