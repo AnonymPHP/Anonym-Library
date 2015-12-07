@@ -175,10 +175,12 @@ class Validation
         }
 
         if ($methodName !== 'runRequired') {
-          return call_user_func_array([$this, 'runRequired'], count($datas) === 4 ? array_slice($datas, 1, 4) : $datas);
+          $return =  call_user_func_array([$this, 'runRequired'], count($datas) === 4 ? array_slice($datas, 1, 4) : $datas);
         }
 
         call_user_func_array($call, $datas);
+
+        return $return;
     }
 
     /**
