@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Log;
+
 use Exception;
 use Anonym\Filesystem\Filesystem;
 
@@ -36,7 +37,8 @@ class Logger
      * @param Filesystem $filesystem
      * @param string $path
      */
-    public function __construct(Filesystem $filesystem, $path = 'logs/error.log'){
+    public function __construct(Filesystem $filesystem, $path = BASE . 'logs/error.log')
+    {
         $this->filesystem = $filesystem;
         $this->path = $path;
     }
@@ -46,7 +48,8 @@ class Logger
      *
      * @param Exception $exception
      */
-    public function write(Exception $exception){
+    public function write(Exception $exception)
+    {
 
         $pattern = "[%s]%s - (%s:%d) \n";
         $time = date('d.m.Y- h:i');
