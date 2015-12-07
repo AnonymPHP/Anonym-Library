@@ -173,6 +173,10 @@ class Validation
             throw new MethodNotExistsException(sprintf('%s method is not exists in Validation class', $methodName));
         }
 
+        if($methodName !== 'runRequired'){
+            call_user_func_array([$this, $])
+        }
+
         call_user_func_array($call, $datas);
     }
     /**
@@ -186,7 +190,11 @@ class Validation
             $this->fails[] = $messageKey = "required.$key";
 
             $this->addMessage($key, $rule, $messageKey);
+
+            return false;
         }
+
+        return true;
     }
 
     /**
