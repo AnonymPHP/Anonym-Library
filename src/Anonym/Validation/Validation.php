@@ -370,6 +370,7 @@ class Validation
             $this->addMessage($key, $rule, $messageKey);
         }
     }
+
     /**
      * @param $min
      * @param $key
