@@ -14,7 +14,7 @@ namespace Anonym\Session;
 use SessionHandlerInterface;
 use Anonym\Cookie\Cookie;
 
-class CookieSessionHandler implements SessionHandlerInterface
+class PhpSessionHandler implements SessionHandlerInterface
 {
 
     /**

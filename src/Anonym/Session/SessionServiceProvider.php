@@ -42,15 +42,11 @@ class SessionServiceProvider extends ServiceProvider
             ]
         );
 
-        $session->extend(
-            'cookie',
-            function (array $configs = []) use($app) {
-                $lifetime = Arr::get($configs, 'cookie.lifetime', 1800);
+       $session->extend('php', function($configs){
+           $lifetime = Arr::get($configs, 'lifetime');
 
-                $cookie =$app->make('cookie');
-                return new CookieSessionHandler($cookie, $lifetime);
-            }
-        );
+           return new PhpSessionHandler($lifetime);
+       });
 
         $session->extend(
             'database',
