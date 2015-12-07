@@ -174,7 +174,9 @@ class Validation
         }
 
         if($methodName !== 'runRequired'){
-            call_user_func_array([$this, $])
+           $isRequired =  call_user_func_array([$this, 'runRequired'], count($datas) === 4 ? array_slice($datas, 1, 4) : $datas);
+
+
         }
 
         call_user_func_array($call, $datas);
@@ -183,6 +185,7 @@ class Validation
      * @param string $key
      * @param array $datas
      * @param string $rule
+     * @return bool
      */
     protected function runRequired($key, $datas, $rule = '')
     {
