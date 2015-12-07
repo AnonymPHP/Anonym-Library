@@ -143,7 +143,7 @@ class Validation
         }
 
         if (!strstr($rule, ":")) {
-            $this->callMethod($methodName, [$key, $allDatas, $rule]);
+           $called =  $this->callMethod($methodName, [$key, $allDatas, $rule]);
         } else {
             $value = explode(":", $key)[1];
             if (strstr($value, ",")) {
@@ -152,8 +152,11 @@ class Validation
                 $sendDatas = [$value, $key, $allDatas, $rule];
             }
 
-            $this->callMethod($methodName, $sendDatas);
+           $called =  $this->callMethod($methodName, $sendDatas);
         }
+
+        return $called;
+
     }
 
 
