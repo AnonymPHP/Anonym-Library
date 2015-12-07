@@ -66,19 +66,19 @@ class Validation
      */
     protected $defaultErrorMessages = [
         'required' => ':key has to be exists in your datas',
-        'email'    => ':key has to be a valid  email address',
-        'url'      => ':key has to be a valid url address',
-        'json'     => ':key has to be a valid json data',
-        'max'      => ':key value has to be lesser than :max',
-        'min'      => ':key value has to be bigger than :min',
-        'digits_max'      => ':key value has to be lesser than :max',
-        'digits_min'      => ':key value has to be bigger than :min',
-        'same'     => ':key value must be same with this(these) :same',
+        'email' => ':key has to be a valid  email address',
+        'url' => ':key has to be a valid url address',
+        'json' => ':key has to be a valid json data',
+        'max' => ':key value has to be lesser than :max',
+        'min' => ':key value has to be bigger than :min',
+        'digits_max' => ':key value has to be lesser than :max',
+        'digits_min' => ':key value has to be bigger than :min',
+        'same' => ':key value must be same with this(these) :same',
         'size_between' => ':key value must be between :min and :max',
-        'boolean' =>  ':key has to be a boolean value',
-        'regex'   => ':key must be match with given regex value',
+        'boolean' => ':key has to be a boolean value',
+        'regex' => ':key must be match with given regex value',
         'digits_between' => ':key digits size must be between :min and :max',
-        'alpha'    => ':key must be an alphabetical character'
+        'alpha' => ':key must be an alphabetical character'
     ];
 
     /**
@@ -88,7 +88,7 @@ class Validation
      * @param array $rules
      * @param array $messages
      */
-    public function __construct(array $datas = [],array  $rules = [],array $messages = [])
+    public function __construct(array $datas = [], array  $rules = [], array $messages = [])
     {
         $this->setDatas($datas)
             ->setRules($rules)
@@ -164,23 +164,24 @@ class Validation
      * @param $datas
      * @throws MethodNotExistsException
      */
-    private function callMethod($methodName, $datas){
-        if(method_exists($this, $methodName)){
+    private function callMethod($methodName, $datas)
+    {
+        if (method_exists($this, $methodName)) {
             $call = [$this, $methodName];
-        }elseif(isset($this->extends[$methodName])){
+        } elseif (isset($this->extends[$methodName])) {
             $call = $this->extends[$methodName];
-        }else{
+        } else {
             throw new MethodNotExistsException(sprintf('%s method is not exists in Validation class', $methodName));
         }
 
-        if($methodName !== 'runRequired'){
-           $isRequired =  call_user_func_array([$this, 'runRequired'], count($datas) === 4 ? array_slice($datas, 1, 4) : $datas);
-
+        if ($methodName !== 'runRequired') {
+            $isRequired = call_user_func_array([$this, 'runRequired'], count($datas) === 4 ? array_slice($datas, 1, 4) : $datas);
 
         }
 
         call_user_func_array($call, $datas);
     }
+
     /**
      * @param string $key
      * @param array $datas
@@ -217,19 +218,20 @@ class Validation
     }
 
 
-    protected function runDigitsBetween($between, $key, $datas, $rule){
+    protected function runDigitsBetween($between, $key, $datas, $rule)
+    {
         $min = $between[0];
         $max = $between[1];
 
         $data = $datas[$key];
 
-        if(is_numeric($data)){
+        if (is_numeric($data)) {
             $data = "$data";
         }
 
         $length = strlen($data);
 
-        if($length < $min || $length>$max){
+        if ($length < $min || $length > $max) {
             $this->fails[] = $messageKey = "$rule.$key";
 
             $this->addMessage($key, $rule, $messageKey, [
@@ -246,10 +248,11 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runAlpha($key, $datas, $rule){
+    protected function runAlpha($key, $datas, $rule)
+    {
         $data = $datas[$key];
 
-        if(!preg_match("([A-Z])", $data)){
+        if (!preg_match("([A-Z])", $data)) {
             $this->fails[] = $messageKey = "alpha.$key";
 
             $this->addMessage($key, $rule, $messageKey);
@@ -357,7 +360,7 @@ class Validation
             $lenght = strlen("$data");
         }
 
-        if ($lenght > $max ) {
+        if ($lenght > $max) {
             $this->fails[] = $messageKey = "$rule.$key";
 
             $this->addMessage($key, $rule, $messageKey, ['max' => $max]);
@@ -424,7 +427,6 @@ class Validation
     }
 
 
-
     /**
      * determine datas are same or not
      *
@@ -453,7 +455,7 @@ class Validation
             $this->fails[] = $mKey = "same.$key";
 
             $this->addMessage($key, $rule, $mKey, [
-               'not' => $same
+                'not' => $same
             ]);
         }
     }
@@ -483,8 +485,9 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runDate($key, $datas, $rule){
-        if(false === strtotime($datas[$key])){
+    protected function runDate($key, $datas, $rule)
+    {
+        if (false === strtotime($datas[$key])) {
             $this->fails[] = $messageKey = "date.$key";
 
             $this->addMessage($key, $rule, $messageKey);
