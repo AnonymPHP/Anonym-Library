@@ -10,6 +10,7 @@
 
 namespace Anonym\Log;
 
+use Anonym\Filesystem\Adapter;
 use Exception;
 use Anonym\Filesystem\Filesystem;
 
@@ -34,10 +35,10 @@ class Logger
 
     /**
      * the constructor of Logger .
-     * @param Filesystem $filesystem
+     * @param Adapter $filesystem
      * @param string $path
      */
-    public function __construct(Filesystem $filesystem, $path = BASE . 'logs/error.log')
+    public function __construct(Adapter $filesystem, $path = BASE . 'logs/error.log')
     {
         $this->filesystem = $filesystem;
         $this->path = $path;
