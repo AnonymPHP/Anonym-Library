@@ -357,6 +357,19 @@ class Validation
         }
     }
 
+
+    /**
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runArray($key, $datas, $rule){
+        if(!is_array($datas[$key])){
+            $this->fails[] = $messageKey = "array.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
+    }
     /**
      * @param $min
      * @param $key
