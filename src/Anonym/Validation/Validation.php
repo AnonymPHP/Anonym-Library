@@ -161,7 +161,7 @@ class Validation
      *
      * @param $methodName
      * @param $datas
-     * @throws MethodNotExists
+     * @throws MethodNotExistsException
      */
     private function callMethod($methodName, $datas){
         if(method_exists($this, $methodName)){
@@ -169,7 +169,7 @@ class Validation
         }elseif(isset($this->extends[$methodName])){
             $call = $this->extends[$methodName];
         }else{
-            throw new MethodNotExists(sprintf('%s method is not exists in Validation class', $methodName));
+            throw new MethodNotExistsException(sprintf('%s method is not exists in Validation class', $methodName));
         }
 
         call_user_func_array($call, $datas);
