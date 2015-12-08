@@ -225,6 +225,14 @@ class Element
     }
 
     /**
+     * gets the selected table
+     *
+     * @return string
+     */
+    public function getTable(){
+        return $this->table;
+    }
+    /**
      * @param array $limit
      * @return $this
      */
@@ -523,4 +531,6 @@ class Element
 
         return call_user_func_array([$this->db, $method], $params);
     }
+
+
 }

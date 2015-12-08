@@ -8,8 +8,15 @@
 
 namespace Anonym\Element;
 
-
+/**
+ * Class Cashier
+ * @package Anonym\Element
+ */
 class Cashier
 {
 
+    public function __construct()
+    {
+
+    }
 }
