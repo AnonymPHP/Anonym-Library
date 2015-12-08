@@ -81,7 +81,8 @@ class Validation
         'regex' => ':key must be match with given regex value',
         'digits_between' => ':key digits size must be between :min and :max',
         'alpha' => ':key must be an alphabetical character',
-        'table_exists' => ':key value is must be exists in your database'
+        'table_exists' => ':key value is must be exists in your database',
+        'table_exists' => ':key value is must be exists in your database table',
     ];
 
     /**
