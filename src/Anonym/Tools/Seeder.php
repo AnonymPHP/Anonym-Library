@@ -55,7 +55,7 @@ class Seeder implements SeedInterface
      * @return mixed
      */
     public function call($class){
-        $abstarct = "App\\Database\\Seeds\\$class";
+        $abstarct = "Database\\Seeds\\$class";
 
         return $this->resolve($abstarct)->run();
     }
