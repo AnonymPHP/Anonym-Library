@@ -9,6 +9,8 @@
  */
 
 namespace Anonym\Validation;
+use Anonym\Database\Mode\Advanced;
+use Anonym\Facades\App;
 
 /**
  * Class Validation
@@ -78,7 +80,8 @@ class Validation
         'boolean' => ':key has to be a boolean value',
         'regex' => ':key must be match with given regex value',
         'digits_between' => ':key digits size must be between :min and :max',
-        'alpha' => ':key must be an alphabetical character'
+        'alpha' => ':key must be an alphabetical character',
+        'table_exists' => ':key value is must be exists in your database'
     ];
 
     /**
@@ -528,6 +531,17 @@ class Validation
      */
     protected function runTableExists($key, $datas, $rule){
         $data = $datas[$key];
+
+        $database = App::make('database.base');
+        $advanced = $database->advanced($data, function(Advanced $advanced){
+           return $advanced->tableExists()->build()->run();
+        });
+
+        if($advanced === 0){
+            $this->fails[] = $messageKey = "$rule.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
     }
 
     /**
