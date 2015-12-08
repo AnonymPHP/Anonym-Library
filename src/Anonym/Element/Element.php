@@ -505,8 +505,9 @@ class Element
     public function __set($name, $value = '')
     {
         if (!is_string($name) || !is_string($value)) {
-            throw new Exception('isim veya değeri mutlaka string olmalıdır');
+            throw new Exception('index name or value must be an instance of string');
         }
+
         $this->set[$name] = $value;
     }
 
