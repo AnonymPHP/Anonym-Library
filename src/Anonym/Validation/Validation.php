@@ -545,6 +545,28 @@ class Validation
     }
 
     /**
+     * determine is column exists in database.base
+     *
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runColumnExists($column, $key, $datas, $rule){
+        $data = $datas[$key];
+
+        $database = App::make('database.base');
+        $advanced = $database->advanced($data, function(Advanced $advanced){
+            return $advanced->tableExists()->build()->run();
+        });
+
+        if($advanced === 0){
+            $this->fails[] = $messageKey = "$rule.$key";
+
+            $this->addMessage($key, $rule, $messageKey);
+        }
+    }
+
+    /**
      * adds a error message
      *
      * @param string $key
