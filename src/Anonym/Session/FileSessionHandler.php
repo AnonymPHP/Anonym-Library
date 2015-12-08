@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Session;
+use Anonym\Filesystem\Adapter;
 use Anonym\Filesystem\Filesystem;
 use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
@@ -39,10 +40,10 @@ class FileSessionHandler implements SessionHandlerInterface
     /**
      * create a new instance
      *
-     * @param FilesystemInterface $filesystemInterface
+     * @param Adapter $filesystemInterface
      * @param string $path
      */
-    public function __construct(FilesystemInterface $filesystemInterface, $path){
+    public function __construct(Adapter $filesystemInterface, $path){
         $this->driver = $filesystemInterface;
         $this->path = $path;
 
