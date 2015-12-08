@@ -6,24 +6,23 @@
  * @website http://anonymphp.com/framework
  */
 
-namespace Anonym\Element;
+namespace Anonym\Billing;
+use Anonym\Element\Element;
 
 /**
- * Class Cashier
- * @package Anonym\Element
+ * Class Billing
+ * @package Anonym\Billing
  */
-class Cashier
+class Billing
 {
+
     /**
-     * the instance of Element Class
-     *
      * @var Element
      */
     protected $element;
 
-
     /**
-     * the constructor of Cashier .
+     * the constructor of Billing .
      * @param Element $element
      */
     public function __construct(Element $element)
