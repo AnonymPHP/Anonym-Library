@@ -555,7 +555,7 @@ class Validation
     protected function runColumnExists($column, $key, $datas, $rule){
 
         $database = App::make('database.base');
-        $advanced = $database->advanced($key, function(Advanced $advanced) use($column){
+        $advanced = $database->advanced($datas[$key], function(Advanced $advanced) use($column){
             return $advanced->columnExists($column)->build()->run();
         });
 
