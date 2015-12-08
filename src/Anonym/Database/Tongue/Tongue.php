@@ -48,7 +48,7 @@ abstract class Tongue
 
         'advanced' => [
             'SHOW TABLE LIKE :from;',
-            'SHOW COLUMNS FROM `table` LIKE \':column\';'
+            'SHOW COLUMNS FROM `:from` LIKE \':column\';'
         ]
     ];
 
@@ -264,6 +264,29 @@ abstract class Tongue
         }
 
         return rtrim($statement, ' ');
+    }
+
+    /**
+     * compile advanced patterns with given datas
+     */
+    protected function compileAdvanced(){
+        if(isset($this->datas['table_exists'])){
+            $pattern = $this->statements['advanted'][0];
+
+            $return = call_user_func_array(
+                [$this, 'replaceParameters'], [$pattern, $this->replaceParameters(['from'])]
+            );
+
+            return ['statement' => $return, 'parameters' => []];
+        }else{
+            $pattern = $this->statements['advanted'][1];
+
+            $return = call_user_func_array(
+                [$this, 'replaceParameters'], [$pattern, array_merge($this->replaceParameters(['from']), ['column' => $this->datas['column_exists']])]
+            );
+
+            return ['statement' => $return, 'parameters' => []];
+        }
     }
 
     /**
