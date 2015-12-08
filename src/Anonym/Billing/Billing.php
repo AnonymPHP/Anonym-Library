@@ -22,6 +22,12 @@ class Billing
     protected $base;
 
     /**
+     * the table name of cashier
+     *
+     * @var string
+     */
+    protected $table;
+    /**
      * the constructor of Billing .
      * @param Base $base
      */
