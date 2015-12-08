@@ -225,7 +225,7 @@ class Element
     }
 
     /**
-     * gets the selected table
+     * returns the selected table
      *
      * @return string
      */
