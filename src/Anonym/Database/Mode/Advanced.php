@@ -18,14 +18,18 @@ class Advanced extends ModeManager
     /**
      * determine table is exists
      */
-    protected function tableExists(){
+    public function tableExists(){
         $this->datas['tableExists'] = $this->datas['from'];
+
+        return $this;
     }
 
     /**
      * determine the column is exists in your table
      */
-    protected function columnExists(){
+    public function columnExists(){
         $this->datas['columnExists'] = $this->datas['from'];
+
+        return $this;
     }
 }
