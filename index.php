@@ -18,7 +18,7 @@ $database = new \Anonym\Database\Base([
 ],new \Illuminate\Container\Container());
 
 $advanced = $database->advanced('test', function(\Anonym\Database\Mode\Advanced $advanced){
-   return $advanced->columnExists('username');
+   return $advanced->columnExists('username')->build();
 });
 
 var_dump($advanced);

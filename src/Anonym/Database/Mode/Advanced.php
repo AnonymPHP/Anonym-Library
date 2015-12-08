@@ -17,6 +17,8 @@ class Advanced extends ModeManager
 
     /**
      * determine table is exists
+     *
+     * @return $this
      */
     public function tableExists(){
         $this->datas['tableExists'] = $this->datas['from'];
@@ -26,10 +28,11 @@ class Advanced extends ModeManager
 
     /**
      * determine the column is exists in your table
+     * @param string $column
+     * @return $this
      */
-    public function columnExists(){
-        $this->datas['columnExists'] = $this->datas['from'];
-
+    public function columnExists($column = ''){
+        $this->datas['columnExists'] = $column;
         return $this;
     }
 }

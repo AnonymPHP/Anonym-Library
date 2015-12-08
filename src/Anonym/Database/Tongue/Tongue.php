@@ -271,7 +271,7 @@ abstract class Tongue
      */
     protected function compileAdvanced(){
         if(isset($this->datas['table_exists'])){
-            $pattern = $this->statements['advanted'][0];
+            $pattern = $this->statements['advanced'][0];
 
             $return = call_user_func_array(
                 [$this, 'replaceParameters'], [$pattern, $this->replaceParameters(['from'])]
@@ -279,10 +279,10 @@ abstract class Tongue
 
             return ['statement' => $return, 'parameters' => []];
         }else{
-            $pattern = $this->statements['advanted'][1];
+            $pattern = $this->statements['advanced'][1];
 
             $return = call_user_func_array(
-                [$this, 'replaceParameters'], [$pattern, array_merge($this->replaceParameters(['from']), ['column' => $this->datas['column_exists']])]
+                [$this, 'replaceParameters'], [$pattern, array_merge($this->runTheCompilers(['from']), ['column' => $this->datas['columnExists']])]
             );
 
             return ['statement' => $return, 'parameters' => []];
