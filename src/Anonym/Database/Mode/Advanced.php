@@ -15,8 +15,10 @@ namespace Anonym\Database\Mode;
 class Advanced extends ModeManager
 {
 
+    /**
+     * determine table is exists
+     */
     protected function tableExists(){
-        
+        $this->datas['tableExists'] = $this->datas['from'];
     }
-
 }

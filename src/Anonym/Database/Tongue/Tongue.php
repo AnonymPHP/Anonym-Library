@@ -47,7 +47,7 @@ abstract class Tongue
         ],
 
         'advanced' => [
-
+            'table_exists' => 'SHOW TABLE LIKE :from'
         ]
     ];
 
