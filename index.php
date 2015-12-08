@@ -21,4 +21,3 @@ $advanced = $database->advanced('test', function(\Anonym\Database\Mode\Advanced 
    return $advanced->columnExists('username')->build();
 });
 
-var_dump($advanced);
