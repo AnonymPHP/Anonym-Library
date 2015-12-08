@@ -44,6 +44,10 @@ abstract class Tongue
         ],
         'insert' => [
             'INSERT INTO :from :insert'
+        ],
+
+        'advanced' => [
+
         ]
     ];
 

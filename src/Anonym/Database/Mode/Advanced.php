@@ -15,4 +15,8 @@ namespace Anonym\Database\Mode;
 class Advanced extends ModeManager
 {
 
+    protected function tableExists(){
+        
+    }
+
 }
