@@ -520,6 +520,17 @@ class Validation
     }
 
     /**
+     * determine is table exists in database.base
+     *
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
+    protected function runTableExists($key, $datas, $rule){
+        $data = $datas[$key];
+    }
+
+    /**
      * adds a error message
      *
      * @param string $key
