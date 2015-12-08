@@ -17,16 +17,16 @@ class Billing
 {
 
     /**
-     * @var Element
+     * @var Base
      */
-    protected $element;
+    protected $base;
 
     /**
      * the constructor of Billing .
-     * @param Element $element
+     * @param Base $base
      */
-    public function __construct(Element $element)
+    public function __construct(Base $base)
     {
-        $this->element = $element;
+        $this->base = $base;
     }
 }
