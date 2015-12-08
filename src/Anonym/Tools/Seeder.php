@@ -116,6 +116,4 @@ class Seeder implements SeedInterface
         $this->command = $command;
         return $this;
     }
-
-
 }
