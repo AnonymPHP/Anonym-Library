@@ -14,9 +14,20 @@ namespace Anonym\Element;
  */
 class Cashier
 {
+    /**
+     * the instance of Element Class
+     *
+     * @var Element
+     */
+    protected $element;
 
-    public function __construct()
+
+    /**
+     * the constructor of Cashier .
+     * @param Element $element
+     */
+    public function __construct(Element $element)
     {
-
+        $this->element = $element;
     }
 }
