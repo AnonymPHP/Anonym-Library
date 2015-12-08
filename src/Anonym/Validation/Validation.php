@@ -134,6 +134,7 @@ class Validation
      * @param string $rule
      * @param string $key
      * @param array $allDatas
+     * @return mixed
      */
     private function handleRule($rule, $key, array $allDatas)
     {
