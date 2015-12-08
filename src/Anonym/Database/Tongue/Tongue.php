@@ -47,8 +47,8 @@ abstract class Tongue
         ],
 
         'advanced' => [
-            'table_exists' => 'SHOW TABLE LIKE :from',
-            'column_exists' => 'SHOW COLUMNS FROM `table` LIKE \':column\';'
+            'SHOW TABLE LIKE :from;',
+            'SHOW COLUMNS FROM `table` LIKE \':column\';'
         ]
     ];
 
@@ -151,6 +151,8 @@ abstract class Tongue
         list($column, $type) = array_values($order);
         return "ORDER BY $column $type";
     }
+
+
 
     /**
      * compile and return the prepared limit statement
