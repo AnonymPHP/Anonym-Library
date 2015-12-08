@@ -10,6 +10,7 @@
 
 namespace Anonym\Database;
 
+use Anonym\Database\Mode\Advanced;
 use Illuminate\Container\Container;
 use Anonym\Support\Arr;
 use Anonym\Database\Exceptions\BridgeException;
@@ -24,7 +25,7 @@ use Anonym\Database\Traits\ConnectionManager;
 use Anonym\Database\Traits\ModeManager;
 use Anonym\Database\Bridge\Bridge;
 use PDO;
-use mysqli;
+use Closure;
 
 /**
  * Class Base
@@ -163,6 +164,19 @@ class Base
         $insert = new Insert($this, 'insert');
 
         return $callable($insert);
+    }
+
+    /**
+     * returns a new advanced mode instance
+     *
+     * @param string $table
+     * @param Closure|null $callable
+     * @return mixed
+     */
+    public function advanced($table,Closure $callable = null){
+        $this->connect($table);
+
+        return $callable(new Advanced($this, 'advanced'));
     }
 
     /**

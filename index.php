@@ -10,14 +10,3 @@
 
 include 'vendor/autoload.php';
 
-$val = new \Anonym\Validation\Validation(
-    [
-        'test' => json_encode(['aaa' => 'bb'])
-    ],
-    [
-        'test' => 'required|json'
-    ]);
-
-$val->run();
-
-var_dump($val);
