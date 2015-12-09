@@ -81,6 +81,13 @@ class Base
     protected $connectedTable;
 
     /**
+     * As değerini tutar
+     *
+     * @var mixed
+     */
+    private $as;
+
+    /**
      * create a new instance and use the configs
      *
      * @param array $configs
@@ -117,81 +124,177 @@ class Base
         }
     }
 
+
     /**
-     * Select işlemlerinde kullanılır
+     * Select sorgusu olu�turur
      *
-     * @param string $table
-     * @param callable $callable
-     * @return mixed
-     * @access public
+     * @param string $select
+     * @return $this
      */
-    public function read($table, callable $callable = null)
+    public function select($select = null)
     {
 
-        $this->connect($table);
-        $read = new Read($this, 'read');
+        $this->datas['select'] = $select;
 
-        return $callable($read);
+        return $this;
+    }
+
+
+
+    /**
+     * İçeriği temizler
+     *
+     * @return static
+     */
+    private function cleanThis()
+    {
+
+        return new static($this->getBase());
     }
 
     /**
-     * Update işlemlerinde kullanılır
+     * Order Sorgusu oluşturur
      *
-     * @param string $table
-     * @param callable $callable
-     * @return mixed
+     * @param string $order
+     * @param string $type
+     * @return \Anonym\Database\Mode\Read
      */
-    public function update($table, callable $callable = null)
+    public function order($order, $type = 'DESC')
     {
 
-        $this->connect($table);
-        $update = new Update($this, 'update');
+        $this->datas['order'] =  [$order, $type];
+        return $this;
+    }
 
-        return $callable($update);
+
+    /**
+     * Join komutu ekler
+     *
+     * @param array $join
+     * @return $this
+     */
+    public function join($join = [])
+    {
+        $this->datas['join'] = $join;
+        return $this;
     }
 
     /**
-     * Insert şlemlerinde kullanılır
-     *
-     * @param string $table
-     * @param callable $callable
-     * @return mixed
+     * @param int $page
+     * @return \Anonym\Database\Mode\Read
      */
-    public function insert($table, callable $callable = null)
+    public function page($page)
     {
+        $this->page = $page;
+        $limit = Config::get('database.pagination');
+        $limit = $limit['limit'];
+        $baslangic = ($page - 1) * ($limit);
+        $bitis = $page * $limit;
 
-        $this->connect($table);
-        $insert = new Insert($this, 'insert');
-
-        return $callable($insert);
+        return $this->limit([$baslangic, $bitis]);
     }
 
     /**
-     * returns a new advanced mode instance
+     * Group By sorgusu ekler
      *
-     * @param string $table
-     * @param Closure|null $callable
-     * @return mixed
+     * @param string $group
+     * @return \Anonym\Database\Mode\Read
      */
-    public function advanced($table,Closure $callable = null){
-        $this->connect($table);
+    public function group($group)
+    {
 
-        return $callable(new Advanced($this, 'advanced'));
+        $this->datas['group'] = $group;
+
+        return $this;
+    }
+
+
+    /**
+     * İç içe bir sorgu oluşturur
+     *
+     * @param string $as
+     * @param mixed $select
+     * @return  \Anonym\Database\Mode\Read
+     */
+    public function create($as, $select)
+    {
+
+        $this->setAs($as);
+
+        return $this->select($select);
     }
 
     /**
-     * Delete delete işlemlerinde kullanılır
+     * Limit sorgusu oluşturur
      *
-     * @param string $table
-     * @param callable $callable
-     * @return mixed
+     * @param string $limit
+     * @return \Anonym\Database\Mode\Read
      */
-    public function delete($table, callable $callable = null)
+    public function limit($limit)
     {
-        $this->connect($table);
-        $delete = new Delete($this, 'delete');
 
-        return $callable($delete);
+        $this->datas['limit'] = $limit;
+
+        return $this;
+    }
+
+
+
+    /**
+     * @param string $as
+     * @return \Anonym\Database\Mode\Read
+     */
+    public function setAs($as)
+    {
+        $this->as = $as;
+        return $this;
+    }
+
+
+    /**
+     * Select de kullanılacak as değerini döndürür
+     *
+     * @return string
+     */
+    public function getAs()
+    {
+
+        return $this->as;
+    }
+
+    /**
+     * Etkilenen elaman sayısını döndürür
+     *
+     * @return int
+     */
+
+    public function rowCount()
+    {
+        return $this->build()->rowCount();
+    }
+
+    /**
+     * İçeriği tekil veya çokul olarak döndürür
+     *
+     * @param bool $fetchAll
+     * @return array|mixed|object|\stdClass
+     * @throws \Exception
+     */
+    public function fetch($fetchAll = false)
+    {
+
+        return $this->build()->fetch($fetchAll);
+    }
+
+    /**
+     * Tüm İçeriği Döndürür
+     *
+     * @return array|mixed|object|\stdClass
+     */
+    public function fetchAll()
+    {
+
+        return $this->fetch(true);
     }
 
     /**
