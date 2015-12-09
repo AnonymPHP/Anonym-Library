@@ -91,6 +91,7 @@ abstract class Bridge
             $this->db = new \PDO("$bridge:host=$host;dbname=$db", $username, $password);
             $this->db->exec("SET NAMES '$charset'; SET CHARSET '$charset'");
 
+
             return $this->db;
         } catch (\PDOException $e) {
             throw new ConnectionException(sprintf('PDO threw that exception message : %s', $e->getMessage()));

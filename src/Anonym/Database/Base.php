@@ -73,6 +73,19 @@ class Base
      */
     protected $db;
 
+    /**
+     * returns the query builder
+     *
+     * @var QueryBuilder
+     */
+    protected $queryBuilder;
+    /**
+     * returns the attributes
+     *
+     * @var array
+     */
+    protected $attributes;
+
 
     /**
      * the name of connecting table
