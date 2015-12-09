@@ -56,14 +56,12 @@ class QueryBuilder
      * the constructor of ModeManager .
      *
      * @param Base $base
-     * @param string $type
      */
-    public function __construct(Base $base = null, $type = 'read')
+    public function __construct(Base $base = null)
     {
         $this->setBase($base);
         $this->datas['from'] = $base->getConnectedTable();
         $this->datas['select'] = '*';
-        $this->type = $type;
     }
 
     /**
@@ -87,7 +85,7 @@ class QueryBuilder
      * @return string
      */
     protected function buildQuery(){
-        return $this->getBase()->bridge->tongue->build($this->datas, $this->type);
+        return $this->getBase()->bridge->tongue->build($this->datas);
     }
 
 
