@@ -46,6 +46,15 @@ class QueryBuilder
     protected $page;
 
     /**
+     * @var string
+     */
+    protected $query;
+
+    /**
+     * @var array
+     */
+    protected $parameters;
+    /**
      * the constructor of ModeManager .
      *
      * @param Base $base
