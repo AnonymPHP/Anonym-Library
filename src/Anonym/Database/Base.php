@@ -11,6 +11,7 @@
 namespace Anonym\Database;
 
 use Anonym\Database\Mode\Advanced;
+use Anonym\Database\Traits\Where;
 use Illuminate\Container\Container;
 use Anonym\Support\Arr;
 use Anonym\Database\Exceptions\BridgeException;
@@ -33,7 +34,7 @@ use Closure;
  */
 class Base
 {
-    use ModeManager;
+    use ModeManager, Where;
 
     const TYPE_PGSQL = 'pgsql';
     const TYPE_MYSQL = 'mysql';
@@ -273,6 +274,16 @@ class Base
         return $this->build()->rowCount();
     }
 
+
+    /**
+     * @param array $set
+     * @return $this
+     */
+    public function set($set = [])
+    {
+        $this->datas['datas'][] = $set;
+        return $this;
+    }
     /**
      * İçeriği tekil veya çokul olarak döndürür
      *
