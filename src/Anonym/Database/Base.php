@@ -201,25 +201,4 @@ class Base
     {
         $this->connectedTable = $table;
     }
-
-    /**
-     * Dinamik method çağrımı
-     *
-     * @param string $method
-     * @param array $args
-     * @return mixed
-     */
-    public function __call($method, array $args = [])
-    {
-        if ($this->isMode($method)) {
-            $return = $this->callMode($method, $args);
-        } else {
-
-            $return = call_user_func_array([$this->getConnection(), $method], $args);
-        }
-
-        return $return;
-    }
-
-
 }
