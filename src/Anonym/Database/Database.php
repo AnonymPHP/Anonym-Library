@@ -66,7 +66,7 @@ class Database
     /**
      * create a new BuildManager instance with created query
      *
-     * @return \Anonym\Database\Builders\BuildManager
+     * @return \Anonym\Database\Managers\BuildManager
      */
     public function build()
     {
