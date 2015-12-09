@@ -7,7 +7,6 @@
  */
 
 namespace Anonym\Billing;
-use Anonym\Element\Element;
 
 /**
  * Class Billing
