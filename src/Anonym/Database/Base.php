@@ -105,8 +105,8 @@ class Base
     {
         $this->container = $container;
 
-
         $this->openConnection($configs);
+        $this->queryBuilder = new QueryBuilder($this);
     }
 
     /**
