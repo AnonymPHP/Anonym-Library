@@ -89,7 +89,6 @@ class QueryBuilder
      */
     public function run()
     {
-
         return $this->build()->run();
     }
 
