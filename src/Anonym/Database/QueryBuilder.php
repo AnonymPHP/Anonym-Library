@@ -62,14 +62,12 @@ class QueryBuilder
      *
      * @return \Anonym\Database\Managers\BuildManager
      */
-    public function build()
+    protected function prepareQuery()
     {
         list($query, $parameters) =  array_values($this->buildQuery());
-        $manager = new BuildManager($this->getBase()->getConnection());
-        $manager->setQuery($query);
-        $manager->setParams($parameters);
-
-        return $manager;
+        $this->query = $query;
+        $this->parameters = $parameters;
+        return $this;
     }
 
     /**
