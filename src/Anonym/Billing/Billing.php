@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Billing;
+use Anonym\Element\Element;
 
 /**
  * Class Billing
@@ -16,9 +17,9 @@ class Billing
 {
 
     /**
-     * @var Base
+     * @var Element
      */
-    protected $base;
+    protected $element;
 
     /**
      * the table name of cashier
@@ -28,10 +29,10 @@ class Billing
     protected $table;
     /**
      * the constructor of Billing .
-     * @param Base $base
+     * @param Element $element
      */
-    public function __construct(Base $base)
+    public function __construct(Element $element)
     {
-        $this->base = $base;
+        $this->element = $element->setTable('billing');
     }
 }
