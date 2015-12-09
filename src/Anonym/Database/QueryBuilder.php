@@ -46,13 +46,6 @@ class QueryBuilder
     protected $page;
 
     /**
-     * the type of pattern
-     *
-     * @var string
-     */
-    protected $type;
-
-    /**
      * the constructor of ModeManager .
      *
      * @param Base $base
