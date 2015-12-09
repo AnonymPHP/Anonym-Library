@@ -8,8 +8,11 @@
 
 namespace Anonym\Database;
 
-
-class Database
+/**
+ * Class QueryBuilder
+ * @package Anonym\Database
+ */
+class QueryBuilder
 {
 
     /**

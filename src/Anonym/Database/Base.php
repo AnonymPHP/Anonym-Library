@@ -201,4 +201,5 @@ class Base
     {
         $this->connectedTable = $table;
     }
+
 }
