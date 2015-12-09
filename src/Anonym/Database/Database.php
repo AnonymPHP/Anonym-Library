@@ -451,6 +451,8 @@ class Database
         return $this;
     }
 
+
+
     /**
      * İçeriği tekil veya çokul olarak döndürür
      *
@@ -473,5 +475,16 @@ class Database
     {
 
         return $this->fetch(true);
+    }
+
+
+    /**
+     * @param array $set
+     * @return $this
+     */
+    public function update($set = [])
+    {
+        $this->datas['update'][] = $set;
+        return $this;
     }
 }
