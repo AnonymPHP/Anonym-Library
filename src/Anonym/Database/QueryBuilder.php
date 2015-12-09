@@ -54,6 +54,15 @@ class QueryBuilder
      * @var array
      */
     protected $parameters;
+
+
+    /**
+     * store the content
+     *
+     * @var string
+     */
+    protected $datas;
+
     /**
      * the constructor of ModeManager .
      *
@@ -88,23 +97,6 @@ class QueryBuilder
         return $this->getBase()->bridge->tongue->build($this->datas);
     }
 
-
-    /**
-     * Query oluşturur
-     *
-     * @return \PDOStatement
-     */
-    public function run()
-    {
-        return $this->build()->run();
-    }
-
-    /**
-     * store the content
-     *
-     * @var string
-     */
-    protected $datas;
 
     /**
      * @param $base
