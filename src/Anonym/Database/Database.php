@@ -447,7 +447,7 @@ class Database
      */
     public function set($set = [])
     {
-        $this->datas['datas'][] = $set;
+        $this->datas['insert'][] = $set;
         return $this;
     }
 
