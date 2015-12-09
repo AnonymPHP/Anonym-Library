@@ -27,6 +27,7 @@ class Billing
      * @var string
      */
     protected $table;
+
     /**
      * the constructor of Billing .
      * @param Element $element
