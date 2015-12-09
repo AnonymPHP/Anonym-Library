@@ -69,12 +69,22 @@ abstract class Tongue
      * starting the build query
      *
      * @param array $datas
-     * @param string $type
      * @return mixed
      */
-    public function build($datas, $type)
+    public function build($datas)
     {
         $this->datas = $datas;
+
+        if(isset($this->datas['update']) && !empty($this->datas['update'])){
+            $type = 'update';
+        }elseif(isset($this->datas['insert']) && !empty($this->datas['insert'])){
+            $type = 'insert';
+        }elseif(isset($this->datas['select']) && !empty($this->datas['select'])){
+            $type = 'read';
+        }else{
+            $type = 'delete';
+        }
+
         $compilerMethodName = 'compile' . ucfirst($type);
         return $this->$compilerMethodName();
     }
