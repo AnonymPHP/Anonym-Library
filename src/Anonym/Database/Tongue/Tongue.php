@@ -81,7 +81,7 @@ abstract class Tongue
             $type = 'insert';
         }elseif(isset($this->datas['select']) && !empty($this->datas['select'])){
             $type = 'read';
-        }else{
+        }elseif(isset($this->datas['delete']) && $this->datas['delete'] === true){
             $type = 'delete';
         }
 
