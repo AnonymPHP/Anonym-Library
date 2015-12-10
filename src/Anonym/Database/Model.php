@@ -41,7 +41,11 @@ class Model
      * @return string
      */
     private function findSelectedTable(){
-        $vars =
+        if (isset($this->vars['table']) && !empty($this->vars['table'])) {
+            return $this->vars['table'];
+        }else{
+
+        }
     }
 
 }
