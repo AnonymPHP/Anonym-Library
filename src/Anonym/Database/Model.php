@@ -200,7 +200,7 @@ class Model
     {
         call_user_func_array([$this->getQueryBuilder(), $name], $arguments);
 
-        $this->executeWithAttrs();
+        return $this->executeWithAttrs();
     }
 
     /**
