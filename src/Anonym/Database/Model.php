@@ -8,8 +8,25 @@
 
 namespace Anonym\Database;
 
-
+/**
+ * Class Model
+ * @package Anonym\Database
+ */
 class Model
 {
+    /**
+     * the name of selected table
+     *
+     * @var string
+     */
+    protected $table;
+
+    /**
+     * the constructor of Model .
+     */
+    public function __construct()
+    {
+
+    }
 
 }
