@@ -83,8 +83,13 @@ class Model
         }
     }
 
+    /**
+     * @return QueryBuilder
+     */
     private function getQueryBuilder(){
-        return static::$base->
+        $base = static::$base;
+
+        return $base::getQueryBuilder();
     }
 
     /**
