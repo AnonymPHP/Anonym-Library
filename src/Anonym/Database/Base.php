@@ -104,7 +104,6 @@ class Base
     public function __construct(array $configs = [], Container $container = null)
     {
         $this->container = $container;
-
         $this->openConnection($configs);
         $this->queryBuilder = new QueryBuilder($this);
     }
