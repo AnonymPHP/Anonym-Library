@@ -15,6 +15,14 @@ use ReflectionObject;
  */
 class Model
 {
+
+    /**
+     * the instance of base
+     *
+     * @var Base
+     */
+    private static $base;
+
     /**
      * the name of selected table
      *
@@ -27,7 +35,7 @@ class Model
      *
      * @var array
      */
-    protected $vars;
+    private $vars;
     /**
      * the constructor of Model .
      */
