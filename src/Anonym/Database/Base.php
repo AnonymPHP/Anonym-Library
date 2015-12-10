@@ -64,7 +64,7 @@ class Base
      *
      * @var Container
      */
-    public $container;
+    private static $container;
 
     /**
      * the instance of PDO
@@ -78,7 +78,8 @@ class Base
      *
      * @var QueryBuilder
      */
-    protected $queryBuilder;
+    private static $queryBuilder;
+
     /**
      * returns the attributes
      *
@@ -103,9 +104,9 @@ class Base
      */
     public function __construct(array $configs = [], Container $container = null)
     {
-        $this->container = $container;
+        static::$container = $container;
         $this->openConnection($configs);
-        $this->queryBuilder = new QueryBuilder($this);
+        static::$queryBuilder = new QueryBuilder($this);
     }
 
     /**

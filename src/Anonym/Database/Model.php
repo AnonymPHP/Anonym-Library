@@ -13,15 +13,9 @@ use ReflectionObject;
  * Class Model
  * @package Anonym\Database
  */
-class Model
+class Model extends Base
 {
 
-    /**
-     * the instance of base
-     *
-     * @var Base
-     */
-    public static $base;
 
     /**
      * the name of selected table
