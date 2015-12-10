@@ -22,10 +22,17 @@ class Model
     protected $table;
 
     /**
+     * the variables of this class and children
+     *
+     * @var array
+     */
+    protected $vars;
+    /**
      * the constructor of Model .
      */
     public function __construct()
     {
+        $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
     }
 
@@ -34,7 +41,7 @@ class Model
      * @return string
      */
     private function findSelectedTable(){
-
+        $vars =
     }
 
 }
