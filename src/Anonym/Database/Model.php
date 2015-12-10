@@ -137,6 +137,20 @@ class Model
     }
 
     /**
+     *  execute a query
+     */
+    private function executeWithAttrs()
+    {
+        $return = $this->getQueryBuilder()->execute();
+
+        $this->query = $return['query'];
+        $this->lastExecutes[] = $return['execute'];
+        $this->lastPrepares[] = $return['prepare'];
+        $this->attributes = $return['prepare']->fetchAll();
+        return $this;
+    }
+
+    /**
      * execute a delete query
      *
      * @return $this
