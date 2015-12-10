@@ -195,6 +195,7 @@ class Model
     /**
      * @param $name
      * @param $arguments
+     * @return $this
      */
     public function __call($name, $arguments)
     {
