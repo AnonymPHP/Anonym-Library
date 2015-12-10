@@ -112,8 +112,8 @@ class Model
      * @param array $update
      * @return $this
      */
-    public function update(array $update){
-        $update = $this->getQueryBuilder()->update($update);
+    public function update(array $update = []){
+        $update = count($update) !== 0 ? $this->getQueryBuilder()->update($update) : $this->getQueryBuilder();
         $return = $update->execute();
 
         $this->query = $return['query'];
