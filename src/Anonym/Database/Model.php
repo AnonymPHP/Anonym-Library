@@ -136,6 +136,7 @@ class Model
         return $this;
     }
 
+
     /**
      * execute an insert query
      *
