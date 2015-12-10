@@ -151,13 +151,11 @@ class Base
     }
 
     /**
-     * register the connection table with given table name
-     *
-     * @param string $table
+     * @return QueryBuilder
      */
-    protected function connect($table)
+    public static function getQueryBuilder()
     {
-        $this->connectedTable = $table;
+        return self::$queryBuilder;
     }
 
 }

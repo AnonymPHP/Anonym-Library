@@ -83,6 +83,10 @@ class Model
         }
     }
 
+    private function getQueryBuilder(){
+        return static::$base->
+    }
+
     /**
      *
      * @return string
