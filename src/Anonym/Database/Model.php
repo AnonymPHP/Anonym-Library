@@ -191,4 +191,25 @@ class Model
             $this->table = strtolower($referer->getShortName());
         }
     }
+
+    /**
+     * @param $name
+     * @param $arguments
+     */
+    public function __call($name, $arguments)
+    {
+        call_user_func_array([$this->getQueryBuilder(), $name], $arguments);
+
+        $this->executeWithAttrs();
+    }
+
+    /**
+     * @param $name
+     * @param $arguments
+     * @return mixed
+     */
+    public function __callStatic($name, $arguments)
+    {
+        return call_user_func_array([static::$booted, $name], $arguments);
+    }
 }
