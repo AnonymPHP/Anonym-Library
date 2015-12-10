@@ -114,7 +114,7 @@ class Base
 
         if (Arr::has($this->bridges, $bridge)) {
             $bridge = Arr::get($this->bridges, $bridge);
-            $this->bridge = $instance = $this->container->make($bridge, [$options]);
+            $this->bridge = $instance = static::$container->make($bridge, [$options]);
 
             if ($instance instanceof Bridge) {
                 $this->db = $instance->open();
