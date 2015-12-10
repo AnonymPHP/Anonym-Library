@@ -12,7 +12,7 @@ namespace Anonym\Database;
  * Class Model
  * @package Anonym\Database
  */
-class Model
+class Model extends Base
 {
     /**
      * the name of selected table
