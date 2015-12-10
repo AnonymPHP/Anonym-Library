@@ -43,8 +43,12 @@ class Model extends Base
     {
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
+        $this->bootIfWasnt();
     }
 
+    private function bootIfWasnt(){
+
+    }
     /**
      *
      * @return string
