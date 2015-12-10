@@ -80,12 +80,24 @@ class QueryBuilder
      *
      * @return \Anonym\Database\Managers\BuildManager
      */
-    public function prepareQuery()
+    private function prepareQuery()
     {
-        list($query, $parameters) =  array_values($this->buildQuery());
+        list($query, $parameters) = array_values($this->buildQuery());
         $this->query = $query;
         $this->parameters = $parameters;
         return $this;
+    }
+
+    /**
+     * @return array run the query end return it
+     */
+    public function execute()
+    {
+        $this->prepareQuery();
+        $prepare = $this->base->getConnection()->prepare($this->query);
+        if ($execute = $prepare->execute($this->parameters)) {
+            return ['query' => $this->query, 'execute' => $execute, 'prepare' => $prepare];
+        }
     }
 
     /**
@@ -93,7 +105,8 @@ class QueryBuilder
      *
      * @return string
      */
-    protected function buildQuery(){
+    protected function buildQuery()
+    {
         return $this->getBase()->bridge->tongue->build($this->datas);
     }
 
@@ -160,7 +173,8 @@ class QueryBuilder
      * @param string $statement
      * @return $this
      */
-    public function like($column, $statement){
+    public function like($column, $statement)
+    {
         $this->datas['like'][] = [$column, $statement, 'AND'];
 
         return $this;
@@ -173,7 +187,8 @@ class QueryBuilder
      * @param string $statement
      * @return $this
      */
-    public function orLike($column, $statement){
+    public function orLike($column, $statement)
+    {
         $this->datas['like'][] = [$column, $statement, 'OR'];
 
         return $this;
@@ -442,7 +457,6 @@ class QueryBuilder
         $this->datas['insert'][] = $set;
         return $this;
     }
-
 
 
     /**
