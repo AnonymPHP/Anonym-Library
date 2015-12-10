@@ -128,7 +128,8 @@ class Model
      * @return $this
      */
     public function delete(){
-        $return = $this->getQueryBuilder()->execute();
+
+        $return = $this->getQueryBuilder()->delete()->execute();
 
         $this->query = $return['query'];
         $this->lastExecutes[] = $return['execute'];
