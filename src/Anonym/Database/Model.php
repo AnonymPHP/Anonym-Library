@@ -8,6 +8,7 @@
 
 namespace Anonym\Database;
 
+use ReflectionObject;
 /**
  * Class Model
  * @package Anonym\Database
@@ -44,7 +45,8 @@ class Model
         if (isset($this->vars['table']) && !empty($this->vars['table'])) {
             return $this->vars['table'];
         }else{
-
+            $referer = new ReflectionObject($this);
+            $this->table = strtolower($referer->getShortName());
         }
     }
 
