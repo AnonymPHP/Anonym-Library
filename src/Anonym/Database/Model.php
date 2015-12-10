@@ -46,8 +46,13 @@ class Model extends Base
         $this->bootIfWasnt();
     }
 
+    /**
+     * determine if is this class booted by static, if it is not boot it.
+     */
     private function bootIfWasnt(){
-
+        if(!static::$booted || empty(static::$booted) || !static::$booted instanceof Model){
+            static::$booted = $this;
+        }
     }
     /**
      *
