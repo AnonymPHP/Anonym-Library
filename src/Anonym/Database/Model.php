@@ -7,7 +7,6 @@
  */
 
 namespace Anonym\Database;
-
 use ReflectionObject;
 /**
  * Class Model
@@ -30,6 +29,13 @@ class Model extends Base
      * @var array
      */
     private $vars;
+
+    /**
+     * the instance of self
+     *
+     * @var Model
+     */
+    private static $booted;
     /**
      * the constructor of Model .
      */
