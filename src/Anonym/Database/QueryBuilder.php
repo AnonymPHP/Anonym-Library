@@ -345,7 +345,8 @@ class QueryBuilder
      *
      * @return $this
      */
-    public function delete(){
+    public function delete()
+    {
         $this->datas['delete'] = true;
         return $this;
     }
