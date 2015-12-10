@@ -80,13 +80,6 @@ class Base
      */
     private static $queryBuilder;
 
-    /**
-     * returns the attributes
-     *
-     * @var array
-     */
-    protected $attributes;
-
 
     /**
      * create a new instance and use the configs

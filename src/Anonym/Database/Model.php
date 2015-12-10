@@ -45,6 +45,14 @@ class Model
      */
     private static $booted;
 
+
+    /**
+     * returns the attributes
+     *
+     * @var array
+     */
+    protected $attributes;
+
     /**
      * the constructor of Model .
      */
