@@ -75,7 +75,6 @@ class Model
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
         $this->bootIfWasnt();
-        $this->getQueryBuilder()->select(['*']);
     }
 
     /**
