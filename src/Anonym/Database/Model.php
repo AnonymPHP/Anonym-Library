@@ -59,6 +59,15 @@ class Model
     protected $query;
 
     /**
+     * @var array
+     */
+    protected $lastExecutes;
+
+    /**
+     * @var array
+     */
+    protected $lastPrepares;
+    /**
      * the constructor of Model .
      */
     public function __construct()
@@ -97,9 +106,20 @@ class Model
         return $base::getQueryBuilder();
     }
 
+    /**
+     * do an update query
+     *
+     * @param array $update
+     * @return $this
+     */
     public function update(array $update){
         $update = $this->getQueryBuilder()->update($update);
-        $query = $update->p
+        $return = $update->execute();
+
+        $this->query = $return['query'];
+        $this->lastExecutes[] = $return['execute'];
+        $this->lastPrepares[] = $prepare =  $return['prepare'];
+        return $this;
     }
     /**
      *
