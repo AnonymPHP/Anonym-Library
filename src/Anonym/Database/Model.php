@@ -21,7 +21,7 @@ class Model
      *
      * @var Base
      */
-    private static $base;
+    public static $base;
 
     /**
      * the name of selected table
