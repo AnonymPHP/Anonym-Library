@@ -156,12 +156,11 @@ class Model
      */
     public function insert(array $insert = [])
     {
-        $insert = $this->getQueryBuilder()->set($insert);
-        $return = $insert->execute();
+        if (count($insert) !== 0) {
+            $this->getQueryBuilder()->set($insert);
+        }
 
-        $this->query = $return['query'];
-        $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] = $return['prepare'];
+        return $this->execute();
     }
 
 
