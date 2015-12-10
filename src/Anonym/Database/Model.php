@@ -136,6 +136,7 @@ class Model
         $this->lastExecutes[] = $return['execute'];
         $this->lastPrepares[] = $return['prepare'];
     }
+
     /**
      *
      * @return string
