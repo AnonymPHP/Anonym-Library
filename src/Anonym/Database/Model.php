@@ -67,6 +67,7 @@ class Model
      * @var array
      */
     protected $lastPrepares;
+
     /**
      * the constructor of Model .
      */
@@ -100,7 +101,8 @@ class Model
     /**
      * @return QueryBuilder
      */
-    private function getQueryBuilder(){
+    private function getQueryBuilder()
+    {
         $base = static::$base;
 
         return $base::getQueryBuilder();
@@ -112,13 +114,25 @@ class Model
      * @param array $update
      * @return $this
      */
-    public function update(array $update = []){
-        $update = count($update) !== 0 ? $this->getQueryBuilder()->update($update) : $this->getQueryBuilder();
-        $return = $update->execute();
+    public function update(array $update = [])
+    {
+        if (count($update) !== 0) {
+            $this->getQueryBuilder()->update($update);
+        }
+
+        return $this->execute();
+    }
+
+    /**
+     *  execute a query
+     */
+    private function execute()
+    {
+        $return = $this->getQueryBuilder()->execute();
 
         $this->query = $return['query'];
         $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] =  $return['prepare'];
+        $this->lastPrepares[] = $return['prepare'];
         return $this;
     }
 
@@ -127,14 +141,10 @@ class Model
      *
      * @return $this
      */
-    public function delete(){
-
-        $return = $this->getQueryBuilder()->delete()->execute();
-
-        $this->query = $return['query'];
-        $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] = $return['prepare'];
-        return $this;
+    public function delete()
+    {
+        $this->getQueryBuilder()->delete();
+        return $this->execute();
     }
 
 
@@ -144,7 +154,8 @@ class Model
      * @param array $insert
      * @return $this
      */
-    public function insert(array $insert = []){
+    public function insert(array $insert = [])
+    {
         $insert = $this->getQueryBuilder()->set($insert);
         $return = $insert->execute();
 
