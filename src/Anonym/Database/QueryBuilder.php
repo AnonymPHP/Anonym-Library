@@ -80,7 +80,7 @@ class QueryBuilder
      *
      * @return \Anonym\Database\Managers\BuildManager
      */
-    protected function prepareQuery()
+    public function prepareQuery()
     {
         list($query, $parameters) =  array_values($this->buildQuery());
         $this->query = $query;

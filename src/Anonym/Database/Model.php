@@ -54,6 +54,11 @@ class Model
     protected $attributes;
 
     /**
+     * @var string
+     */
+    protected $query;
+
+    /**
      * the constructor of Model .
      */
     public function __construct()
@@ -92,6 +97,10 @@ class Model
         return $base::getQueryBuilder();
     }
 
+    public function update(array $update){
+        $update = $this->getQueryBuilder()->update($update);
+        $query = $update->p
+    }
     /**
      *
      * @return string
