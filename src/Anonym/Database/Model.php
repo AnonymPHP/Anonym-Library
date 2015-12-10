@@ -49,5 +49,4 @@ class Model
             $this->table = strtolower($referer->getShortName());
         }
     }
-
 }
