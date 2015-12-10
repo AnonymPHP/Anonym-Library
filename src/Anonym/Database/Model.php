@@ -26,6 +26,14 @@ class Model
      */
     public function __construct()
     {
+        $this->table = $this->findSelectedTable();
+    }
+
+    /**
+     *
+     * @return string
+     */
+    private function findSelectedTable(){
 
     }
 
