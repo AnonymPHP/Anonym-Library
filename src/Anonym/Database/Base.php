@@ -89,13 +89,6 @@ class Base
 
 
     /**
-     * the name of connecting table
-     *
-     * @var string
-     */
-    protected $connectedTable;
-
-    /**
      * create a new instance and use the configs
      *
      * @param array $configs
@@ -131,47 +124,6 @@ class Base
         }
     }
 
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getConnectedTable()
-    {
-        return $this->connectedTable;
-    }
-
-    /**
-     * @param mixed $connectedTable
-     * @return ConnectionManager
-     */
-    public function setConnectedTable($connectedTable)
-    {
-        $this->connectedTable = $connectedTable;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getModes()
-    {
-        return $this->modes;
-    }
-
-    /**
-     * @param mixed $modes
-     *
-     * @return ModeManager
-     */
-    public function setModes($modes)
-    {
-        $this->modes = $modes;
-
-        return $this;
-    }
 
     /**
      * Veritabanının içeriğini döndürür.
