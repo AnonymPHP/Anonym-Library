@@ -341,6 +341,14 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+     *
+     * @return $this
+     */
+    public function delete(){
+        $this->datas['delete'] = true;
+        return $this;
+    }
 
     /**
      * Join komutu ekler
