@@ -118,8 +118,23 @@ class Model
 
         $this->query = $return['query'];
         $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] = $prepare =  $return['prepare'];
+        $this->lastPrepares[] =  $return['prepare'];
         return $this;
+    }
+
+    /**
+     * execute an insert query
+     *
+     * @param array $insert
+     * @return $this
+     */
+    public function insert(array $insert = []){
+        $insert = $this->getQueryBuilder()->set($insert);
+        $return = $insert->execute();
+
+        $this->query = $return['query'];
+        $this->lastExecutes[] = $return['execute'];
+        $this->lastPrepares[] = $return['prepare'];
     }
     /**
      *
