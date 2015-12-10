@@ -123,6 +123,20 @@ class Model
     }
 
     /**
+     * execute a delete query
+     *
+     * @return $this
+     */
+    public function delete(){
+        $return = $this->getQueryBuilder()->execute();
+
+        $this->query = $return['query'];
+        $this->lastExecutes[] = $return['execute'];
+        $this->lastPrepares[] = $return['prepare'];
+        return $this;
+    }
+
+    /**
      * execute an insert query
      *
      * @param array $insert
