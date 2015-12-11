@@ -29,7 +29,7 @@ class Database
      *
      * @var string
      */
-    public $table;
+    protected $table;
 
     /**
      * the variables of this class and children
@@ -176,11 +176,10 @@ class Database
      * @param string $table
      * @return $this
      */
-    public static function table($table = '')
+    public function table($table = '')
     {
-        $return = new self();
-        $return->setTable($table);
-        return $return;
+        $this->table = $table;
+        return $this;
     }
 
     /**
