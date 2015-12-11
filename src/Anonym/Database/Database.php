@@ -214,6 +214,6 @@ class Database
      */
     public static function __callStatic($name, $arguments)
     {
-        return call_user_func_array([static::$booted, $name], $arguments);
+        return call_user_func_array([new self(), $name], $arguments);
     }
 }
