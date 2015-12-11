@@ -142,13 +142,32 @@ class QueryBuilder
     }
 
     /**
+     * @param string $table
+     * @return $this
+     */
+    public function tableExists($table = '')
+    {
+        $this->datas['table_exists'] = $table !== '' ? $table : $this->datas['from'];
+        $this->datas['advanced'] = true;
+        return $this;
+    }
+
+    public function columnExists($column)
+    {
+        $this->datas['column_exists'] = $column;
+        $this->datas['advanced'] = true;
+        return $this;
+    }
+
+    /**
      * add a new avg query
      *
      * @param string $column
      * @param string $as
      * @return $this
      */
-    public function avg($column, $as = ''){
+    public function avg($column, $as = '')
+    {
         $column = "AVG($column)";
         if ($as !== '') {
             $column .= " AS $as";
