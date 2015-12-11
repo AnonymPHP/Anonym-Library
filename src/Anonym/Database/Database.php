@@ -38,7 +38,6 @@ class Database
      */
     private $vars;
 
-
     /**
      * returns the attributes
      *
