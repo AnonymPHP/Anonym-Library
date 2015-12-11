@@ -182,7 +182,7 @@ class Database
     }
 
     /**
-     * returns last execute
+     * returns last executes result
      *
      * @return mixed
      */
