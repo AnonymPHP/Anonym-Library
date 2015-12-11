@@ -183,6 +183,14 @@ class Database
     }
 
     /**
+     * returns last query instance
+     *
+     * @return mixed
+     */
+    public function getLastQuery(){
+        return end($this->lastPrepares);
+    }
+    /**
      *
      * @return string
      */
