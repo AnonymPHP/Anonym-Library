@@ -38,13 +38,6 @@ class Database
      */
     private $vars;
 
-    /**
-     * the instance of self
-     *
-     * @var Model
-     */
-    private static $booted;
-
 
     /**
      * returns the attributes
@@ -76,7 +69,6 @@ class Database
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
         $this->getQueryBuilder()->datas['from'] = $this->table;
-        $this->bootIfWasnt();
     }
 
     /**
@@ -95,7 +87,7 @@ class Database
     private function bootIfWasnt()
     {
         if (static::$booted === null) {
-            static::$booted = $this;
+            static::$booted = new self();
         }
     }
 
