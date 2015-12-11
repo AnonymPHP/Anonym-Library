@@ -94,7 +94,7 @@ class Database
      */
     private function bootIfWasnt()
     {
-        if (!static::$booted || empty(static::$booted) || !static::$booted instanceof Model) {
+        if (static::$booted === null) {
             static::$booted = $this;
         }
     }
