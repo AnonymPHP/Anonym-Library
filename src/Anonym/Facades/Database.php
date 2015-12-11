@@ -32,7 +32,7 @@ class Database
      */
     public function __construct()
     {
-        $this->base = App::make('database.base');
+        $this->base = new \Anonym\Database\Database(App::make('database.base'));
     }
 
     /**
