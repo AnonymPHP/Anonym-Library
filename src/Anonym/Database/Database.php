@@ -177,6 +177,16 @@ class Database
         return $this->execute();
     }
 
+    /**
+     * set the selected table
+     *
+     * @param string $table
+     * @return $this
+     */
+    public function table($table = ''){
+        $this->table = $table;
+        return $this;
+    }
 
     /**
      *
