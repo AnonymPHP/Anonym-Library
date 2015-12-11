@@ -182,6 +182,14 @@ class Database
     }
 
     /**
+     * returns last execute
+     *
+     * @return mixed
+     */
+    public function getLastResult(){
+        return end($this->lastExecutes);
+    }
+    /**
      *
      * @return string
      */
