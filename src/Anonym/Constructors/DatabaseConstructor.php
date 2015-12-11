@@ -14,6 +14,7 @@ namespace Anonym\Constructors;
 use Anonym\Application\Application;
 use Anonym\Application\ServiceProvider;
 use Anonym\Database\Base;
+use Anonym\Database\Database;
 use Anonym\Facades\App;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
@@ -50,6 +51,7 @@ class DatabaseConstructor extends ServiceProvider
                 return App::make('database.base');
             });
 
+            Database::setDatabaseApplication(App::make(Base::class));
 
         }
     }
