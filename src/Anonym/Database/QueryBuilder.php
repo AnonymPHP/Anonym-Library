@@ -123,6 +123,13 @@ class QueryBuilder
     }
 
 
+    /**
+     * add a sum query
+     *
+     * @param string $column
+     * @param string $as
+     * @return $this
+     */
     public function sum($column, $as = '')
     {
         $column = "SUM($column)";
@@ -131,6 +138,24 @@ class QueryBuilder
         }
 
         $this->datas['select'][] = $column;
+        return $this;
+    }
+
+    /**
+     * add a new avg query
+     *
+     * @param string $column
+     * @param string $as
+     * @return $this
+     */
+    public function avg($column, $as = ''){
+        $column = "AVG($column)";
+        if ($as !== '') {
+            $column .= " AS $as";
+        }
+
+        $this->datas['select'][] = $column;
+        return $this;
     }
 
     /**
