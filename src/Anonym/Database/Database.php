@@ -176,9 +176,9 @@ class Database
      * @param string $table
      * @return $this
      */
-    public function table($table = ''){
-        $this->table = $table;
-        return $this;
+    public static function table($table = ''){
+        $return = new self();
+        return $return->table = $table;
     }
 
     /**

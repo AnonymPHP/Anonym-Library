@@ -19,10 +19,6 @@ $base = new \Anonym\Database\Base([
 
 \Anonym\Database\Database::setDatabaseApplication($base);
 
-$database = new \Anonym\Database\Database();
-$database->table('deneme');
-$database->insert([
-    'aa' => 'bb'
-]);
+$database = \Anonym\Database\Database::table('deneme');
 
 var_dump($database);
