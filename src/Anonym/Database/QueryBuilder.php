@@ -61,7 +61,7 @@ class QueryBuilder
      *
      * @var string
      */
-    protected $datas;
+    public $datas;
 
     /**
      * the constructor of ModeManager .
@@ -71,7 +71,6 @@ class QueryBuilder
     public function __construct(Base $base = null)
     {
         $this->setBase($base);
-        $this->datas['from'] = $base->getConnectedTable();
         $this->datas['select'] = '*';
     }
 
