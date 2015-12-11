@@ -123,7 +123,8 @@ class QueryBuilder
     }
 
 
-    public function sum($column, $as = ''){
+    public function sum($column, $as = '')
+    {
         $column = "SUM($column)";
         if ($as !== '') {
             $column .= " AS $as";
@@ -131,6 +132,7 @@ class QueryBuilder
 
         $this->datas['select'][] = $column;
     }
+
     /**
      * Where tetiklenir
      *
@@ -317,7 +319,7 @@ class QueryBuilder
     public function select($select = null)
     {
 
-        $this->datas['select'] = $select;
+        $this->datas['select'][] = $select;
 
         return $this;
     }
