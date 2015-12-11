@@ -75,6 +75,7 @@ class Database
     {
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
+        $this->getQueryBuilder()->datas['from'] = $this->table;
         $this->bootIfWasnt();
     }
 
