@@ -220,7 +220,7 @@ class Database
      * @param $arguments
      * @return mixed
      */
-    public function __callStatic($name, $arguments)
+    public static function __callStatic($name, $arguments)
     {
         return call_user_func_array([static::$booted, $name], $arguments);
     }
