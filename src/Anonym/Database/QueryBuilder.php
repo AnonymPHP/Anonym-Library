@@ -123,6 +123,14 @@ class QueryBuilder
     }
 
 
+    public function sum($column, $as = ''){
+        $column = "SUM($column)";
+        if ($as !== '') {
+            $column .= " AS $as";
+        }
+
+        $this->datas['select'][] = $column;
+    }
     /**
      * Where tetiklenir
      *
