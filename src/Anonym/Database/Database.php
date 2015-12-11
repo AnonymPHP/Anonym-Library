@@ -80,15 +80,6 @@ class Database
         static::$base = $base;
     }
 
-    /**
-     * determine if is this class booted by static, if it is not boot it.
-     */
-    private function bootIfWasnt()
-    {
-        if (static::$booted === null) {
-            static::$booted = new self();
-        }
-    }
 
     /**
      * @return QueryBuilder
