@@ -10,14 +10,15 @@
 
 include 'vendor/autoload.php';
 
-$database = new \Anonym\Database\Base([
+$base = new \Anonym\Database\Base([
     'host' => 'localhost',
     'db' => 'deneme',
     'username' => 'root',
     'password' => ''
 ],new \Illuminate\Container\Container());
 
-$advanced = $database->advanced('test', function(\Anonym\Database\Mode\Advanced $advanced){
-   return $advanced->columnExists('username')->build();
-});
+\Anonym\Database\Database::setDatabaseApplication($base);
 
+$database = new \Anonym\Database\Database();
+
+var_dump($database);
