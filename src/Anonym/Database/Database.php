@@ -29,7 +29,7 @@ class Database
      *
      * @var string
      */
-    protected $table;
+    public $table;
 
     /**
      * the variables of this class and children
@@ -176,9 +176,11 @@ class Database
      * @param string $table
      * @return $this
      */
-    public static function table($table = ''){
+    public static function table($table = '')
+    {
         $return = new self();
-        return $return->table = $table;
+        $return->setTable($table);
+        return $return;
     }
 
     /**
@@ -186,9 +188,11 @@ class Database
      *
      * @return mixed
      */
-    public function getLastResult(){
+    public function getLastResult()
+    {
         return end($this->lastExecutes);
     }
+
     /**
      *
      * @return string
