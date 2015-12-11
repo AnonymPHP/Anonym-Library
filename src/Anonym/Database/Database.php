@@ -14,7 +14,7 @@ use ReflectionObject;
  * Class Model
  * @package Anonym\Database
  */
-class Model
+class Database
 {
 
     /**
