@@ -105,7 +105,6 @@ class Database
     private function getQueryBuilder()
     {
         $base = static::$base;
-
         return $base::getQueryBuilder();
     }
 
@@ -120,6 +119,7 @@ class Database
         if (count($update) !== 0) {
             $this->getQueryBuilder()->update($update);
         }
+
 
         return $this->execute();
     }

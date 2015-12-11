@@ -94,9 +94,9 @@ class QueryBuilder
     {
         $this->prepareQuery();
         $prepare = $this->base->getConnection()->prepare($this->query);
-        if ($execute = $prepare->execute($this->parameters)) {
-            return ['query' => $this->query, 'execute' => $execute, 'prepare' => $prepare];
-        }
+        $execute = $prepare->execute($this->parameters);
+
+        return ['query' => $this->query, 'execute' => $execute, 'prepare' => $prepare];
     }
 
     /**

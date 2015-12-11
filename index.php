@@ -20,3 +20,9 @@ $base = new \Anonym\Database\Base([
 \Anonym\Database\Database::setDatabaseApplication($base);
 
 $database = new \Anonym\Database\Database();
+$database->table('deneme');
+$database->insert([
+    'aa' => 'bb'
+]);
+
+var_dump($database);
