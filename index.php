@@ -20,5 +20,3 @@ $base = new \Anonym\Database\Base([
 \Anonym\Database\Database::setDatabaseApplication($base);
 
 $database = new \Anonym\Database\Database();
-
-var_dump($database);
