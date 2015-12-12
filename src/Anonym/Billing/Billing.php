@@ -43,7 +43,12 @@ class Billing extends Database
         parent::__construct();
     }
 
-
+    /**
+     * return or set the cash amount
+     *
+     * @param null $cash
+     * @return mixed
+     */
     public function cash($cash = null)
     {
         if ($cash !== null) {
