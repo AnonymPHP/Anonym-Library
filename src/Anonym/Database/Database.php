@@ -79,16 +79,22 @@ class Database
      * @param null $value
      * @return $this
      */
-    public function where($index, $value = null){
+    public function where($index, $value = null)
+    {
         $this->getQueryBuilder()->where($index, $value);
 
+        $this->execute();
 
+        if (false !== $lastFetch = $this->getLastQuery()->fetchAll()) {
+            $this->attributes = $lastFetch;
+        }
     }
 
     /**
      *  handle the class variables
      */
-    private function handleVars(){
+    private function handleVars()
+    {
 
     }
 
