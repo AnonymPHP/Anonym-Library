@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Billing;
+
 use Anonym\Facades\Config;
 
 /**
@@ -36,6 +37,6 @@ class Billing
     public function __construct($selectedUserId = 0)
     {
         $this->table = Config::get('database.tables.billing');
-        $this->selectedUserId = $this->database->getFirstAttribute()['id'];
+        $this->selectedUserId = $selectedUserId;
     }
 }
