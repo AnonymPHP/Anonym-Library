@@ -75,9 +75,9 @@ abstract class Tongue
     {
         $this->datas = $datas;
 
-        if(isset($this->datas['update']) && !empty($this->datas['update'])){
+        if(isset($this->datas['update']) && $this->datas['update'] === true){
             $type = 'update';
-        }elseif(isset($this->datas['insert']) && !empty($this->datas['insert'])){
+        }elseif(isset($this->datas['insert']) && $this->datas['insert'] === true){
             $type = 'insert';
         }elseif(isset($this->datas['select']) && !empty($this->datas['select'])){
             $type = 'read';
