@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Billing;
+
 use Anonym\Database\Database;
 
 /**
@@ -36,5 +37,6 @@ class Billing
     {
         $this->database = $database;
         $this->table = $database::getBase()->getContainer()->make('config')->get('database.tables.billing');
+        $this->database = $this->database->table($this->table);
     }
 }
