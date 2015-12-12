@@ -194,7 +194,7 @@ class Database
     public function update(array $update = [])
     {
         if (count($update) !== 0) {
-            $this->getQueryBuilder()->update($update);
+            $this->getQueryBuilder()->set($update);
         }
 
 
