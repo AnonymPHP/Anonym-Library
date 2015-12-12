@@ -90,7 +90,7 @@ class Base
      */
     public function __construct(array $configs = [], Container $container = null)
     {
-        static::$container = $container;
+        static::setContainer($container);
         $this->openConnection($configs);
         static::$queryBuilder = new QueryBuilder($this);
     }
@@ -158,4 +158,19 @@ class Base
         return self::$queryBuilder;
     }
 
+    /**
+     * @return Container
+     */
+    public static function getContainer()
+    {
+        return self::$container;
+    }
+
+    /**
+     * @param Container $container
+     */
+    public static function setContainer($container)
+    {
+        self::$container = $container;
+    }
 }
