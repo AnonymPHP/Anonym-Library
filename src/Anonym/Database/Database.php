@@ -73,6 +73,17 @@ class Database
     }
 
     /**
+     * add a new where query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function where($index, $value = null){
+
+    }
+
+    /**
      *  handle the class variables
      */
     private function handleVars(){
