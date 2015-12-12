@@ -308,4 +308,15 @@ class Database
     {
         return call_user_func_array([new self(), $name], $arguments);
     }
+
+    /**
+     * returns the an value of attributes
+     *
+     * @param string $name
+     * @return null
+     */
+    public function __get($name)
+    {
+        return isset($this->attributes[$name]) ? $this->attributes[$name] : null;
+    }
 }
