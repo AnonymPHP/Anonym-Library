@@ -87,6 +87,8 @@ class Database
         if (false !== $lastFetch = $this->getLastQuery()->fetch(PDO::FETCH_ASSOC)) {
             $this->attributes = $lastFetch;
         }
+
+        return $this;
     }
 
     /**

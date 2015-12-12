@@ -15,10 +15,10 @@ $base = new \Anonym\Database\Base([
     'dbname' => 'deneme',
     'username' => 'root',
     'password' => ''
-],new \Illuminate\Container\Container());
+], new \Illuminate\Container\Container());
 
 \Anonym\Database\Database::setDatabaseApplication($base);
 
-$database = \Anonym\Database\Database::table('deneme');
+$database = (new  \Anonym\Database\Database())->table('test');
 
-var_dump($database);
+var_dump($database->where('username', 'aaa'));
