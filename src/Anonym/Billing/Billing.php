@@ -7,8 +7,7 @@
  */
 
 namespace Anonym\Billing;
-
-use Anonym\Database\Database;
+use Anonym\Facades\Config;
 
 /**
  * Class Billing
@@ -17,10 +16,6 @@ use Anonym\Database\Database;
 class Billing
 {
 
-    /**
-     * @var Database
-     */
-    protected $database;
 
     /**
      * the table name of cashier
@@ -36,12 +31,11 @@ class Billing
 
     /**
      * the constructor of Billing .
-     * @param Database $database
+     * @param int $selectedUserId
      */
-    public function __construct(Database $database)
+    public function __construct($selectedUserId = 0)
     {
-        $this->database = $database;
-        $this->table = $database::getBase()->getContainer()->make('config')->get('database.tables.billing');
+        $this->table = Config::get('database.tables.billing');
         $this->selectedUserId = $this->database->getFirstAttribute()['id'];
     }
 }
