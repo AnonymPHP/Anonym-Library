@@ -569,9 +569,10 @@ class Html5
     /**
      * @param string $src
      * @param string $_attributes
+     * @param string $name
      * @return string
      */
-    public static function embed($src = "", $_attributes = '')
+    public static function embed($src = "", $_attributes = '', $name = '')
     {
         if (!is_string($src)) $src = "";
         $id = (isset($_attributes["id"])) ? $_attributes["id"] : $name;
