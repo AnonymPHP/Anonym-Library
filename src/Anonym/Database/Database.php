@@ -160,6 +160,9 @@ class Database
         return $this->execute();
     }
 
+    public function billing(){
+
+    }
     /**
      * set the selected table
      *

@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Billing;
+use Anonym\Database\Database;
 use Anonym\Element\Element;
 
 /**
@@ -17,9 +18,9 @@ class Billing
 {
 
     /**
-     * @var Element
+     * @var Database
      */
-    protected $element;
+    protected $database;
 
     /**
      * the table name of cashier
@@ -30,10 +31,10 @@ class Billing
 
     /**
      * the constructor of Billing .
-     * @param Element $element
+     * @param Database $database
      */
-    public function __construct(Element $element)
+    public function __construct(Database $database)
     {
-        $this->element = $element->setTable('billing');
+        $this->database = $database;
     }
 }
