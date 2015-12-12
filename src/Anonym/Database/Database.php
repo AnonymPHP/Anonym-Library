@@ -78,6 +78,7 @@ class Database
     private function handleVars(){
 
     }
+
     /**
      * register the database
      *
