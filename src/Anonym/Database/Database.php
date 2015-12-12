@@ -70,7 +70,6 @@ class Database
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
         $this->getQueryBuilder()->datas['from'] = $this->table;
-        $this->handleVars();
     }
 
     /**
@@ -89,14 +88,6 @@ class Database
         if (false !== $lastFetch = $this->getLastQuery()->fetch(PDO::FETCH_ASSOC)) {
             $this->attributes = $lastFetch;
         }
-    }
-
-    /**
-     *  handle the class variables
-     */
-    private function handleVars()
-    {
-
     }
 
     /**
