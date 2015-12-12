@@ -240,8 +240,8 @@ class Database
     public function billing()
     {
         if ($this->table === 'User') {
-            if (isset($this->attributes[0])) {
-                return new Billing($this->getFirstAttribute()[0]);
+            if (isset($this->attributes)) {
+                return new Billing($this->id);
             }
         }
     }
