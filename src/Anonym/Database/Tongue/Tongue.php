@@ -83,6 +83,8 @@ abstract class Tongue
             $type = 'read';
         }elseif(isset($this->datas['delete']) && $this->datas['delete'] === true){
             $type = 'delete';
+        }elseif(isset($this->datas['advanced']) && $this->datas['advanced'] === true){
+            $type = "advanced";
         }
 
         $compilerMethodName = 'compile' . ucfirst($type);
