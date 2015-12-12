@@ -8,13 +8,14 @@
 
 namespace Anonym\Billing;
 
+use Anonym\Database\Database;
 use Anonym\Facades\Config;
 
 /**
  * Class Billing
  * @package Anonym\Billing
  */
-class Billing
+class Billing extends Database
 {
 
 
