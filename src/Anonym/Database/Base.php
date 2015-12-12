@@ -10,7 +10,6 @@
 
 namespace Anonym\Database;
 
-use Anonym\Database\Mode\Advanced;
 use Anonym\Database\Traits\Where;
 use Illuminate\Container\Container;
 use Anonym\Support\Arr;
@@ -18,15 +17,11 @@ use Anonym\Database\Exceptions\BridgeException;
 use Anonym\Database\Bridge\PlsqlBridge;
 use Anonym\Database\Bridge\PgsqlBridge;
 use Anonym\Database\Bridge\MysqlBridge;
-use Anonym\Database\Mode\Delete;
-use Anonym\Database\Mode\Read;
-use Anonym\Database\Mode\Update;
-use Anonym\Database\Mode\Insert;
 use Anonym\Database\Traits\ConnectionManager;
 use Anonym\Database\Traits\ModeManager;
 use Anonym\Database\Bridge\Bridge;
 use PDO;
-use Closure;
+
 
 /**
  * Class Base
