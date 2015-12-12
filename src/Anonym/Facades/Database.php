@@ -59,6 +59,4 @@ class Database
         $app = new static();
         return call_user_func_array([$app->base, $name], $args);
     }
-
-
 }
