@@ -12,7 +12,7 @@ include 'vendor/autoload.php';
 
 $base = new \Anonym\Database\Base([
     'host' => 'localhost',
-    'dbname' => 'deneme',
+    'db' => 'deneme',
     'username' => 'root',
     'password' => ''
 ], new \Illuminate\Container\Container());
