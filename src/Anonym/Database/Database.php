@@ -8,6 +8,7 @@
 
 namespace Anonym\Database;
 
+use Anonym\Billing\Billing;
 use ReflectionObject;
 
 /**
@@ -160,10 +161,17 @@ class Database
         return $this->execute();
     }
 
+    /**
+     * returns new billing instance
+     *
+     * @return Billing
+     */
     public function billing()
     {
-        if($this->table === 'User'){
-            
+        if ($this->table === 'User') {
+            if (isset($this->attributes[0])) {
+                return new Billing($this->getFirstAttribute()[0]);
+            }
         }
     }
 
@@ -216,9 +224,11 @@ class Database
      *
      * @return mixed
      */
-    public function getFirstAttribute(){
+    public function getFirstAttribute()
+    {
         return $this->getAttributes()[0];
     }
+
     /**
      *
      * @return string
