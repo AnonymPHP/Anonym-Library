@@ -145,17 +145,6 @@ class Database
     }
 
     /**
-     * returns first attribute
-     *
-     * @return mixed
-     */
-    public function getFirstAttribute()
-    {
-        return $this->getAttributes()[0];
-    }
-
-
-    /**
      * @return Base
      */
     public static function getBase()
@@ -196,9 +185,7 @@ class Database
         if (count($update) !== 0) {
             $this->getQueryBuilder()->set($update);
         }
-
         $this->getQueryBuilder()->datas['update'] = true;
-
         return $this->execute();
     }
 
@@ -226,9 +213,7 @@ class Database
         if (count($insert) !== 0) {
             $this->getQueryBuilder()->set($insert);
         }
-
         $this->getQueryBuilder()->datas['insert'] = true;
-
         return $this->execute();
     }
 
