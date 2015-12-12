@@ -160,9 +160,11 @@ class Database
         return $this->execute();
     }
 
-    public function billing(){
+    public function billing()
+    {
 
     }
+
     /**
      * set the selected table
      *
@@ -190,9 +192,11 @@ class Database
      *
      * @return mixed
      */
-    public function getLastQuery(){
+    public function getLastQuery()
+    {
         return end($this->lastPrepares);
     }
+
     /**
      *
      * @return string
