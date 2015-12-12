@@ -41,4 +41,5 @@ class Billing extends Database
         $this->selectedUserId = $selectedUserId;
         parent::__construct();
     }
+
 }

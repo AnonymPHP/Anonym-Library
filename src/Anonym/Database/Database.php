@@ -162,7 +162,9 @@ class Database
 
     public function billing()
     {
-
+        if($this->table === 'User'){
+            
+        }
     }
 
     /**
