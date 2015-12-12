@@ -39,7 +39,19 @@ class Billing extends Database
     {
         $this->table = Config::get('database.tables.billing');
         $this->selectedUserId = $selectedUserId;
+        $this->where('user_id', $selectedUserId);
         parent::__construct();
     }
 
+
+    public function cash($cash = null)
+    {
+        if ($cash !== null) {
+            $this->update([
+                'cash' => $cash
+            ]);
+        } else {
+            return $this->getFirstAttribute()['cash'];
+        }
+    }
 }
