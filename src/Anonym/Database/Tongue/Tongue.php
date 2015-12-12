@@ -344,13 +344,10 @@ abstract class Tongue
     protected function compileInsert()
     {
         $pattern = $this->statements['insert'][0];
-
         $this->datas['insert'] = $this->datas['set'];
-
         $return = call_user_func_array(
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'insert',])]
         );
-
         return ['statement' => $return, 'parameters' => Arr::get($this->datas, 'parameters', [])];
     }
 
