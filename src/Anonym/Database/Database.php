@@ -176,10 +176,10 @@ class Database
 
         $this->execute();
 
-        if (false !== $lastFetch = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC)) {
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
             $this->attributes = $lastFetch;
         }
-        
+
         return $this;
     }
 
