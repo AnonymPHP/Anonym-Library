@@ -345,6 +345,8 @@ abstract class Tongue
     {
         $pattern = $this->statements['insert'][0];
 
+        $this->datas['insert'] = $this->datas['set'];
+
         $return = call_user_func_array(
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'insert',])]
         );
