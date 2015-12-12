@@ -327,6 +327,8 @@ abstract class Tongue
     {
         $pattern = $this->statements['update'][0];
 
+        $this->datas['update'] = $this->datas['set'];
+
         $return = call_user_func_array(
             [$this, 'replaceParameters'], [$pattern, $this->runTheCompilers(['from', 'update', 'where'])]
         );
