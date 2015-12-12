@@ -10,6 +10,7 @@ namespace Anonym\Database;
 
 use Anonym\Billing\Billing;
 use ReflectionObject;
+use PDO;
 
 /**
  * Class Model
@@ -85,7 +86,7 @@ class Database
 
         $this->execute();
 
-        if (false !== $lastFetch = $this->getLastQuery()->fetchAll()) {
+        if (false !== $lastFetch = $this->getLastQuery()->fetch(PDO::FETCH_ASSOC)) {
             $this->attributes = $lastFetch;
         }
     }
