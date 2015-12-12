@@ -72,6 +72,9 @@ class Database
         $this->handleVars();
     }
 
+    /**
+     *  handle the class variables
+     */
     private function handleVars(){
 
     }
