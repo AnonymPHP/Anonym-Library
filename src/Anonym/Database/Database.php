@@ -200,32 +200,7 @@ class Database
         return $this->execute();
     }
 
-    /**
-     *  execute a query
-     */
-    private function execute()
-    {
-        $return = $this->getQueryBuilder()->execute();
 
-        $this->query = $return['query'];
-        $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] = $return['prepare'];
-        return $this;
-    }
-
-    /**
-     *  execute a query
-     */
-    private function executeWithAttrs()
-    {
-        $return = $this->getQueryBuilder()->execute();
-
-        $this->query = $return['query'];
-        $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] = $return['prepare'];
-        $this->attributes = $return['prepare']->fetchAll();
-        return $this;
-    }
 
     /**
      * execute a delete query
@@ -282,6 +257,33 @@ class Database
         $this->lastExecutes = [];
         $this->lastPrepares = [];
         $this->query = null;
+        return $this;
+    }
+
+    /**
+     *  execute a query
+     */
+    private function execute()
+    {
+        $return = $this->getQueryBuilder()->execute();
+
+        $this->query = $return['query'];
+        $this->lastExecutes[] = $return['execute'];
+        $this->lastPrepares[] = $return['prepare'];
+        return $this;
+    }
+
+    /**
+     *  execute a query
+     */
+    private function executeWithAttrs()
+    {
+        $return = $this->getQueryBuilder()->execute();
+
+        $this->query = $return['query'];
+        $this->lastExecutes[] = $return['execute'];
+        $this->lastPrepares[] = $return['prepare'];
+        $this->attributes = $return['prepare']->fetch(PDO::FETCH_ASSOC);
         return $this;
     }
 
