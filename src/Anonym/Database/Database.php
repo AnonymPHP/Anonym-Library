@@ -208,6 +208,15 @@ class Database
     }
 
     /**
+     * @return Base
+     */
+    public static function getBase()
+    {
+        return self::$base;
+    }
+
+
+    /**
      * @param $name
      * @param $arguments
      * @return $this

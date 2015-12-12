@@ -35,5 +35,6 @@ class Billing
     public function __construct(Database $database)
     {
         $this->database = $database;
+        $this->table = $database::getBase()->getContainer()->make('config')->get('database.tables.billing');
     }
 }
