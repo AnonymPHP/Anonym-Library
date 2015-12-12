@@ -173,6 +173,24 @@ class Database
         return $this;
     }
 
+    /**
+     * add a new orwhere query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function orWhere($index, $value = null)
+    {
+        $this->getQueryBuilder()->orWhere($index, $value);
+        $this->execute();
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return $this;
+    }
+
 
     /**
      * do an update query
