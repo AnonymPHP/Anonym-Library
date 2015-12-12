@@ -177,7 +177,7 @@ class Database
         $this->execute();
 
         if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
-            $this->attributes = $lastFetch;
+            $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
         }
 
         return $this;
