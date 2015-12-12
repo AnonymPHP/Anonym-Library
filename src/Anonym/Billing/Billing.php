@@ -42,6 +42,6 @@ class Billing
     {
         $this->database = $database;
         $this->table = $database::getBase()->getContainer()->make('config')->get('database.tables.billing');
-        $this->selectedUserId = $this->database->
+        $this->selectedUserId = $this->database->getFirstAttribute()['id'];
     }
 }
