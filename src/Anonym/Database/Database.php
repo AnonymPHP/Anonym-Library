@@ -69,7 +69,6 @@ class Database
     {
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
-        $this->getQueryBuilder()->datas['from'] = $this->table;
     }
 
     /**
@@ -255,11 +254,13 @@ class Database
     private function findSelectedTable()
     {
         if (isset($this->vars['table']) && !empty($this->vars['table'])) {
-            return $this->vars['table'];
+            $this->table = $this->vars['table'];
         } else {
             $referer = new ReflectionObject($this);
             $this->table = strtolower($referer->getShortName());
         }
+
+        $this->getQueryBuilder()->datas['from'] = $this->table;
     }
 
     /**
