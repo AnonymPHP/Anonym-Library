@@ -39,5 +39,6 @@ class Billing extends Database
     {
         $this->table = Config::get('database.tables.billing');
         $this->selectedUserId = $selectedUserId;
+        parent::__construct();
     }
 }
