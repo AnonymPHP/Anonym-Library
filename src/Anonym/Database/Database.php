@@ -204,6 +204,7 @@ class Database
     public function table($table = '')
     {
         $this->table = $table;
+        $this->getQueryBuilder()->datas['from'] = $table;
         $this->attributes = [];
         $this->lastExecutes = [];
         $this->lastPrepares = [];
@@ -228,6 +229,13 @@ class Database
      */
     public function getLastQuery()
     {
+        return $this->query;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastPrepare(){
         return end($this->lastPrepares);
     }
 
