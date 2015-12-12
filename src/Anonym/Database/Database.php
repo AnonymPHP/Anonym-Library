@@ -9,6 +9,7 @@
 namespace Anonym\Database;
 
 use Anonym\Billing\Billing;
+use Anonym\Support\Arr;
 use ReflectionObject;
 use PDO;
 
@@ -261,15 +262,22 @@ class Database
     }
 
     /**
+     * register the last values
+     *
+     * @param array $return
+     */
+    private function setLastValues($return){
+        $this->query = Arr::get('query', $return);
+        $this->lastExecutes = Arr::get('execute', $return);
+        $this->lastPrepares = Arr::get('prepare', $return);
+    }
+    /**
      *  execute a query
      */
     private function execute()
     {
         $return = $this->getQueryBuilder()->execute();
-
-        $this->query = $return['query'];
-        $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] = $return['prepare'];
+        $this->setLastValues($return);
         return $this;
     }
 
