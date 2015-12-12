@@ -202,6 +202,22 @@ class Database
     }
 
     /**
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * returns first attribute
+     *
+     * @return mixed
+     */
+    public function getFirstAttribute(){
+        return $this->getAttributes()[0];
+    }
+    /**
      *
      * @return string
      */

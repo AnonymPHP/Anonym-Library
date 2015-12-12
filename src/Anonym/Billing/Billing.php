@@ -30,6 +30,11 @@ class Billing
     protected $table;
 
     /**
+     * @var int
+     */
+    protected $selectedUserId;
+
+    /**
      * the constructor of Billing .
      * @param Database $database
      */
@@ -37,6 +42,6 @@ class Billing
     {
         $this->database = $database;
         $this->table = $database::getBase()->getContainer()->make('config')->get('database.tables.billing');
-        $this->database = $this->database->table($this->table);
+        $this->selectedUserId = $this->database->
     }
 }
