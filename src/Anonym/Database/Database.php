@@ -72,23 +72,19 @@ class Database
     }
 
     /**
-     * add a new where query
      *
-     * @param mixed $index
-     * @param null $value
-     * @return $this
+     * @return string
      */
-    public function where($index, $value = null)
+    private function findSelectedTable()
     {
-        $this->getQueryBuilder()->where($index, $value);
-
-        $this->execute();
-
-        if (false !== $lastFetch = $this->getLastQuery()->fetch(PDO::FETCH_ASSOC)) {
-            $this->attributes = $lastFetch;
+        if (isset($this->vars['table']) && !empty($this->vars['table'])) {
+            $this->table = $this->vars['table'];
+        } else {
+            $referer = new ReflectionObject($this);
+            $this->table = strtolower($referer->getShortName());
         }
 
-        return $this;
+        $this->getQueryBuilder()->datas['from'] = $this->table;
     }
 
     /**
@@ -101,7 +97,6 @@ class Database
         static::$base = $base;
     }
 
-
     /**
      * @return QueryBuilder
      */
@@ -110,6 +105,84 @@ class Database
         $base = static::$base;
         return $base::getQueryBuilder();
     }
+
+
+    /**
+     * returns last executes result
+     *
+     * @return mixed
+     */
+    public function getLastResult()
+    {
+        return end($this->lastExecutes);
+    }
+
+    /**
+     * returns last query instance
+     *
+     * @return mixed
+     */
+    public function getLastQuery()
+    {
+        return $this->query;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastPrepare()
+    {
+        return end($this->lastPrepares);
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * returns first attribute
+     *
+     * @return mixed
+     */
+    public function getFirstAttribute()
+    {
+        return $this->getAttributes()[0];
+    }
+
+
+    /**
+     * @return Base
+     */
+    public static function getBase()
+    {
+        return self::$base;
+    }
+
+
+    /**
+     * add a new where query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function where($index, $value = null)
+    {
+        $this->getQueryBuilder()->where($index, $value);
+
+        $this->execute();
+
+        if (false !== $lastFetch = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC)) {
+            $this->attributes = $lastFetch;
+        }
+        
+        return $this;
+    }
+
 
     /**
      * do an update query
@@ -211,76 +284,6 @@ class Database
         $this->query = null;
         return $this;
     }
-
-    /**
-     * returns last executes result
-     *
-     * @return mixed
-     */
-    public function getLastResult()
-    {
-        return end($this->lastExecutes);
-    }
-
-    /**
-     * returns last query instance
-     *
-     * @return mixed
-     */
-    public function getLastQuery()
-    {
-        return $this->query;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLastPrepare(){
-        return end($this->lastPrepares);
-    }
-
-    /**
-     * @return array
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
-
-    /**
-     * returns first attribute
-     *
-     * @return mixed
-     */
-    public function getFirstAttribute()
-    {
-        return $this->getAttributes()[0];
-    }
-
-    /**
-     *
-     * @return string
-     */
-    private function findSelectedTable()
-    {
-        if (isset($this->vars['table']) && !empty($this->vars['table'])) {
-            $this->table = $this->vars['table'];
-        } else {
-            $referer = new ReflectionObject($this);
-            $this->table = strtolower($referer->getShortName());
-        }
-
-        $this->getQueryBuilder()->datas['from'] = $this->table;
-    }
-
-    /**
-     * @return Base
-     */
-    public static function getBase()
-    {
-        return self::$base;
-    }
-
 
     /**
      * @param $name
