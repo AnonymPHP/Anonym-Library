@@ -326,4 +326,15 @@ class Database
     {
         return isset($this->attributes[$name]) ? $this->attributes[$name] : null;
     }
+
+    /**
+     * register new values
+     *
+     * @param string $name
+     * @param string $value
+     */
+    public function __set($name, $value)
+    {
+         $this->getQueryBuilder()->datas['set'][$name] = $value;
+    }
 }
