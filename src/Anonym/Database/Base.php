@@ -10,16 +10,16 @@
 
 namespace Anonym\Database;
 
-use Anonym\Database\Traits\Where;
-use Illuminate\Container\Container;
-use Anonym\Support\Arr;
 use Anonym\Database\Exceptions\BridgeException;
+use Anonym\Database\Traits\ConnectionManager;
 use Anonym\Database\Bridge\PlsqlBridge;
 use Anonym\Database\Bridge\PgsqlBridge;
 use Anonym\Database\Bridge\MysqlBridge;
-use Anonym\Database\Traits\ConnectionManager;
 use Anonym\Database\Traits\ModeManager;
+use Illuminate\Container\Container;
 use Anonym\Database\Bridge\Bridge;
+use Anonym\Database\Traits\Where;
+use Anonym\Support\Arr;
 use PDO;
 
 
