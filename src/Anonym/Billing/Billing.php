@@ -8,7 +8,6 @@
 
 namespace Anonym\Billing;
 use Anonym\Database\Database;
-use Anonym\Element\Element;
 
 /**
  * Class Billing
