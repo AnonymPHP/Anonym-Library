@@ -202,7 +202,6 @@ class Database
     }
 
 
-
     /**
      * execute a delete query
      *
@@ -266,11 +265,13 @@ class Database
      *
      * @param array $return
      */
-    private function setLastValues($return){
+    private function setLastValues($return)
+    {
         $this->query = Arr::get('query', $return);
         $this->lastExecutes = Arr::get('execute', $return);
         $this->lastPrepares = Arr::get('prepare', $return);
     }
+
     /**
      *  execute a query
      */
@@ -287,11 +288,9 @@ class Database
     private function executeWithAttrs()
     {
         $return = $this->getQueryBuilder()->execute();
+        $this->setLastValues($return);
 
-        $this->query = $return['query'];
-        $this->lastExecutes[] = $return['execute'];
-        $this->lastPrepares[] = $return['prepare'];
-        $this->attributes = $return['prepare']->fetch(PDO::FETCH_ASSOC);
+        $this->attributes = Arr::get('prepare', $return)->fetch(PDO::FETCH_ASSOC);
         return $this;
     }
 
