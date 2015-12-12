@@ -191,6 +191,20 @@ class Database
         return $this;
     }
 
+    /**
+     * @param mixed $limit
+     * @return $this
+     */
+    public function limit($limit){
+        $this->getQueryBuilder()->limit($limit);
+
+        $this->execute();
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->attributes = $this->getLastPrepare()->fetchAll();
+        }
+    }
+
+
 
     /**
      * do an update query
