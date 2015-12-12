@@ -174,6 +174,10 @@ class Database
     public function table($table = '')
     {
         $this->table = $table;
+        $this->attributes = [];
+        $this->lastExecutes = [];
+        $this->lastPrepares = [];
+        $this->query = null;
         return $this;
     }
 
