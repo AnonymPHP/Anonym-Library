@@ -59,4 +59,5 @@ class Billing extends Database
             return $this->getFirstAttribute()['cash'];
         }
     }
+
 }
