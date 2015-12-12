@@ -80,6 +80,8 @@ class Database
      * @return $this
      */
     public function where($index, $value = null){
+        $this->getQueryBuilder()->where($index, $value);
+
 
     }
 

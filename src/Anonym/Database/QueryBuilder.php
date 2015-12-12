@@ -142,6 +142,8 @@ class QueryBuilder
     }
 
     /**
+     * add a new table exists query
+     *
      * @param string $table
      * @return $this
      */
@@ -152,6 +154,12 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+     * add a new column exists query
+     *
+     * @param $column
+     * @return $this
+     */
     public function columnExists($column)
     {
         $this->datas['column_exists'] = $column;
