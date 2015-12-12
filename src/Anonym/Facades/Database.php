@@ -22,41 +22,24 @@ class Database
     /**
      * the instance of database base
      *
-     * @var Base
+     * @var \Anonym\Database\Database
      */
-    public $base;
+    private static $base;
+
 
     /**
-     *  create a new instance and set the base
+     * return the database base
      *
+     * @return \Anonym\Database\Database
      */
-    public function __construct()
+    protected static function getFacadeClass()
     {
-        $this->base = new \Anonym\Database\Database(App::make('database.base'));
+
+        if (static::$base === null) {
+            static::$base = new \Anonym\Database\Database();
+        }
+
+        return static::$base;
     }
 
-    /**
-     * dynamic method calling in base
-     *
-     * @param string $name
-     * @param array $args
-     * @return mixed
-     */
-    public function __call($name, $args = [])
-    {
-        return call_user_func_array([$this->base, $name], $args);
-    }
-
-    /**
-     * dynamic method calling in base
-     *
-     * @param string $name
-     * @param array $args
-     * @return mixed
-     */
-    public static function __callStatic($name, $args = [])
-    {
-        $app = new static();
-        return call_user_func_array([$app->base, $name], $args);
-    }
 }
