@@ -27,7 +27,7 @@ class Benchmark
     /**
      * Yeni bir zaman dilimi oluşturur
      * @param unknown $name
-     * @return \Myfc\Benchmark
+     * @return $this
      */
 
     public function micro($name)
