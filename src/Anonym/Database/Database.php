@@ -197,6 +197,7 @@ class Database
             $this->getQueryBuilder()->set($update);
         }
 
+        $this->getQueryBuilder()->datas['update'] = true;
 
         return $this->execute();
     }
@@ -225,6 +226,8 @@ class Database
         if (count($insert) !== 0) {
             $this->getQueryBuilder()->set($insert);
         }
+
+        $this->getQueryBuilder()->datas['insert'] = true;
 
         return $this->execute();
     }
