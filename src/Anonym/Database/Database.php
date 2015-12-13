@@ -78,6 +78,10 @@ class Database
      */
     private function handleClassVars(){
 
+        // set selected columns
+        if (isset($this->vars['select'])) {
+            $this->getQueryBuilder()->select($this->vars['select']);
+        }
     }
     /**
      *
