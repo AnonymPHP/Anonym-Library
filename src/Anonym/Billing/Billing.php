@@ -218,6 +218,7 @@ class Billing extends Database
         }
 
         $endTime = $this->findTimestampOfSubscription($started, $plan);
+        $left = $endTime - $started;
         $this->subscription_paused_left = $left;
     }
 
