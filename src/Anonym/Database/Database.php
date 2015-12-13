@@ -70,8 +70,15 @@ class Database
     {
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
+        $this->handleClassVars();
     }
 
+    /**
+     * handle and execute class vars
+     */
+    private function handleClassVars(){
+
+    }
     /**
      *
      * @return string
