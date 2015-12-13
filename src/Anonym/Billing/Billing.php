@@ -195,7 +195,7 @@ class Billing extends Database
      */
     public function cancel()
     {
-       return $this->status('canceled');
+        return $this->status('canceled');
     }
 
     /**
