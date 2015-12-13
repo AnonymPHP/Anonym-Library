@@ -129,13 +129,20 @@ class Billing extends Database
      * @param int $days
      * @return int
      */
-    protected function findTimestampOfSubscription($started, $days){
+    protected function findTimestampOfSubscription($started, $days)
+    {
         return strtotime("$days+ days", $started);
     }
 
     public function isSubscription()
     {
         $started = $this->subscriptionStarted();
+        $status = $this->status();
+        $time = time();
+
+        if ($started !== '' && $status !== '' && $status !== 'canceled' && $time < $this->findTimestampOfSubscription($started, $days)) {
+
+        }
     }
 
     /**
@@ -144,11 +151,23 @@ class Billing extends Database
      * @param null $status
      * @return $this|null
      */
-    public function status($status = null){
+    public function status($status = null)
+    {
         if ($status === null) {
             return $this->subscription_status;
-        }else{
+        } else {
             $this->subscription_status = $status;
+            return $this;
+        }
+    }
+
+
+    public function plan($plan = null)
+    {
+        if ($plan === null) {
+            return $this->subscription_plan;
+        } else {
+            $this->subscription_plan = $plan;
             return $this;
         }
     }
@@ -159,10 +178,11 @@ class Billing extends Database
      * @param null $started
      * @return mixed
      */
-    public function subscriptionStarted($started = null){
+    public function subscriptionStarted($started = null)
+    {
         if ($started === null) {
             return $this->subscription_started;
-        }else{
+        } else {
             $this->subscription_started = $started;
             $this->status('started');
             return $this;
