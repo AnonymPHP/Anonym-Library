@@ -24,7 +24,7 @@ class Billing extends Database
      * @var array
      */
     protected $select = [
-        'trail_started', 'trail_end'
+        'trail_started', 'trail_end', 'user_id'
     ];
 
     /**
