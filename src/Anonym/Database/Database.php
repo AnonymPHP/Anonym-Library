@@ -187,6 +187,7 @@ class Database
     }
 
     /**
+     * find or create a new data
      *
      * @param mixed $index
      * @param null $value
