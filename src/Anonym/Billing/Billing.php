@@ -24,7 +24,7 @@ class Billing extends Database
      * @var array
      */
     protected $select = [
-        'premium_started', 'premium_end', 'user_id', 'is_trail'
+        'premium_started', 'premium_end', 'user_id',
     ];
 
     /**
@@ -80,7 +80,6 @@ class Billing extends Database
             return $this->trail_started;
         } else {
             $this->trail_started = $started;
-            $this->is_trail = 1;
             return $this;
         }
     }
@@ -97,7 +96,6 @@ class Billing extends Database
             return $this->trail_end;
         } else {
             $this->trail_end = $endDate;
-            $this->is_trail = 1;
             return $this;
         }
     }
