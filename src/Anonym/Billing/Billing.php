@@ -207,6 +207,12 @@ class Billing extends Database
         return $this->status('canceled');
     }
 
+    /**
+     * pause the subscription
+     *
+     * @return $this
+     * @throws BillingSubscriptionPlanException
+     */
     public function pause()
     {
         $this->status('paused');
@@ -220,6 +226,7 @@ class Billing extends Database
         $endTime = $this->findTimestampOfSubscription($started, $plan);
         $left = $endTime - $started;
         $this->subscription_paused_left = $left;
+        return $this;
     }
 
     /**
