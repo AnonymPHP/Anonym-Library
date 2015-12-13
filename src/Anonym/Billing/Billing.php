@@ -240,6 +240,7 @@ class Billing extends Database
      *
      * @param null $started
      * @return mixed
+     * @throws BillingSubscriptionPlanException
      */
     public function subscriptionStarted($started = null)
     {
@@ -250,7 +251,9 @@ class Billing extends Database
                 $this->delete();
                 throw new BillingSubscriptionPlanException(sprintf('Your %s plan is not exists in our website'));
             }
+
             $this->subscription_started = $started;
+            $this->subscriptionEndsAt($this->findTimestampOfSubscription($started, $plan));
 
             $this->status('started');
             return $this;
