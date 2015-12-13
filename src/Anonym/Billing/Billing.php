@@ -47,14 +47,21 @@ class Billing extends Database
     protected $selectedUserId;
 
     /**
+     *
+     * @var int
+     */
+    protected $trailDays;
+
+    /**
      * the constructor of Billing .
      * @param int $selectedUserId
      */
     public function __construct($selectedUserId = 0)
     {
         $this->table = Config::get('billing.table_name');
-        $this->selectedUserId = $selectedUserId;
         $this->subscriptionPlans = Config::get('billing.plans');
+        $this->trailDays = Config::get('billings.trails_days');
+        $this->selectedUserId = $selectedUserId;
         $this->whereOrCreate('user_id', $selectedUserId);
         parent::__construct();
     }
@@ -225,5 +232,10 @@ class Billing extends Database
     public function subscripted()
     {
         return $this->isTrail() ?: $this->isSubscription();
+    }
+
+    public function create()
+    {
+
     }
 }
