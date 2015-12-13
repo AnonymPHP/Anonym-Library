@@ -235,6 +235,14 @@ class Billing extends Database
         $this->subscriptionStarted($time - $this->subscription_paused_left);
     }
 
+    public function subscriptionEndsAt($ends = null){
+        if ($ends === null) {
+            return $this->subscription_ends_at;
+        }else{
+            $this->subscription_ends_at = $ends;
+            return $this;
+        }
+    }
     /**
      * return or set subscription status
      *
