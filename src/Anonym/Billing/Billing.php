@@ -153,10 +153,6 @@ class Billing extends Database
         $status = $this->status();
         $time = time();
 
-        if (!isset($this->subscriptionPlans[$plan = $this->plan()])) {
-            throw new BillingSubscriptionPlanException(sprintf('Your %s plan is not exists in our website'));
-        }
-
         if ($started !== '' && is_numeric($started) && $status !== '' && $status !== 'canceled' && $time < $this->subscriptionEndsAt()) {
             return true;
         } else {
