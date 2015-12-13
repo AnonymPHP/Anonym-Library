@@ -190,12 +190,12 @@ class Billing extends Database
         }
     }
 
+    /**
+     * @return $this
+     */
     public function cancel()
     {
         $this->status('canceled');
-        $this->plan('');
-        $this->subscriptionStarted('');
-
         return $this;
     }
 
