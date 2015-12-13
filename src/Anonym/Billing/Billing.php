@@ -24,7 +24,7 @@ class Billing extends Database
      * @var array
      */
     protected $select = [
-        'premium_started', 'premium_end', 'user_id',
+        'trail_started', 'trail_ends_at', 'user_id', 'subscription_started', 'subscription_ends_at'
     ];
 
     /**
@@ -90,12 +90,12 @@ class Billing extends Database
      * @param null $endDate
      * @return $this|null
      */
-    public function trailEnd($endDate = null)
+    public function trailEndsAt($endDate = null)
     {
         if ($endDate === null) {
-            return $this->trail_end;
+            return $this->trail_ends_at;
         } else {
-            $this->trail_end = $endDate;
+            $this->trail_ends_at = $endDate;
             return $this;
         }
     }
