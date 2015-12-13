@@ -246,7 +246,12 @@ class Billing extends Database
         if ($started === null) {
             return $this->subscription_started;
         } else {
+            if (!isset($this->subscriptionPlans[$plan = $this->plan()])) {
+                $this->delete();
+                throw new BillingSubscriptionPlanException(sprintf('Your %s plan is not exists in our website'));
+            }
             $this->subscription_started = $started;
+
             $this->status('started');
             return $this;
         }
