@@ -191,6 +191,8 @@ class Billing extends Database
     }
 
     /**
+     * put the canceled value to subscrition status
+     *
      * @return $this
      */
     public function cancel()
