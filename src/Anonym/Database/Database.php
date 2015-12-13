@@ -251,6 +251,10 @@ class Database
         return $this;
     }
 
+    public function pause(){
+
+    }
+
     /**
      * @param mixed $limit
      * @return $this
