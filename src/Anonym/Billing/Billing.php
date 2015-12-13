@@ -100,5 +100,32 @@ class Billing extends Database
         }
     }
 
+    /**
+     * check this is started or not
+     *
+     * @return bool
+     */
+    public function isTrail()
+    {
+        if (time() > $this->trailStarted() && time() < $this->trailEndsAt()) {
+            return true;
+        } else {
+            false;
+        }
+    }
+
+    public function isSubscription(){
+
+    }
+
+    /**
+     * determine subscription is correct
+     *
+     * @return mixed
+     */
+    public function subscripted()
+    {
+        return $this->isTrail() ?: $this->isSubscription();
+    }
 
 }
