@@ -28,6 +28,13 @@ class Billing extends Database
     ];
 
     /**
+     * store the subscription plans
+     *
+     * @var array
+     */
+
+    protected $subscriptionPlans;
+    /**
      * the table name of cashier
      *
      * @var string
@@ -45,8 +52,9 @@ class Billing extends Database
      */
     public function __construct($selectedUserId = 0)
     {
-        $this->table = Config::get('database.tables.billing');
+        $this->table = Config::get('billing.table_name');
         $this->selectedUserId = $selectedUserId;
+        $this->subscriptionPlans = Config::get('billing.plans');
         $this->where('user_id', $selectedUserId);
         parent::__construct();
     }
@@ -114,7 +122,8 @@ class Billing extends Database
         }
     }
 
-    public function isSubscription(){
+    public function isSubscription()
+    {
 
     }
 
