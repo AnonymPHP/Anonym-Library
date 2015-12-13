@@ -207,6 +207,20 @@ class Billing extends Database
         return $this->status('canceled');
     }
 
+    public function pause()
+    {
+        $this->status('paused');
+        $started = $this->subscriptionStarted();
+
+        if (!isset($this->subscriptionPlans[$plan = $this->plan()])) {
+            $this->delete();
+            throw new BillingSubscriptionPlanException(sprintf('Your %s plan is not exists in our website'));
+        }
+
+        $endTime = $this->findTimestampOfSubscription($started, $plan);
+        $this->subscription_paused_left = $left;
+    }
+
     /**
      * return or set subscription status
      *
