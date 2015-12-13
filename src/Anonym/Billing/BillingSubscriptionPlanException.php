@@ -17,6 +17,12 @@ use Exception;
 class BillingSubscriptionPlanException extends Exception
 {
 
-
-
+    /**
+     * the constructor of BillingSubscriptionPlanException .
+     * @param string $message
+     */
+    public function __construct($message)
+    {
+        $this->message = $message;
+    }
 }
