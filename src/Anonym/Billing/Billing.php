@@ -18,6 +18,14 @@ use Anonym\Facades\Config;
 class Billing extends Database
 {
 
+    /**
+     * selected columns
+     *
+     * @var array
+     */
+    protected $select = [
+        'trail_started', 'trail_end'
+    ];
 
     /**
      * the table name of cashier
@@ -66,10 +74,11 @@ class Billing extends Database
      * @param null $started
      * @return $this|null
      */
-    public function trailStarted($started = null){
+    public function trailStarted($started = null)
+    {
         if ($started === null) {
             return $this->trail_started;
-        }else{
+        } else {
             $this->trail_started = $started;
             return $this;
         }
@@ -81,10 +90,11 @@ class Billing extends Database
      * @param null $endDate
      * @return $this|null
      */
-    public function trailEnd($endDate = null){
+    public function trailEnd($endDate = null)
+    {
         if ($endDate === null) {
             return $this->trail_end;
-        }else{
+        } else {
             $this->trail_end = $endDate;
             return $this;
         }
