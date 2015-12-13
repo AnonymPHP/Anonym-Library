@@ -213,6 +213,7 @@ class Database
         return $this;
     }
 
+
     /**
      * add a new orwhere query
      *
@@ -226,6 +227,25 @@ class Database
         $this->execute();
         if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
             $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return $this;
+    }
+
+    /**
+     * add a new where and delete old data query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function whereAndDelete($index, $value = null)
+    {
+        $this->getQueryBuilder()->where($index, $value);
+        $this->execute();
+
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->delete();
         }
 
         return $this;
