@@ -135,7 +135,22 @@ class Billing extends Database
 
     public function isSubscription()
     {
+        $started = $this->subscriptionStarted();
+    }
 
+    /**
+     * return or set subscription status
+     *
+     * @param null $status
+     * @return $this|null
+     */
+    public function status($status = null){
+        if ($status === null) {
+            return $this->subscription_status;
+        }else{
+            $this->subscription_status = $status;
+            return $this;
+        }
     }
 
     /**
@@ -149,7 +164,7 @@ class Billing extends Database
             return $this->subscription_started;
         }else{
             $this->subscription_started = $started;
-            $this->subscription_status = 'started';
+            $this->status('started');
             return $this;
         }
     }
