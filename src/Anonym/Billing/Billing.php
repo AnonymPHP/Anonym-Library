@@ -74,4 +74,19 @@ class Billing extends Database
             return $this;
         }
     }
+
+    /**
+     * return or set trail end time
+     *
+     * @param null $endDate
+     * @return $this|null
+     */
+    public function trailEnd($endDate = null){
+        if ($endDate === null) {
+            return $this->trail_end;
+        }else{
+            $this->trail_end = $endDate;
+            return $this;
+        }
+    }
 }
