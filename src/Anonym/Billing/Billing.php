@@ -144,7 +144,7 @@ class Billing extends Database
             throw new BillingSubscriptionPlanException(sprintf('Your %s plan is not exists in our website'));
         }
 
-        if ($started !== '' && $status !== '' && $status !== 'canceled' && $time < $this->findTimestampOfSubscription($started, $days)) {
+        if ($started !== '' && $status !== '' && $status !== 'canceled' && $time < $this->findTimestampOfSubscription($started, $plan)) {
 
         }
     }
