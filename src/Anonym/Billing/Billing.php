@@ -157,7 +157,7 @@ class Billing extends Database
             throw new BillingSubscriptionPlanException(sprintf('Your %s plan is not exists in our website'));
         }
 
-        if ($started !== '' && is_numeric($started) && $status !== '' && $status !== 'canceled' && $time < $this->findTimestampOfSubscription($started, $plan)) {
+        if ($started !== '' && is_numeric($started) && $status !== '' && $status !== 'canceled' && $time < $this->subscriptionEndsAt()) {
             return true;
         } else {
             return false;
@@ -235,6 +235,12 @@ class Billing extends Database
         $this->subscriptionStarted($time - $this->subscription_paused_left);
     }
 
+    /**
+     * return or set subscription ends time
+     *
+     * @param null $ends
+     * @return $this|null
+     */
     public function subscriptionEndsAt($ends = null)
     {
         if ($ends === null) {
