@@ -55,7 +55,7 @@ class Billing extends Database
         $this->table = Config::get('billing.table_name');
         $this->selectedUserId = $selectedUserId;
         $this->subscriptionPlans = Config::get('billing.plans');
-        $this->where('user_id', $selectedUserId);
+        $this->whereOrCreate('user_id', $selectedUserId);
         parent::__construct();
     }
 
