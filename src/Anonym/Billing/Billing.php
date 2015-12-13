@@ -138,13 +138,22 @@ class Billing extends Database
 
     }
 
+    /**
+     * return or set subscription status
+     *
+     * @param null $started
+     * @return mixed
+     */
     public function subscriptionStarted($started = null){
         if ($started === null) {
             return $this->subscription_started;
         }else{
             $this->subscription_started = $started;
+            $this->subscription_status = 'started';
+            return $this;
         }
     }
+
     /**
      * determine subscription is correct
      *
