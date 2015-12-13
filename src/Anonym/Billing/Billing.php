@@ -152,7 +152,7 @@ class Billing extends Database
 
         if ($started !== '' && is_numeric($started) && $status !== '' && $status !== 'canceled' && $time < $this->findTimestampOfSubscription($started, $plan)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -188,6 +188,15 @@ class Billing extends Database
             $this->subscription_plan = $plan;
             return $this;
         }
+    }
+
+    public function cancel()
+    {
+        $this->status('canceled');
+        $this->plan('');
+        $this->subscriptionStarted('');
+
+        return $this;
     }
 
     /**
