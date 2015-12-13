@@ -226,5 +226,4 @@ class Billing extends Database
     {
         return $this->isTrail() ?: $this->isSubscription();
     }
-
 }
