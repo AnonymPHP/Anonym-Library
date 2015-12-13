@@ -206,7 +206,7 @@ class Database
         if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
             $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
         } else {
-            $this->insert($where);
+            $this->insert($where)->where($where);
         }
 
         return $this;
