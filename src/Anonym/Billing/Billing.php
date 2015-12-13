@@ -59,4 +59,19 @@ class Billing extends Database
             return $this->getFirstAttribute()['cash'];
         }
     }
+
+    /**
+     * return or set trail started time
+     *
+     * @param null $started
+     * @return $this|null
+     */
+    public function trailStarted($started = null){
+        if ($started === null) {
+            return $this->trail_started;
+        }else{
+            $this->trail_started = $started;
+            return $this;
+        }
+    }
 }
