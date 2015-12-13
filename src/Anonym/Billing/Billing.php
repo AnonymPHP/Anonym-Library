@@ -134,6 +134,12 @@ class Billing extends Database
         return strtotime("$days+ days", $started);
     }
 
+    /**
+     * determine our subscription is a valid subscription
+     *
+     * @return bool
+     * @throws BillingSubscriptionPlanException
+     */
     public function isSubscription()
     {
         $started = $this->subscriptionStarted();
@@ -144,8 +150,10 @@ class Billing extends Database
             throw new BillingSubscriptionPlanException(sprintf('Your %s plan is not exists in our website'));
         }
 
-        if ($started !== '' && $status !== '' && $status !== 'canceled' && $time < $this->findTimestampOfSubscription($started, $plan)) {
-
+        if ($started !== '' && is_numeric($started) && $status !== '' && $status !== 'canceled' && $time < $this->findTimestampOfSubscription($started, $plan)) {
+            return true;
+        }else{
+            return false;
         }
     }
 
