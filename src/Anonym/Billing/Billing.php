@@ -122,6 +122,17 @@ class Billing extends Database
         }
     }
 
+    /**
+     * return the timestamp of subscription_ends_at
+     *
+     * @param int $started
+     * @param int $days
+     * @return int
+     */
+    protected function findTimestampOfSubscription($started, $days){
+        return strtotime("$days+ days", $started);
+    }
+
     public function isSubscription()
     {
 
