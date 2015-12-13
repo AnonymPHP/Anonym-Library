@@ -229,6 +229,12 @@ class Billing extends Database
         return $this;
     }
 
+    public function resume()
+    {
+        $time = time();
+        $this->subscriptionStarted($time - $this->subscription_paused_left);
+    }
+
     /**
      * return or set subscription status
      *
