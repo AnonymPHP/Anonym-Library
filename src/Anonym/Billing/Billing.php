@@ -162,6 +162,12 @@ class Billing extends Database
     }
 
 
+    /**
+     * set or return subscription plan
+     *
+     * @param null $plan
+     * @return $this|null
+     */
     public function plan($plan = null)
     {
         if ($plan === null) {
