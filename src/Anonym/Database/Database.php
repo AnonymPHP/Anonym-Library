@@ -76,13 +76,15 @@ class Database
     /**
      * handle and execute class vars
      */
-    private function handleClassVars(){
+    private function handleClassVars()
+    {
 
         // set selected columns
         if (isset($this->vars['select'])) {
             $this->getQueryBuilder()->select($this->vars['select']);
         }
     }
+
     /**
      *
      * @return string
@@ -185,6 +187,32 @@ class Database
     }
 
     /**
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function whereOrCreate($index, $value = null)
+    {
+        $this->getQueryBuilder()->where($index, $value);
+        $this->execute();
+
+        if ($value !== null) {
+            $where = [$index => $value];
+        } else {
+            $where = $index;
+        }
+
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
+        } else {
+            $this->insert($where);
+        }
+
+        return $this;
+    }
+
+    /**
      * add a new orwhere query
      *
      * @param mixed $index
@@ -206,7 +234,8 @@ class Database
      * @param mixed $limit
      * @return $this
      */
-    public function limit($limit){
+    public function limit($limit)
+    {
         $this->getQueryBuilder()->limit($limit);
 
         $this->execute();
@@ -214,7 +243,6 @@ class Database
             $this->attributes = $this->getLastPrepare()->fetchAll();
         }
     }
-
 
 
     /**
@@ -366,6 +394,6 @@ class Database
      */
     public function __set($name, $value)
     {
-         $this->getQueryBuilder()->datas['set'][$name] = $value;
+        $this->getQueryBuilder()->datas['set'][$name] = $value;
     }
 }
