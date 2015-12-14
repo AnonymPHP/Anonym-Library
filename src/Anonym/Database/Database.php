@@ -71,13 +71,12 @@ class Database extends Megatron
     {
         $this->vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable();
-        $this->handleClassVars();
     }
 
     /**
      * handle and execute class vars
      */
-    private function handleClassVars()
+    protected function handleClassVars()
     {
 
         // set selected columns
