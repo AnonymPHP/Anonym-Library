@@ -8,7 +8,10 @@
 
 namespace Anonym\Database;
 
-
+/**
+ * Class Megatron
+ * @package Anonym\Database
+ */
 class Megatron
 {
 
