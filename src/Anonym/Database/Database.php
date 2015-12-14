@@ -35,12 +35,7 @@ class Database extends Megatron
      */
     protected $table;
 
-    /**
-     * the variables of this class and children
-     *
-     * @var array
-     */
-    private $vars;
+
 
     /**
      * returns the attributes
@@ -104,7 +99,7 @@ class Database extends Megatron
     /**
      * @return QueryBuilder
      */
-    private function getQueryBuilder()
+    protected function getQueryBuilder()
     {
         $base = static::$base;
         return $base::getQueryBuilder();

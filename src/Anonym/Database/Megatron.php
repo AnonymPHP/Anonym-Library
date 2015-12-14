@@ -39,6 +39,8 @@ class Megatron
             $this->getQueryBuilder()->select($this->vars['select']);
         }
 
-
+        if (isset($this->vars['from'])) {
+            $this->getQueryBuilder()->
+        }
     }
 }

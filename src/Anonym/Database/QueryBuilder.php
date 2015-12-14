@@ -517,6 +517,15 @@ class QueryBuilder
         return $this->build()->rowCount();
     }
 
+    /**
+     * @param string|array $from
+     * @return $this
+     */
+    public function from($from)
+    {
+        $this->datas['from'] = $from;
+        return $this;
+    }
 
     /**
      * @param array $set
