@@ -12,6 +12,19 @@ namespace Anonym\Database;
 class Megatron
 {
 
+    /**
+     * @var array
+     */
+    protected $vars;
+
+    /**
+     * the constructor of Megatron .
+     * @param array $vars
+     */
+    public function __construct($vars)
+    {
+        $this->vars = $vars;
+    }
 
     /**
      * handle and execute class vars
