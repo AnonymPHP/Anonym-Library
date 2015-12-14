@@ -259,6 +259,7 @@ class Database
      * @param mixed $index
      * @param null $value
      * @return $this
+     * @throws QueryException
      */
     public function whereOrFail($index, $value = null)
     {
