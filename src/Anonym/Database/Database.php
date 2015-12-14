@@ -274,7 +274,8 @@ class Database
      * @param string $type
      * @return $this
      */
-    public function order($column, $type = 'DESC'){
+    public function order($column, $type = 'DESC')
+    {
         $this->getQueryBuilder()->order($column, $type);
         $this->execute();
 
