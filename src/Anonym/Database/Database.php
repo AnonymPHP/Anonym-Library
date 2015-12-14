@@ -9,6 +9,7 @@
 namespace Anonym\Database;
 
 use Anonym\Billing\Billing;
+use Anonym\Database\Exceptions\QueryException;
 use Anonym\Support\Arr;
 use ReflectionObject;
 use PDO;
@@ -246,6 +247,26 @@ class Database
 
         if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
             $this->delete();
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * add a new where and delete old data query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function whereOrFail($index, $value = null)
+    {
+        $this->getQueryBuilder()->where($index, $value);
+        $this->execute();
+
+        if (false === $this->getLastPrepare()->rowCount()) {
+            throw new QueryException('Your last query was unsuccessful, please check it.');
         }
 
         return $this;
