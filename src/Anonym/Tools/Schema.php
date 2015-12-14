@@ -8,8 +8,10 @@
 
 namespace Anonym\Tools;
 
+use Anonym\Database\Database;
 use Exception;
 use Anonym\Database\Base;
+
 /**
  * Class Schema
  * @package Anonym\Tools
@@ -29,10 +31,10 @@ class Schema
      * Sınıfı başlatır
      *
      */
-    public function __construct(Base $base)
+    public function __construct(Database $base)
     {
 
-        static::setConnection($base->getConnection());
+        static::setConnection($base->getBase()->getConnection());
 
     }
 
