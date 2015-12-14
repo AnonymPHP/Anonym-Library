@@ -27,6 +27,7 @@ class Megatron
     public function __construct($vars)
     {
         $this->vars = $vars;
+        $this->handleClassVars();
     }
 
     /**
@@ -40,7 +41,7 @@ class Megatron
         }
 
         if (isset($this->vars['from'])) {
-            $this->getQueryBuilder()->
+            $this->getQueryBuilder()->from($this->vars['from']);
         }
     }
 }
