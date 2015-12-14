@@ -76,12 +76,13 @@ class Database extends Megatron
 
     /**
      *
+     * @param array $vars
      * @return string
      */
     private function findSelectedTable($vars = [])
     {
-        if (isset($this->vars['table']) && !empty($this->vars['table'])) {
-            $this->table = $this->vars['table'];
+        if (isset($vars['table']) && !empty($vars['table'])) {
+            $this->table = $vars['table'];
         } else {
             $referer = new ReflectionObject($this);
             $this->table = strtolower($referer->getShortName());
