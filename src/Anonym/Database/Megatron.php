@@ -43,5 +43,9 @@ class Megatron
         if (isset($this->vars['from'])) {
             $this->getQueryBuilder()->from($this->vars['from']);
         }
+
+        if (isset($this->vars['created_at'])) {
+            $this->getQueryBuilder()->select('created_at');
+        }
     }
 }
