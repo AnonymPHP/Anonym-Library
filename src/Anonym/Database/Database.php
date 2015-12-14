@@ -69,8 +69,9 @@ class Database extends Megatron
      */
     public function __construct()
     {
-        $this->vars = get_class_vars(self::class);
-        $this->table = $this->findSelectedTable();
+        $vars  = get_class_vars(self::class);
+        $this->table = $this->findSelectedTable($vars);
+        parent::__construct($vars);
     }
 
     /**
