@@ -268,6 +268,24 @@ class Database
 
 
     /**
+     * add a new string query
+     *
+     * @param string $column
+     * @param string $type
+     * @return $this
+     */
+    public function order($column, $type = 'DESC'){
+        $this->getQueryBuilder()->order($column, $type);
+        $this->execute();
+
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->attributes = $this->getLastPrepare()->fetchAll();
+        }
+
+        return $this;
+    }
+
+    /**
      * do an update query
      *
      * @param array $update
