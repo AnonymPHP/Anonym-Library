@@ -18,7 +18,7 @@ use PDO;
  * Class Model
  * @package Anonym\Database
  */
-class Database
+class Database extends Megatron
 {
 
     /**
