@@ -75,22 +75,10 @@ class Database extends Megatron
     }
 
     /**
-     * handle and execute class vars
-     */
-    protected function handleClassVars()
-    {
-
-        // set selected columns
-        if (isset($this->vars['select'])) {
-            $this->getQueryBuilder()->select($this->vars['select']);
-        }
-    }
-
-    /**
      *
      * @return string
      */
-    private function findSelectedTable()
+    private function findSelectedTable($vars = [])
     {
         if (isset($this->vars['table']) && !empty($this->vars['table'])) {
             $this->table = $this->vars['table'];
