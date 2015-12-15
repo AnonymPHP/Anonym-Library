@@ -32,16 +32,21 @@ class DatabaseConstructor extends ServiceProvider
     public function register()
     {
 
+        $app = $this->app;
 
         if (true === $this->app['config']->get('database.autostart')) {
+
+            $configs = Config::get('database');
+            $connection = $configs['connection'];
+            $connectionConfigs = Arr::get($configs['connections'], $connection, []);
+
+            $base = new Base($connectionConfigs, $app);
+            Database::setDatabaseApplication($base);
+
             $this->singleton(
                 'database.base',
                 function () {
-                    $configs = Config::get('database');
-                    $connection = $configs['connection'];
-                    $connectionConfigs = Arr::get($configs['connections'], $connection, []);
-
-                    return new Base($connectionConfigs);
+                    return new Database();
                 }
             );
 
