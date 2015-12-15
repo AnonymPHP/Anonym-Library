@@ -7,6 +7,7 @@
  */
 
 namespace Anonym\Console;
+use Illuminate\Container\Container;
 
 /**
  * Class Application
@@ -19,4 +20,30 @@ class Application
      * @var array
      */
     protected $consoleConstructors;
+
+    /**
+     * @var Container
+     */
+    public static $container;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * @return Container
+     */
+    public static function getContainer()
+    {
+        return self::$container;
+    }
+
+    /**
+     * @param Container $container
+     */
+    public static function setContainer(Container $container)
+    {
+        self::$container = $container;
+    }
+
 }
