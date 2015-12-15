@@ -30,6 +30,7 @@ class Schema
     /**
      * Sınıfı başlatır
      *
+     * @param Database $base
      */
     public function __construct(Database $base)
     {
