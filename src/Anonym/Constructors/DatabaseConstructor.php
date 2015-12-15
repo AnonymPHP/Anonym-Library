@@ -10,8 +10,6 @@
 
 namespace Anonym\Constructors;
 
-
-use Anonym\Application\Application;
 use Anonym\Application\ServiceProvider;
 use Anonym\Database\Base;
 use Anonym\Database\Database;
@@ -47,7 +45,7 @@ class DatabaseConstructor extends ServiceProvider
                 }
             );
 
-            $this->singleton(Base::class, function(){
+            $this->singleton(Base::class, function () {
                 return App::make('database.base');
             });
 
