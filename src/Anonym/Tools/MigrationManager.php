@@ -34,7 +34,7 @@ class MigrationManager
      */
     public function createName($name = '')
     {
-        return MIGRATION  .$name . '.php';
+        return MIGRATION . $name . '.php';
     }
 
     /**
@@ -82,7 +82,7 @@ class MigrationManager
     public function execute($name = '')
     {
 
-        $migration = MIGRATION_NAMESPACE.$name;
+        $migration = MIGRATION_NAMESPACE . $name;
         $migration = new $migration;
 
         $return = [
@@ -92,8 +92,8 @@ class MigrationManager
         ];
 
         if ($migration instanceof MigrationInterface) {
-            $return['up'] = $migration->up();
             $return['down'] = $migration->down();
+            $return['up'] = $migration->up();
 
             return $return;
         } else {
