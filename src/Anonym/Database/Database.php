@@ -36,7 +36,6 @@ class Database extends Megatron
     protected $table;
 
 
-
     /**
      * returns the attributes
      *
@@ -64,7 +63,7 @@ class Database extends Megatron
      */
     public function __construct()
     {
-        $vars  = get_class_vars(self::class);
+        $vars = get_class_vars(self::class);
         $this->table = $this->findSelectedTable($vars);
         parent::__construct($vars);
     }
@@ -91,7 +90,7 @@ class Database extends Megatron
      *
      * @param Base $base
      */
-    public static function setDatabaseApplication(Base $base)
+    public static function setDatabaseApplication($base)
     {
         static::$base = $base;
     }
