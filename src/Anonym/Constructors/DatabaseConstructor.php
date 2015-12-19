@@ -54,7 +54,7 @@ class DatabaseConstructor extends ServiceProvider
                 return App::make('database.base');
             });
 
-            Database::setDatabaseApplication($this->make('database.base'));
+            Database::setDatabaseApplication($base);
 
         }
     }
