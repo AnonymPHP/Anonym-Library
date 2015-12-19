@@ -63,7 +63,7 @@
         }
 
         /**
-         * @return Base
+         * @return Database
          */
         public function getDb()
         {
@@ -71,10 +71,10 @@
         }
 
         /**
-         * @param Base $db
+         * @param Database $db
          * @return Login
          */
-        public function setDb(Base $db)
+        public function setDb(Database $db)
         {
             $this->db = $db;
 

@@ -9,10 +9,7 @@
 
 namespace Anonym\Security\Authentication;
 
-use Anonym\Database\Base;
 use Anonym\Database\Database;
-use Anonym\Database\Mode\Read;
-use Anonym\Database\Mode\Insert;
 
 use Anonym\Security\Security;
 
@@ -34,7 +31,7 @@ class Login extends Authentication implements LoginInterface
     public function __construct(Database $db, array $tables = [])
     {
         parent::__construct();
-        $this->setDb($db);
+        $this->setDb($db->table($tables['table']));
         $this->setTables($tables);
     }
 
@@ -55,6 +52,10 @@ class Login extends Authentication implements LoginInterface
         $getTables = $table['select'];
 
         $getTables[] = $table['authentication']['column'];
+
+        $db->where([
+
+        ]);
 
         // login
         $login = $db->read(

@@ -215,10 +215,13 @@ class QueryBuilder
         } elseif (is_array($where) && isset($where[0]) && isset($where[1])) {
 
             if (is_string($where[1])) {
-
                 $where = [
                     [$where[0], $where[1], $where[2]]
                 ];
+            } elseif (is_array($where[1])) {
+                foreach ($where as $w) {
+                    $this->where($w[0], $w[1]);
+                }
             }
         }
 
