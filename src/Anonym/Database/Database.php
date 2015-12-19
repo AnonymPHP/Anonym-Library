@@ -150,6 +150,23 @@ class Database extends Megatron
     }
 
 
+    public function find($id, $column = 'id')
+    {
+
+        $this->where($column, $id);
+
+        if (false !== $rowC = $this->getLastPrepare()->rowCount()) {
+            return $this;
+        } else {
+            $this->where(strtolower($this->table) . '_' . $column, $id);
+
+            if (false !== $rowC = $this->getLastPrepare()->rowCount()) {
+                return $this;
+            }
+        }
+
+    }
+
     /**
      * add a new where query
      *

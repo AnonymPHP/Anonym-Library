@@ -48,7 +48,7 @@ abstract class Tongue
 
         'advanced' => [
             'SHOW TABLE LIKE :from;',
-            'SHOW COLUMNS FROM `:from` LIKE \':column\';'
+            'SHOW COLUMNS FROM `:from` LIKE \':column\';',
         ]
     ];
 
