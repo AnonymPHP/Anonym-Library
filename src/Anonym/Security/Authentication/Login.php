@@ -80,21 +80,7 @@ class Login extends Authentication implements LoginInterface
             ]);
         }
 
-        if ($login) {
-            if ($login->rowCount()) {
 
-                $this->getDb()->insert(self::LOGIN_LOGS_TABLE, function (Insert $insert) use ($ip, $username) {
-                    return $insert->set([
-                        'ip' => $ip,
-                        'username' => $username
-                    ]);
-                });
-
-                return $login;
-            }
-        }
-
-        return false;
     }
 
     /**
