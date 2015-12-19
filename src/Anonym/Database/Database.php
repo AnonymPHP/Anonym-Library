@@ -90,7 +90,8 @@ class Database extends Megatron
      *
      * @return array
      */
-    public function all(){
+    public function all()
+    {
         return $this->getAttributes();
     }
 
@@ -99,10 +100,12 @@ class Database extends Megatron
      *
      * @return bool
      */
-    public function first(){
+    public function first()
+    {
         $attr = $this->getAttributes();
-        return isset($attr[0]) ? $attr[0]: false;
+        return isset($attr[0]) ? $attr[0] : false;
     }
+
     /**
      * register the database
      *
@@ -177,19 +180,44 @@ class Database extends Megatron
      */
     public function find($id, $column = 'id')
     {
+        return $this->where($column, $id);
+    }
 
-        $this->where($column, $id);
+    /**
+     * find id or create a one
+     *
+     * @param string|int $id
+     * @param string $column
+     * @return $this
+     */
+    public function findOrCreate($id, $column = 'id')
+    {
+        return $this->whereOrCreate($column, $id);
+    }
 
-        if (false !== $rowC = $this->getLastPrepare()->rowCount()) {
-            return $this;
-        } else {
-            $this->where(strtolower($this->table) . '_' . $column, $id);
+    /**
+     * find the id or throw an exception
+     *
+     * @param string|id $id
+     * @param string $column
+     * @return Database
+     * @throws QueryException
+     */
+    public function findOrFail($id, $column = 'id')
+    {
+        return $this->whereOrFail($column, $id);
+    }
 
-            if (false !== $rowC = $this->getLastPrepare()->rowCount()) {
-                return $this;
-            }
-        }
-
+    /**
+     * if you can find it, remove ,it
+     *
+     * @param string|id $id
+     * @param string $column
+     * @return Database
+     */
+    public function findAndRemove($id, $column = 'id')
+    {
+        return $this->whereAndRemove($column, $id);
     }
 
     /**
@@ -265,7 +293,7 @@ class Database extends Megatron
      * @param null $value
      * @return $this
      */
-    public function whereAndDelete($index, $value = null)
+    public function whereAndRemove($index, $value = null)
     {
         $this->getQueryBuilder()->where($index, $value);
         $this->execute();
