@@ -54,43 +54,34 @@ class Login extends Authentication implements LoginInterface
         $getTables[] = $table['authentication']['column'];
 
         $db->where([
-
+            [$userColumnName, $username],
+            [$passColumnName, $password]
         ]);
 
-        // login
-        $login = $db->read(
-            $table['table'],
-            function (Read $mode) use (
-                $userColumnName,
-                $passColumnName,
-                $username,
-                $password,
-                $getTables
-            ) {
-                return $mode->where(
-                    [
-                        [$userColumnName, '=', $username],
-                        [$passColumnName, '=', $password],
-                    ]
-                )->select($getTables)->build();
+        if ($db->exists()) {
+            $login = $db->first();
+
+            // we will find user ip address
+            // and add it to login information
+            $ip = Security::ip();
+
+
+            $login['ip'] = $ip;
+            $login = new LoginObject($login);
+
+            $this->getSession()->set(static::USER_SESSION, $login);
+            if ($remember) {
+                $this->getCookie()->set(static::USER_SESSION, serialize($login));
             }
-        );
+
+            $db->insert([
+                'ip' => $ip,
+                'username' => $username
+            ]);
+        }
 
         if ($login) {
             if ($login->rowCount()) {
-                $login = (array)$login->fetch();
-
-                // we will find user ip address
-                // and add it to login informations
-                $ip = Security::ip();
-
-                // add client ip addres to login object
-                $login['ip'] = $ip;
-                $login = new LoginObject($login);
-                $this->getSession()->set(static::USER_SESSION, $login);
-                if ($remember) {
-                    $this->getCookie()->set(static::USER_SESSION, serialize($login));
-                }
 
                 $this->getDb()->insert(self::LOGIN_LOGS_TABLE, function (Insert $insert) use ($ip, $username) {
                     return $insert->set([
