@@ -95,7 +95,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function gc($maxlifetime)
     {
-         return $this->database->getBase()->getConnection()->query(sprintf('TRUNCATE %s', $this->table)) ? true:false;
+        return $this->database->getBase()->getConnection()->query(sprintf('TRUNCATE %s', $this->table)) ? true : false;
     }
 
     /**
@@ -129,7 +129,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
     {
         $query = $this->database->find($session_id);
 
-        if($query->exists()){
+        if ($query->exists()) {
             return $query->$session_id;
         }
 
@@ -156,9 +156,11 @@ class DatabaseSessionHandler implements SessionHandlerInterface
     public function write($session_id, $session_data)
     {
 
-       $query = $this->database->findOrCreate($session_id);
+        $query = $this->database->findOrCreate($session_id);
 
-        return $return ? true : false;
+        $query->$session_id = $session_data;
+
+        return $query->isSuccess() ? true : false;
 
     }
 }
