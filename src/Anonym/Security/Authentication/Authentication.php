@@ -8,6 +8,7 @@
      */
 
     namespace Anonym\Security\Authentication;
+    use Anonym\Database\Database;
     use Anonym\Http\Request;
     use Anonym\Cookie\Cookie;
     use Anonym\Cookie\CookieInterface;
@@ -39,7 +40,7 @@
         /**
          * Veritabanı objesini tutar
          *
-         * @var Base
+         * @var Database
          */
         private $db;
 

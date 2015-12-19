@@ -10,6 +10,7 @@
 namespace Anonym\Security\Authentication;
 
 use Anonym\Database\Base;
+use Anonym\Database\Database;
 use Anonym\Database\Mode\Read;
 use Anonym\Database\Mode\Insert;
 
@@ -27,10 +28,10 @@ class Login extends Authentication implements LoginInterface
     /**
      * Sınıfı başlatır ve tablo yapılandırmasını yapar
      *
-     * @param Base $db
+     * @param Database $db
      * @param array $tables
      */
-    public function __construct(Base $db, array $tables = [])
+    public function __construct(Database $db, array $tables = [])
     {
         parent::__construct();
         $this->setDb($db);
