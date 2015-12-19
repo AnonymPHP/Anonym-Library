@@ -74,11 +74,17 @@ class Login extends Authentication implements LoginInterface
                 $this->getCookie()->set(static::USER_SESSION, serialize($login));
             }
 
-            $db->insert([
+            $add = $db->insert([
                 'ip' => $ip,
                 'username' => $username
             ]);
+
+            if ($add->isSuccess()) {
+                return true;
+            }
         }
+
+        return false;
 
 
     }
