@@ -413,6 +413,7 @@ class Database extends Megatron
         if (count($update) !== 0) {
             $this->getQueryBuilder()->set($update);
         }
+
         $this->getQueryBuilder()->datas['update'] = true;
         return $this->execute();
     }

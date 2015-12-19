@@ -160,7 +160,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
 
         $query->$session_id = $session_data;
 
-        return $query->isSuccess() ? true : false;
+        return $query->update()->isSuccess() ? true : false;
 
     }
 }
