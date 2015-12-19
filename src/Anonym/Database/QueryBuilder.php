@@ -533,7 +533,7 @@ class QueryBuilder
      */
     public function set($set = [])
     {
-        $this->datas['insert'][] = $set;
+        $this->datas['set'][] = $set;
         return $this;
     }
 
