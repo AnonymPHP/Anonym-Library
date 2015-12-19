@@ -59,6 +59,13 @@ class Database extends Megatron
     protected $lastPrepares;
 
     /**
+     * reposity of connected column name of id
+     *
+     * @var string
+     */
+    protected $connectedColumn = 'id';
+
+    /**
      * the constructor of Model .
      */
     public function __construct()
@@ -172,6 +179,18 @@ class Database extends Megatron
 
 
     /**
+     * set the connected column names
+     *
+     * @param  string $connect
+     * @return $this
+     */
+    public function on($connect)
+    {
+        $this->connectedColumn = $connect;
+        return $this;
+    }
+
+    /**
      * find the datas with id datas
      *
      * @param string|id $id
@@ -187,37 +206,34 @@ class Database extends Megatron
      * find id or create a one
      *
      * @param string|int $id
-     * @param string $column
      * @return $this
      */
-    public function findOrCreate($id, $column = 'id')
+    public function findOrCreate($id)
     {
-        return $this->whereOrCreate($column, $id);
+        return $this->whereOrCreate($this->connectedColumn, $id);
     }
 
     /**
      * find the id or throw an exception
      *
      * @param string|id $id
-     * @param string $column
      * @return Database
      * @throws QueryException
      */
-    public function findOrFail($id, $column = 'id')
+    public function findOrFail($id)
     {
-        return $this->whereOrFail($column, $id);
+        return $this->whereOrFail($this->connectedColumn, $id);
     }
 
     /**
      * if you can find it, remove ,it
      *
      * @param string|id $id
-     * @param string $column
      * @return Database
      */
-    public function findAndRemove($id, $column = 'id')
+    public function findAndRemove($id)
     {
-        return $this->whereAndRemove($column, $id);
+        return $this->whereAndRemove($this->connectedColumn, $id);
     }
 
     /**
