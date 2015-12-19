@@ -262,7 +262,8 @@ class Database extends Megatron
      * @param mixed $destroy
      * @return Database
      */
-    public function destroy($destroy){
+    public function destroy($destroy)
+    {
         return $this->whereAndRemove($this->connectedColumn, $destroy);
     }
 
@@ -452,14 +453,27 @@ class Database extends Megatron
      */
     public function table($table = '')
     {
+        return (new Database())->setTable($table);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTable()
+    {
+        return $this->table;
+    }
+
+    /**
+     * @param string $table
+     * @return $this
+     */
+    public function setTable($table)
+    {
         $this->table = $table;
-        $this->getQueryBuilder()->datas['from'] = $table;
-        $this->attributes = [];
-        $this->lastExecutes = [];
-        $this->lastPrepares = [];
-        $this->query = null;
         return $this;
     }
+
 
     /**
      * register the last values
