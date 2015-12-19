@@ -30,6 +30,11 @@ class Application extends App
         parent::__construct($name, $version);
     }
 
+    /**
+     * Return the providers without routing
+     *
+     * @return array
+     */
     public function getProviders()
     {
         $providers = Arr::get($this->getGeneral(), 'providers', []);
