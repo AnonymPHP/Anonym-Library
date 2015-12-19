@@ -74,7 +74,7 @@ class Schema
     public function drop($tableName = '')
     {
         $query = (new Table())->drop($tableName);
-        return $this->connection->query($query);
+        return static::$connection->query($query);
 
     }
 
