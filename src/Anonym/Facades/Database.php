@@ -9,23 +9,14 @@
  */
 
 namespace Anonym\Facades;
-
-use Anonym\Database\Base;
+use Anonym\Patterns\Facade;
 
 /**
  * Class Database
  * @package Anonym\Facades
  */
-class Database
+class Database extends Facade
 {
-
-    /**
-     * the instance of database base
-     *
-     * @var \Anonym\Database\Database
-     */
-    private static $base;
-
 
     /**
      * return the database base
@@ -34,12 +25,7 @@ class Database
      */
     protected static function getFacadeClass()
     {
-
-        if (static::$base === null) {
-            static::$base = new \Anonym\Database\Database();
-        }
-
-        return static::$base;
+        return App::make('database.base');
     }
 
 }
