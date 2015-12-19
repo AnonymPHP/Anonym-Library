@@ -86,6 +86,24 @@ class Database extends Megatron
     }
 
     /**
+     * returns all attributes
+     *
+     * @return array
+     */
+    public function all(){
+        return $this->getAttributes();
+    }
+
+    /**
+     * returns first data
+     *
+     * @return bool
+     */
+    public function first(){
+        $attr = $this->getAttributes();
+        return isset($attr[0]) ? $attr[0]: false;
+    }
+    /**
      * register the database
      *
      * @param Base $base
