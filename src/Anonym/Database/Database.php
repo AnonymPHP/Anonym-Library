@@ -440,7 +440,7 @@ class Database extends Megatron
     {
         if ($this->table === 'User') {
             if (isset($this->attributes) && is_array($this->attributes)) {
-                return new Billing($this->attributes['id']);
+                return (new Billing($this->attributes['id']))->on('billing_id');
             }
         }
     }
