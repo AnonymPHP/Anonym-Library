@@ -63,7 +63,7 @@ class Seeder implements SeedInterface
     /**
      * Resolve an instance of the given seeder class.
      *
-     * @param  string  $class
+     * @param  string  $abstact
      * @return Seeder
      */
     public function resolve($abstact)
