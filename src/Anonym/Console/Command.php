@@ -5,13 +5,11 @@
  */
 
 namespace Anonym\Console;
-use Anonym\Application\Application;
 use Anonym\Cron\Cron;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
-use Illuminate\Container\Container;
 
 /**
  * Class Command

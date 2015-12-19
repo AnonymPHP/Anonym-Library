@@ -7,7 +7,6 @@
 namespace Anonym\Console;
 
 
-use Anonym\Application\Application;
 use Symfony\Component\Console\Application as SymfonyConsole;
 use Anonym\Application\Console\MigrationForgetCommand;
 use Anonym\Application\Console\LoginLogsClearCommand;
