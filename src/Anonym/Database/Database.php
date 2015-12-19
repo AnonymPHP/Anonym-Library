@@ -197,29 +197,6 @@ class Database extends Megatron
 
 
     /**
-     * set the connected column names
-     *
-     * @param  string $connect
-     * @return $this
-     */
-    public function on($connect)
-    {
-        $this->connectedColumn = $connect;
-        return $this;
-    }
-
-    /**
-     * find the datas with id datas
-     *
-     * @param string|id $id
-     * @return $this
-     */
-    public function find($id)
-    {
-        return $this->where($this->connectedColumn, $id);
-    }
-
-    /**
      * find id or create a one
      *
      * @param string|int $id
@@ -271,17 +248,6 @@ class Database extends Megatron
         }
 
         return $this;
-    }
-
-    /**
-     * find and destroy datas
-     *
-     * @param mixed $destroy
-     * @return Database
-     */
-    public function destroy($destroy)
-    {
-        return $this->whereAndRemove($this->connectedColumn, $destroy);
     }
 
     /**
@@ -418,6 +384,27 @@ class Database extends Megatron
 
         return $this;
     }
+
+
+    /**
+     * add a new where and delete old data query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function orWhereAndRemove($index, $value = null)
+    {
+        $this->getQueryBuilder()->orWhere($index, $value);
+        $this->execute();
+
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->delete();
+        }
+
+        return $this;
+    }
+
     /**
      * @param mixed $limit
      * @return $this
@@ -430,6 +417,29 @@ class Database extends Megatron
         if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
             $this->attributes = $this->getLastPrepare()->fetchAll();
         }
+    }
+
+    /**
+     * set the connected column names
+     *
+     * @param  string $connect
+     * @return $this
+     */
+    public function on($connect)
+    {
+        $this->connectedColumn = $connect;
+        return $this;
+    }
+
+    /**
+     * find the datas with id datas
+     *
+     * @param string|id $id
+     * @return $this
+     */
+    public function find($id)
+    {
+        return $this->where($this->connectedColumn, $id);
     }
 
 
@@ -466,6 +476,18 @@ class Database extends Megatron
 
         $this->getQueryBuilder()->datas['update'] = true;
         return $this->execute();
+    }
+
+
+    /**
+     * find and destroy datas
+     *
+     * @param mixed $destroy
+     * @return Database
+     */
+    public function destroy($destroy)
+    {
+        return $this->whereAndRemove($this->connectedColumn, $destroy);
     }
 
 
