@@ -45,7 +45,6 @@ class Register extends Authentication implements RegisterInterface
     {
         $tables = $this->getTables();
         $registerParams = $tables['register'];
-        $tableName = $tables['table'];
 
         if (count($registerParams) === count($post)) {
             $inputValues = array_values($post);
