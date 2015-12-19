@@ -138,7 +138,13 @@ abstract class Tongue
      */
     protected function compilingFrom($from)
     {
-        return is_string($from) ? $from : is_array($from) ? join(',', $from) : (string)$from;
+        if (is_string($from)) {
+            return $from;
+        } elseif (is_array($from)) {
+            return implode(",", $from);
+        } else {
+            return (string)$from;
+        }
     }
 
     /**
