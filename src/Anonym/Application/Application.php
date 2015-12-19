@@ -34,7 +34,7 @@ class Application extends Container
      *
      * @var array
      */
-    private $constructors = [
+    protected $constructors = [
         RegisterErrorHandlers::class,
         ConfigConstructor::class,
         DatabaseConstructor::class,
