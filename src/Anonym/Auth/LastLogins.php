@@ -40,8 +40,7 @@ class LastLogins
      */
     public function __construct(Database $base)
     {
-        $this->base = $base;
-        $this->loginTable = Login::LOGIN_LOGS_TABLE;
+        $this->base = $base->table(Login::LOGIN_LOGS_TABLE)->on('login_id');
     }
 
     /**
@@ -51,7 +50,8 @@ class LastLogins
      * @param string $username
      * @return mixed
      */
-    public function getLoginsWithLimit($limit = 5, $username = null){
+    public function getLoginsWithLimit($limit = 5, $username = null)
+    {
         return $this->buildQuery($limit, $username)->fetchAll();
     }
 
@@ -60,9 +60,11 @@ class LastLogins
      *
      * @return mixed
      */
-    public function getErrorInfo(){
+    public function getErrorInfo()
+    {
         return $this->base->errorInfo();
     }
+
     /**
      * return maded last 5 login proccess
      *
@@ -73,14 +75,16 @@ class LastLogins
     {
         return $this->getLoginsWithLimit(5, $username);
     }
+
     /**
      * return all logins logs
      *
      * @param string $username
      * @return array
      */
-    public function getAllLogins($username = null){
-        return $this->buildQuery(null, $username)->fetchAll();
+    public function getAllLogins($username = null)
+    {
+        return $this->buildQuery(null, $username);
     }
 
     /**
@@ -88,9 +92,11 @@ class LastLogins
      *
      * @return mixed
      */
-    public function cleanLogs(){
+    public function cleanLogs()
+    {
         return $this->base->query(sprintf('TRUNCATE %s', $this->loginTable));
     }
+
     /**
      * build database query
      *
@@ -101,23 +107,15 @@ class LastLogins
      */
     private function buildQuery($limit = null, $username = null)
     {
+        
+        if ($username !== null) {
+            $this->base->where('username', $username);
+        }
 
-        $table = $this->loginTable;
+        if ($limit !== null) {
+            $this->base->limit($limit);
+        }
 
-        return $this->base->read($table, function (Read $read) use ($limit, $username) {
-            $read->select('*');
-
-            if (null !== $limit) {
-                $read->limit($limit);
-            }
-
-            if (null !== $username) {
-                $read->where([[
-                    'username','=', $username
-                ]]);
-            }
-
-            return $read->build();
-        });
+        return $this->base;
     }
 }
