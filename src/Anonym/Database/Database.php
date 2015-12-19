@@ -482,9 +482,9 @@ class Database extends Megatron
      */
     private function setLastValues($return)
     {
-        $this->query = Arr::get('query', $return);
-        $this->lastExecutes = Arr::get('execute', $return);
-        $this->lastPrepares = Arr::get('prepare', $return);
+        $this->query = Arr::get($return, 'query');
+        $this->lastExecutes = Arr::get($return, 'execute');
+        $this->lastPrepares = Arr::get($return, 'prepare');
     }
 
     /**
