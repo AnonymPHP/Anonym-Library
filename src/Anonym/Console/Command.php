@@ -160,7 +160,6 @@ class Command extends SymfonyCommand
     protected function execute(InputInterface $input,OutputInterface $output)
     {
         $method = method_exists($this, 'handle') ? 'handle' : 'fire';
-
         $parameters = null !== $this->schedule ? [$this->schedule] : [$input, $output];
         return call_user_func_array([$this, $method], $parameters);
     }

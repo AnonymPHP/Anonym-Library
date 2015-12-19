@@ -9,6 +9,7 @@
 namespace Anonym\Tools;
 
 use Anonym\Database\Base;
+use Anonym\Database\Database;
 use Exception;
 use Symfony\Component\Finder\Finder;
 
@@ -18,11 +19,9 @@ use Symfony\Component\Finder\Finder;
  */
 class MigrationManager
 {
+
     /**
-     * @var \PDO|\mysqli
-     */
-    /**
-     * @var Base
+     * @var Database
      */
     private $base;
 
@@ -41,12 +40,12 @@ class MigrationManager
      *
      * Uygulamayı alır ve toplamaya başlar
      *
-     * @param Base $base
+     * @param Database $base
      */
-    public function __construct(Base $base)
+    public function __construct(Database $base)
     {
         $this->base = $base;
-        Schema::setConnection($this->base->getConnection());
+        Schema::setConnection($this->base->getBase()->getConnection());
     }
 
     /**
