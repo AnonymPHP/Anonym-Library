@@ -34,9 +34,7 @@ class Schema
      */
     public function __construct(Database $base)
     {
-
         static::setConnection($base->getBase()->getConnection());
-
     }
 
     /**
