@@ -20,6 +20,10 @@ class Schema
 {
 
     /**
+     * @var string
+     */
+    protected $table;
+    /**
      * Bağlantı sağlayıcısını tutar
      *
      * @var \PDO|\mysqli|null
@@ -69,7 +73,7 @@ class Schema
      */
     public function drop($tableName = '')
     {
-        $query = $this->table->drop($tableName);
+        $query = (new Table())->drop($tableName);
         return $this->connection->query($query);
 
     }
