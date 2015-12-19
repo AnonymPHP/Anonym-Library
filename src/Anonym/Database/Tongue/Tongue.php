@@ -75,15 +75,15 @@ abstract class Tongue
     {
         $this->datas = $datas;
 
-        if(isset($this->datas['update']) && $this->datas['update'] === true){
+        if (isset($this->datas['update']) && $this->datas['update'] === true) {
             $type = 'update';
-        }elseif(isset($this->datas['insert']) && $this->datas['insert'] === true){
+        } elseif (isset($this->datas['insert']) && $this->datas['insert'] === true) {
             $type = 'insert';
-        }elseif(isset($this->datas['select']) && !empty($this->datas['select'])){
+        } elseif (isset($this->datas['select']) && !empty($this->datas['select'])) {
             $type = 'read';
-        }elseif(isset($this->datas['delete']) && $this->datas['delete'] === true){
+        } elseif (isset($this->datas['delete']) && $this->datas['delete'] === true) {
             $type = 'delete';
-        }elseif(isset($this->datas['advanced']) && $this->datas['advanced'] === true){
+        } elseif (isset($this->datas['advanced']) && $this->datas['advanced'] === true) {
             $type = "advanced";
         }
 
@@ -138,7 +138,7 @@ abstract class Tongue
      */
     protected function compilingFrom($from)
     {
-        return is_string($from) ? $from : is_array($from) ? join(',', $from) : (string) $from;
+        return is_string($from) ? $from : is_array($from) ? join(',', $from) : (string)$from;
     }
 
     /**
@@ -163,7 +163,6 @@ abstract class Tongue
         list($column, $type) = array_values($order);
         return "ORDER BY $column $type";
     }
-
 
 
     /**
@@ -205,9 +204,23 @@ abstract class Tongue
 
             list($column, $glue, $value, $ending) = $where[0];
 
-            $this->parameters[] = $value;
-            $statement .= "$column $glue ? $ending ";
-            $this->datas['parameters'][] = $value;
+            if (!is_array($value)) {
+                $this->parameters[] = $value;
+                $statement .= "$column $glue ? $ending ";
+                $this->datas['parameters'][] = $value;
+            } else {
+                $filled = array_fill(0, count($value) - 1, '?');
+
+                if ($glue === '=') {
+                    $glue = 'IN';
+                } elseif ($glue === '!=') {
+                    $glue = 'NOT IN';
+                }
+                $stat = join(',', $filled);
+                $statement .= "$column $glue ($stat)";
+                $this->datas['parameters'] = array_merge($this->datas['parameters'], $value);
+            }
+
         }
         $statement = rtrim($statement, " $ending ");
 
@@ -281,8 +294,9 @@ abstract class Tongue
     /**
      * compile advanced patterns with given datas
      */
-    protected function compileAdvanced(){
-        if(isset($this->datas['table_exists'])){
+    protected function compileAdvanced()
+    {
+        if (isset($this->datas['table_exists'])) {
             $pattern = $this->statements['advanced'][0];
 
             $return = call_user_func_array(
@@ -290,7 +304,7 @@ abstract class Tongue
             );
 
             return ['statement' => $return, 'parameters' => []];
-        }else{
+        } else {
             $pattern = $this->statements['advanced'][1];
 
             $return = call_user_func_array(
