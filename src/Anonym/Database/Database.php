@@ -257,6 +257,16 @@ class Database extends Megatron
     }
 
     /**
+     * find and destroy datas
+     *
+     * @param mixed $destroy
+     * @return Database
+     */
+    public function destroy($destroy){
+        return $this->whereAndRemove($this->connectedColumn, $destroy);
+    }
+
+    /**
      * find or create a new data
      *
      * @param mixed $index
