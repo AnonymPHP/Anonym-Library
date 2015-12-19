@@ -150,6 +150,13 @@ class Database extends Megatron
     }
 
 
+    /**
+     * find the datas with id datas
+     *
+     * @param string|id $id
+     * @param string $column
+     * @return $this
+     */
     public function find($id, $column = 'id')
     {
 
