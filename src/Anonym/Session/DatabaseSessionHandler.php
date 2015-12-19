@@ -14,6 +14,10 @@ namespace Anonym\Session;
 use Anonym\Database\Database;
 use SessionHandlerInterface;
 
+/**
+ * Class DatabaseSessionHandler
+ * @package Anonym\Session
+ */
 class DatabaseSessionHandler implements SessionHandlerInterface
 {
 
