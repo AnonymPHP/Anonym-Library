@@ -10,8 +10,7 @@
 
 namespace Anonym\Auth;
 
-use Anonym\Database\Base;
-use Anonym\Database\Mode\Read;
+use Anonym\Database\Database;
 use Anonym\Security\Authentication\Login;
 
 /**
@@ -30,16 +29,16 @@ class LastLogins
 
 
     /**
-     * @var Base
+     * @var Database
      */
     private $base;
 
     /**
      * create a new instance and register base instance
      *
-     * @param Base $base
+     * @param Database $base
      */
-    public function __construct(Base $base)
+    public function __construct(Database $base)
     {
         $this->base = $base;
         $this->loginTable = Login::LOGIN_LOGS_TABLE;

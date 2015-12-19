@@ -80,16 +80,19 @@ class Database extends Megatron
      *
      * @return mixed
      */
-    public function exists(){
+    public function exists()
+    {
         return $this->getLastPrepare()->rowCount();
     }
 
     /**
      * @return mixed
      */
-    public function isSuccess(){
+    public function isSuccess()
+    {
         return $this->getLastResult();
     }
+
     /**
      *
      * @param array $vars
@@ -264,7 +267,7 @@ class Database extends Megatron
         $this->execute();
 
         if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
-            $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
+            $this->attributes = $this->getLastPrepare()->fetchAll();
         }
 
         return $this;
@@ -300,7 +303,7 @@ class Database extends Megatron
         }
 
         if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
-            $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
+            $this->attributes = $this->getLastPrepare()->fetchAll();
         } else {
             $this->insert($where)->where($where);
         }
@@ -308,24 +311,6 @@ class Database extends Megatron
         return $this;
     }
 
-
-    /**
-     * add a new orwhere query
-     *
-     * @param mixed $index
-     * @param null $value
-     * @return $this
-     */
-    public function orWhere($index, $value = null)
-    {
-        $this->getQueryBuilder()->orWhere($index, $value);
-        $this->execute();
-        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
-            $this->attributes = $this->getLastPrepare()->fetch(PDO::FETCH_ASSOC);
-        }
-
-        return $this;
-    }
 
     /**
      * add a new where and delete old data query
@@ -368,6 +353,71 @@ class Database extends Megatron
     }
 
 
+    /**
+     * add a new orwhere query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function orWhere($index, $value = null)
+    {
+        $this->getQueryBuilder()->orWhere($index, $value);
+        $this->execute();
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->attributes = $this->getLastPrepare()->fetchAll();
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * add a new orwhere query
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     * @throws  QueryException
+     */
+    public function orWhereOrFail($index, $value = null)
+    {
+        $this->getQueryBuilder()->orWhere($index, $value);
+        $this->execute();
+        if (false === $this->getLastPrepare()->rowCount()) {
+            throw new QueryException('Your last query was unsuccessful, please check it.');
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * find or create a new data
+     *
+     * @param mixed $index
+     * @param null $value
+     * @return $this
+     */
+    public function orWhereOrCreate($index, $value = null)
+    {
+        $this->getQueryBuilder()->orWhere($index, $value);
+        $this->execute();
+
+        if ($value !== null) {
+            $where = [$index => $value];
+        } else {
+            $where = $index;
+        }
+
+        if (false !== $lastFetch = $this->getLastPrepare()->rowCount()) {
+            $this->attributes = $this->getLastPrepare()->fetchAll();
+        } else {
+            $this->insert($where)->where($where);
+        }
+
+        return $this;
+    }
     /**
      * @param mixed $limit
      * @return $this
@@ -554,7 +604,9 @@ class Database extends Megatron
      */
     public function __get($name)
     {
-        return isset($this->attributes[$name]) ? $this->attributes[$name] : null;
+        $attr = $this->first();
+
+        return isset($attr[$name]) ? $attr[$name] : null;
     }
 
     /**
