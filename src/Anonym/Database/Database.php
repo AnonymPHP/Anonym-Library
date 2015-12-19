@@ -8,8 +8,8 @@
 
 namespace Anonym\Database;
 
-use Anonym\Billing\Billing;
 use Anonym\Database\Exceptions\QueryException;
+use Anonym\Billing\Billing;
 use Anonym\Support\Arr;
 use ReflectionObject;
 use ArrayAccess;
