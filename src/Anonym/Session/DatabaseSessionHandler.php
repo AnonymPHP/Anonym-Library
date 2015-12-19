@@ -44,7 +44,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function __construct(Database $base, $table)
     {
-        $this->database = $base->table($table);
+        $this->database = $base->table($table)->on('key');
         $this->table = $table;
     }
 
@@ -75,9 +75,9 @@ class DatabaseSessionHandler implements SessionHandlerInterface
     public function destroy($session_id)
     {
 
-        $return = $this->database->find();
+        $return = $this->database->findAndRemove($session_id);
 
-        return $return ? true : false;
+        return $return->getLastResult() ? true : false;
     }
 
     /**
@@ -95,7 +95,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function gc($maxlifetime)
     {
-         return $this->database->query(sprintf('TRUNCATE %s', $this->table)) ? true:false;
+         return $this->database->getBase()->getConnection()->query(sprintf('TRUNCATE %s', $this->table)) ? true:false;
     }
 
     /**
@@ -127,14 +127,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        $return = $this->database->read($this->table, function (Read $read) use ($session_id) {
-            return $read->where([
-                ['key', '=', $session_id],
-            ])->build();
-        });
+        $query = $this->database->find($session_id);
 
-        if ($return instanceof BuildManager) {
-            return $return->rowCount() ? $return->fetch()->value : '';
+        if($query->exists()){
+            return $query->$session_id;
         }
 
         return '';
@@ -160,32 +156,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
     public function write($session_id, $session_data)
     {
 
-        $count = $this->database->read($this->table, function (Read $read) use ($session_id) {
-            return $read->where([
-                ['key', '=', $session_id],
-            ])->build();
-        });
-
-        if (!$count->rowCount()) {
-            $return = $this->database->insert($this->table, function (Insert $insert) use ($session_id, $session_data) {
-                return $insert->set([
-                    'key' => $session_id,
-                    'value' => $session_data,
-                ])->build()->run();
-            });
-        } else {
-            $return = $this->database->update($this->table, function (Update $update) use ($session_id, $session_data) {
-                return $update->where([
-                    [
-                        'key',
-                        '=',
-                        $session_id,
-                    ],
-                ])->set([
-                    'value' => $session_data,
-                ])->run();
-            });
-        }
+       $query = $this->database->findOrCreate($session_id);
 
         return $return ? true : false;
 

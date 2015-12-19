@@ -76,6 +76,21 @@ class Database extends Megatron
     }
 
     /**
+     * get last row count
+     *
+     * @return mixed
+     */
+    public function exists(){
+        return $this->getLastPrepare()->rowCount();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isSuccess(){
+        return $this->getLastResult();
+    }
+    /**
      *
      * @param array $vars
      * @return string
