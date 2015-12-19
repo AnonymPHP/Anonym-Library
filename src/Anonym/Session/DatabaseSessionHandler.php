@@ -11,13 +11,7 @@
 
 namespace Anonym\Session;
 
-use Anonym\Database\Base;
 use Anonym\Database\Database;
-use Anonym\Database\Managers\BuildManager;
-use Anonym\Database\Mode\Delete;
-use Anonym\Database\Mode\Read;
-use Anonym\Database\Mode\Update;
-use Anonym\Database\Mode\Insert;
 use SessionHandlerInterface;
 
 class DatabaseSessionHandler implements SessionHandlerInterface
