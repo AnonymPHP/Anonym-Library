@@ -80,7 +80,7 @@ class Login extends Authentication implements LoginInterface
             ]);
 
             if ($add->isSuccess()) {
-                return true;
+                return $add;
             }
         }
 
