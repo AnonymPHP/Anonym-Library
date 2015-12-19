@@ -194,12 +194,11 @@ class Database extends Megatron
      * find the datas with id datas
      *
      * @param string|id $id
-     * @param string $column
      * @return $this
      */
-    public function find($id, $column = 'id')
+    public function find($id)
     {
-        return $this->where($column, $id);
+        return $this->where($this->connectedColumn, $id);
     }
 
     /**
