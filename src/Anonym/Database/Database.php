@@ -78,23 +78,6 @@ class Database extends Megatron implements ArrayAccess, Iterator
         parent::__construct($vars);
     }
 
-    /**
-     * get last row count
-     *
-     * @return mixed
-     */
-    public function exists()
-    {
-        return $this->getLastPrepare()->rowCount();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function isSuccess()
-    {
-        return $this->getLastResult();
-    }
 
     /**
      *
@@ -113,26 +96,6 @@ class Database extends Megatron implements ArrayAccess, Iterator
         $this->getQueryBuilder()->datas['from'] = $this->table;
     }
 
-    /**
-     * returns all attributes
-     *
-     * @return array
-     */
-    public function all()
-    {
-        return $this->getAttributes();
-    }
-
-    /**
-     * returns first data
-     *
-     * @return bool
-     */
-    public function first()
-    {
-        $attr = $this->getAttributes();
-        return isset($attr[0]) ? $attr[0] : false;
-    }
 
     /**
      * register the database
@@ -421,6 +384,47 @@ class Database extends Megatron implements ArrayAccess, Iterator
             $this->attributes = $this->getLastPrepare()->fetchAll();
         }
     }
+
+    /**
+     * returns all attributes
+     *
+     * @return array
+     */
+    public function all()
+    {
+        return $this->getAttributes();
+    }
+
+    /**
+     * returns first data
+     *
+     * @return bool
+     */
+    public function first()
+    {
+        $attr = $this->getAttributes();
+        return isset($attr[0]) ? $attr[0] : false;
+    }
+
+
+    /**
+     * get last row count
+     *
+     * @return mixed
+     */
+    public function exists()
+    {
+        return $this->getLastPrepare()->rowCount();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isSuccess()
+    {
+        return $this->getLastResult();
+    }
+
 
     /**
      * set the connected column names
