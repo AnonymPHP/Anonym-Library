@@ -8,6 +8,7 @@
 
 namespace Anonym\Database\Tongue;
 
+use Anonym\Database\Database;
 use Anonym\Support\Arr;
 
 
