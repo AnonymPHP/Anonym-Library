@@ -218,16 +218,13 @@ abstract class Tongue
             } elseif (is_array($value)) {
                 $filled = array_fill(0, count($value) - 1, '?');
 
-                if ($glue === '=') {
-                    $glue = 'IN';
-                } elseif ($glue === '!=') {
-                    $glue = 'NOT IN';
-                }
+                $glue = $this->matchGlue($glue);
+
                 $stat = join(',', $filled);
                 $statement .= "$column $glue ($stat)";
                 $this->datas['parameters'] = array_merge($this->datas['parameters'], $value);
             } elseif ($value instanceof Database) {
-
+                $glue = $this->matchGlue($glue);
             }
 
         }
