@@ -98,71 +98,6 @@ class Database extends Megatron implements ArrayAccess, Iterator
 
 
     /**
-     * register the database
-     *
-     * @param Base $base
-     */
-    public static function setDatabaseApplication($base)
-    {
-        static::$base = $base;
-    }
-
-    /**
-     * @return QueryBuilder
-     */
-    protected function getQueryBuilder()
-    {
-        $base = static::$base;
-        return $base::getQueryBuilder();
-    }
-
-
-    /**
-     * returns last executes result
-     *
-     * @return mixed
-     */
-    public function getLastResult()
-    {
-        return end($this->lastExecutes);
-    }
-
-    /**
-     * returns last query instance
-     *
-     * @return mixed
-     */
-    public function getLastQuery()
-    {
-        return $this->query;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLastPrepare()
-    {
-        return end($this->lastPrepares);
-    }
-
-    /**
-     * @return array
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
-
-    /**
-     * @return Base
-     */
-    public static function getBase()
-    {
-        return self::$base;
-    }
-
-
-    /**
      * find id or create a one
      *
      * @param string|int $id
@@ -602,6 +537,71 @@ class Database extends Megatron implements ArrayAccess, Iterator
         $this->attributes = Arr::get('prepare', $return)->fetch(PDO::FETCH_ASSOC);
         return $this;
     }
+
+    /**
+     * register the database
+     *
+     * @param Base $base
+     */
+    public static function setDatabaseApplication($base)
+    {
+        static::$base = $base;
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    protected function getQueryBuilder()
+    {
+        $base = static::$base;
+        return $base::getQueryBuilder();
+    }
+
+
+    /**
+     * returns last executes result
+     *
+     * @return mixed
+     */
+    public function getLastResult()
+    {
+        return end($this->lastExecutes);
+    }
+
+    /**
+     * returns last query instance
+     *
+     * @return mixed
+     */
+    public function getLastQuery()
+    {
+        return $this->query;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastPrepare()
+    {
+        return end($this->lastPrepares);
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @return Base
+     */
+    public static function getBase()
+    {
+        return self::$base;
+    }
+
 
     /**
      * @param $name
