@@ -211,11 +211,11 @@ abstract class Tongue
 
             list($column, $glue, $value, $ending) = $where[0];
 
-            if (!is_array($value)) {
+            if (is_string($value)) {
                 $this->parameters[] = $value;
                 $statement .= "$column $glue ? $ending ";
                 $this->datas['parameters'][] = $value;
-            } else {
+            } elseif (is_array($value)) {
                 $filled = array_fill(0, count($value) - 1, '?');
 
                 if ($glue === '=') {
@@ -226,6 +226,8 @@ abstract class Tongue
                 $stat = join(',', $filled);
                 $statement .= "$column $glue ($stat)";
                 $this->datas['parameters'] = array_merge($this->datas['parameters'], $value);
+            } elseif ($value instanceof Database) {
+
             }
 
         }
@@ -234,6 +236,15 @@ abstract class Tongue
         return $statement;
     }
 
+    protected function matchGlue($glue)
+    {
+        if ($glue === '=') {
+            $glue = 'IN';
+        } elseif ($glue === '!=') {
+            $glue = 'NOT IN';
+        }
+        return $glue;
+    }
 
     /**
      * compile and return statement
