@@ -236,6 +236,12 @@ abstract class Tongue
         return $statement;
     }
 
+    /**
+     * match and return new glue string
+     *
+     * @param string $glue
+     * @return string
+     */
     protected function matchGlue($glue)
     {
         if ($glue === '=') {
