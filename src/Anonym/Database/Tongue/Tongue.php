@@ -226,10 +226,8 @@ abstract class Tongue
             } elseif ($value instanceof Database) {
                 $glue = $this->matchGlue($glue);
                 $stat = $value->getLastQuery();
-
                 $statement .= "$column $glue ($stat)";
                 $this->datas['parameters'] = array_merge($this->datas['parameters'], $value->getParameters());
-
             }
 
         }
