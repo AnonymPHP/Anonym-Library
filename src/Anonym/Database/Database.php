@@ -602,6 +602,15 @@ class Database extends Megatron implements ArrayAccess, Iterator
         return self::$base;
     }
 
+    /**
+     * returns the parameters
+     *
+     * @return mixed
+     */
+    public function getParameters()
+    {
+        return $this->getQueryBuilder()->datas['parameters'];
+    }
 
     /**
      * @param $name
