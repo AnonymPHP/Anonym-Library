@@ -85,7 +85,8 @@ class Migration extends AnonymCommand implements HandleInterface
     /**
      *  clean all migration files
      */
-    public function clean(){
+    public function clean()
+    {
         $this->file->cleanDirectory(MIGRATION);
 
         $this->info('All migrations cleaned');
@@ -110,16 +111,23 @@ class Migration extends AnonymCommand implements HandleInterface
      */
     public function create($name = '')
     {
-        $content = $this->migrate(RESOURCE.'migrations/migration.php.dist', ['name' => $name]);
 
-        $fileName = FacadeMigration::createName($name);
-        if (!$this->file->exists($fileName)) {
-            $this->file->create($fileName);
-            $this->write(MIGRATION, $fileName, $content);
-            $this->info(sprintf('%s migration created with successfully', $name));
-        } else {
-            $this->error(sprintf('%s file already exists in %s', $name, $fileName));
+        $names = explode(",", $name);
+
+        foreach ($names as $name) {
+
+            $content = $this->migrate(RESOURCE . 'migrations/migration.php.dist', ['name' => $name]);
+
+            $fileName = FacadeMigration::createName($name);
+            if (!$this->file->exists($fileName)) {
+                $this->file->create($fileName);
+                $this->write(MIGRATION, $fileName, $content);
+                $this->info(sprintf('%s migration created with successfully', $name));
+            } else {
+                $this->error(sprintf('%s file already exists in %s', $name, $fileName));
+            }
         }
+
     }
 
     /**
