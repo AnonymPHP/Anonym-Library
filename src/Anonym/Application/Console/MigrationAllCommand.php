@@ -42,7 +42,6 @@ class MigrationAllCommand extends Command implements HandleInterface
     public function handle()
     {
 
-
         foreach ($this->readAllMigrations() as $name) {
             Anonym::call('migration', [
                 'function' => 'deploy', 'name' => $name
