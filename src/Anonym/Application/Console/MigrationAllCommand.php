@@ -54,7 +54,7 @@ class MigrationAllCommand extends Command implements HandleInterface
      */
     public function readAllSeeds()
     {
-        $list = Finder::create()->files()->name('*.php')->in(DATABASE. 'seeds/');
+        $list = Finder::create()->files()->name('*.php')->in(DATABASE. 'migrations/');
 
         $result = [];
         foreach ($list as $l) {
