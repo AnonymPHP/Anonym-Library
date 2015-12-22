@@ -43,7 +43,7 @@ class MigrationAllCommand extends Command implements HandleInterface
     {
 
 
-        foreach($this->readAllSeeds() as $name){
+        foreach($this->readAllMigrations() as $name){
 
         }
     }
@@ -52,7 +52,7 @@ class MigrationAllCommand extends Command implements HandleInterface
      *
      * read all seeds name
      */
-    public function readAllSeeds()
+    public function readAllMigrations()
     {
         $list = Finder::create()->files()->name('*.php')->in(DATABASE. 'migrations/');
 
