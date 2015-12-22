@@ -43,8 +43,12 @@ class MigrationAllCommand extends Command implements HandleInterface
     {
 
 
-        foreach($this->readAllMigrations() as $name){
+        foreach ($this->readAllMigrations() as $name) {
+            Anonym::call('migration', [
+                'function' => 'deploy', 'name' => $name
+            ]);
 
+            $this->info(sprintf('%s migration command worked with successfully', $name));
         }
     }
 
@@ -54,7 +58,7 @@ class MigrationAllCommand extends Command implements HandleInterface
      */
     public function readAllMigrations()
     {
-        $list = Finder::create()->files()->name('*.php')->in(DATABASE. 'migrations/');
+        $list = Finder::create()->files()->name('*.php')->in(DATABASE . 'migrations/');
 
         $result = [];
         foreach ($list as $l) {
