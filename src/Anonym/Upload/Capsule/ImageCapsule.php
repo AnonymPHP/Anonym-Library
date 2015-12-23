@@ -92,6 +92,7 @@ class ImageCapsule extends FileCapsule
         $this->gdExtensionCheck();
         $dosya = $this->getFilePath();
         list($genislik, $yukseklik) = getimagesize($dosya);
+        $saveName = $dosya . '_thumbnail';
 
 
         if (strstr($width, "%")) {
@@ -110,19 +111,20 @@ class ImageCapsule extends FileCapsule
 
         switch ($this->getExt()) {
             case 'png':
+
                 $kaynak = imagecreatefrompng($dosya);
                 imagecopyresampled($hedef, $kaynak, 0, 0, 0, 0, $width, $height, $genislik, $yukseklik);
-                imagepng($hedef, $dosya, 50);
+                imagepng($hedef, $saveName . '.png', 50);
                 break;
             case 'jpg':
                 $kaynak = imagecreatefromjpeg($dosya);
                 imagecopyresampled($hedef, $kaynak, 0, 0, 0, 0, $width, $height, $genislik, $yukseklik);
-                imagejpeg($hedef, $dosya, 50);
+                imagejpeg($hedef, $saveName . '.jpg', 50);
                 break;
             case 'gif':
                 $kaynak = imagecreatefromgif($dosya);
                 imagecopyresampled($hedef, $kaynak, 0, 0, 0, 0, $width, $height, $genislik, $yukseklik);
-                imagegif($hedef, $dosya, 50);
+                imagegif($hedef, $saveName . '.gif', 50);
                 break;
         }
         imagedestroy($hedef);
