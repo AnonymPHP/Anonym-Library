@@ -79,6 +79,12 @@ class ImageCapsule extends FileCapsule
         return $this;
     }
 
+    /**
+     * @param int $width
+     * @param int $height
+     * @return $this
+     * @throws GdExtensionNotLoadedException
+     */
     public function thumbnail($width = 250, $height = 250)
     {
         $this->gdExtensionCheck();
