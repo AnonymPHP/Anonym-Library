@@ -15,6 +15,7 @@ use Anonym\Application\Console\MakeMigrationCommand;
 use Anonym\Application\Console\ClearCompiledCommand;
 use Anonym\Application\Console\DeploySeedAllCommand;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Anonym\Application\Console\MigrationAllCommand;
 use Anonym\Application\Console\BackupLoaderCommand;
 use Anonym\Application\Console\BackupForgetCommand;
 use Anonym\Application\Console\MigrationRunCommand;
@@ -91,6 +92,7 @@ class Kernel extends SymfonyConsole
         MakeMigrationCommand::class,
         ClearCompiledCommand::class,
         DeploySeedAllCommand::class,
+        MigrationAllCommand::class,
         ScheduleRunCommands::class,
         BackupLoaderCommand::class,
         BackupForgetCommand::class,
