@@ -80,6 +80,8 @@ class ImageCapsule extends FileCapsule
     }
 
     /**
+     * create a new thumbnail file
+     *
      * @param int $width
      * @param int $height
      * @return $this
@@ -102,6 +104,7 @@ class ImageCapsule extends FileCapsule
             $bolh = (100 / $height);
             $height = ($yukseklik / $bolh);
         }
+
         $hedef = imagecreatetruecolor($width, $height);
 
 
@@ -109,50 +112,22 @@ class ImageCapsule extends FileCapsule
             case 'png':
                 $kaynak = imagecreatefrompng($dosya);
                 imagecopyresampled($hedef, $kaynak, 0, 0, 0, 0, $width, $height, $genislik, $yukseklik);
-                imagepng($hedef, $dosya, 100);
+                imagepng($hedef, $dosya, 50);
                 break;
             case 'jpg':
                 $kaynak = imagecreatefromjpeg($dosya);
                 imagecopyresampled($hedef, $kaynak, 0, 0, 0, 0, $width, $height, $genislik, $yukseklik);
-                imagejpeg($hedef, $dosya, 100);
+                imagejpeg($hedef, $dosya, 50);
                 break;
             case 'gif':
                 $kaynak = imagecreatefromgif($dosya);
                 imagecopyresampled($hedef, $kaynak, 0, 0, 0, 0, $width, $height, $genislik, $yukseklik);
-                imagegif($hedef, $dosya, 100);
+                imagegif($hedef, $dosya, 50);
                 break;
         }
         imagedestroy($hedef);
         imagedestroy($kaynak);
 
-        $newFile = $file = $dosya;
-
-        $quality = 50;
-
-        switch ($this->getExt()) {
-            case 'jpg':
-                $img = imagecreatefromjpeg($file);
-                unlink($file);
-                imagejpeg($img, $newFile, $quality);
-                break;
-            case 'png':
-
-                if ($quality > 10) {
-                    $quality = ceil(100 / 10);
-                }
-                $img = imagecreatefrompng($file);
-                unlink($file);
-
-                imagepng($img, $newFile, $quality);
-                break;
-            case 'gif':
-                $img = imagecreatefromgif($file);
-                unlink($file);
-
-                imagepng($img, $newFile);
-                break;
-        }
-        imagedestroy($img);
 
         return $this;
     }
