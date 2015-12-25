@@ -12,7 +12,7 @@ namespace Anonym\Database;
  * Class Model
  * @package Anonym\Database
  */
-class Model
+class Element
 {
     /**
      * the instance of database
