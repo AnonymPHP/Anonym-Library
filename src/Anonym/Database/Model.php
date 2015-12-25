@@ -41,32 +41,14 @@ class Model
      */
     public function __construct()
     {
-        $this->vars = $vars = get_class_vars(self::class);
-
-        $this->prepareToBuild();
-        $this->database = new Database($this->findSelectedTable($vars));
-    }
-
-    private function prepareToBuild()
-    {
-        $vars = $this->vars;
+        $this->vars = get_class_vars(self::class);
 
         $this->findDefaultValues()
             ->getSelect()
+            ->getFrom()
             ->getCreatedAndEndsAt();
 
-
-        if (isset($this->vars['from'])) {
-            $this->database->from($this->vars['from']);
-        }
-
-        if (isset($this->vars['created_at'])) {
-            $this->database->select('created_at');
-        }
-
-        if (isset($this->vars['ends_at'])) {
-            $this->database->select('ends_at');
-        }
+        $this->database = new Database($this->findSelectedTable());
     }
 
     /**
@@ -78,6 +60,20 @@ class Model
     {
         if (isset($this->vars['select'])) {
             $this->database->select($this->vars['select']);
+        }
+
+        return $this;
+    }
+
+    /**
+     * get from value and query it
+     *
+     * @return $this
+     */
+    private function getFrom()
+    {
+        if (isset($this->vars['from'])) {
+            $this->database->from($this->vars['from']);
         }
 
         return $this;
@@ -119,11 +115,12 @@ class Model
 
     /**
      *
-     * @param array $vars
      * @return string
      */
-    private function findSelectedTable($vars = [])
+    private function findSelectedTable()
     {
+        $vars = $this->vars;
+
         if (isset($vars['table']) && !empty($vars['table'])) {
             $table = $vars['table'];
         } else {
