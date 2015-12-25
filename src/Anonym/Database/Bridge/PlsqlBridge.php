@@ -41,12 +41,9 @@ class PlsqlBridge extends Bridge
     {
 
         $configs = $this->configurations;
-        $host = Arr::get($configs, 'host', 'localhost');
-        $username = Arr::get($configs, 'username', '');
-        $password = Arr::get($configs, 'password', '');
-        $dbname = Arr::get($configs, 'db', '');
-        $charset = Arr::get($configs, 'charset', 'utf8');
-        $port = Arr::get($configs, 'port', 1521);
+
+        list($host, $username, $password, $dbname, $charset) = $this->getParametersNeeded($configs);
+        $port = isset($configs['port']) ? $configs['port'] : 1521;
 
         if (!$this->driverIsExists('oci')) {
             throw new BridgeException(sprintf('%s pdo driver is not installed, please try that after install it ', 'oci'));

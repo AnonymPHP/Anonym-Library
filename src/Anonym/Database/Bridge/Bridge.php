@@ -8,7 +8,6 @@
 
 namespace Anonym\Database\Bridge;
 
-use Anonym\Support\Arr;
 use Anonym\Database\Tongue\Tongue;
 use Anonym\Database\Exceptions\BridgeException;
 use Anonym\Database\Exceptions\ConnectionException;
@@ -108,7 +107,7 @@ abstract class Bridge
     {
         $drivers = \PDO::getAvailableDrivers();
 
-        return Arr::search($drivers, $driver);
+        return array_search($driver, $drivers);
     }
 
     /**
@@ -117,12 +116,13 @@ abstract class Bridge
      * @param array $configs
      * @return array
      */
-    protected function getParametersNeeded(array $configs){
-        $host = Arr::get($configs, 'host', 'localhost');
-        $username = Arr::get($configs, 'username', '');
-        $password  = Arr::get($configs, 'password', '');
-        $dbname = Arr::get($configs, 'db', '');
-        $charset = Arr::get($configs, 'charset', 'utf8');
+    protected function getParametersNeeded(array $configs)
+    {
+        $host = isset($configs['host']) ? $configs['host'] : 'localhost';
+        $username = isset($configs['username']) ? $configs['username'] : '';
+        $password = isset($configs['password']) ? $configs['password'] : '';
+        $dbname = isset($configs['db']) ? $configs['db'] : '';
+        $charset = isset($configs['charset']) ? $configs['charset'] : '';
 
         return [$host, $username, $password, $dbname, $charset];
     }
