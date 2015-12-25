@@ -21,7 +21,7 @@ use PDO;
  * Class Model
  * @package Anonym\Database
  */
-class Database extends Megatron implements ArrayAccess, Iterator
+class Database implements ArrayAccess, Iterator
 {
 
     /**
@@ -70,30 +70,13 @@ class Database extends Megatron implements ArrayAccess, Iterator
 
     /**
      * the constructor of Model .
-     */
-    public function __construct()
-    {
-        $vars = get_class_vars(self::class);
-        $this->table = $this->findSelectedTable($vars);
-        parent::__construct($vars);
-    }
-
-
-    /**
      *
-     * @param array $vars
-     * @return string
+     * @param string $table the name of connected table
      */
-    private function findSelectedTable($vars = [])
+    public function __construct($table = '')
     {
-        if (isset($vars['table']) && !empty($vars['table'])) {
-            $this->table = $vars['table'];
-        } else {
-            $referer = new ReflectionObject($this);
-            $this->table = strtolower($referer->getShortName());
-        }
-
-        $this->getQueryBuilder()->datas['from'] = $this->table;
+        $this->table = $table;
+        $this->getQueryBuilder()->datas['from'] = $table;
     }
 
 
@@ -624,15 +607,6 @@ class Database extends Megatron implements ArrayAccess, Iterator
         return $this->executeWithAttrs();
     }
 
-    /**
-     * @param $name
-     * @param $arguments
-     * @return mixed
-     */
-    public static function __callStatic($name, $arguments)
-    {
-        return call_user_func_array([new self(), $name], $arguments);
-    }
 
     /**
      * returns the an value of attributes
