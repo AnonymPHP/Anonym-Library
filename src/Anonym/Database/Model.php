@@ -51,6 +51,7 @@ class Model
         $this->database = new Database($this->findSelectedTable());
     }
 
+
     /**
      * get select value
      *
