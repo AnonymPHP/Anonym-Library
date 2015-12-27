@@ -9,6 +9,7 @@
  */
 
 namespace Anonym\Facades;
+
 use Anonym\Patterns\Facade;
 
 /**
@@ -25,7 +26,7 @@ class Database extends Facade
      */
     protected static function getFacadeClass()
     {
-        return App::make('database.base');
+        return new \Anonym\Database\Database();
     }
 
 }
