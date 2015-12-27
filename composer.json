@@ -25,7 +25,7 @@
     "league/flysystem-aws-s3-v3": "~1.0",
     "league/flysystem": "~1.0",
     "league/flysystem-rackspace": "~1.0",
-    "predis/predis" : "1.0.3",
+    "predis/predis": "1.0.3",
     "symfony/console": "2.7.*",
     "swiftmailer/swiftmailer": "5.4.1",
     "phpmailer/phpmailer": "~5.2",
@@ -35,35 +35,33 @@
     "m6web/firewall": "dev-master",
     "wixel/gump": "dev-master",
     "illuminate/view": "~5",
-    "illuminate/events": "5.0.*"
+    "illuminate/events": "5.0.*",
+    "anonymframework/element-orm": "1.2@dev"
   },
-  "require-dev":{
-
+  "require-dev": {
   },
   "autoload": {
     "psr-4": {
       "Anonym\\": "src/Anonym/"
     }
   },
-
   "replace": {
     "anonym-php/anonym-route": "self.version",
-    "anonym-php/anonym-security" : "self.version",
-    "anonym-php/anonym-assets" :"self.version",
-    "anonym-php/anonym-console":"self.version",
-    "anonym-php/anonym-httpfoundation" :"self.version",
-    "anonym-php/anonym-cookie":"self.version",
-    "anonym-php/anonym-crypt" :"self.version",
-    "anonym-php/anonym-session":"self.version",
-    "anonym-php/anonym-database":"self.version",
-    "anonym-php/anonym-database-tool":"self.version",
-    "anonym-php/anonym-element-orm" : "self.version",
-    "anonym-php/anonym-event" :"self.version",
-    "anonym-php/anonym-filesystem" : "self.version",
-    "anonym-php/anonym-config":"self.version",
-    "anonym-components/support":"self.version",
-    "anonym-php/anonym-mail":"self.version",
-    "anonym-php/anonym-view":"self.version",
-    "anonym-php/cron":"self.version"
+    "anonym-php/anonym-security": "self.version",
+    "anonym-php/anonym-assets": "self.version",
+    "anonym-php/anonym-console": "self.version",
+    "anonym-php/anonym-httpfoundation": "self.version",
+    "anonym-php/anonym-cookie": "self.version",
+    "anonym-php/anonym-crypt": "self.version",
+    "anonym-php/anonym-session": "self.version",
+    "anonym-php/anonym-database": "self.version",
+    "anonym-php/anonym-database-tool": "self.version",
+    "anonym-php/anonym-event": "self.version",
+    "anonym-php/anonym-filesystem": "self.version",
+    "anonym-php/anonym-config": "self.version",
+    "anonym-components/support": "self.version",
+    "anonym-php/anonym-mail": "self.version",
+    "anonym-php/anonym-view": "self.version",
+    "anonym-php/cron": "self.version"
   }
 }
