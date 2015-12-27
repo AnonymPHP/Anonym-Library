@@ -36,7 +36,7 @@
     "wixel/gump": "dev-master",
     "illuminate/view": "~5",
     "illuminate/events": "5.0.*",
-    "anonymframework/element-orm": "1.2@dev"
+    "anonymframework/element-orm": "dev-master"
   },
   "require-dev": {
   },
