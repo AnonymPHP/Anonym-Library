@@ -9,6 +9,8 @@
  */
 
 namespace Anonym\Validation;
+
+use Anonym\Database\Database;
 use Anonym\Database\Mode\Advanced;
 use Anonym\Facades\App;
 
@@ -83,6 +85,7 @@ class Validation
         'alpha' => ':key must be an alphabetical character',
         'table_exists' => ':key value is must be exists in your database',
         'column_exists' => ':key value is must be exists in your database table',
+
     ];
 
     /**
@@ -121,7 +124,7 @@ class Validation
             foreach ($parsedRules as $parsedRule) {
                 $required = $this->handleRule($parsedRule, $key, $datas);
 
-                if($required !== null && $required === false){
+                if ($required !== null && $required === false) {
                     break;
                 }
             }
@@ -205,9 +208,7 @@ class Validation
     {
         if (!isset($datas[$key]) && !empty($datas[$key])) {
             $this->fails[] = $messageKey = "required.$key";
-
             $this->addMessage($key, $rule, $messageKey);
-
             return false;
         }
 
@@ -233,7 +234,12 @@ class Validation
         }
     }
 
-
+    /**
+     * @param $between
+     * @param $key
+     * @param $datas
+     * @param $rule
+     */
     protected function runDigitsBetween($between, $key, $datas, $rule)
     {
         $min = $between[0];
@@ -368,8 +374,9 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runArray($key, $datas, $rule){
-        if(!is_array($datas[$key])){
+    protected function runArray($key, $datas, $rule)
+    {
+        if (!is_array($datas[$key])) {
             $this->fails[] = $messageKey = "array.$key";
 
             $this->addMessage($key, $rule, $messageKey);
@@ -531,15 +538,15 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runTableExists($key, $datas, $rule){
+    protected function runTableExists($key, $datas, $rule)
+    {
         $data = $datas[$key];
 
         $database = App::make('database.base');
-        $advanced = $database->advanced($data, function(Advanced $advanced){
-           return $advanced->tableExists()->build()->run();
-        });
 
-        if($advanced === 0){
+        $advanced = Database::table($data)->tableExists();
+
+        if ($advanced !== $advanced->isSuccess()) {
             $this->fails[] = $messageKey = "$rule.$key";
 
             $this->addMessage($key, $rule, $messageKey);
@@ -554,14 +561,15 @@ class Validation
      * @param $datas
      * @param $rule
      */
-    protected function runColumnExists($column, $key, $datas, $rule){
+    protected function runColumnExists($column, $key, $datas, $rule)
+    {
 
         $database = App::make('database.base');
-        $advanced = $database->advanced($datas[$key], function(Advanced $advanced) use($column){
+        $advanced = $database->advanced($datas[$key], function (Advanced $advanced) use ($column) {
             return $advanced->columnExists($column)->build()->run();
         });
 
-        if($advanced === 0){
+        if ($advanced === 0) {
             $this->fails[] = $messageKey = "$rule.$key";
 
             $this->addMessage($key, $rule, $messageKey);
