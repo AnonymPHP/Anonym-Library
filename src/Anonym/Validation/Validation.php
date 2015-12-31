@@ -541,8 +541,6 @@ class Validation
     {
         $data = $datas[$key];
 
-        $database = App::make('database.base');
-
         $advanced = Database::table($data)->tableExists();
 
         if (!$advanced->isSuccess()) {
@@ -562,9 +560,6 @@ class Validation
      */
     protected function runColumnExists($column, $key, $datas, $rule)
     {
-
-        $database = App::make('database.base');
-
         $advanced = Database::table($datas[$key])->columnExists($column);
 
         if (!$advanced->isSuccess()) {
