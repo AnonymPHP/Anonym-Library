@@ -11,7 +11,6 @@
 namespace Anonym\Validation;
 
 use Anonym\Database\Database;
-use Anonym\Database\Mode\Advanced;
 use Anonym\Facades\App;
 
 /**
@@ -546,7 +545,7 @@ class Validation
 
         $advanced = Database::table($data)->tableExists();
 
-        if ($advanced !== $advanced->isSuccess()) {
+        if (!$advanced->isSuccess()) {
             $this->fails[] = $messageKey = "$rule.$key";
 
             $this->addMessage($key, $rule, $messageKey);
@@ -565,11 +564,10 @@ class Validation
     {
 
         $database = App::make('database.base');
-        $advanced = $database->advanced($datas[$key], function (Advanced $advanced) use ($column) {
-            return $advanced->columnExists($column)->build()->run();
-        });
 
-        if ($advanced === 0) {
+        $advanced = Database::table($datas[$key])->columnExists($column);
+
+        if (!$advanced->isSuccess()) {
             $this->fails[] = $messageKey = "$rule.$key";
 
             $this->addMessage($key, $rule, $messageKey);
