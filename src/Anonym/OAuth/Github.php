@@ -8,11 +8,92 @@
 
 namespace Anonym\OAuth;
 
+use Anonym\Facades\Session;
+
 /**
  * Class Github
  * @package Anonym\OAuth
  */
 class Github
 {
+
+    /**
+     * @var string
+     */
+    protected $clientID = '';
+
+    /**
+     * @var string
+     */
+    protected $clientSecret = '';
+
+    /**
+     * the constructor of Github .
+     * @param string $clientID
+     * @param string $clientSecret
+     */
+    public function __construct($clientID = '', $clientSecret = '')
+    {
+        $this->setClientID($clientID)->setClientSecret($clientSecret);
+    }
+
+    /**
+     * @param string $url
+     * @param bool $post
+     * @param array $headers
+     * @return mixed
+     */
+    protected function getApiRequest($url = '', $post = false, $headers = [])
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        if ($post)
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+        $headers[] = 'Accept: application/json';
+        if (Session::has('access_token'))
+            $headers[] = 'Authorization: Bearer ' . Session::get('access_token');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+
+        return $response;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getClientID()
+    {
+        return $this->clientID;
+    }
+
+    /**
+     * @param string $clientID
+     * @return $this
+     */
+    public function setClientID($clientID)
+    {
+        $this->clientID = $clientID;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClientSecret()
+    {
+        return $this->clientSecret;
+    }
+
+    /**
+     * @param string $clientSecret
+     * @return $this
+     */
+    public function setClientSecret($clientSecret)
+    {
+        $this->clientSecret = $clientSecret;
+        return $this;
+    }
+
 
 }
