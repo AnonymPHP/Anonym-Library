@@ -59,7 +59,7 @@ class Github
      * @param array $headers
      * @return mixed
      */
-    protected function getApiRequest($url = '', $post = false, $headers = [])
+    public function getApiRequest($url = '', $post = false, $headers = [])
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -111,5 +111,58 @@ class Github
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getAuthorizeURL()
+    {
+        return $this->authorizeURL;
+    }
 
+    /**
+     * @param string $authorizeURL
+     * @return $this
+     */
+    public function setAuthorizeURL($authorizeURL)
+    {
+        $this->authorizeURL = $authorizeURL;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTokenURL()
+    {
+        return $this->tokenURL;
+    }
+
+    /**
+     * @param string $tokenURL
+     * @return $this
+     */
+    public function setTokenURL($tokenURL)
+    {
+        $this->tokenURL = $tokenURL;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getApiURLBase()
+    {
+        return $this->apiURLBase;
+    }
+
+    /**
+     * @param string $apiURLBase
+     * @return $this
+     */
+    public function setApiURLBase($apiURLBase)
+    {
+        $this->apiURLBase = $apiURLBase;
+        return $this;
+    }
+    
 }
