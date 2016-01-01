@@ -28,6 +28,22 @@ class Github
     protected $clientSecret = '';
 
     /**
+     * @var string
+     */
+    protected $authorizeURL = 'https://github.com/login/oauth/authorize';
+
+    /**
+     * @var string
+     */
+    protected $tokenURL = 'https://github.com/login/oauth/access_token';
+
+    /**
+     * @var string
+     */
+    protected $apiURLBase = 'https://api.github.com/';
+
+
+    /**
      * the constructor of Github .
      * @param string $clientID
      * @param string $clientSecret
