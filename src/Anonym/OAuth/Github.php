@@ -50,7 +50,8 @@ class Github
      */
     public function __construct($clientID = '', $clientSecret = '')
     {
-        $this->setClientID($clientID)->setClientSecret($clientSecret);
+        $this->setClientID($clientID)
+            ->setClientSecret($clientSecret);
     }
 
     /**
@@ -164,5 +165,5 @@ class Github
         $this->apiURLBase = $apiURLBase;
         return $this;
     }
-    
+
 }
