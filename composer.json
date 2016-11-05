@@ -35,8 +35,7 @@
     "m6web/firewall": "dev-master",
     "wixel/gump": "dev-master",
     "illuminate/view": "~5",
-    "illuminate/events": "5.0.*",
-    "anonymframework/element-orm": "dev-master"
+    "illuminate/events": "5.0.*"
   },
   "require-dev": {
   },
